@@ -304,6 +304,7 @@ BOOK.addUnit({
       sections: [
         { type: "listen", title: "Public Places Podcast – a. Listen, then tick true (✔) or false (✖).", page: 37, source: "book",
           needsAudio: true,
+          audio: "audio/7A-p37.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/Ed5t-zrWVWRLvit5Xjkxv-kBYncoLD_hzF4vDmOAjkktbw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=UJG9tL",
           instructions: "Listen to three people talking about what we have to/don’t have to do in public places. Then, do the tasks that follow. (Track 2.1)",
           instructionsAr: "استمع إلى ثلاثة أشخاص يتحدثون عمّا يجب فعله وما لا يلزم فعله في الأماكن العامة، ثم أجب.",
@@ -315,6 +316,7 @@ BOOK.addUnit({
           ] },
         { type: "listen", title: "b. Listen again, then fill in the table. Discuss your answers with your partner.", page: 37, source: "book",
           needsAudio: true,
+          audio: "audio/7A-p37.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/Ed5t-zrWVWRLvit5Xjkxv-kBYncoLD_hzF4vDmOAjkktbw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=UJG9tL",
           instructions: "Listen again and complete the table.",
           instructionsAr: "استمع مرة أخرى وأكمل الجدول.",
@@ -329,6 +331,7 @@ BOOK.addUnit({
           ] },
         { type: "listen", title: "c. Answer the following questions.", page: 37, source: "book",
           needsAudio: true,
+          audio: "audio/7A-p37.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/Ed5t-zrWVWRLvit5Xjkxv-kBYncoLD_hzF4vDmOAjkktbw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=UJG9tL",
           instructions: "Answer the questions.",
           instructionsAr: "أجب عن الأسئلة.",

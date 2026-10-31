@@ -283,6 +283,7 @@ BOOK.addUnit({
               rows: [["1- What was his/her work?", { open: true }, { open: true }], ["2- What was special about his/her work?", { open: true }, { open: true }], ["3- What value did we learn from them?", { open: true }, { open: true }]], open: true }
           ] },
         { type: "listen", title: "Pronunciation: The different sounds of ‘th’", page: 23, source: "book", needsAudio: true,
+          audio: "audio/6A-p23-2.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EY2VTOj8vChBoKN2t8FcU44B4Pl1WQcoMOrnb_N3URRa4A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=V8t1Uq",
           instructions: "Track 1.2. Listen and classify the words under the correct headings. (thought – this – thanked – their – through – both)",
           items: [

@@ -256,6 +256,7 @@ BOOK.addUnit({
       vocab: [],
       sections: [
         { type: "listen", title: "Listen and number the pictures according to the sequence of the listening material.", page: 65, source: "book", needsAudio: true,
+          audio: "audio/6A-p65.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EeSC7RnciutKrP9Bsl6WcEcBRMSq1JXZr676uuhGqfSfeg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=NPJClG",
           image: "crops/u4l3-sequence.jpg",
           instructions: "Listen (track 4.1) and number the pictures according to the sequence of the listening material.",
@@ -265,6 +266,7 @@ BOOK.addUnit({
               open: true, note: "The picture descriptions are added to help you. The order depends on the recording." }
           ] },
         { type: "listen", title: "Listen and mark (T) True or (F) False.", page: 65, source: "book", needsAudio: true,
+          audio: "audio/6A-p65.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EeSC7RnciutKrP9Bsl6WcEcBRMSq1JXZr676uuhGqfSfeg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=NPJClG",
           instructions: "Listen and mark (T) True or (F) False.",
           items: [

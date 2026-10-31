@@ -444,6 +444,7 @@ BOOK.addUnit({
 
         { type: "listen", title: "Listen to the \"Signs Save Lives\" Podcast. Then, fill in the missing information.", page: 51, source: "book",
           needsAudio: true,
+          audio: "audio/7A-p51.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/ERGiowTh9hFMkzI6RcM29YMBdJ9DgMM4-qjsH5BMgNlT9w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=RFzWEt",
           instructions: "Listen to the podcast (track 3.1). Write the missing information in the table.",
           items: [
@@ -458,6 +459,7 @@ BOOK.addUnit({
 
         { type: "listen", title: "Listen again, then answer the following questions.", page: 51, source: "book",
           needsAudio: true,
+          audio: "audio/7A-p51.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/ERGiowTh9hFMkzI6RcM29YMBdJ9DgMM4-qjsH5BMgNlT9w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=RFzWEt",
           instructions: "Listen again. Answer the questions.",
           items: [

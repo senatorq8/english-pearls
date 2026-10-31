@@ -212,6 +212,7 @@ BOOK.addUnit({
       vocab: [],
       sections: [
         { type: "listen", title: "Listen to three students talking about their favourite things.", page: 23, source: "book", needsAudio: true,
+          audio: "audio/7A-p23.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EXf9hi7WMxBKnc5Uk0HtBwEBrXrsnR4vOF_s2Iz1NKDHAw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=xbSs0h",
           instructions: "Listen to three students talking about their favourite things. Then, complete the following table.",
           items: [
@@ -219,6 +220,7 @@ BOOK.addUnit({
               rows: [["Dalal", "Drawing", { open: true }], ["Yousif", { open: true }, "It’s exciting and keeps him active and healthy."], ["Rashed", { open: true }, { open: true }]], open: true }
           ] },
         { type: "listen", title: "Listen again, then answer the following questions.", page: 23, source: "book", needsAudio: true,
+          audio: "audio/7A-p23.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EXf9hi7WMxBKnc5Uk0HtBwEBrXrsnR4vOF_s2Iz1NKDHAw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=xbSs0h",
           instructions: "Listen again, then answer the following questions.",
           items: [

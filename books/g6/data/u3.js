@@ -263,6 +263,7 @@ BOOK.addUnit({
       vocab: [],
       sections: [
         { type: "listen", title: "2. Listen to the three students.", page: 51, source: "book", needsAudio: true, image: "crops/u3l3-actions.jpg",
+          audio: "audio/6A-p51.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EaVztxRnyeRJvgSoTG6qMkMBf4NOXkvkaAEEOwcWLw9qTA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=wD2gaa",
           instructions: "Listen to the three students. Write the name of each student under the action they are doing in the pictures.",
           items: [
@@ -270,6 +271,7 @@ BOOK.addUnit({
               rows: [["Picture 1 (a cat and a bowl of food)", { open: true }], ["Picture 2 (planting with a watering can)", { open: true }], ["Picture 3 (a hand at the light switch)", { open: true }]], open: true }
           ] },
         { type: "listen", title: "3a. Listen and fill in the table with information from the listening material.", page: 51, source: "book", needsAudio: true,
+          audio: "audio/6A-p51.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EaVztxRnyeRJvgSoTG6qMkMBf4NOXkvkaAEEOwcWLw9qTA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=wD2gaa",
           instructions: "Listen and fill in the table with information from the listening material.",
           items: [
@@ -277,6 +279,7 @@ BOOK.addUnit({
               rows: [["Layla", "Kuwait Environmental Protection Society", { open: true }], ["Salem", { open: true }, "Plants a tree every year."], ["Hana", "Islamic studies lesson", { open: true }]], open: true }
           ] },
         { type: "listen", title: "3b. Answer the following questions.", page: 51, source: "book", needsAudio: true,
+          audio: "audio/6A-p51.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EaVztxRnyeRJvgSoTG6qMkMBf4NOXkvkaAEEOwcWLw9qTA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=wD2gaa",
           instructions: "Answer the following questions.",
           items: [

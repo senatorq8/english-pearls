@@ -377,6 +377,7 @@ BOOK.addUnit({
     sections: [
       { type: "listen", title: "Listen to four speakers talking about some celebrations.", page: 65, source: "book",
         needsAudio: true,
+        audio: "audio/7A-p65.mp3",
         audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/ETY2f7mpHKJChErqHG9i6a0BmUBKE5nxqeV_XbQAnetLRA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=AH42d3",
         instructions: "Listen to four speakers talking about some celebrations. They will discuss preparations, activities, and negative behaviours. Match each person to the correct celebration place.",
         items: [
@@ -387,6 +388,7 @@ BOOK.addUnit({
 
       { type: "listen", title: "Listen again. Then, do the tasks that follow.", page: 65, source: "book",
         needsAudio: true,
+        audio: "audio/7A-p65.mp3",
         audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/ETY2f7mpHKJChErqHG9i6a0BmUBKE5nxqeV_XbQAnetLRA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=AH42d3",
         instructions: "a. Underline the correct answer.",
         items: [
@@ -398,6 +400,7 @@ BOOK.addUnit({
 
       { type: "listen", title: "b. Answer the following questions.", page: 65, source: "book",
         needsAudio: true,
+        audio: "audio/7A-p65.mp3",
         audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/ETY2f7mpHKJChErqHG9i6a0BmUBKE5nxqeV_XbQAnetLRA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=AH42d3",
         instructions: "Answer the following questions.",
         items: [

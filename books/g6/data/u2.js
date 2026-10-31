@@ -264,6 +264,7 @@ BOOK.addUnit({
       vocab: [],
       sections: [
         { type: "listen", title: "A Day Around Kuwait", page: 37, source: "book", needsAudio: true,
+          audio: "audio/6A-p37.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/Eaeefjb7ARJEvzFC9qbzfgQBwHhasJKJ2PjBcH-_EpgNUw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=76LQGj",
           instructions: "Listen and circle the places the tourists will visit in Kuwait. Then, match each place to the rules and values mentioned in the listening material.",
           items: [
@@ -275,6 +276,7 @@ BOOK.addUnit({
               open: true, needsAudio: true }
           ] },
         { type: "listen", title: "Listen again and answer the following questions.", page: 37, source: "book", needsAudio: true,
+          audio: "audio/6A-p37.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/Eaeefjb7ARJEvzFC9qbzfgQBwHhasJKJ2PjBcH-_EpgNUw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=76LQGj",
           instructions: "Listen again and answer the following questions.",
           items: [
