@@ -267,6 +267,7 @@ BOOK.addUnit({
       vocab: [],
       sections: [
         { type: "listen", title: "Listen and match each phrase to the correct person.", page: 23, source: "book", needsAudio: true,
+          audio: "audio/6A-p23-1.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EVaEIf5aq6ZOueyD5XfiZiUBHdD1799sGCaaDvzDZrfaoA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=W0ZYpy",
           instructions: "Track 1.1. Listen and match each phrase to the correct person: Mariam Abdel Malek, Both, or Ayoub Hussein.",
           items: [
@@ -274,6 +275,7 @@ BOOK.addUnit({
               rows: [["a. Used art to show traditional life.", { open: true }], ["b. Believed that girls should learn like boys.", { open: true }], ["c. Supported learning and helped keep our culture alive.", { open: true }]], open: true }
           ] },
         { type: "listen", title: "Listen again and complete the table below.", page: 23, source: "book", needsAudio: true,
+          audio: "audio/6A-p23-1.mp3",
           audioLink: "https://moekuwait-my.sharepoint.com/:u:/g/personal/forlang_moe_edu_kw/EVaEIf5aq6ZOueyD5XfiZiUBHdD1799sGCaaDvzDZrfaoA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=W0ZYpy",
           instructions: "Track 1.1. Listen again and complete the table below.",
           items: [

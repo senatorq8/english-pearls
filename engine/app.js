@@ -279,7 +279,7 @@
 
   /* ───────────── router ───────────── */
   function route() {
-    TTS.stop(); stopRec(); closeDrawer(); closePop();
+    TTS.stop(); stopRec(); stopAudio(); closeDrawer(); closePop();
     const hsh = (location.hash || "#home").slice(1);
     const m = hsh.match(/^(u\d)l(\d)$/);
     const main = $("#main"); main.innerHTML = "";
@@ -395,7 +395,7 @@
   }
   function neighbourLesson(d) { const all = allLessons(); const i = all.findIndex((x) => x.l.id === CUR.l.id); return all[i + d] || null; }
   function markPartSeen(l, key) { const a = S.parts[l.id] || (S.parts[l.id] = []); if (!a.includes(key) && key !== "teacher") { a.push(key); save(); setTimeout(afterProgress, 0); } }
-  function goPart(i) { TTS.stop(); stopRec(); closePop(); PART = i; const main = $("#main"); main.innerHTML = ""; renderLesson(main); const pw = $(".parts-wrap"); if (pw) window.scrollTo({ top: Math.max(0, pw.offsetTop - 70), behavior: "auto" }); }
+  function goPart(i) { TTS.stop(); stopRec(); stopAudio(); closePop(); PART = i; const main = $("#main"); main.innerHTML = ""; renderLesson(main); const pw = $(".parts-wrap"); if (pw) window.scrollTo({ top: Math.max(0, pw.offsetTop - 70), behavior: "auto" }); }
   window.addEventListener("hashchange", () => { PART = 0; route(); });
 
   function secHead(title, s, extraTags) {
@@ -982,17 +982,64 @@
   }
 
   /* LISTEN */
+  /* Book recording player: loads the file as a blob so it plays offline and on iPad (no range-request issues). */
+  let BOOK_AUDIO = null;
+  function stopAudio() { if (BOOK_AUDIO) { try { BOOK_AUDIO.pause(); } catch (e) {} } }
+  function bookAudioPlayer(src, page) {
+    const audio = new Audio(); audio.preload = "none";
+    let loaded = false, loading = false;
+    const fmt = (t) => { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
+    const playB = h("button", { class: "btn small primary", type: "button" }, icon("play"), "Play");
+    const backB = h("button", { class: "btn small", type: "button", title: "Back 5 seconds" }, icon("replay"), "5 s");
+    const restartB = h("button", { class: "btn small ghost", type: "button" }, "From the start");
+    const time = h("span", { class: "small muted", style: { fontVariantNumeric: "tabular-nums" } }, "0:00 / –:––");
+    const seek = h("input", { type: "range", min: 0, max: 1000, value: 0, "aria-label": "Position in the recording", style: { flex: "1 1 160px", minWidth: "120px" } });
+    const speedSel = h("select", { "aria-label": "Speed" }, [["0.75", "Slow"], ["1", "Normal"], ["1.25", "Fast"]].map(([v, t]) => h("option", { value: v, selected: v === "1" ? true : null }, t)));
+    const status = h("span", { class: "small muted" }, "Book recording · page " + page);
+    speedSel.onchange = () => { audio.playbackRate = +speedSel.value; };
+    const setPlaying = (on) => { playB.lastChild.textContent = on ? "Pause" : "Play"; playB.firstChild.replaceWith(icon(on ? "pause" : "play")); };
+    audio.addEventListener("play", () => setPlaying(true));
+    audio.addEventListener("pause", () => setPlaying(false));
+    audio.addEventListener("ended", () => { setPlaying(false); status.textContent = "Finished. Answer the questions, then listen again."; });
+    audio.addEventListener("timeupdate", () => { time.textContent = fmt(audio.currentTime) + " / " + fmt(audio.duration); if (audio.duration) seek.value = Math.round((audio.currentTime / audio.duration) * 1000); });
+    audio.addEventListener("loadedmetadata", () => { time.textContent = fmt(audio.currentTime) + " / " + fmt(audio.duration); });
+    function load() {
+      if (loaded || loading) return Promise.resolve();
+      loading = true; status.textContent = "Loading the recording…";
+      const done = (url) => { audio.src = url; loaded = true; loading = false; status.textContent = "Book recording · page " + page; audio.playbackRate = +speedSel.value; };
+      if (!window.fetch || location.protocol === "file:") { done(src); return Promise.resolve(); }
+      return fetch(src).then((r) => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+        .then((b) => done(URL.createObjectURL(b)))
+        .catch(() => { done(src); });
+    }
+    playB.onclick = () => {
+      if (!audio.paused) { audio.pause(); return; }
+      TTS.stop(); if (BOOK_AUDIO && BOOK_AUDIO !== audio) stopAudio(); BOOK_AUDIO = audio;
+      load().then(() => { const p = audio.play(); if (p && p.catch) p.catch(() => { status.textContent = "Tap Play again to start the sound."; }); });
+    };
+    backB.onclick = () => { if (loaded) audio.currentTime = Math.max(0, audio.currentTime - 5); };
+    restartB.onclick = () => { load().then(() => { audio.currentTime = 0; BOOK_AUDIO = audio; audio.play(); }); };
+    seek.oninput = () => { if (loaded && audio.duration) audio.currentTime = (seek.value / 1000) * audio.duration; };
+    return h("div", { class: "stack" },
+      h("div", { class: "player" }, playB, backB, restartB, seek, time, h("label", { class: "small muted" }, "Speed ", speedSel)),
+      h("span", null, status));
+  }
   function renderListen(card, s, si, l) {
     card.append(secHead(s.title, s));
     if (s.instructions) card.append(instrBlock(s.instructions));
     if (s.image) card.append(h("div", { class: "pic-wrap" }, h("img", { class: "pic", src: "img/" + s.image, alt: "Picture from the book" })));
-    if (s.needsAudio) {
+    if (s.needsAudio && s.audio) {
+      card.append(bookAudioPlayer(s.audio, s.page));
+      if (!s.items || !s.items.some((it) => !it.open)) card.append(h("p", { class: "small muted" }, "Write your answers below. Your teacher will check them with the class."));
+    } else if (s.needsAudio) {
       card.append(h("div", { class: "notice" }, h("b", null, "🎧 The book recording is not inside this app."),
         h("span", null, "Your teacher will play it in class."),
         s.audioLink ? h("span", null, "The book’s QR code (page " + (s.page || "") + ") points to this Ministry file: ", h("a", { href: s.audioLink, target: "_blank", rel: "noopener" }, "Open the book’s QR audio link"), ". It may need a Ministry (MOE) account. We could not open or check it from here.") : null,
         h("span", { class: "small" }, "Write your notes below. Answers are not marked automatically, because they depend on the recording.")));
+    }
+    if (s.needsAudio) {
       const list = h("div", { class: "stack" });
-      (s.items || []).forEach((it, ii) => list.append(renderItem(Object.assign({}, it, { open: true, needsAudio: true }), l.id + ":" + si + ":" + ii)));
+      (s.items || []).forEach((it, ii) => list.append(renderItem(it.keyed ? it : Object.assign({}, it, { open: true, needsAudio: true }), l.id + ":" + si + ":" + ii)));
       card.append(list);
       return;
     }
