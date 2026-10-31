@@ -1,0 +1,4 @@
+/* Grade 6A unit colours (from the book's unit pages) */
+:root { --u1: #a85a26; --u2: #2f7d4f; --u3: #2a62a8; --u4: #8a3f8f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --u1: #eaa36f; --u2: #6fcf96; --u3: #8fb6f0; --u4: #dc94e0; } }
+:root[data-theme="dark"] { --u1: #eaa36f; --u2: #6fcf96; --u3: #8fb6f0; --u4: #dc94e0; }

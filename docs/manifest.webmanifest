@@ -1,0 +1,30 @@
+{
+  "name": "English Pearls of Kuwait",
+  "short_name": "English Pearls",
+  "description": "Interactive English books for Grades 6 and 7 (Kuwait MOE). Prepared by: Abdullah Alenezi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#eef3f6",
+  "theme_color": "#0b5c8c",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

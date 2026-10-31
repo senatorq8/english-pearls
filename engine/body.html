@@ -1,0 +1,30 @@
+<header class="topbar">
+  <button class="tb-btn" id="btnMenu" type="button" aria-label="Open contents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span class="tb-label">Contents</span></button>
+  <a class="brandmark" href="#home" aria-label="Home"><span class="pearl" aria-hidden="true"></span><div><b>English Pearls of Kuwait</b><span>Grade {{GRADE}} · {{CODE}} · Prepared by: Abdullah Alenezi</span></div></a>
+  <div class="tb-group">
+    <span class="tag hide-sm" title="Points" style="height:44px;font-size:.85rem">💎 <span id="pts">0</span></span>
+    <button class="tb-btn" id="btnSearch" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+    <button class="tb-btn" id="btnAr" type="button" aria-pressed="false" aria-label="Arabic help" title="Arabic help"><span style="font-family:var(--f-ar)">عربي</span></button>
+    <div class="mode-pill hide-sm" role="group" aria-label="Mode"><button id="mStudent" type="button" aria-pressed="true">Student</button><button id="mTeacher" type="button" aria-pressed="false">Teacher</button></div>
+    <button class="tb-btn" id="btnAns" type="button" aria-pressed="false" hidden title="Show / hide answers">🔑<span class="tb-label">Answers</span></button>
+    <button class="tb-btn hide-sm" id="btnText" type="button" aria-label="Text size" title="Text size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 18 9 6l5 12M5.8 14h6.4M15 18l3-7 3 7M15.9 16h4.2"/></svg></button>
+    <button class="tb-btn hide-sm" id="btnMotion" type="button" aria-label="Stop animations" title="Stop animations" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></button>
+    <button class="tb-btn hide-sm" id="btnSound" type="button" aria-label="Sounds" title="Sounds on/off"></button>
+    <button class="tb-btn" id="btnFull" type="button" aria-label="Full screen" title="Full screen for class"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  </div>
+</header>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Contents">
+  <div class="drawer-head"><b style="font-family:var(--f-display);font-size:1.2rem">Contents</b><button class="tb-btn" id="btnClose" type="button" aria-label="Close contents">✕</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div style="padding:10px 16px;border-top:1px solid var(--line)" class="small"><div class="mode-pill" role="group" aria-label="Mode" style="width:100%"><button type="button" style="flex:1" onclick="document.getElementById('mStudent').click()">Student mode</button><button type="button" style="flex:1" onclick="document.getElementById('mTeacher').click()">Teacher mode</button></div></div>
+</aside>
+<div id="bootfail" role="alert" style="max-width:640px;margin:24px auto;padding:16px 18px;border-radius:14px;background:#fff0d6;color:#13233a;border:1px solid #b86e00;font:16px/1.6 system-ui,sans-serif;opacity:0;animation:bfshow 0s 3s forwards">
+<style>@keyframes bfshow{to{opacity:1}}</style>
+<b>The book did not open on this device.</b><br>Please update the browser (iOS 12+ / Chrome 61+), or open the link in Google Chrome or Safari.<br>
+<span dir="rtl" lang="ar" style="display:block;text-align:right;margin-top:8px">لم يفتح الكتاب على هذا الجهاز. حدّث المتصفح أو افتح الرابط في Google Chrome أو Safari.</span>
+</div>
+<script>window.onerror=function(){var b=document.getElementById("bootfail");if(b){b.style.animation="none";b.style.opacity="1";}};</script>
+<main id="main"></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>/*JS*/</script>

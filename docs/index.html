@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Pearls of Kuwait</title>
+<meta name="description" content="Interactive English Pearls of Kuwait books for Grades 6 and 7. Prepared by: Abdullah Alenezi">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b5c8c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="English Pearls">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Lexend:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;600;700&display=swap">
+<style>
+/* Layout: one centred column — pearl hero, then one card per book, then install help. */
+:root {
+  --bg: #eef3f6; --surface: #ffffff; --ink: #13233a; --muted: #56677d; --line: #d7e0e8;
+  --brand: #0b5c8c; --brand-ink: #ffffff; --accent: #d9482f; --pearl: #f7f1e6;
+  --g6: #2f7d4f; --g7: #2350b5;
+  --f-display: "Baloo Bhaijaan 2", system-ui, sans-serif;
+  --f-body: "Lexend", "Noto Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e1622; --surface: #162232; --ink: #e7eef7; --muted: #9fb0c4; --line: #2b3b50;
+  --brand: #5fb2e6; --brand-ink: #071522; --accent: #ff7a63; --pearl: #232c36; --g6: #6fcf96; --g7: #7d9cf0; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0e1622; --surface: #162232; --ink: #e7eef7; --muted: #9fb0c4; --line: #2b3b50;
+  --brand: #5fb2e6; --brand-ink: #071522; --accent: #ff7a63; --pearl: #232c36; --g6: #6fcf96; --g7: #7d9cf0; color-scheme: dark; }
+* { box-sizing: border-box; }
+html { font-size: 18px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-body); line-height: 1.6; }
+main { max-width: 980px; margin: 0 auto; padding-top: max(28px, env(safe-area-inset-top, 0px)); padding-bottom: 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.stack { display: grid; gap: 22px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; margin: 0; }
+p { margin: 0; }
+.hero { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 30px; display: grid; gap: 10px; }
+.hero::after { content: ""; position: absolute; right: -70px; top: -90px; width: 280px; height: 280px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #fff 0 12%, #f1ece2 32%, #d6cbb8 68%, #b9ab94 100%); opacity: .55; pointer-events: none; }
+.hero h1 { font-size: clamp(2rem, 6vw, 3rem); position: relative; z-index: 1; }
+.hero h1 em { font-style: normal; color: var(--brand); }
+.hero p { position: relative; z-index: 1; max-width: 52ch; color: var(--muted); }
+.hero p.ar { text-align: left; }
+.credit { color: var(--accent) !important; font-weight: 700; }
+.ar { font-family: "Noto Sans Arabic", var(--f-display), sans-serif; direction: rtl; text-align: right; }
+.books { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 680px) { .books { grid-template-columns: 1fr; } .hero { padding: 22px; } }
+.book { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 18px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 16px; text-decoration: none; color: inherit; border-top: 6px solid var(--c); transition: transform .2s ease, box-shadow .2s ease; }
+.book:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(19,35,58,.12); }
+.book:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+.book img { width: 130px; height: auto; border-radius: 10px; border: 1px solid var(--line); display: block; background: #fff; }
+.book .grade { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+.book h2 { font-size: 1.6rem; }
+.book ul { margin: 6px 0 12px; padding-left: 18px; color: var(--muted); font-size: .85rem; }
+.open { display: inline-flex; align-items: center; gap: 8px; background: var(--brand); color: var(--brand-ink); border-radius: 12px; padding: 10px 16px; font-weight: 600; min-height: 44px; }
+.info { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px 22px; display: grid; gap: 10px; }
+.info ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.small { font-size: .85rem; color: var(--muted); }
+footer { text-align: center; font-size: .82rem; color: var(--muted); display: grid; gap: 2px; }
+footer b { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .book { transition: none; } }
+</style>
+</head>
+<body>
+<main class="stack">
+  <section class="hero">
+    <h1>English <em>Pearls</em> of Kuwait</h1>
+    <p>Interactive books for Grade 6 and Grade 7. Read, listen, speak, write and play. Every lesson follows the book, page by page.</p>
+    <p class="ar">الكتب التفاعلية للغة الإنجليزية – الصف السادس والصف السابع</p>
+    <p class="credit">Prepared by: Abdullah Alenezi</p>
+  </section>
+
+  <section class="books" aria-label="Books">
+    <a class="book" href="g6/" style="--c: var(--g6)">
+      <img src="g6/img/covers/book.jpg" alt="Cover of English Pearls of Kuwait 6A" width="130" height="167">
+      <div>
+        <span class="grade">Grade 6 · Book 6A</span>
+        <h2>English Pearls 6A</h2>
+        <ul><li>Art and Expression</li><li>Landmarks and Tourism</li><li>Our Environment, Our Choice</li><li>What Stories Teach Us</li></ul>
+        <span class="open">Open Grade 6 ›</span>
+      </div>
+    </a>
+    <a class="book" href="g7/" style="--c: var(--g7)">
+      <img src="g7/img/covers/book.jpg" alt="Cover of English Pearls of Kuwait 7A" width="130" height="167">
+      <div>
+        <span class="grade">Grade 7 · Book 7A</span>
+        <h2>English Pearls 7A</h2>
+        <ul><li>Family and Home</li><li>School &amp; Responsibility</li><li>Safety &amp; Instructions</li><li>Celebrations Around the World</li></ul>
+        <span class="open">Open Grade 7 ›</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="info">
+    <h3>Install it like an app</h3>
+    <ul>
+      <li>iPad / iPhone (Safari): tap Share, then “Add to Home Screen”.</li>
+      <li>Android (Chrome): menu ⋮, then “Install app”.</li>
+      <li>Computer (Chrome or Edge): click the install icon in the address bar.</li>
+    </ul>
+    <p class="small">After the first visit, the books open without internet. Progress is saved on each device; no account is needed.</p>
+    <p class="ar small">للتثبيت كتطبيق في الآيباد: اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية». بعد أول فتح يعمل الكتاب بدون إنترنت، ويُحفظ تقدم الطالب على جهازه.</p>
+  </section>
+
+  <footer>
+    <b>Prepared by: Abdullah Alenezi</b>
+    <span>Book content © Ministry of Education – State of Kuwait, 2025. Interactive version for classroom use.</span>
+  </footer>
+</main>
+<script>
+if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+  try { navigator.serviceWorker.register("sw.js").catch(function () {}); } catch (e) {}
+}
+</script>
+</body>
+</html>

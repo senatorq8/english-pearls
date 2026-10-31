@@ -1,0 +1,10 @@
+{
+  "name": "english-pearls",
+  "private": true,
+  "description": "Interactive English Pearls of Kuwait books (Grade 6A, 7A). Prepared by: Abdullah Alenezi",
+  "scripts": {
+    "build": "python3 tools/build.py",
+    "validate": "node tools/validate.js books/g6/data/u1.js books/g6/data/u2.js books/g6/data/u3.js books/g6/data/u4.js && node tools/validate.js books/g7/data/u1.js books/g7/data/u2.js books/g7/data/u3.js books/g7/data/u4.js"
+  },
+  "devDependencies": { "esbuild": "0.24.2", "es-check": "7.2.1" }
+}
