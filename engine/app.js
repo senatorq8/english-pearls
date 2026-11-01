@@ -88,6 +88,7 @@
   const sfx = { good: () => tone([660, 880], 0.14), bad: () => tone([300], 0.22), win: () => tone([523, 659, 784, 1046], 0.13), tap: () => tone([520], 0.05) };
 
   /* ───────────── speech (generated voice) ───────────── */
+  const IS_IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const TTS = {
     ok: "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined",
     voice: null, cur: null,
@@ -101,16 +102,26 @@
     speak(text, opt) {
       opt = opt || {};
       if (!this.ok) { toast("Your browser has no speech voice."); opt.onend && opt.onend(); return null; }
-      this.cur = null; try { speechSynthesis.cancel(); } catch (e) {}
       const u = new SpeechSynthesisUtterance(plain(text));
       const v = this.voice || this.pick(); if (v) u.voice = v; u.lang = v ? v.lang : "en-GB";
       u.rate = opt.rate || S.settings.rate || 0.9;
       if (opt.onboundary) u.onboundary = opt.onboundary;
+      let started = false;
+      u.onstart = () => { started = true; };
       u.onend = () => { if (this.cur === u) this.cur = null; opt.onend && opt.onend(); };
       u.onerror = () => { if (this.cur === u) this.cur = null; opt.onend && opt.onend(); };
-      this.cur = u; speechSynthesis.speak(u); return u;
+      this.cur = u;
+      // Safari/iOS drops an utterance queued in the same moment as cancel(): cancel only when busy, then wait a beat.
+      let busy = false; try { busy = speechSynthesis.speaking || speechSynthesis.pending; } catch (e) {}
+      const go = () => { if (this.cur !== u) return; try { speechSynthesis.resume(); } catch (e) {} speechSynthesis.speak(u); };
+      if (busy) { try { speechSynthesis.cancel(); } catch (e) {} this.lastCancel = Date.now(); }
+      const since = Date.now() - (this.lastCancel || 0);
+      if (since < 150) setTimeout(go, 150 - since); else go();
+      // No sound after a while (often an iPhone on silent): tell the user once per page load.
+      setTimeout(() => { if (!started && this.cur === u && !TTS.warned) { TTS.warned = true; toast(IS_IOS ? "No sound? Turn off silent mode and turn the volume up." : "No sound? Turn the volume up."); } }, 2500);
+      return u;
     },
-    stop() { if (this.ok) { this.cur = null; try { speechSynthesis.cancel(); } catch (e) {} } $$(".icon-btn.speaking").forEach((b) => b.classList.remove("speaking")); },
+    stop() { if (this.ok) { this.cur = null; try { if (speechSynthesis.speaking || speechSynthesis.pending) { speechSynthesis.cancel(); this.lastCancel = Date.now(); } } catch (e) {} } $$(".icon-btn.speaking").forEach((b) => b.classList.remove("speaking")); },
     pause() { if (this.ok) speechSynthesis.pause(); }, resume() { if (this.ok) speechSynthesis.resume(); }
   };
   if (TTS.ok) { TTS.pick(); speechSynthesis.onvoiceschanged = () => TTS.pick(); }
@@ -464,15 +475,17 @@
     const grid = h("div", { class: "cards" });
     l.vocab.forEach((v) => {
       const f = h("div", { class: "flip" });
-      const hit = h("button", { class: "flip-hit", type: "button", "aria-label": "Turn card: " + v.w });
+      const turn = () => { f.classList.toggle("flipped"); if (f.classList.contains("flipped")) { S.flips++; if (S.flips >= 20) award("cards"); save(); } sfx.tap(); };
+      const hitFront = h("button", { class: "flip-hit", type: "button", "aria-label": "Turn card: " + v.w, onclick: turn });
+      const hitBack = h("button", { class: "flip-hit", type: "button", "aria-label": "Turn card back: " + v.w, onclick: turn });
       const front = h("div", { class: "face front" }, h("div", { class: "big-emoji", "aria-hidden": "true" }, v.emoji || "🔤"), h("div", { class: "word" }, v.w), h("div", { class: "pos" }, v.pos || ""), v.ipa ? h("div", { class: "ipa" }, v.ipa) : null,
         h("div", { class: "actions" }, sayBtn(v.w, "Listen to the word")), h("div", { class: "tap" }, "Tap to turn ↻"));
       const back = h("div", { class: "face back" }, h("div", { class: "row", style: { justifyContent: "space-between", flexWrap: "nowrap" } }, h("b", null, v.w), h("span", { "aria-hidden": "true" }, v.emoji || "")),
         h("p", { class: "ex" }, v.ex), v.exFromBook ? h("span", { class: "small muted" }, "Sentence from the book") : null, h("p", { class: "def" }, v.def),
         S.settings.ar && v.ar ? h("p", { class: "ar-mean" }, v.ar) : null,
         h("div", { class: "actions" }, sayBtn(v.w, "Listen to the word"), sayBtn(v.ex, "Listen to the sentence")));
-      hit.onclick = () => { f.classList.toggle("flipped"); if (f.classList.contains("flipped")) { S.flips++; if (S.flips >= 20) award("cards"); save(); } sfx.tap(); };
-      f.append(hit, h("div", { class: "flip-inner" }, front, back));
+      front.prepend(hitFront); back.prepend(hitBack);
+      f.append(h("div", { class: "flip-inner" }, front, back));
       grid.append(f);
     });
     c.append(grid);

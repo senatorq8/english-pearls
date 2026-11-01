@@ -402,3 +402,11 @@ mark { background: var(--warn-soft); color: inherit; border-radius: 3px; padding
 table.bt { min-width: 100%; }
 table.bt input { min-width: 90px; }
 @media (min-width: 700px) { table.bt { min-width: 480px; } }
+/* Hide the face that is turned away (iOS Safari can show buttons of the back-facing side through the card). */
+.flip .face.back { visibility: hidden; transition: visibility 0s .25s; }
+.flip.flipped .face.back { visibility: visible; }
+.flip.flipped .face.front { visibility: hidden; transition: visibility 0s .25s; }
+.no-motion .flip .face { transition: none; }
+/* The turn-card button lies under the card's own buttons, inside each face. */
+.face .flip-hit { z-index: 0; }
+.face .actions { position: relative; z-index: 1; }

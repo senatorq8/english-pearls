@@ -2104,6 +2104,27 @@ table.bt input {
     min-width: 480px;
   }
 }
+.flip .face.back {
+  visibility: hidden;
+  transition: visibility 0s .25s;
+}
+.flip.flipped .face.back {
+  visibility: visible;
+}
+.flip.flipped .face.front {
+  visibility: hidden;
+  transition: visibility 0s .25s;
+}
+.no-motion .flip .face {
+  transition: none;
+}
+.face .flip-hit {
+  z-index: 0;
+}
+.face .actions {
+  position: relative;
+  z-index: 1;
+}
 :root {
   --u1: #a85a26;
   --u2: #2f7d4f;
@@ -6995,6 +7016,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     }
   }
   const sfx = { good: () => tone([660, 880], 0.14), bad: () => tone([300], 0.22), win: () => tone([523, 659, 784, 1046], 0.13), tap: () => tone([520], 0.05) };
+  const IS_IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
   const TTS = {
     ok: "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined",
     voice: null,
@@ -7016,17 +7038,16 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
         opt.onend && opt.onend();
         return null;
       }
-      this.cur = null;
-      try {
-        speechSynthesis.cancel();
-      } catch (e) {
-      }
       const u = new SpeechSynthesisUtterance(plain(text));
       const v = this.voice || this.pick();
       if (v) u.voice = v;
       u.lang = v ? v.lang : "en-GB";
       u.rate = opt.rate || S.settings.rate || 0.9;
       if (opt.onboundary) u.onboundary = opt.onboundary;
+      let started = false;
+      u.onstart = () => {
+        started = true;
+      };
       u.onend = () => {
         if (this.cur === u) this.cur = null;
         opt.onend && opt.onend();
@@ -7036,14 +7057,45 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
         opt.onend && opt.onend();
       };
       this.cur = u;
-      speechSynthesis.speak(u);
+      let busy = false;
+      try {
+        busy = speechSynthesis.speaking || speechSynthesis.pending;
+      } catch (e) {
+      }
+      const go = () => {
+        if (this.cur !== u) return;
+        try {
+          speechSynthesis.resume();
+        } catch (e) {
+        }
+        speechSynthesis.speak(u);
+      };
+      if (busy) {
+        try {
+          speechSynthesis.cancel();
+        } catch (e) {
+        }
+        this.lastCancel = Date.now();
+      }
+      const since = Date.now() - (this.lastCancel || 0);
+      if (since < 150) setTimeout(go, 150 - since);
+      else go();
+      setTimeout(() => {
+        if (!started && this.cur === u && !TTS.warned) {
+          TTS.warned = true;
+          toast(IS_IOS ? "No sound? Turn off silent mode and turn the volume up." : "No sound? Turn the volume up.");
+        }
+      }, 2500);
       return u;
     },
     stop() {
       if (this.ok) {
         this.cur = null;
         try {
-          speechSynthesis.cancel();
+          if (speechSynthesis.speaking || speechSynthesis.pending) {
+            speechSynthesis.cancel();
+            this.lastCancel = Date.now();
+          }
         } catch (e) {
         }
       }
@@ -7605,7 +7657,17 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     const grid = h("div", { class: "cards" });
     l.vocab.forEach((v) => {
       const f = h("div", { class: "flip" });
-      const hit = h("button", { class: "flip-hit", type: "button", "aria-label": "Turn card: " + v.w });
+      const turn = () => {
+        f.classList.toggle("flipped");
+        if (f.classList.contains("flipped")) {
+          S.flips++;
+          if (S.flips >= 20) award("cards");
+          save();
+        }
+        sfx.tap();
+      };
+      const hitFront = h("button", { class: "flip-hit", type: "button", "aria-label": "Turn card: " + v.w, onclick: turn });
+      const hitBack = h("button", { class: "flip-hit", type: "button", "aria-label": "Turn card back: " + v.w, onclick: turn });
       const front = h(
         "div",
         { class: "face front" },
@@ -7626,16 +7688,9 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
         S.settings.ar && v.ar ? h("p", { class: "ar-mean" }, v.ar) : null,
         h("div", { class: "actions" }, sayBtn(v.w, "Listen to the word"), sayBtn(v.ex, "Listen to the sentence"))
       );
-      hit.onclick = () => {
-        f.classList.toggle("flipped");
-        if (f.classList.contains("flipped")) {
-          S.flips++;
-          if (S.flips >= 20) award("cards");
-          save();
-        }
-        sfx.tap();
-      };
-      f.append(hit, h("div", { class: "flip-inner" }, front, back));
+      front.prepend(hitFront);
+      back.prepend(hitBack);
+      f.append(h("div", { class: "flip-inner" }, front, back));
       grid.append(f);
     });
     c.append(grid);
