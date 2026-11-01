@@ -841,6 +841,7 @@
   function sayBtnLazy(getText) { const b = h("button", { class: "btn small ghost", type: "button", "aria-label": "Listen to my sentence" }, icon("speak"), "Listen"); b.onclick = () => { const t = getText(); if (t) TTS.speak(t); }; return b; }
   function modelBox(text, label) { return h("div", { class: "ans-reveal" }, h("span", { class: "lbl" }, label), h("span", { html: inlineHTML(text) })); }
   function answerText(it) {
+    if ((it.t === "mcq" || it.t === "choose" || it.t === "fill" || it.t === "fix" || it.t === "order") && it.answer == null) return it.model || "Open answer";
     if (it.t === "mcq" || it.t === "choose") return [].concat(it.answer).map((a) => plain(it.options[a])).join("  /  ");
     if (it.t === "fill" || it.t === "fix") return it.answer.filter((x, i, a) => a.findIndex((y) => norm(y) === norm(x)) === i).join("  /  ");
     if (it.t === "order") return it.answer.join("  /  ");
@@ -855,7 +856,7 @@
     return h("div", { class: "ans-reveal only-teacher" }, h("span", { class: "lbl" }, "Answer (teacher view)"), needs ? "Depends on students / the recording." : a, it.why ? h("div", { class: "small muted" }, "Why: " + it.why) : null);
   }
   function teacherAnswers(s, si, l) {
-    return h("details", { class: "only-teacher" }, h("summary", null, "🧑‍🏫 All answers for this part"), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, it.needsAudio ? "check with the recording" : answerText(it))))));
+    return h("details", { class: "only-teacher" }, h("summary", null, "🧑‍🏫 All answers for this part"), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, (it.needsAudio || s.needsAudio) ? "check with the book recording" : answerText(it))))));
   }
 
   /* DISCUSS */
@@ -887,7 +888,8 @@
       const you = !d.text;
       dlg.append(h("div", { class: "bubble" + (you ? " you" : "") }, h("span", { class: "who" }, d.who), h("div", { class: "say" }, h("span", null, you ? "Your turn… (speak)" : d.text), you ? null : sayBtn(d.text))));
     });
-    grid.append(s.image ? h("img", { class: "pic", src: "img/" + s.image, alt: "Picture from the book" }) : null, dlg);
+    if (s.image) grid.append(h("img", { class: "pic", src: "img/" + s.image, alt: "Picture from the book" }));
+    grid.append(dlg);
     card.append(grid);
     if (s.example) card.append(h("div", { class: "tip" }, "Example from the book: " + s.example));
     if (s.note) card.append(h("div", { class: "tip" }, "💡 " + s.note));
