@@ -532,3 +532,5 @@ body.spotting #unitTabs { display: none; }
 .units .mod-head small { font-size: .95rem; color: var(--muted); }
 [data-theme="dark"] .toc-module, [data-theme="dark"] .units .mod-head span { color: #0e1622; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .toc-module, :root:not([data-theme="light"]) .units .mod-head span { color: #0e1622; } }
+.card { overflow-wrap: break-word; }
+.prompts li, .prompts .grow, .card p, .card li { overflow-wrap: anywhere; min-width: 0; }

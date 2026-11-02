@@ -521,7 +521,7 @@ BOOK.addUnit({
             { label: "How did you help?", hint: "First, … Then, … Later, …" },
             { label: "What was the result? How did you feel?", hint: "Finally, … I felt … because …" }
           ],
-          model: "Last winter, I was at the Avenues Mall with my family. Suddenly, I saw a little boy crying near the escalator. First, I asked him his name and told him not to worry. Then, I took him to the information desk with my father. Later, they made an announcement, and after ten minutes his mother came running. She hugged him and thanked us many times. I felt proud and happy because I helped a child find his family. I learned that a small action can make a big difference.",
+          model: "Last winter, I was at the Avenues Mall with my family. Suddenly, I saw a little boy crying near the escalator. First, I asked him his name and told him not to worry. Then, I took him to the information desk with my father. Later, they made an announcement. Finally, after ten minutes, his mother came running. She hugged him and thanked us many times. I felt proud and happy because I helped a child find his family. I learned that a small action can make a big difference.",
           modelFromBook: false,
           checklist: ["I answered the four questions.", "I started each sentence with a capital letter.", "I ended each sentence with a full stop."],
           bookChecklist: [
@@ -531,11 +531,11 @@ BOOK.addUnit({
           ],
           minWords: 60 },
 
-        { type: "activity", title: "Extra Practice: Put the events in order", source: "extra", stage: "guided",
-          instructions: "Put the sentences in the right order.", instructionsAr: "رتّب الأحداث بالترتيب الصحيح.",
+        { type: "activity", title: "Extra Practice: Sequence words", source: "extra", stage: "guided",
+          instructions: "Match each sequence word with the event that comes next in the model story.", instructionsAr: "صِل كل كلمة ترتيب بالحدث الذي يليها في القصة النموذجية.",
           items: [
             { t: "match", q: "Match each sequence word with an event from the model story.",
-              pairs: [["First,", "I asked him his name."], ["Then,", "I took him to the information desk."], ["Later,", "they made an announcement."], ["Finally,", "his mother came and hugged him."]],
+              pairs: [["First,", "I asked him his name."], ["Then,", "I took him to the information desk."], ["Later,", "they made an announcement."], ["Finally,", "his mother came running."]],
               why: "Sequence words show the order of events: first → then → later → finally." },
             { t: "mcq", q: "Which word describes a feeling?", options: ["escalator", "proud", "announcement"], answer: 1, why: "proud is a feeling." }
           ] }

@@ -220,8 +220,8 @@ BOOK.addUnit({
               hint: "“one of the …” → superlative.", why: "one of the + superlative: oldest." },
             { t: "fill", q: "2. For some people, visiting Souq Al-Mubarakiya is ____ than the Sea of Stars. (good)", answer: ["better"],
               hint: "good is irregular.", why: "than → comparative. good → better." },
-            { t: "fill", q: "3. Sometimes, going to the beach is ____ than visiting historical sites. (interesting)", answer: ["more interesting"],
-              hint: "interesting is a long adjective.", why: "Long adjective → more interesting than." }
+            { t: "fill", q: "3. Sometimes, going to the beach is ____ than visiting historical sites. (interesting)", answer: ["more interesting", "less interesting"],
+              hint: "interesting is a long adjective.", why: "Long adjective → more interesting than. (“less interesting than” is also correct English.)" }
           ] },
 
         { type: "write", title: "5. In your notebook, write some sentences comparing Kuwait to the following countries: (China – Turkey – Bahrain – Canada). Think of size, population, climate ...etc.", page: 42, source: "book",
@@ -697,7 +697,7 @@ BOOK.addUnit({
         group: ["Groups compare the three museums in a table: place – year – what it has."],
         quick: [
           { q: "What is a topic sentence?", a: "The sentence that gives the main idea of a paragraph." },
-          { q: "Which is the world's largest museum?", a: "The Louvre Museum." },
+          { q: "Which museum does the text call “the world's largest museum”?", a: "The Louvre Museum. (The Smithsonian is the world's largest museum, education and research complex.)" },
           { q: "How many items are in the Smithsonian?", a: "Over 137 million." },
           { q: "What does “exhibit” mean?", a: "An object that people can see in a museum." }
         ]

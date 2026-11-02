@@ -52,8 +52,8 @@ BOOK.addUnit({
     {
       id: "u13l2", num: 2, skill: "Reading", title: "Journey to the Centre of the Earth", pages: [103, 104], status: "complete",
       canDo: ["Read and enjoy an adventure story."],
-      goals: ["Read an adventure story.", "Learn 8 new words.", "Put the events of the story in order."],
-      goalsAr: ["أقرأ قصة مغامرة.", "أتعلم 8 كلمات جديدة.", "أرتب أحداث القصة."],
+      goals: ["Read an adventure story.", "Learn 8 new words.", "Make sentences about the story."],
+      goalsAr: ["أقرأ قصة مغامرة.", "أتعلم 8 كلمات جديدة.", "أكوّن جملًا عن القصة."],
       warmup: { title: "Before You Read", image: null, emoji: "🌋", prompts: ["Look at the title. Is it possible to travel to the centre of the Earth?", "What do you think the explorers will see under the ground?"], seconds: 90 },
       vocab: [
         { w: "geologist", pos: "noun", emoji: "🪨", def: "a scientist who studies rocks and the Earth", ex: "Professor Lidenbrock was a famous geologist from Hamburg in Germany.", exFromBook: true, ar: "عالم جيولوجيا" },
@@ -83,7 +83,7 @@ BOOK.addUnit({
             { t: "mcq", q: "6. How did the explorers come back to the surface?", options: ["They climbed up the ropes.", "A tidal wave lifted their boat up through a tunnel.", "Hans carried them.", "They walked through the tunnels."], answer: 1, hint: "Last paragraph.", why: "“Their tiny boat was lifted higher and higher, up through a tunnel, by a huge tidal wave.”" },
             { t: "mcq", q: "7. In which country did they come out?", options: ["Iceland", "Germany", "Italy", "Greece"], answer: 2, why: "“returned through an active volcano in Italy!”" }
           ] },
-        { type: "activity", title: "Extra Practice: Put the events in order", source: "extra", stage: "independent", instructions: "Put the words in order to make sentences from the story.",
+        { type: "activity", title: "Extra Practice: Sentence Builder", source: "extra", stage: "independent", instructions: "Put the words in order to make sentences about the story.",
           items: [
             { t: "order", q: "1.", words: ["found", "The", "professor", "a", "message"], answer: ["The professor found a message"] },
             { t: "order", q: "2.", words: ["climbed", "They", "inside", "the", "volcano"], answer: ["They climbed inside the volcano"] },

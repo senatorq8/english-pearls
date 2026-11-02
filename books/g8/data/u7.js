@@ -188,8 +188,8 @@ BOOK.addUnit({
                 "{c:Although} {s:it} {v:was} raining, {s:we} {v:played} football."
               ] },
             { title: "Step 3 — although + subject + verb", source: "extra",
-              text: "After although we need a subject and a verb. If although starts the sentence, put a comma after the first idea. It can also go in the middle, with no comma.",
-              textAr: "بعد although نحتاج فاعلًا وفعلًا. إذا جاءت في بداية الجملة نضع فاصلة بعد الفكرة الأولى، ويمكن أن تأتي في الوسط بدون فاصلة.",
+              text: "After although we need a subject and a verb. If although starts the sentence, put a comma after the first idea. It can also go in the middle; then the comma is optional (We played football although it was raining. / …, although it was raining.).",
+              textAr: "بعد although نحتاج فاعلًا وفعلًا. إذا جاءت في بداية الجملة نضع فاصلة بعد الفكرة الأولى، ويمكن أن تأتي في الوسط وعندها تكون الفاصلة اختيارية.",
               examples: [
                 "{c:Although} {s:she} {v:knew} she was wrong, {s:she} {v:didn’t say} sorry.",
                 "{s:We} {v:played} football {c:although} {s:it} {v:was} raining."
@@ -574,6 +574,7 @@ BOOK.addUnit({
             { who: "A", text: "" },
             { who: "B", text: "" }
           ],
+          note: "In the book, B’s first answer starts with “I’m …”, and A completes the last question: “…… plans for the weekend?”",
           starters: ["I’m …ing … tonight.", "Yes, I’m …ing … tomorrow.", "No, I’m not doing anything.", "What are your plans for the weekend?", "Have you got any plans for the weekend?", "I’m visiting … on Friday."],
           record: true },
 

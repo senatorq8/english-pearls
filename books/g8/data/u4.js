@@ -600,12 +600,12 @@ BOOK.addUnit({
         { type: "activity", title: "4. a. Choose the correct verb to complete the following sentences:", page: 38, source: "book", stage: "guided",
           instructions: "Choose the correct verb.", instructionsAr: "اختر الفعل الصحيح.",
           items: [
-            { t: "choose", q: "1. When I (leave - left - was leaving) the club, it was already snowing heavily.", options: ["leave", "left", "was leaving"], answer: 1,
-              hint: "when + short action (past simple).", why: "When + past simple: left. It was already snowing (long action) when I left." },
+            { t: "choose", q: "1. When I (leave - left - was leaving) the club, it was already snowing heavily.", options: ["leave", "left", "was leaving"], answer: [1, 2],
+              hint: "when + short action (past simple).", why: "The book’s answer is left: when + a short action. “was leaving” is also correct English: two actions in progress at the same time." },
             { t: "choose", q: "2. Fatma dropped her ID card while she (look - looks - was looking) for her purse.", options: ["look", "looks", "was looking"], answer: 2,
               hint: "while + long action.", why: "while + past continuous: was looking." },
-            { t: "choose", q: "3. A new student (enter/ entered/ was entering) our class while my partner was giving a presentation.", options: ["enter", "entered", "was entering"], answer: 1,
-              hint: "The long action is “was giving a presentation”.", why: "The short action is in the past simple: entered." }
+            { t: "choose", q: "3. A new student (enter/ entered/ was entering) our class while my partner was giving a presentation.", options: ["enter", "entered", "was entering"], answer: [1, 2],
+              hint: "The long action is “was giving a presentation”.", why: "The book’s answer is entered: the short action is in the past simple. “was entering” is also possible: two actions in progress at the same time." }
           ] },
 
         { type: "activity", title: "4. b. Complete the following sentences:", page: 38, source: "book", stage: "independent",
@@ -644,7 +644,7 @@ BOOK.addUnit({
             { t: "choose", q: "My sister (was / were) cooking dinner.", options: ["was", "were"], answer: 0, why: "My sister = she → was." },
             { t: "choose", q: "I was (read / reading) a story when the phone rang.", options: ["read", "reading"], answer: 1, why: "was + verb-ing: reading." },
             { t: "choose", q: "We (were walking / walked) home when it started to rain.", options: ["were walking", "walked"], answer: 0, why: "The long action (walking home) → past continuous." },
-            { t: "choose", q: "The lights went out (while / when) we were watching TV.", options: ["while", "when"], answer: 0, why: "while + past continuous (were watching)." },
+            { t: "choose", q: "The lights went out (while / when) we were watching TV.", options: ["while", "when"], answer: [0, 1], why: "Both are correct here: while (or when) + past continuous (were watching). While is the usual choice for the long action." },
             { t: "choose", q: "I was sleeping (while / when) the alarm rang.", options: ["while", "when"], answer: 1, why: "when + past simple (rang)." }
           ] },
 
@@ -654,7 +654,7 @@ BOOK.addUnit({
             { t: "fill", q: "1. While Huw ____ (play) the harp, he saw six silver cows.", answer: ["was playing"], why: "while + past continuous: was playing." },
             { t: "fill", q: "2. The phone rang while we ____ (have) dinner.", answer: ["were having"], why: "we → were + having." },
             { t: "fill", q: "3. I was doing my homework when my friend ____ (call).", answer: ["called"], why: "when + past simple: called." },
-            { t: "fill", q: "4. They ____ (not / listen) when the teacher explained the lesson.", answer: ["were not listening", "weren't listening"], why: "Negative: were not / weren't + listening." }
+            { t: "fill", q: "4. They ____ (not / listen) when the teacher explained the lesson.", answer: ["were not listening", "weren't listening", "did not listen", "didn't listen"], why: "Negative past continuous: were not / weren't + listening (the long action). “didn't listen” (past simple) is also correct." }
           ] },
 
         { type: "activity", title: "Extra Practice: Step 3 — Fix the mistake (on your own)", source: "extra", stage: "independent",
@@ -671,7 +671,7 @@ BOOK.addUnit({
           { t: "mcq", q: "She ____ TV when I called.", options: ["was watching", "were watching", "watching"], answer: 0, why: "She → was + watching." },
           { t: "mcq", q: "While they ____ football, it started to rain.", options: ["was playing", "were playing", "played"], answer: 1, why: "They → were playing." },
           { t: "mcq", q: "I was walking home ____ I saw an accident.", options: ["while", "when"], answer: 1, why: "when + past simple (saw)." },
-          { t: "mcq", q: "____ we were sleeping, the cat ate the fish.", options: ["While", "When"], answer: 0, why: "While + past continuous (were sleeping)." },
+          { t: "mcq", q: "The cat ate the fish while we ____.", options: ["was sleeping", "were sleeping", "sleep"], answer: 1, why: "while + past continuous; we → were sleeping." },
           { t: "mcq", q: "Which is the long action? “I was cooking when the phone rang.”", options: ["was cooking", "rang"], answer: 0, why: "was cooking = long action in progress." }
         ] },
       teacher: {
@@ -686,7 +686,7 @@ BOOK.addUnit({
         group: ["Group story chain: each student adds a sentence with while or when to make a story."],
         quick: [
           { q: "How do we make the past continuous?", a: "was / were + verb-ing." },
-          { q: "while or when: ___ I was sleeping, the phone rang.", a: "While" },
+          { q: "while or when: ___ I was sleeping, the phone rang.", a: "While (When is also possible)." },
           { q: "Choose: When I (left / was leaving) the club, it was already snowing.", a: "left" },
           { q: "They ___ (play) when it started to rain.", a: "were playing" }
         ]
@@ -860,10 +860,10 @@ BOOK.addUnit({
         { type: "activity", title: "Extra Practice: Past or nowadays?", source: "extra", stage: "guided",
           instructions: "Choose the best word to complete each sentence.", instructionsAr: "اختر الكلمة المناسبة.",
           items: [
-            { t: "choose", q: "(In the past / Nowadays), people used camels to travel in the desert.", options: ["In the past", "Nowadays"], answer: 0, why: "“used to / used camels” describes the past." },
+            { t: "choose", q: "(In the past / Nowadays), people used camels to travel in the desert.", options: ["In the past", "Nowadays"], answer: 0, why: "“used” is the past simple → in the past." },
             { t: "choose", q: "(In the past / Nowadays), most families have air conditioning.", options: ["In the past", "Nowadays"], answer: 1, why: "“have” (present simple) → nowadays." },
             { t: "choose", q: "Life is (easier / more easy) now than in the past.", options: ["easier", "more easy"], answer: 0, why: "easy → easier (y → ier)." },
-            { t: "choose", q: "Houses today are (more modern / modern than) than old houses.", options: ["more modern", "modern than"], answer: 0, why: "Long adjective → more + adjective + than." }
+            { t: "choose", q: "Houses today are (more modern / modern) than old houses.", options: ["more modern", "modern"], answer: 0, why: "Long adjective → more + adjective + than." }
           ] }
       ],
       game: { kind: "sort", title: "Then or Now?", buckets: ["In the past", "Nowadays"],

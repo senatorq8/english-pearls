@@ -264,7 +264,7 @@ BOOK.addUnit({
         ] },
       teacher: {
         notes: [
-          "Find the question tags in the interview first (didn't you? x2, Did you visit it?).",
+          "Find the question tags in the interview first (didn't you? ×2). Note: “Did you visit it?” is a normal yes/no question, not a tag.",
           "Teach the rule with two colours: positive sentence → negative tag; negative sentence → positive tag.",
           "Show the special case of was / were (wasn't it?, weren't they?).",
           "Practise intonation: falling tone when you are sure, rising tone when you really ask.",
@@ -314,7 +314,7 @@ BOOK.addUnit({
             { label: "Time", hint: "It will be open … / It will take place every …" },
             { label: "Why Kuwait needs it", hint: "I think it will attract more visitors because …" }
           ],
-          model: "My idea is a pearl diving festival called “Pearls of the Gulf”. It will be located on Failaka Island. Visitors can sail on a traditional boom, try safe diving with a guide and watch old Kuwaiti sea songs. There will also be a market for handmade jewellery and Kuwaiti food. The festival will take place every year in April, when the weather is warm but not too hot. I think it will attract more visitors because it is unique and it shows our heritage in a fun way.",
+          model: "My idea is a pearl diving festival called “Pearls of the Gulf”. It will be located on Failaka Island. Visitors can sail on a traditional boom, try safe diving with a guide and listen to old Kuwaiti sea songs. There will also be a market for handmade jewellery and Kuwaiti food. The festival will take place every year in April, when the weather is warm but not too hot. I think it will attract more visitors because it is unique and it shows our heritage in a fun way.",
           modelFromBook: false,
           checklist: ["I described the location, activity and time.", "I gave a reason why Kuwait needs it.", "I used adjectives to describe the place.", "I used capital letters, commas and full stops correctly."],
           minWords: 60 },

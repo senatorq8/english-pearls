@@ -137,7 +137,7 @@ BOOK.addUnit({
             { title: "Step 1 — The book’s rule",
               text: "We use indefinite pronouns to refer to people or things without saying exactly who or what they are.",
               textAr: "نستخدم الضمائر غير المحدّدة للإشارة إلى أشخاص أو أشياء دون أن نقول من هم أو ما هي بالضبط.",
-              examples: ["{s:Everybody} {v:is} happy with the wonderful pictures of the Earth.", "{s:Nobody} {v:lives} on the moon."] },
+              examples: ["{s:Everyone} in my class {v:likes} the photos of the stars.", "{s:No one} {v:has walked} on Mars."] },
             { title: "Step 2 — Person, place, thing (Extra)", source: "extra",
               text: "-body = a person (-one also means a person: everyone, someone). -where = a place. -thing = a thing.",
               textAr: "‎-body للأشخاص، و ‎-where للأماكن، و ‎-thing للأشياء.",
@@ -210,7 +210,7 @@ BOOK.addUnit({
           items: [
             { t: "fix", q: "There isn’t {nothing} in the fridge.", answer: ["anything"], hint: "No double negatives.", why: "isn’t + anything (or: There is nothing …)." },
             { t: "fix", q: "Everybody {are} happy today.", answer: ["is"], hint: "Indefinite pronouns take a singular verb.", why: "Everybody is …" },
-            { t: "fix", q: "Is there {somebody} at home? I can’t hear anything.", answer: ["anybody", "anyone"], hint: "A question → any-.", why: "In questions we usually use anybody." },
+            { t: "fix", q: "{Anybody} is knocking at the door. Can you open it?", answer: ["Somebody", "Someone"], hint: "A positive sentence → some-.", why: "In positive sentences we use somebody: Somebody is knocking at the door." },
             { t: "fix", q: "I looked {everything} for my keys.", answer: ["everywhere"], hint: "A place.", why: "Places → -where: everywhere." },
             { t: "short", q: "Write a sentence with “something”.", model: "I want to buy something for my mother.", open: true, hint: "I want … something …" }
           ] }

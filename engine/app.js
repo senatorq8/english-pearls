@@ -226,7 +226,7 @@
     l.sections.forEach((s, i) => { s._k = i; });
     const x = (BOOK.labs || {})[l.id]; if (!x) return;
     if (x.lab) { const gi = l.sections.findIndex((s) => s.type === "grammar"); l.sections.splice(gi + 1, 0, Object.assign({ type: "lab", source: "extra" }, x.lab, { _k: "lab" })); }
-    if (x.predict) { let at = -1; l.sections.forEach((s, i) => { if (s.type === "activity" || s.type === "lab" || s.type === "grammar") at = i; }); l.sections.splice(at + 1, 0, Object.assign({ type: "predict", source: "extra" }, x.predict, { _k: "pred" })); }
+    if (x.predict) { let at = -1; l.sections.forEach((s, i) => { if (s.type === "activity" || s.type === "lab" || s.type === "grammar") at = i; }); l.sections.splice(at + 1, 0, Object.assign({ type: "predict", source: "extra", title: "Predict, Then Reveal" }, x.predict, { _k: "pred" })); }
   }));
   const pagesTxt = (pg) => { const a = Array.from(new Set([].concat(pg || []))); return a.length > 1 ? a[0] + "-" + a[a.length - 1] : String(a[0] || ""); };
   const units = () => BOOK.toc.map((t) => { const u = BOOK.units.find((x) => x.id === t.id); return Object.assign({}, t, u || {}, { built: !!u, lessonsTOC: t.lessons || (u ? u.lessons.map((l) => [l.skill, l.title, pagesTxt(l.pages)]) : []) }); });

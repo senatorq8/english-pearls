@@ -2,7 +2,7 @@
    Every sentence the labs can build was listed and checked with: node tools/lab-dump.js g8 */
 (function () {
   const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
-  const low = (s) => (s === "I" ? s : s.charAt(0).toLowerCase() + s.slice(1));
+  const low = (s) => (["You", "He", "She", "We", "They"].indexOf(s) >= 0 ? s.toLowerCase() : s); // names (Omar, Fatma) and I keep their capital
 
   BOOK.labs = Object.assign(BOOK.labs || {}, {
     /* ── Unit 7 · Lesson 2 · Contrastive Connectors: although / however (p. 58) ── */

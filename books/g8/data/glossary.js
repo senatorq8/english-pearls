@@ -5,73 +5,97 @@ BOOK.glossary = [
   "w": "access",
   "pos": "noun",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "the chance or right to use or get something",
+  "defExtra": true
  },
  {
   "w": "achieve",
   "pos": "verb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "to succeed in doing something after working hard",
+  "defExtra": true
  },
  {
   "w": "activate",
   "pos": "verb",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "to make something start working",
+  "defExtra": true
  },
  {
   "w": "actually",
   "pos": "adverb",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "in fact; really (used to correct or add information)",
+  "defExtra": true
  },
  {
   "w": "addiction",
   "pos": "noun",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "a strong need to do or use something again and again that you cannot stop",
+  "defExtra": true
  },
  {
   "w": "adequate",
   "pos": "adjective",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "enough for what you need",
+  "defExtra": true
  },
  {
   "w": "advanced",
   "pos": "adjective",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "new and modern; at a high level",
+  "defExtra": true
  },
  {
   "w": "ahead",
   "pos": "adverb",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "before something happens; for the future",
+  "defExtra": true
  },
  {
   "w": "alley",
   "pos": "noun",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "a narrow street between buildings",
+  "defExtra": true
  },
  {
   "w": "allow",
   "pos": "verb",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "to let something happen; to give time for something",
+  "defExtra": true
  },
  {
   "w": "alongside",
   "pos": "adverb",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "next to someone or something, at the side",
+  "defExtra": true
  },
  {
   "w": "amount",
   "pos": "noun",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "how much of something there is",
+  "defExtra": true
  },
  {
   "w": "ancestor",
@@ -85,625 +109,833 @@ BOOK.glossary = [
   "w": "antiquity",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "a very old object from ancient times (often: antiquities)",
+  "defExtra": true
  },
  {
   "w": "appearance",
   "pos": "noun",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "the way someone or something looks",
+  "defExtra": true
  },
  {
   "w": "application",
   "pos": "noun",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "a program on a phone or computer (an app)",
+  "defExtra": true
  },
  {
   "w": "approach",
   "pos": "verb",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "a way of dealing with a problem (as a verb: to come near)",
+  "defExtra": true
  },
  {
   "w": "arrangement",
   "pos": "noun",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "a plan that you have made with someone for the future",
+  "defExtra": true
  },
  {
   "w": "arrow",
   "pos": "noun",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "a thin stick with a sharp point that you shoot from a bow",
+  "defExtra": true
  },
  {
   "w": "assume",
   "pos": "verb",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "to think something is true without being sure",
+  "defExtra": true
  },
  {
   "w": "astonished",
   "pos": "adjective",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "very surprised",
+  "defExtra": true
  },
  {
   "w": "atmosphere",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "the feeling that a place gives you",
+  "defExtra": true
  },
  {
   "w": "attitude",
   "pos": "noun",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "the way you think and feel about something",
+  "defExtra": true
  },
  {
   "w": "audience",
   "pos": "noun",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "the people who watch or listen to a presentation or show",
+  "defExtra": true
  },
  {
   "w": "ban",
   "pos": "verb",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "to say officially that people must not do or use something",
+  "defExtra": true
  },
  {
   "w": "bargain",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "something you buy for a low price",
+  "defExtra": true
  },
  {
   "w": "barrier",
   "pos": "noun",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "something that stops you from doing something",
+  "defExtra": true
  },
  {
   "w": "bead",
   "pos": "noun",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "a small ball of glass, wood or stone with a hole, used to make jewellery",
+  "defExtra": true
  },
  {
   "w": "beg",
   "pos": "verb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "to ask for something in a strong, worried way",
+  "defExtra": true
  },
  {
   "w": "bracelet",
   "pos": "noun",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "a piece of jewellery that you wear around your wrist",
+  "defExtra": true
  },
  {
   "w": "capable",
   "pos": "adjective",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "able to do something well",
+  "defExtra": true
  },
  {
   "w": "carpet",
   "pos": "noun",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "a thick cloth that covers a floor",
+  "defExtra": true
  },
  {
   "w": "casual",
   "pos": "adjective",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "informal, for everyday use",
+  "defExtra": true
  },
  {
   "w": "cavern",
   "pos": "noun",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "a large cave",
+  "defExtra": true
  },
  {
   "w": "chairman",
   "pos": "noun",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "the person who leads a company’s meetings and board",
+  "defExtra": true
  },
  {
   "w": "chandelier",
   "pos": "noun",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "a big decorated light that hangs from the ceiling",
+  "defExtra": true
  },
  {
   "w": "collection",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "a group of things that someone has gathered and kept",
+  "defExtra": true
  },
  {
   "w": "combine",
   "pos": "verb",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "to join two or more things together",
+  "defExtra": true
  },
  {
   "w": "community",
   "pos": "noun",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "the people who live in one place",
+  "defExtra": true
  },
  {
   "w": "compelled",
   "pos": "adjective",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "made to do something; you have no choice",
+  "defExtra": true
  },
  {
   "w": "conduct",
   "pos": "verb",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "to organise and do an activity, like an interview",
+  "defExtra": true
  },
  {
   "w": "confuse",
   "pos": "verb",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "to think that one thing is another thing; to mix two things up",
+  "defExtra": true
  },
  {
   "w": "consequence",
   "pos": "noun",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "a result of something that happened",
+  "defExtra": true
  },
  {
   "w": "content",
   "pos": "noun",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "the information and ideas in a talk, book or website",
+  "defExtra": true
  },
  {
   "w": "convey",
   "pos": "verb",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "to give information, ideas or feelings to someone",
+  "defExtra": true
  },
  {
   "w": "cool down",
   "pos": "phrasal verb",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "to do slow, easy exercise at the end so your body can relax",
+  "defExtra": true
  },
  {
   "w": "counting",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "saying numbers in order to find how many",
+  "defExtra": true
  },
  {
   "w": "countless",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "too many to count",
+  "defExtra": true
  },
  {
   "w": "crowd",
   "pos": "noun",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "a large group of people in one place",
+  "defExtra": true
  },
  {
   "w": "cruel",
   "pos": "adjective",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "causing pain to people or animals on purpose",
+  "defExtra": true
  },
  {
   "w": "defend",
   "pos": "verb",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "to say that something is good or right when others attack it",
+  "defExtra": true
  },
  {
   "w": "deliver",
   "pos": "verb",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "to take a message or thing to someone",
+  "defExtra": true
  },
  {
   "w": "demote",
   "pos": "verb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "to move someone to a lower job",
+  "defExtra": true
  },
  {
   "w": "department",
   "pos": "noun",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "one part of a big company, school or organisation",
+  "defExtra": true
  },
  {
   "w": "destination",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "the place where someone is going",
+  "defExtra": true
  },
  {
   "w": "detail",
   "pos": "noun",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "a small fact or part of something",
+  "defExtra": true
  },
  {
   "w": "determination",
   "pos": "noun",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "the strong wish to do something even when it is difficult",
+  "defExtra": true
  },
  {
   "w": "directly",
   "pos": "adverb",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "straight, without stopping or going through something else",
+  "defExtra": true
  },
  {
   "w": "dispose of",
   "pos": "phrasal verb",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "to throw away, e.g. rubbish",
+  "defExtra": true
  },
  {
   "w": "donate",
   "pos": "verb",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "to give money or things to help people",
+  "defExtra": true
  },
  {
   "w": "dramatic",
   "pos": "adjective",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "big, sudden and exciting",
+  "defExtra": true
  },
  {
   "w": "drop out",
   "pos": "phrasal verb",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "(here) to fall or jump down out of something; also: to leave school or a course early",
+  "defExtra": true
  },
  {
   "w": "efficiently",
   "pos": "adverb",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "quickly and well, without wasting time or effort",
+  "defExtra": true
  },
  {
   "w": "electrical",
   "pos": "adjective",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "working with electricity",
+  "defExtra": true
  },
  {
   "w": "emphasise",
   "pos": "verb",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "to show that something is important",
+  "defExtra": true
  },
  {
   "w": "employ",
   "pos": "verb",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "to give someone a job and pay them",
+  "defExtra": true
  },
  {
   "w": "engage",
   "pos": "verb",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "to get and keep someone’s interest or feelings",
+  "defExtra": true
  },
  {
   "w": "entirely",
   "pos": "adverb",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "completely; in every way",
+  "defExtra": true
  },
  {
   "w": "equator",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "the imaginary line around the middle of the Earth",
+  "defExtra": true
  },
  {
   "w": "exceptionally",
   "pos": "adverb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "very; much more than usual",
+  "defExtra": true
  },
  {
   "w": "exchange",
   "pos": "verb",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "to give something and get something back",
+  "defExtra": true
  },
  {
   "w": "exhibit",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "an object that people can see in a museum",
+  "defExtra": true
  },
  {
   "w": "expert",
   "pos": "noun",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "a person who knows a lot about a subject",
+  "defExtra": true
  },
  {
   "w": "extremely",
   "pos": "adverb",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "very, very much",
+  "defExtra": true
  },
  {
   "w": "feature",
   "pos": "noun",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "an important or useful part of something",
+  "defExtra": true
  },
  {
   "w": "fictional",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "not real; made up by a writer",
+  "defExtra": true
  },
  {
   "w": "flexible",
   "pos": "adjective",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "able to bend your body easily",
+  "defExtra": true
  },
  {
   "w": "float",
   "pos": "verb",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "to move slowly in the air or on water without falling",
+  "defExtra": true
  },
  {
   "w": "fortune",
   "pos": "noun",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "a very large amount of money",
+  "defExtra": true
  },
  {
   "w": "found",
   "pos": "verb",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "to start a company or an organisation (founded = started)",
+  "defExtra": true
  },
  {
   "w": "frequently",
   "pos": "adverb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "often; many times",
+  "defExtra": true
  },
  {
   "w": "furious",
   "pos": "adjective",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "very angry",
+  "defExtra": true
  },
  {
   "w": "gain",
   "pos": "verb",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "to get something, often slowly",
+  "defExtra": true
  },
  {
   "w": "gather",
   "pos": "verb",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "to come together in one place",
+  "defExtra": true
  },
  {
   "w": "generally",
   "pos": "adverb",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "usually; in most cases",
+  "defExtra": true
  },
  {
   "w": "generation",
   "pos": "noun",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "all the people of about the same age in a family or society",
+  "defExtra": true
  },
  {
   "w": "glow",
   "pos": "verb",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "to give a soft, warm light",
+  "defExtra": true
  },
  {
   "w": "gradually",
   "pos": "adverb",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "slowly, little by little, over a period of time",
+  "defExtra": true
  },
  {
   "w": "gravity",
   "pos": "noun",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "the force that pulls things down to the Earth",
+  "defExtra": true
  },
  {
   "w": "grown-up",
   "pos": "noun",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "an adult; a person who is not a child",
+  "defExtra": true
  },
  {
   "w": "handy",
   "pos": "adjective",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "useful and easy to use",
+  "defExtra": true
  },
  {
   "w": "hardship",
   "pos": "noun",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "something that makes life very difficult",
+  "defExtra": true
  },
  {
   "w": "harsh",
   "pos": "adjective",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "very difficult, unkind and unpleasant",
+  "defExtra": true
  },
  {
   "w": "hearty",
   "pos": "adjective",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "(of a meal) big and good; (of a person) warm and friendly",
+  "defExtra": true
  },
  {
   "w": "height",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "how tall someone or something is",
+  "defExtra": true
  },
  {
   "w": "heritage",
   "pos": "noun",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "the traditions and history of a country that people keep",
+  "defExtra": true
  },
  {
   "w": "hire",
   "pos": "verb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "to give someone a job and pay them",
+  "defExtra": true
  },
  {
   "w": "house",
   "pos": "verb",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "to have or keep something inside a building",
+  "defExtra": true
  },
  {
   "w": "humble",
   "pos": "adjective",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "simple and not big or rich",
+  "defExtra": true
  },
  {
   "w": "humidity",
   "pos": "noun",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "the amount of water in the air",
+  "defExtra": true
  },
  {
   "w": "illusion",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "something that looks different from what it really is",
+  "defExtra": true
  },
  {
   "w": "import",
   "pos": "verb",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "to bring things in from another country",
+  "defExtra": true
  },
  {
   "w": "impressive",
   "pos": "adjective",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "very good, big or special, so you admire it",
+  "defExtra": true
  },
  {
   "w": "improve",
   "pos": "verb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "to make something better",
+  "defExtra": true
  },
  {
   "w": "incredibly",
   "pos": "adverb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "in a way that is very surprising, hard to believe",
+  "defExtra": true
  },
  {
   "w": "infection",
   "pos": "noun",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "an illness caused by germs",
+  "defExtra": true
  },
  {
   "w": "influential",
   "pos": "adjective",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "able to change how other people think or act",
+  "defExtra": true
  },
  {
   "w": "inhale",
   "pos": "verb",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "to breathe air (or a smell) into your body",
+  "defExtra": true
  },
  {
   "w": "innocent",
   "pos": "adjective",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "simple and trusting; not knowing much about bad things",
+  "defExtra": true
  },
  {
   "w": "inspire",
   "pos": "verb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "to give someone the wish and the energy to do something good",
+  "defExtra": true
  },
  {
   "w": "instead of",
   "pos": "adverb",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "in the place of; not doing one thing but doing another",
+  "defExtra": true
  },
  {
   "w": "intended",
   "pos": "adjective",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "planned; made for a certain purpose",
+  "defExtra": true
  },
  {
   "w": "involve",
   "pos": "verb",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "to include something as a necessary part",
+  "defExtra": true
  },
  {
   "w": "jobless",
   "pos": "adjective",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "without a job",
+  "defExtra": true
  },
  {
   "w": "justice",
   "pos": "noun",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "fair treatment for everyone",
+  "defExtra": true
  },
  {
   "w": "lack",
   "pos": "verb",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "to not have something, or not have enough of it",
+  "defExtra": true
  },
  {
   "w": "ladder",
   "pos": "noun",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "a set of steps you carry, used to climb up or down",
+  "defExtra": true
  },
  {
   "w": "lead/ led",
@@ -715,540 +947,720 @@ BOOK.glossary = [
   "w": "luxury",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "very expensive and comfortable",
+  "defExtra": true
  },
  {
   "w": "mainly",
   "pos": "adverb",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "mostly; in most cases",
+  "defExtra": true
  },
  {
   "w": "marble",
   "pos": "noun",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "a hard, smooth stone used in buildings",
+  "defExtra": true
  },
  {
   "w": "master",
   "pos": "verb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "to learn to do something very well",
+  "defExtra": true
  },
  {
   "w": "means",
   "pos": "noun",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "a way of doing something (a means / many means — same form)",
+  "defExtra": true
  },
  {
   "w": "modest",
   "pos": "adjective",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "not talking much about how good or clever you are",
+  "defExtra": true
  },
  {
   "w": "motion",
   "pos": "noun",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "movement",
+  "defExtra": true
  },
  {
   "w": "narration",
   "pos": "noun",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "the words you say to explain or tell something",
+  "defExtra": true
  },
  {
   "w": "native",
   "pos": "adjective",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "a native speaker speaks a language as their first language",
+  "defExtra": true
  },
  {
   "w": "nearby",
   "pos": "adjective",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "not far away; close",
+  "defExtra": true
  },
  {
   "w": "necessarily",
   "pos": "adverb",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "in every case; always (often: not necessarily = not always)",
+  "defExtra": true
  },
  {
   "w": "notice",
   "pos": "verb",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "to see or become aware of something",
+  "defExtra": true
  },
  {
   "w": "obesity",
   "pos": "noun",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "being very fat in a way that is bad for your health",
+  "defExtra": true
  },
  {
   "w": "obsessed",
   "pos": "adjective",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "thinking about something all the time, too much",
+  "defExtra": true
  },
  {
   "w": "original",
   "pos": "adjective",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "new and different; not copied",
+  "defExtra": true
  },
  {
   "w": "outwit",
   "pos": "verb",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "to win against someone by being cleverer than them",
+  "defExtra": true
  },
  {
   "w": "oval",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "shaped like an egg",
+  "defExtra": true
  },
  {
   "w": "overcome",
   "pos": "verb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "to deal with a difficult problem and succeed",
+  "defExtra": true
  },
  {
   "w": "package",
   "pos": "noun",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "the container food comes in",
+  "defExtra": true
  },
  {
   "w": "pass",
   "pos": "verb",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "to go past someone or something",
+  "defExtra": true
  },
  {
   "w": "please",
   "pos": "verb",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "to make someone happy or satisfied",
+  "defExtra": true
  },
  {
   "w": "pleasure",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "a feeling of happiness and enjoyment",
+  "defExtra": true
  },
  {
   "w": "plunge in",
   "pos": "phrasal verb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "to jump or dive quickly into water",
+  "defExtra": true
  },
  {
   "w": "pot",
   "pos": "noun",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "a round container for cooking or keeping things in",
+  "defExtra": true
  },
  {
   "w": "president",
   "pos": "noun",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "the leader of a country, a company or a club",
+  "defExtra": true
  },
  {
   "w": "previously",
   "pos": "adverb",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "before now; earlier",
+  "defExtra": true
  },
  {
   "w": "product",
   "pos": "noun",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "something that is made to be sold",
+  "defExtra": true
  },
  {
   "w": "profitable",
   "pos": "adjective",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "making a lot of money; bringing benefit",
+  "defExtra": true
  },
  {
   "w": "promise",
   "pos": "verb",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "to say that you will certainly do something",
+  "defExtra": true
  },
  {
   "w": "proud",
   "pos": "adjective",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "thinking you are better or more important than other people (or feeling happy about something you did)",
+  "defExtra": true
  },
  {
   "w": "provide",
   "pos": "verb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "to give something that is needed",
+  "defExtra": true
  },
  {
   "w": "pure",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "not mixed with anything else",
+  "defExtra": true
  },
  {
   "w": "quality",
   "pos": "noun",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "a good thing in a person’s character (plural: qualities)",
+  "defExtra": true
  },
  {
   "w": "quit",
   "pos": "verb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "to leave your job",
+  "defExtra": true
  },
  {
   "w": "raise",
   "pos": "verb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "to collect money for something",
+  "defExtra": true
  },
  {
   "w": "reach out",
   "pos": "phrasal verb",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "to try to communicate with people or help them",
+  "defExtra": true
  },
  {
   "w": "reaction",
   "pos": "noun",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "what you say, do or feel because of something",
+  "defExtra": true
  },
  {
   "w": "recently",
   "pos": "adverb",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "a short time ago",
+  "defExtra": true
  },
  {
   "w": "recount",
   "pos": "verb",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "to tell a story about something that happened",
+  "defExtra": true
  },
  {
   "w": "reflect",
   "pos": "verb",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "to show a picture of something, like a mirror",
+  "defExtra": true
  },
  {
   "w": "regimen",
   "pos": "noun",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "a plan of exercise (or food) that you follow regularly",
+  "defExtra": true
  },
  {
   "w": "reinforce",
   "pos": "verb",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "to make an idea stronger",
+  "defExtra": true
  },
  {
   "w": "remote",
   "pos": "adjective",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "far away; controlled from far away",
+  "defExtra": true
  },
  {
   "w": "resistance",
   "pos": "noun",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "exercise where your muscles push or lift against a weight",
+  "defExtra": true
  },
  {
   "w": "restriction",
   "pos": "noun",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "a rule that limits what you can do",
+  "defExtra": true
  },
  {
   "w": "return",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "going to a place and coming back",
+  "defExtra": true
  },
  {
   "w": "risk",
   "pos": "noun",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "the chance that something bad will happen",
+  "defExtra": true
  },
  {
   "w": "royal",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "of or about kings and queens",
+  "defExtra": true
  },
  {
   "w": "ruins",
   "pos": "noun",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "the parts of old buildings or cities that are left after they are destroyed",
+  "defExtra": true
  },
  {
   "w": "schedule",
   "pos": "noun",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "a plan of what you will do and when",
+  "defExtra": true
  },
  {
   "w": "sculpture",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "a piece of art made from stone, wood or metal",
+  "defExtra": true
  },
  {
   "w": "securely",
   "pos": "adverb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "tightly and safely, so it will not move or fall",
+  "defExtra": true
  },
  {
   "w": "sensitive",
   "pos": "adjective",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "easily affected by what people say or do; noticing small changes",
+  "defExtra": true
  },
  {
   "w": "separate",
   "pos": "adjective",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "not joined; different",
+  "defExtra": true
  },
  {
   "w": "session",
   "pos": "noun",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "a period of time when you do one activity",
+  "defExtra": true
  },
  {
   "w": "sight",
   "pos": "noun",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "the ability to see",
+  "defExtra": true
  },
  {
   "w": "sightseeing",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "visiting interesting places as a tourist",
+  "defExtra": true
  },
  {
   "w": "skill",
   "pos": "noun",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "something you can do well because you practised",
+  "defExtra": true
  },
  {
   "w": "skillful",
   "pos": "adjective",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "very good at doing something because of practice",
+  "defExtra": true
  },
  {
   "w": "skin",
   "pos": "noun",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "the outer layer of your body",
+  "defExtra": true
  },
  {
   "w": "specialised",
   "pos": "adjective",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "made for one special use",
+  "defExtra": true
  },
  {
   "w": "spectacular",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "very exciting and beautiful to look at",
+  "defExtra": true
  },
  {
   "w": "spoil",
   "pos": "verb",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "to ruin something, e.g. by telling the end of a story",
+  "defExtra": true
  },
  {
   "w": "spread",
   "pos": "verb",
   "unit": 10,
-  "page": 99
+  "page": 99,
+  "def": "to make something reach more people or places",
+  "defExtra": true
  },
  {
   "w": "sprinting",
   "pos": "noun",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "running very fast for a short distance",
+  "defExtra": true
  },
  {
   "w": "stingy",
   "pos": "adjective",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "not liking to give or share money or things",
+  "defExtra": true
  },
  {
   "w": "strict",
   "pos": "adjective",
   "unit": 1,
-  "page": 96
+  "page": 96,
+  "def": "that must be followed exactly",
+  "defExtra": true
  },
  {
   "w": "suitable",
   "pos": "adjective",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "right for a person or a situation",
+  "defExtra": true
  },
  {
   "w": "talented",
   "pos": "adjective",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "having a natural ability to do something well",
+  "defExtra": true
  },
  {
   "w": "theme",
   "pos": "noun",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "the design and colours of a website",
+  "defExtra": true
  },
  {
   "w": "thrilled",
   "pos": "adjective",
   "unit": 6,
-  "page": 97
+  "page": 97,
+  "def": "very happy and excited",
+  "defExtra": true
  },
  {
   "w": "throughout",
   "pos": "preposition",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "during the whole time of something",
+  "defExtra": true
  },
  {
   "w": "tool",
   "pos": "verb",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "something that helps you do a job",
+  "defExtra": true
  },
  {
   "w": "trap",
   "pos": "noun",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "a clever plan to catch someone",
+  "defExtra": true
  },
  {
   "w": "trust",
   "pos": "noun",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "believing that someone is honest and good",
+  "defExtra": true
  },
  {
   "w": "tug on",
   "pos": "phrasal verb",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "to pull something quickly and strongly",
+  "defExtra": true
  },
  {
   "w": "unfairly",
   "pos": "adverb",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "in a way that is not right or not equal",
+  "defExtra": true
  },
  {
   "w": "unique",
   "pos": "adjective",
   "unit": 5,
-  "page": 97
+  "page": 97,
+  "def": "very special; not like anything else",
+  "defExtra": true
  },
  {
   "w": "universe",
   "pos": "noun",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "everything that exists: all space, stars and planets",
+  "defExtra": true
  },
  {
   "w": "unrealistic",
   "pos": "adjective",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "not real or not possible in real life",
+  "defExtra": true
  },
  {
   "w": "unusual",
   "pos": "adjective",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "different from what is normal",
+  "defExtra": true
  },
  {
   "w": "various",
   "pos": "adjective",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "many different",
+  "defExtra": true
  },
  {
   "w": "voluntary",
   "pos": "adjective",
   "unit": 2,
-  "page": 96
+  "page": 96,
+  "def": "done because you want to help, without pay",
+  "defExtra": true
  },
  {
   "w": "vote",
   "pos": "verb",
   "unit": 11,
-  "page": 99
+  "page": 99,
+  "def": "to choose formally, for example by raising your hand",
+  "defExtra": true
  },
  {
   "w": "wage",
   "pos": "noun",
   "unit": 3,
-  "page": 96
+  "page": 96,
+  "def": "money you get for your work (often every week)",
+  "defExtra": true
  },
  {
   "w": "wearable",
   "pos": "adjective",
   "unit": 8,
-  "page": 98
+  "page": 98,
+  "def": "made to be worn on your body",
+  "defExtra": true
  },
  {
   "w": "widespread",
   "pos": "adjective",
   "unit": 12,
-  "page": 99
+  "page": 99,
+  "def": "found or done in many places",
+  "defExtra": true
  },
  {
   "w": "wisdom",
   "pos": "noun",
   "unit": 9,
-  "page": 98
+  "page": 98,
+  "def": "good judgment and knowledge that comes from experience",
+  "defExtra": true
  },
  {
   "w": "worth",
   "pos": "adjective",
   "unit": 7,
-  "page": 98
+  "page": 98,
+  "def": "having a value (of money or importance)",
+  "defExtra": true
  },
  {
   "w": "wound",
   "pos": "noun",
   "unit": 4,
-  "page": 97
+  "page": 97,
+  "def": "a cut or injury on the body",
+  "defExtra": true
  }
 ];

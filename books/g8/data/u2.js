@@ -71,7 +71,7 @@ BOOK.addUnit({
           ],
           speaker: "Webpage" },
 
-        { type: "activity", title: "Answer the questions (1, 2, 5, 6).", page: 21, source: "book",
+        { type: "activity", title: "Answer the questions (1, 2).", page: 21, source: "book",
           instructions: "Answer the questions. Use the webpage.", instructionsAr: "أجب عن الأسئلة من النص.",
           items: [
             { t: "short", q: "1. What are the benefits of blogs?",
@@ -79,12 +79,7 @@ BOOK.addUnit({
               keywords: [["connect", "communicate", "share", "world"]], hint: "Read the first and the last paragraphs." },
             { t: "short", q: "2. Why is it important to keep your password and username secure?",
               model: "To be able to log into your account (and so that nobody else can use it).",
-              keywords: [["log", "account"]], hint: "Read Step 5." },
-            { t: "short", q: "5. What is the main idea of the last paragraph?",
-              model: "Blogging is a great way to communicate, but we must be careful: we should not post personal information or photos, and we should consider our Islamic values and traditions.",
-              keywords: [["communicat", "careful", "personal", "values"]], hint: "The first sentence + the word “but”." },
-            { t: "short", q: "6. What kinds of blogs do you like? Why?",
-              model: "I like sports blogs because I can read about my favourite teams.", open: true, hint: "I like … blogs because …" }
+              keywords: [["log", "account"]], hint: "Read Step 5." }
           ] },
 
         { type: "activity", title: "3. Find words in the passage that have the same meanings as (photos, connect).", page: 21, source: "book",
@@ -99,6 +94,16 @@ BOOK.addUnit({
           items: [
             { t: "fill", q: "costly ≠ ____", answer: ["free"], hint: "“It is easy and … to create your own blog.”", why: "costly = expensive; the opposite is free." },
             { t: "fill", q: "log out ≠ ____", answer: ["log into", "log in", "log in to"], hint: "Step 1.", why: "“Step 1: Log into: www.wordpress.com” – log into is the opposite of log out." }
+          ] },
+
+        { type: "activity", title: "Answer the questions (5, 6).", page: 21, source: "book",
+          instructions: "Answer the questions. Use the webpage.", instructionsAr: "أجب عن الأسئلة من النص.",
+          items: [
+            { t: "short", q: "5. What is the main idea of the last paragraph?",
+              model: "Blogging is a great way to communicate, but we must be careful: we should not post personal information or photos, and we should consider our Islamic values and traditions.",
+              keywords: [["communicat", "careful", "personal", "values"]], hint: "The first sentence + the word “but”." },
+            { t: "short", q: "6. What kinds of blogs do you like? Why?",
+              model: "I like sports blogs because I can read about my favourite teams.", open: true, hint: "I like … blogs because …" }
           ] },
 
         { type: "activity", title: "Extra Practice: Put the steps in order", source: "extra", stage: "guided",

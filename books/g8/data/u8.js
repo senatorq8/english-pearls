@@ -222,8 +222,8 @@ BOOK.addUnit({
             { t: "table", q: "2. By the time I ……… (arrive), my kids ……… (finish) their meal.",
               head: ["arrive", "finish"],
               rows: [[{ answer: ["arrived"], model: "arrived" }, { answer: ["had finished", "'d finished", "had already finished"], model: "had finished" }]] },
-            { t: "fill", q: "3. I couldn’t remember where I ____ (see) that man.", answer: ["had seen", "'d seen"], hint: "Seeing the man happened before “couldn’t remember”.",
-              why: "The earlier action (seeing the man) → past perfect: had seen." }
+            { t: "fill", q: "3. I couldn’t remember where I ____ (see) that man.", answer: ["had seen", "'d seen", "saw"], hint: "Seeing the man happened before “couldn’t remember”.",
+              why: "The earlier action (seeing the man) → past perfect: had seen. (“saw” is also heard in everyday English, but this lesson practises had seen.)" }
           ] },
 
         { type: "activity", title: "Extra Practice: Step 1 — Which happened first?", source: "extra", stage: "guided",
