@@ -26,7 +26,7 @@
           const V = { wake: ["wake", "s", "up early"], play: ["play", "s", "football"], watch: ["watch", "es", "TV"], go: ["go", "es", "to school"], study: ["stud", "ies", "English"], help: ["help", "s", "at home"] }[st.verb];
           const base = st.verb, rest = V[2], th = isThird(st.subj);
           if (st.form === "+") {
-            if (th) return { s: "{s:" + st.subj + "} {v:" + V[0] + "}{x:" + V[1] + "} " + rest + " {t:every day}.", badge: "he / she / it → add -" + V[1], badgeKind: "good", rule: "{s:he / she / it} + {v:verb}{x:-s}",
+            if (th) return { s: "{s:" + st.subj + "} {v:" + V[0] + "}{x:" + V[1] + "} " + rest + " {t:every day}.", badge: base === "study" ? "he / she / it → y → ies" : "he / she / it → add -" + V[1], badgeKind: "good", rule: "{s:he / she / it} + {v:verb}{x:-s / -es}",
               note: base === "study" ? "study ends in a consonant + y: y → ies (studies)." : V[1] === "es" ? base + " → " + base + "es: add -es." : "One person (he, she, it) → add -s to the verb.",
               noteAr: base === "study" ? "الفعل study ينتهي بحرف ساكن ثم y، فنحذف y ونضيف ies." : V[1] === "es" ? "نضيف es للفعل " + base + "." : "مع he و she و it (شخص واحد) نضيف s للفعل." };
             return { s: "{s:" + st.subj + "} {v:" + base + "} " + rest + " {t:every day}.", badge: "no -s", rule: "{s:I / you / we / they} + {v:base verb}", note: "I, you, we and they → the base verb, no -s.", noteAr: "مع I و you و we و they نستخدم الفعل الأصلي بدون s." };
@@ -115,13 +115,14 @@
         controls: [
           { id: "modal", label: "Modal", options: ["must", "should", "may", "can"], start: "can" },
           { id: "subj", label: "Subject", options: ["I", "You", "He", "She", "We", "They"], start: "He" },
-          { id: "verb", label: "Verb", options: [{ v: "{v:swim}", t: "swim" }, { v: "{v:help} {o:others}", t: "help others" }, { v: "{v:be} polite", t: "be polite" }, { v: "{v:listen} to the teacher", t: "listen to the teacher" }, { v: "{v:drive} safely", t: "drive safely" }] }
+          { id: "idea", label: "Example", options: [{ v: "0", t: "idea 1" }, { v: "1", t: "idea 2" }] }
         ],
         build(st) {
           const job = { must: "strong obligation", should: "advice", may: "possibility", can: "ability" }[st.modal];
           const jobAr = { must: "إلزام قوي", should: "نصيحة", may: "احتمال", can: "قدرة" }[st.modal];
+          const IDEAS = { must: ["{v:drive} safely in the street", "{v:wear} {o:a seat belt}"], should: ["{v:be} polite with people", "{v:listen} to the teacher"], may: ["{v:be} tired after the match", "{v:be} late {t:today}"], can: ["{v:swim}", "{v:speak} {o:English}"] };
           const th = isThird(st.subj);
-          return { s: "{s:" + st.subj + "} {a:" + st.modal + "} " + st.verb + ".", badge: st.modal + " = " + job, badgeKind: "good", rule: "{a:modal} + {v:base verb}",
+          return { s: "{s:" + st.subj + "} {a:" + st.modal + "} " + IDEAS[st.modal][+st.idea] + ".", badge: st.modal + " = " + job, badgeKind: "good", rule: "{a:modal} + {v:base verb}",
             note: th ? "Even with " + low(st.subj) + ": no -s after a modal." : "Modal + base verb. No -s, no -ing, no to.",
             noteAr: st.modal + " = " + jobAr + ". بعد الفعل المساعد يأتي الفعل الأصلي بدون s وبدون ing وبدون to." };
         }
@@ -218,7 +219,7 @@
           let note, noteAr;
           if (unc) { note = st.noun + " is uncountable: no a / an and no -s. Use " + det + (st.form === "+" ? " in positive sentences." : " in negatives and questions."); noteAr = "كلمة " + st.noun + " غير معدودة: لا نستخدم a أو an ولا نضيف s. نستخدم some في الإثبات و any في النفي والسؤال."; }
           else if (st.num === "1") { note = vowel ? "an before a vowel sound: an " + st.noun + "." : "a before a consonant sound: a " + st.noun + "."; noteAr = vowel ? "نستخدم an قبل الكلمة التي تبدأ بصوت حرف علة." : "نستخدم a قبل الكلمة التي تبدأ بصوت حرف ساكن."; }
-          else { note = "More than one → add -" + (st.noun === "dish" ? "es" : "s") + ". Use " + det + (st.form === "+" ? " in positive sentences." : " in negatives and questions."); noteAr = "أكثر من واحد: نضيف s، ونستخدم some في الإثبات و any في النفي والسؤال."; }
+          else { note = "More than one → add -" + (st.noun === "dish" ? "es" : "s") + ". Use " + det + (st.form === "+" ? " in positive sentences." : " in negatives and questions."); noteAr = "أكثر من واحد: نضيف " + (st.noun === "dish" ? "es" : "s") + "، ونستخدم some في الإثبات و any في النفي والسؤال."; }
           return { s, badge: unc ? "uncountable ✗ 1, 2, 3" : "countable ✓ 1, 2, 3", badgeKind: unc ? "warn" : "good", rule: unc ? "{t:some / any} + {o:uncountable noun}" : st.num === "1" ? "{t:a / an} + {o:one thing}" : "{t:some / any} + {o:noun}{x:-s}", note, noteAr };
         }
       },
@@ -237,13 +238,13 @@
         intro: "Choose a sentence and a form. Watch the object move to the front.",
         introAr: "اختر جملة وصيغة، وشاهد المفعول به ينتقل إلى أول الجملة.",
         controls: [
-          { id: "sen", label: "Sentence", options: [{ v: "candy", t: "Ahmed eats candy." }, { v: "houses", t: "People decorate houses." }, { v: "dishes", t: "Families prepare dishes." }, { v: "party", t: "My friends invite me to the party." }] },
+          { id: "sen", label: "Sentence", options: [{ v: "veg", t: "Ahmed eats vegetables." }, { v: "houses", t: "People decorate houses." }, { v: "dishes", t: "Families prepare dishes." }, { v: "party", t: "My friends invite me to the party." }] },
           { id: "form", label: "Form", options: [{ v: "", t: "present simple" }, { v: "can", t: "can" }, { v: "should", t: "should" }, { v: "must", t: "must" }] },
           { id: "by", label: "Doer", options: [{ v: "y", t: "with by + doer" }, { v: "n", t: "without by" }] }
         ],
         build(st) {
           const D = {
-            candy: { doer: "Ahmed", v1: "eat", v1s: "eats", v3: "eaten", obj: "candy", ps: "Candy", be: "is", tail: "", by: "by Ahmed" },
+            veg: { doer: "Ahmed", v1: "eat", v1s: "eats", v3: "eaten", obj: "vegetables", ps: "Vegetables", be: "are", tail: "", by: "by Ahmed" },
             houses: { doer: "People", v1: "decorate", v1s: "decorate", v3: "decorated", obj: "houses", ps: "Houses", be: "are", tail: "", by: "by people" },
             dishes: { doer: "Families", v1: "prepare", v1s: "prepare", v3: "prepared", obj: "dishes", ps: "Dishes", be: "are", tail: "", by: "by families" },
             party: { doer: "My friends", v1: "invite", v1s: "invite", v3: "invited", obj: "me", ps: "I", be: "am", tail: " to the party", by: "by my friends" }
@@ -253,7 +254,7 @@
           return { from, fromLabel: "Active", s, badge: "Passive · verb 3: " + D.v3, badgeKind: "good",
             rule: st.form ? "{s:subject} + {a:modal + be} + {v:verb 3}" : "{s:subject} + {a:am / is / are} + {v:verb 3}",
             note: st.form ? "With a modal: " + st.form + " + be + " + D.v3 + ". (not " + st.form + " " + D.be + ")" : D.ps + " → " + D.be + " + verb 3 (" + D.v3 + ")." + (st.by === "n" ? " We can leave out by + doer when it is not important." : ""),
-            noteAr: st.form ? "مع الأفعال المساعدة: " + st.form + " + be + التصريف الثالث." : "المفعول به " + D.obj + " صار فاعلًا، ثم am أو is أو are، ثم التصريف الثالث " + D.v3 + "." };
+            noteAr: st.form ? "مع الأفعال المساعدة: " + st.form + " + be + التصريف الثالث." :  "المفعول به " + D.obj + (D.obj === "me" ? " (I)" : "") + " صار فاعلًا، ثم am أو is أو are، ثم التصريف الثالث " + D.v3 + "." };
         }
       },
       predict: {

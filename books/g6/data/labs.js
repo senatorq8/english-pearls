@@ -113,12 +113,12 @@
         introAr: "اختر شخصًا وموقفًا، وحرّك جملة If إلى البداية أو النهاية.",
         controls: [
           { id: "subj", label: "Subject", options: ["I", "You", "We", "They", "He", "She", "Sara"], start: "Sara" },
-          { id: "sit", label: "Situation", options: [{ v: "late", t: "wake up late → miss the bus" }, { v: "study", t: "study hard → pass the exam" }, { v: "homework", t: "finish the homework → go to the park" }, { v: "london", t: "visit London → see Big Ben" }] },
+          { id: "sit", label: "Situation", options: [{ v: "late", t: "wake up late → miss the bus" }, { v: "study", t: "study hard → pass the exam" }, { v: "homework", t: "finish homework → go to the park" }, { v: "london", t: "visit London → see Big Ben" }] },
           { id: "order", label: "Order", options: [{ v: "if1", t: "If part first" }, { v: "if2", t: "If part second" }] },
           { id: "short", label: "will", options: [{ v: "will", t: "will" }, { v: "ll", t: "’ll (short)" }] }
         ],
         build(st) {
-          const X = { late: ["wake", "s", "up late", "miss", "the bus"], study: ["stud", "ies", "hard", "pass", "the exam"], homework: ["finish", "es", "the homework", "go", "to the park"], london: ["visit", "s", "London", "see", "Big Ben"] }[st.sit];
+          const X = { late: ["wake", "s", "up late", "miss", "the bus"], study: ["stud", "ies", "hard", "pass", "the exam"], homework: ["finish", "es", { I: "my", You: "your", We: "our", They: "their", He: "his", She: "her", Sara: "her" }[st.subj] + " homework", "go", "to the park"], london: ["visit", "s", "London", "see", "Big Ben"] }[st.sit];
           const th = isThird(st.subj), base = st.sit === "study" ? "study" : X[0];
           const ifVerb = th ? "{v:" + X[0] + "}{x:" + X[1] + "}" : "{v:" + base + "}";
           const pr = PRON[st.subj];
@@ -129,7 +129,7 @@
           const result = will(st.order === "if1" ? resSubj : cap(resSubj)) + " {v:" + X[3] + "} " + X[4];
           const s = st.order === "if1" ? ifPart + ", " + result + "." : result + " " + ifPart.replace("{c:If}", "{c:if}") + ".";
           return { s, badge: "No will in the If part!", badgeKind: "warn", rule: "{c:If} + {v:present simple}, {a:will} + {v:base verb}",
-            note: (st.short === "ll" && st.order === "if2" && st.subj === "Sara" ? "After a name we write will in full: Sara will. " : "") + (th ? "In the If part, " + st.subj + " → add -" + X[1] + ": " + (base === "study" ? "studies" : X[0] + X[1]) + ". " : "") + (st.order === "if1" ? "If part first → put a comma." : "If part second → no comma."),
+            note: (st.short === "ll" && st.order === "if2" && st.subj === "Sara" ? "With a name we usually write will in full: Sara will. " : "") + (th ? "In the If part, " + low(st.subj) + " → add -" + X[1] + ": " + (base === "study" ? "studies" : X[0] + X[1]) + ". " : "") + (st.order === "if1" ? "If part first → put a comma." : "If part second → no comma."),
             noteAr: "في جملة If نستخدم المضارع البسيط، وفي الجملة الأخرى will مع الفعل الأصلي. " + (st.order === "if1" ? "إذا بدأنا بـ If نضع فاصلة." : "إذا جاءت If في الوسط لا نضع فاصلة.") };
         }
       },
@@ -181,14 +181,15 @@
         controls: [
           { id: "subj", label: "Subject", options: ["I", "You", "He", "She", "We", "They", "Ali"], start: "Ali" },
           { id: "form", label: "Sentence", options: [{ v: "+", t: "✔ will (plan)" }, { v: "-", t: "✖ won’t (promise not to)" }, { v: "?", t: "? Will …?" }] },
-          { id: "act", label: "Action", options: [{ v: "{v:plant} a tree", t: "plant a tree" }, { v: "{v:recycle} bottles", t: "recycle bottles" }, { v: "{v:clean} the beach", t: "clean the beach" }, { v: "{v:save} water", t: "save water" }, { v: "{v:visit} Grandma", t: "visit Grandma" }] },
+          { id: "act", label: "Action", options: [{ v: "{v:plant} a tree", t: "plant a tree" }, { v: "{v:recycle} bottles", t: "recycle bottles" }, { v: "{v:clean} the beach", t: "clean the beach" }, { v: "{v:save} water", t: "save water" }, { v: "{v:visit} Grandma", t: "visit Grandma" }], show: (st) => st.form !== "-" },
+          { id: "bad", label: "Promise not to", options: [{ v: "{v:waste} water", t: "waste water" }, { v: "{v:throw} litter on the beach", t: "throw litter on the beach" }, { v: "{v:cut down} trees", t: "cut down trees" }, { v: "{v:talk} in class", t: "talk in class" }], show: (st) => st.form === "-" },
           { id: "time", label: "Time", kind: "slider", options: ["tonight", "tomorrow", "this weekend", "next week"] }
         ],
         build(st) {
           const th = isThird(st.subj);
           const n = th ? " Even with " + low(st.subj) + ": no -s after will." : "";
           if (st.form === "+") return { s: "{s:" + st.subj + "} {a:will} " + st.act + " {t:" + st.time + "}.", badge: "will = a plan", badgeKind: "good", rule: "{s:any subject} + {a:will} + {v:base verb}", note: "will + base verb. No -s, no -ing, no to." + n, noteAr: "will مع كل الفواعل، وبعدها الفعل الأصلي بدون s وبدون ing وبدون to." };
-          if (st.form === "-") return { s: "{s:" + st.subj + "} {n:won’t} " + st.act + " {t:" + st.time + "}.", badge: "won’t = will not", badgeKind: "warn", rule: "{s:any subject} + {n:won’t} + {v:base verb}", note: "won’t = will not. Then the base verb." + n, noteAr: "won’t = will not، وبعدها الفعل الأصلي." };
+          if (st.form === "-") return { s: "{s:" + st.subj + "} {n:won’t} " + st.bad + " {t:" + st.time + "}.", badge: "won’t = will not", badgeKind: "warn", rule: "{s:any subject} + {n:won’t} + {v:base verb}", note: "won’t = will not. Then the base verb." + n, noteAr: "won’t = will not، وبعدها الفعل الأصلي." };
           return { s: "{a:Will} {s:" + low(st.subj) + "} " + st.act + " {t:" + st.time + "}?", badge: "Will + subject + base verb?", rule: "{a:Will} + {s:subject} + {v:base verb}?", note: "Start the question with Will.", noteAr: "نبدأ السؤال بـ Will." };
         }
       },
@@ -207,13 +208,13 @@
         intro: "Choose a noun. Then try a relative pronoun. Is it right?",
         introAr: "اختر اسمًا ثم جرّب ضمير الوصل. هل هو صحيح؟",
         controls: [
-          { id: "noun", label: "Noun", options: [{ v: "boy", t: "the boy (person)" }, { v: "teacher", t: "my teacher (person)" }, { v: "cat", t: "the cat (animal)" }, { v: "book", t: "a book (thing)" }, { v: "shop", t: "the shop (place)" }, { v: "park", t: "the park (place)" }, { v: "day", t: "the day (time)" }] },
+          { id: "noun", label: "Noun", options: [{ v: "boy", t: "the boy (person)" }, { v: "teacher", t: "a teacher (person)" }, { v: "cat", t: "the cat (animal)" }, { v: "book", t: "a book (thing)" }, { v: "shop", t: "the shop (place)" }, { v: "park", t: "the park (place)" }, { v: "day", t: "the day (time)" }] },
           { id: "rp", label: "Try a pronoun", options: ["who", "which", "when", "where"] }
         ],
         build(st) {
           const N = {
             boy: ["This is the boy. The boy plays football.", "This is {o:the boy} ", " plays football.", "who", "the boy is a person"],
-            teacher: ["This is my teacher. My teacher helps me with English.", "This is {o:my teacher} ", " helps me with English.", "who", "my teacher is a person"],
+            teacher: ["I have a teacher. The teacher helps me with English.", "I have {o:a teacher} ", " helps me with English.", "who", "a teacher is a person"],
             cat: ["I saw the cat. The cat drank the milk.", "I saw {o:the cat} ", " drank the milk.", "which", "a cat is an animal"],
             book: ["I have a book. The book has many pictures.", "I have {o:a book} ", " has many pictures.", "which", "a book is a thing"],
             shop: ["This is the shop. I buy books in the shop.", "This is {o:the shop} ", " I buy books.", "where", "the shop is a place"],
