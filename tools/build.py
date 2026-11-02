@@ -33,7 +33,9 @@ def es_check(js, name):
 def build_book(bid, code, grade):
     b = 'books/' + bid
     units = [u for u in ['u1', 'u2', 'u3', 'u4'] if os.path.exists(os.path.join(R, b, 'data', u + '.js'))]
-    js = '\n'.join([rd(b + '/book.js'), 'BOOK.sw = "../sw.js"; BOOK.swScope = "../";'] +
+    vj = os.path.join(R, 'tools', 'voice', bid + '.json')
+    vids = [k for k in (json.load(open(vj, encoding='utf8')) if os.path.exists(vj) else {}) if os.path.exists(os.path.join(R, 'docs', 'voice', k + '.mp3'))]
+    js = '\n'.join([rd(b + '/book.js'), 'BOOK.sw = "../sw.js"; BOOK.swScope = "../"; BOOK.voiceDir = "../voice/"; BOOK.voiceIds = "%s";' % ','.join(sorted(vids))] +
                    [rd('%s/data/%s.js' % (b, u)) for u in units] +
                    [rd(b + '/data/glossary.js')] + ([rd(b + '/data/labs.js')] if os.path.exists(os.path.join(R, b, 'data', 'labs.js')) else []) + [rd('engine/app.js')])
     js = esb(js, 'js', TARGET_JS); es_check(js, bid)
@@ -42,7 +44,7 @@ def build_book(bid, code, grade):
     html = fill(rd('engine/page-head.html')).replace('/*CSS*/', css) + \
            fill(rd('engine/body.html')).replace('/*JS*/', js.replace('</script', '<\\/script')) + '\n</body>\n</html>\n'
     wr('docs/%s/index.html' % bid, html)
-    print('docs/%s/index.html  %d KB  (%d units)' % (bid, len(html) // 1024, len(units)))
+    print('docs/%s/index.html  %d KB  (%d units, %d voice clips)' % (bid, len(html) // 1024, len(units), len(vids)))
 
 for bid, code, grade in BOOKS: build_book(bid, code, grade)
 shutil.copy(os.path.join(R, 'engine/library.html'), os.path.join(R, 'docs/index.html'))

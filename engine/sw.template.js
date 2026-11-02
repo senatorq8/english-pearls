@@ -31,7 +31,7 @@ self.addEventListener("fetch", function (e) {
       }).catch(function () { return caches.match(req, { ignoreSearch: true }).then(function (hit) { return hit || caches.match("index.html"); }); }));
       return;
     }
-    e.respondWith(cacheFirst(req, (url.pathname.indexOf("/img/pages/") !== -1 || url.pathname.indexOf("/audio/") !== -1) ? PAGES : SHELL));
+    e.respondWith(cacheFirst(req, (url.pathname.indexOf("/img/pages/") !== -1 || url.pathname.indexOf("/audio/") !== -1 || url.pathname.indexOf("/voice/") !== -1) ? PAGES : SHELL));
     return;
   }
   if (/fonts\.(googleapis|gstatic)\.com$/.test(url.hostname)) e.respondWith(cacheFirst(req, PAGES));

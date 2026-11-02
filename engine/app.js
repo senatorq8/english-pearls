@@ -61,7 +61,7 @@
   /* ───────────── storage (local, per device) ───────────── */
   const KEY = BOOK.storeKey || "pearls7a.v1";
   const defaults = () => ({
-    settings: { ar: false, mode: "student", sound: true, motion: true, timer: false, rate: 0.9, text: 0, showAns: false, theme: "auto" },
+    settings: { ar: false, mode: "student", sound: true, motion: true, timer: false, rate: 0.9, text: 0, showAns: false, theme: "auto", voice: "natural" },
     items: {}, parts: {}, points: 0, streak: 0, badges: {}, drafts: {}, flips: 0, games: {}, recordings: 0, lastLesson: null, stars: {}
   });
   let S = defaults();
@@ -99,7 +99,59 @@
   }
   const sfx = { good: () => tone([660, 880], 0.14), bad: () => tone([300], 0.22), win: () => tone([523, 659, 784, 1046], 0.13), tap: () => tone([520], 0.05), page: paper };
 
-  /* ───────────── speech (generated voice) ───────────── */
+  /* ───────────── speech ───────────── */
+  // Natural voice: every text the book reads aloud was recorded in advance with an AI voice (Kokoro "George", British)
+  // and saved as voice/<key>.mp3. BOOK.voiceIds lists the keys. Anything not recorded uses the device's own voice.
+  const vkey = (t) => { const k = plain(t).replace(/\s+/g, " ").trim(); return hashStr(k).toString(36) + k.length.toString(36); };
+  const VOICE_IDS = new Set(String(BOOK.voiceIds || "").split(",").filter(Boolean));
+  const VOICE_DIR = BOOK.voiceDir || "../voice/";
+  const collect = (t) => { if (window.__SAY) window.__SAY.push(String(t)); };
+  const CLIP = {
+    el: null,
+    url(text) { if (S.settings.voice === "device" || !VOICE_IDS.size) return null; const k = vkey(text); return VOICE_IDS.has(k) ? VOICE_DIR + k + ".mp3" : null; },
+    blobs: {}, order: [],
+    // fetch the clip as a whole file (works offline through the service worker and on iPad/iPhone), keep the last 60
+    get(url) {
+      if (this.blobs[url]) return Promise.resolve(this.blobs[url]);
+      return fetch(url).then((r) => { if (!r.ok) throw new Error("missing"); return r.blob(); }).then((b) => {
+        const o = URL.createObjectURL(b); this.blobs[url] = o; this.order.push(url);
+        if (this.order.length > 60) { const old = this.order.shift(); try { URL.revokeObjectURL(this.blobs[old]); } catch (e) {} delete this.blobs[old]; }
+        return o;
+      });
+    },
+    // iPhone/iPad only let a page play sound after a tap: play a tiny silent sound on the first tap so later clips can play
+    unlock() {
+      if (this.unlocked) return; this.unlocked = true;
+      const a = this.el || (this.el = new Audio());
+      const n = 400, buf = new Uint8Array(44 + n), dv = new DataView(buf.buffer), str = (o, t) => { for (let i = 0; i < t.length; i++) buf[o + i] = t.charCodeAt(i); };
+      str(0, "RIFF"); dv.setUint32(4, 36 + n, true); str(8, "WAVEfmt "); dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, 1, true);
+      dv.setUint32(24, 8000, true); dv.setUint32(28, 8000, true); dv.setUint16(32, 1, true); dv.setUint16(34, 8, true); str(36, "data"); dv.setUint32(40, n, true); buf.fill(128, 44);
+      let bin = ""; buf.forEach((c) => { bin += String.fromCharCode(c); });
+      a.src = "data:audio/wav;base64," + btoa(bin); const p = a.play(); if (p && p.catch) p.catch(() => {});
+    },
+    play(url, text, opt, u, fallback) {
+      const a = this.el || (this.el = new Audio()); a.preload = "auto";
+      try { a.pause(); } catch (e) {}
+      let raf = 0, done = false;
+      const finish = () => { if (done) return; done = true; cancelAnimationFrame(raf); if (TTS.cur === u) TTS.cur = null; opt.onend && opt.onend(); };
+      a.onended = finish;
+      a.onerror = () => { if (done || TTS.cur !== u) return; done = true; cancelAnimationFrame(raf); fallback(); };
+      this.get(url).then((src) => {
+      if (TTS.cur !== u) return;
+      a.src = src;
+      try { a.preservesPitch = true; a.webkitPreservesPitch = true; a.mozPreservesPitch = true; } catch (e) {}
+      a.playbackRate = Math.max(0.6, Math.min(1.4, (opt.rate || S.settings.rate || 0.9) / 0.9));
+      if (opt.onboundary) {
+        // word highlighting: the recording has no word timings, so move through the words in step with the playing time
+        const words = []; const re = /\S+/g; let m; while ((m = re.exec(text))) words.push(m.index);
+        const tick = () => { if (done) return; if (a.duration && !a.paused) { const lead = 0.12, d = Math.max(0.1, a.duration - 0.35); const f = Math.min(0.999, Math.max(0, (a.currentTime - lead) / d)); const ci = Math.floor(f * text.length); let w = 0; for (let i = 0; i < words.length; i++) if (words[i] <= ci) w = words[i]; opt.onboundary({ name: "word", charIndex: w }); } raf = requestAnimationFrame(tick); };
+        raf = requestAnimationFrame(tick);
+      }
+      const p = a.play(); if (p && p.catch) p.catch(() => { if (!done && TTS.cur === u) { done = true; cancelAnimationFrame(raf); fallback(); } });
+      }).catch(() => { if (!done && TTS.cur === u) { done = true; fallback(); } });
+    },
+    stop() { if (this.el) { try { this.el.pause(); } catch (e) {} } }
+  };
   const IS_IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const TTS = {
     ok: "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined",
@@ -113,6 +165,17 @@
     },
     speak(text, opt) {
       opt = opt || {};
+      const url = CLIP.url(text);
+      if (url) {
+        this.stopDevice(); CLIP.stop();
+        const u = { clip: true }; this.cur = u;
+        CLIP.play(url, plain(text), opt, u, () => { this.cur = null; this.speakDevice(text, opt); });
+        return u;
+      }
+      CLIP.stop();
+      return this.speakDevice(text, opt);
+    },
+    speakDevice(text, opt) {
       if (!this.ok) { toast("Your browser has no speech voice."); opt.onend && opt.onend(); return null; }
       const u = new SpeechSynthesisUtterance(plain(text));
       const v = this.voice || this.pick(); if (v) u.voice = v; u.lang = v ? v.lang : "en-GB";
@@ -133,11 +196,14 @@
       setTimeout(() => { if (!started && this.cur === u && !TTS.warned) { TTS.warned = true; toast(IS_IOS ? "No sound? Turn off silent mode and turn the volume up." : "No sound? Turn the volume up."); } }, 2500);
       return u;
     },
-    stop() { if (this.ok) { this.cur = null; try { if (speechSynthesis.speaking || speechSynthesis.pending) { speechSynthesis.cancel(); this.lastCancel = Date.now(); } } catch (e) {} } $$(".icon-btn.speaking").forEach((b) => b.classList.remove("speaking")); },
-    pause() { if (this.ok) speechSynthesis.pause(); }, resume() { if (this.ok) speechSynthesis.resume(); }
+    stopDevice() { if (this.ok) { try { if (speechSynthesis.speaking || speechSynthesis.pending) { speechSynthesis.cancel(); this.lastCancel = Date.now(); } } catch (e) {} } },
+    stop() { CLIP.stop(); this.cur = null; if (this.ok) { try { if (speechSynthesis.speaking || speechSynthesis.pending) { speechSynthesis.cancel(); this.lastCancel = Date.now(); } } catch (e) {} } $$(".icon-btn.speaking").forEach((b) => b.classList.remove("speaking")); },
+    pause() { if (this.cur && this.cur.clip) { CLIP.stop(); return; } if (this.ok) speechSynthesis.pause(); },
+    resume() { if (this.cur && this.cur.clip && CLIP.el) { const p = CLIP.el.play(); if (p && p.catch) p.catch(() => {}); return; } if (this.ok) speechSynthesis.resume(); }
   };
   if (TTS.ok) { TTS.pick(); speechSynthesis.onvoiceschanged = () => TTS.pick(); }
   function sayBtn(text, label) {
+    collect(text);
     const b = h("button", { class: "icon-btn", type: "button", title: label || "Listen", "aria-label": (label || "Listen") + ": " + plain(text).slice(0, 60) }, icon("speak"));
     b.addEventListener("click", (ev) => { ev.stopPropagation(); if (b.classList.contains("speaking")) { TTS.stop(); return; } TTS.stop(); b.classList.add("speaking"); TTS.speak(text, { onend: () => b.classList.remove("speaking") }); });
     return b;
@@ -643,6 +709,7 @@
   }
   function readAloudPlayer(paraObjs, label) {
     // paraObjs: [{plainTxt, spans, node, box}]
+    paraObjs.forEach((p) => collect(p.plainTxt));
     let idx = 0, playing = false, paused = false;
     const speedSel = h("select", { "aria-label": "Speed" }, [["0.7", "Slow"], ["0.85", "Normal"], ["1", "Fast"]].map(([v, t]) => h("option", { value: v, selected: Math.abs(S.settings.rate - +v) < 0.08 ? true : null }, t)));
     speedSel.onchange = () => { S.settings.rate = +speedSel.value; save(); };
@@ -658,13 +725,13 @@
     }
     function stop() { playing = false; paused = false; TTS.stop(); clear(); playB.lastChild.textContent = "Read aloud"; playB.firstChild.replaceWith(icon("play")); stopB.disabled = true; }
     playB.onclick = () => {
-      if (!TTS.ok) { toast("Speech is not available in this browser."); return; }
+      if (!TTS.ok && !VOICE_IDS.size) { toast("Speech is not available in this browser."); return; }
       if (!playing) { playing = true; paused = false; stopB.disabled = false; playB.lastChild.textContent = "Pause"; playB.firstChild.replaceWith(icon("pause")); playPara(0); }
       else if (!paused) { paused = true; TTS.pause(); playB.lastChild.textContent = "Resume"; playB.firstChild.replaceWith(icon("play")); }
       else { paused = false; TTS.resume(); playB.lastChild.textContent = "Pause"; playB.firstChild.replaceWith(icon("pause")); }
     };
     stopB.onclick = stop;
-    paraObjs.forEach((p, i) => { p.box.addEventListener("dblclick", () => { if (!TTS.ok) return; playing = true; paused = false; stopB.disabled = false; playB.lastChild.textContent = "Pause"; playPara(i); }); });
+    paraObjs.forEach((p, i) => { p.box.addEventListener("dblclick", () => { if (!TTS.ok && !VOICE_IDS.size) return; playing = true; paused = false; stopB.disabled = false; playB.lastChild.textContent = "Pause"; playPara(i); }); });
     return h("div", { class: "player" }, playB, stopB, h("label", { class: "small muted" }, "Speed ", speedSel), h("span", { class: "small muted" }, label || "Generated voice – not the book recording."));
   }
   function renderReading(card, s, si, l) {
@@ -1246,6 +1313,7 @@
     }
     // extra listening with generated voice
     const lines = s.script || [];
+    lines.forEach((d) => collect(d.who + ". " + d.text));
     let i = 0, playing = false, paused = false;
     const scriptBox = h("div", { class: "dialogue", hidden: true }, lines.map((d) => h("div", { class: "bubble" }, h("span", { class: "who" }, d.who.slice(0, 6)), h("div", { class: "say" }, h("span", null, d.text)))));
     const status = h("span", { class: "small muted" }, "Generated voice — not the book recording.");
@@ -1256,7 +1324,7 @@
     function next() { if (!playing) return; if (i >= lines.length) { playing = false; setPlay(false); status.textContent = "Finished. Answer the questions."; return; } status.textContent = "Speaker: " + lines[i].who; TTS.speak(lines[i].who + ". " + lines[i].text, { rate: S.settings.rate, onend: () => { if (playing && !paused && TTS.cur === null) { i++; setTimeout(next, 350); } } }); }
     function setPlay(on) { playB.lastChild.textContent = on ? "Pause" : (i > 0 && i < lines.length ? "Resume" : "Play"); playB.firstChild.replaceWith(icon(on ? "pause" : "play")); }
     playB.onclick = () => {
-      if (!TTS.ok) { toast("Speech is not available in this browser."); return; }
+      if (!TTS.ok && !VOICE_IDS.size) { toast("Speech is not available in this browser."); return; }
       if (!playing) { if (i >= lines.length) i = 0; playing = true; paused = false; setPlay(true); next(); }
       else if (!paused) { paused = true; TTS.pause(); setPlay(false); }
       else { paused = false; TTS.resume(); setPlay(true); }
@@ -1503,15 +1571,18 @@
     sizeSel.onchange = () => { st.text = +sizeSel.value; save(); applySettings(); };
     const themeSel = h("select", { class: "txt", id: "set-theme", style: { maxWidth: "240px" } }, [["auto", "Automatic (like the device)"], ["light", "Light"], ["dark", "Dark"]].map(([v, t]) => h("option", { value: v, selected: (st.theme || "auto") === v ? true : null }, t)));
     themeSel.onchange = () => { st.theme = themeSel.value; save(); applySettings(); };
+    const voiceSel = h("select", { class: "txt", id: "set-voice", style: { maxWidth: "320px" } }, [["natural", "Natural voice (George, British) — recommended"], ["device", "This device’s own voice"]].map(([v, t]) => h("option", { value: v, selected: (st.voice || "natural") === v ? true : null }, t)));
+    voiceSel.onchange = () => { st.voice = voiceSel.value; save(); TTS.stop(); TTS.speak("Hello! This is the voice that reads the book."); };
     w.append(h("section", { class: "card stack" }, h("h1", null, "Settings & progress"),
       h("ul", { class: "checks" }, toggle("Arabic help (عربي)", "ar", "Show Arabic meanings and instructions."), toggle("Sounds", "sound", "Short sounds for right and wrong answers."), toggle("Animations", "motion", "Card flips and gentle movement."), toggle("Game timer", "timer", "Show a stopwatch in games. There is no penalty.")),
       h("div", null, h("label", { for: "set-size", style: { fontWeight: 700, display: "block" } }, "Text size"), sizeSel),
       h("div", null, h("label", { for: "set-theme", style: { fontWeight: 700, display: "block" } }, "Colours (dark mode)"), themeSel),
+      VOICE_IDS.size ? h("div", null, h("label", { for: "set-voice", style: { fontWeight: 700, display: "block" } }, "Reading voice"), voiceSel, h("p", { class: "small muted", style: { margin: "4px 0 0" } }, "Both are generated voices, not the book’s recordings. The natural voice was made with an AI voice (Kokoro) and works without internet once heard.")) : null,
       h("div", { class: "stack" }, h("h3", null, "Progress on this device"), h("p", { class: "muted" }, "Progress is saved in this browser only. No account is needed. Another device or browser starts fresh."),
         h("p", null, "Points: ", h("b", null, String(S.points)), " · Badges: ", h("b", null, Object.keys(S.badges).length + " / " + BADGES.length), " · Answers saved: ", h("b", null, String(Object.keys(S.items).length))),
         h("div", { class: "row" }, h("button", { class: "btn", type: "button", onclick: () => { confirmBox.hidden = false; } }, "Reset my progress")), confirmBox),
       h("div", { class: "stack" }, h("h3", null, "What works where"), h("ul", { style: { margin: 0, paddingLeft: "20px", display: "grid", gap: "4px" } },
-        h("li", null, "Read-aloud uses your device’s built-in English voice: " + (TTS.ok ? "available on this device ✓" : "not available on this device ✗") + ". Word highlighting works only where the browser reports word positions (Chrome, Edge, Safari)."),
+        h("li", null, VOICE_IDS.size ? "Read-aloud uses a natural AI voice (George, British English) recorded for every word, sentence and text in the book. It is a generated voice, not the book recording. Anything new (like your own sentences) uses the device’s voice." : "Read-aloud uses your device’s built-in English voice: " + (TTS.ok ? "available on this device ✓" : "not available on this device ✗") + ". Word highlighting works only where the browser reports word positions (Chrome, Edge, Safari)."),
         h("li", null, "The book’s own listening recordings play inside the listening lessons. Extra listening activities use the device’s generated voice and say so."),
         h("li", null, "Move between lesson steps with the arrow keys ← → or by swiping left / right."),
         h("li", null, "Stars: up to 3 per unit for the work you finish. Mistakes never take stars or points away."),
@@ -1560,6 +1631,7 @@
     $("#btnAns").onclick = () => { S.settings.showAns = !S.settings.showAns; save(); applySettings(); rerender(); toast(S.settings.showAns ? "Answers shown" : "Answers hidden"); };
     $("#btnMotion").setAttribute("aria-pressed", String(!S.settings.motion));
     $("#drawer").setAttribute("inert", "");
+    if (VOICE_IDS.size) { const un = () => { CLIP.unlock(); document.removeEventListener("touchend", un, true); document.removeEventListener("click", un, true); }; document.addEventListener("touchend", un, true); document.addEventListener("click", un, true); }
     // Move between lesson steps: arrow keys (computer / class screen) and a sideways swipe (phone / iPad)
     const busyTarget = (t) => t && t.closest && t.closest("input, textarea, select, [contenteditable], .parts, .tablewrap, .lab-ctrls, .modal, .match, .drawer");
     document.addEventListener("keydown", (e) => {
@@ -1588,5 +1660,5 @@
   route = function () { const pp = PENDING_PART; PENDING_PART = null; if (pp != null) PART = pp; _route(); };
   window.addEventListener("hashchange", () => {}, false);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
-  window.__pearls = { S: () => S, lessonPct, allLessons };
+  window.__pearls = { S: () => S, lessonPct, allLessons, vkey, plain, units: () => BOOK.units, labs: () => BOOK.labs, glossary: () => BOOK.glossary };
 })();

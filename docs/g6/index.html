@@ -2863,6 +2863,8 @@ BOOK.addUnit = function(u) {
 };
 BOOK.sw = "../sw.js";
 BOOK.swScope = "../";
+BOOK.voiceDir = "../voice/";
+BOOK.voiceIds = "104q77ng,10688fmb,108wmz37,10t7756,10tkiug4,1262xn29,12mpy4w9,1375og9a,13b9w1k9,13pe9rub,13svyvq6,13tjvrvh,1457zlpc,145jge88,145thoi7,146odnca,14eqmy67,14h3exdc,14o2pq96,16a21f56,16pdxm74,16pges78,174vvib7,179hocga,17ni9vaa,1847iqj5,18czn7lf,18jfkik6,18l945ed,18ow2dz7,18w1rnv5,18xewc9d,1908hlx9,196rmbdd,199d5hfd,19i1uvef,19tthm49,1a4tbj26,1akveav9,1aradu5a,1au1yh4b,1b1ua9a8,1b8xap2b,1b9k1hl6,1bb9uvp9,1beuqrd7,1bggly86,1c2v8s58,1c56zs7e,1cbmiar7,1cgywc25,1d0kxop6,1d5e5ak8,1dnwolmg,1eb9v6o6,1fzc06fd,1gjbtvfa,1gswh0k7,1gxz7w38,1h11exv8,1hfdrkag,1hk09wv9,1ip02gq6,1isnffpa,1kaahtr9,1kjc2o49,1kstdnde,1lgiewba,1lk5xcab,1lsv4oh,1ltybld5,1lxcbjpa,1m0v2nf9,1nicidh5,1nqygnw5,1nvdxoi6,1nyx81r4,1o58r8u9,1odzcnqh,1ou5sr87,1oxqoaa7,1p94xww6,1pjp8yt9,1pkeh9q7,1prieb66,1q2rndi7,1qq1z9md,1r1s0ar9,1rpb0wy6,1sxwu3k9,1syoa5n7,1szs4665,1tia5gde,1tvexgea,1tyy9dz4,1u4umhl9,1ubrp8l9,1uwzwi7e,1vz5el78,1w3x5wgb,1whrj0l8,1wl9h9jd,1wr5xtdf,1xd6dgna,1xidqsl8,1xp3zyn6,1yj1fof5,1yvwl3d7,21k2u36,340mj0b,392k34,3fg2vx6,3yge95f,4ehrif8,4xcaun7,548cws7,5oismug,6uz16w6,75hjmsa,79gjwh4,7gq9q67,7gs0x2a,7v18mf4,8dqif8c,8kk31s9,8q6z029,8rgvro9,9d7k4k7,9glj81g,9m2k48a,9mwk3qg,9wa0bp9,9yhtsq6,aaoogw8,ab1pi4c,ajpuvf,azyxn66,b041r9g,bsqaur8,c3ncc78,c8gv318,d1orf75,e2wrumf,ewnmg59,ewqnlx7,f57660g,fao6e76,feizxf4,frab6g9,g0qdkbd,g2tm6wh,gfr9pk7,gqq2hn3,gsdeip5,h4qfxi6,ho0zyea,hqkyyib,ibx6zjf,ieyeh65,imikjjd,jgzd97e,jiu7kyb,kis2fb6,kklz0o4,kum4u39,kwtiy3b,kyegs5a,l00fi34,ld3ojqb,lfn2748,lsomdma,lypqw06,meuc4ga,ml3ul9c,njcvqn6,nje2ku9,nx1ce7h,o872p48,oouoqkf,oyqwd2c,pbrknug,pn1mkj8,pqcu2ze,pzroop7,q8r3iff,qanwq9a,qxdoyqc,rr2bp46,stwkjj6,sz64qdg,t01vj39,t0evfv4,t3spdbg,tlihq2b,tqqe9ub,unlxera,v7sd6fa,w2nboa6,wwws8ra,x3ygh36,xu08t6b,y2my4d7,y8n1stg,ymeafv5,yphcrmb,zbbph15,zkoj2xd";
 BOOK.addUnit({
   id: "u1",
   num: 1,
@@ -7944,7 +7946,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
   };
   const KEY = BOOK.storeKey || "pearls7a.v1";
   const defaults = () => ({
-    settings: { ar: false, mode: "student", sound: true, motion: true, timer: false, rate: 0.9, text: 0, showAns: false, theme: "auto" },
+    settings: { ar: false, mode: "student", sound: true, motion: true, timer: false, rate: 0.9, text: 0, showAns: false, theme: "auto", voice: "natural" },
     items: {},
     parts: {},
     points: 0,
@@ -8023,6 +8025,150 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     }
   }
   const sfx = { good: () => tone([660, 880], 0.14), bad: () => tone([300], 0.22), win: () => tone([523, 659, 784, 1046], 0.13), tap: () => tone([520], 0.05), page: paper };
+  const vkey = (t) => {
+    const k = plain(t).replace(/\s+/g, " ").trim();
+    return hashStr(k).toString(36) + k.length.toString(36);
+  };
+  const VOICE_IDS = new Set(String(BOOK.voiceIds || "").split(",").filter(Boolean));
+  const VOICE_DIR = BOOK.voiceDir || "../voice/";
+  const collect = (t) => {
+    if (window.__SAY) window.__SAY.push(String(t));
+  };
+  const CLIP = {
+    el: null,
+    url(text) {
+      if (S.settings.voice === "device" || !VOICE_IDS.size) return null;
+      const k = vkey(text);
+      return VOICE_IDS.has(k) ? VOICE_DIR + k + ".mp3" : null;
+    },
+    blobs: {},
+    order: [],
+    // fetch the clip as a whole file (works offline through the service worker and on iPad/iPhone), keep the last 60
+    get(url) {
+      if (this.blobs[url]) return Promise.resolve(this.blobs[url]);
+      return fetch(url).then((r) => {
+        if (!r.ok) throw new Error("missing");
+        return r.blob();
+      }).then((b) => {
+        const o = URL.createObjectURL(b);
+        this.blobs[url] = o;
+        this.order.push(url);
+        if (this.order.length > 60) {
+          const old = this.order.shift();
+          try {
+            URL.revokeObjectURL(this.blobs[old]);
+          } catch (e) {
+          }
+          delete this.blobs[old];
+        }
+        return o;
+      });
+    },
+    // iPhone/iPad only let a page play sound after a tap: play a tiny silent sound on the first tap so later clips can play
+    unlock() {
+      if (this.unlocked) return;
+      this.unlocked = true;
+      const a = this.el || (this.el = new Audio());
+      const n = 400, buf = new Uint8Array(44 + n), dv = new DataView(buf.buffer), str = (o, t) => {
+        for (let i = 0; i < t.length; i++) buf[o + i] = t.charCodeAt(i);
+      };
+      str(0, "RIFF");
+      dv.setUint32(4, 36 + n, true);
+      str(8, "WAVEfmt ");
+      dv.setUint32(16, 16, true);
+      dv.setUint16(20, 1, true);
+      dv.setUint16(22, 1, true);
+      dv.setUint32(24, 8e3, true);
+      dv.setUint32(28, 8e3, true);
+      dv.setUint16(32, 1, true);
+      dv.setUint16(34, 8, true);
+      str(36, "data");
+      dv.setUint32(40, n, true);
+      buf.fill(128, 44);
+      let bin = "";
+      buf.forEach((c) => {
+        bin += String.fromCharCode(c);
+      });
+      a.src = "data:audio/wav;base64," + btoa(bin);
+      const p = a.play();
+      if (p && p.catch) p.catch(() => {
+      });
+    },
+    play(url, text, opt, u, fallback) {
+      const a = this.el || (this.el = new Audio());
+      a.preload = "auto";
+      try {
+        a.pause();
+      } catch (e) {
+      }
+      let raf = 0, done = false;
+      const finish = () => {
+        if (done) return;
+        done = true;
+        cancelAnimationFrame(raf);
+        if (TTS.cur === u) TTS.cur = null;
+        opt.onend && opt.onend();
+      };
+      a.onended = finish;
+      a.onerror = () => {
+        if (done || TTS.cur !== u) return;
+        done = true;
+        cancelAnimationFrame(raf);
+        fallback();
+      };
+      this.get(url).then((src) => {
+        if (TTS.cur !== u) return;
+        a.src = src;
+        try {
+          a.preservesPitch = true;
+          a.webkitPreservesPitch = true;
+          a.mozPreservesPitch = true;
+        } catch (e) {
+        }
+        a.playbackRate = Math.max(0.6, Math.min(1.4, (opt.rate || S.settings.rate || 0.9) / 0.9));
+        if (opt.onboundary) {
+          const words = [];
+          const re = /\S+/g;
+          let m;
+          while (m = re.exec(text)) words.push(m.index);
+          const tick = () => {
+            if (done) return;
+            if (a.duration && !a.paused) {
+              const lead = 0.12, d = Math.max(0.1, a.duration - 0.35);
+              const f = Math.min(0.999, Math.max(0, (a.currentTime - lead) / d));
+              const ci = Math.floor(f * text.length);
+              let w = 0;
+              for (let i = 0; i < words.length; i++) if (words[i] <= ci) w = words[i];
+              opt.onboundary({ name: "word", charIndex: w });
+            }
+            raf = requestAnimationFrame(tick);
+          };
+          raf = requestAnimationFrame(tick);
+        }
+        const p = a.play();
+        if (p && p.catch) p.catch(() => {
+          if (!done && TTS.cur === u) {
+            done = true;
+            cancelAnimationFrame(raf);
+            fallback();
+          }
+        });
+      }).catch(() => {
+        if (!done && TTS.cur === u) {
+          done = true;
+          fallback();
+        }
+      });
+    },
+    stop() {
+      if (this.el) {
+        try {
+          this.el.pause();
+        } catch (e) {
+        }
+      }
+    }
+  };
   const IS_IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
   const TTS = {
     ok: "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined",
@@ -8040,6 +8186,22 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     },
     speak(text, opt) {
       opt = opt || {};
+      const url = CLIP.url(text);
+      if (url) {
+        this.stopDevice();
+        CLIP.stop();
+        const u = { clip: true };
+        this.cur = u;
+        CLIP.play(url, plain(text), opt, u, () => {
+          this.cur = null;
+          this.speakDevice(text, opt);
+        });
+        return u;
+      }
+      CLIP.stop();
+      return this.speakDevice(text, opt);
+    },
+    speakDevice(text, opt) {
       if (!this.ok) {
         toast("Your browser has no speech voice.");
         opt.onend && opt.onend();
@@ -8095,9 +8257,21 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
       }, 2500);
       return u;
     },
-    stop() {
+    stopDevice() {
       if (this.ok) {
-        this.cur = null;
+        try {
+          if (speechSynthesis.speaking || speechSynthesis.pending) {
+            speechSynthesis.cancel();
+            this.lastCancel = Date.now();
+          }
+        } catch (e) {
+        }
+      }
+    },
+    stop() {
+      CLIP.stop();
+      this.cur = null;
+      if (this.ok) {
         try {
           if (speechSynthesis.speaking || speechSynthesis.pending) {
             speechSynthesis.cancel();
@@ -8109,9 +8283,19 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
       $$(".icon-btn.speaking").forEach((b) => b.classList.remove("speaking"));
     },
     pause() {
+      if (this.cur && this.cur.clip) {
+        CLIP.stop();
+        return;
+      }
       if (this.ok) speechSynthesis.pause();
     },
     resume() {
+      if (this.cur && this.cur.clip && CLIP.el) {
+        const p = CLIP.el.play();
+        if (p && p.catch) p.catch(() => {
+        });
+        return;
+      }
       if (this.ok) speechSynthesis.resume();
     }
   };
@@ -8120,6 +8304,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     speechSynthesis.onvoiceschanged = () => TTS.pick();
   }
   function sayBtn(text, label) {
+    collect(text);
     const b = h("button", { class: "icon-btn", type: "button", title: label || "Listen", "aria-label": (label || "Listen") + ": " + plain(text).slice(0, 60) }, icon("speak"));
     b.addEventListener("click", (ev) => {
       ev.stopPropagation();
@@ -8987,6 +9172,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     popEl.style.top = y + "px";
   }
   function readAloudPlayer(paraObjs, label) {
+    paraObjs.forEach((p) => collect(p.plainTxt));
     let idx = 0, playing = false, paused = false;
     const speedSel = h("select", { "aria-label": "Speed" }, [["0.7", "Slow"], ["0.85", "Normal"], ["1", "Fast"]].map(([v, t]) => h("option", { value: v, selected: Math.abs(S.settings.rate - +v) < 0.08 ? true : null }, t)));
     speedSel.onchange = () => {
@@ -9037,7 +9223,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
       stopB.disabled = true;
     }
     playB.onclick = () => {
-      if (!TTS.ok) {
+      if (!TTS.ok && !VOICE_IDS.size) {
         toast("Speech is not available in this browser.");
         return;
       }
@@ -9063,7 +9249,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     stopB.onclick = stop;
     paraObjs.forEach((p, i) => {
       p.box.addEventListener("dblclick", () => {
-        if (!TTS.ok) return;
+        if (!TTS.ok && !VOICE_IDS.size) return;
         playing = true;
         paused = false;
         stopB.disabled = false;
@@ -10107,6 +10293,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
       return;
     }
     const lines = s.script || [];
+    lines.forEach((d) => collect(d.who + ". " + d.text));
     let i = 0, playing = false, paused = false;
     const scriptBox = h("div", { class: "dialogue", hidden: true }, lines.map((d) => h("div", { class: "bubble" }, h("span", { class: "who" }, d.who.slice(0, 6)), h("div", { class: "say" }, h("span", null, d.text)))));
     const status = h("span", { class: "small muted" }, "Generated voice — not the book recording.");
@@ -10138,7 +10325,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
       playB.firstChild.replaceWith(icon(on ? "pause" : "play"));
     }
     playB.onclick = () => {
-      if (!TTS.ok) {
+      if (!TTS.ok && !VOICE_IDS.size) {
         toast("Speech is not available in this browser.");
         return;
       }
@@ -10697,6 +10884,13 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
       save();
       applySettings();
     };
+    const voiceSel = h("select", { class: "txt", id: "set-voice", style: { maxWidth: "320px" } }, [["natural", "Natural voice (George, British) — recommended"], ["device", "This device’s own voice"]].map(([v, t]) => h("option", { value: v, selected: (st.voice || "natural") === v ? true : null }, t)));
+    voiceSel.onchange = () => {
+      st.voice = voiceSel.value;
+      save();
+      TTS.stop();
+      TTS.speak("Hello! This is the voice that reads the book.");
+    };
     w.append(h(
       "section",
       { class: "card stack" },
@@ -10704,6 +10898,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
       h("ul", { class: "checks" }, toggle("Arabic help (عربي)", "ar", "Show Arabic meanings and instructions."), toggle("Sounds", "sound", "Short sounds for right and wrong answers."), toggle("Animations", "motion", "Card flips and gentle movement."), toggle("Game timer", "timer", "Show a stopwatch in games. There is no penalty.")),
       h("div", null, h("label", { for: "set-size", style: { fontWeight: 700, display: "block" } }, "Text size"), sizeSel),
       h("div", null, h("label", { for: "set-theme", style: { fontWeight: 700, display: "block" } }, "Colours (dark mode)"), themeSel),
+      VOICE_IDS.size ? h("div", null, h("label", { for: "set-voice", style: { fontWeight: 700, display: "block" } }, "Reading voice"), voiceSel, h("p", { class: "small muted", style: { margin: "4px 0 0" } }, "Both are generated voices, not the book’s recordings. The natural voice was made with an AI voice (Kokoro) and works without internet once heard.")) : null,
       h(
         "div",
         { class: "stack" },
@@ -10718,7 +10913,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
       h("div", { class: "stack" }, h("h3", null, "What works where"), h(
         "ul",
         { style: { margin: 0, paddingLeft: "20px", display: "grid", gap: "4px" } },
-        h("li", null, "Read-aloud uses your device’s built-in English voice: " + (TTS.ok ? "available on this device ✓" : "not available on this device ✗") + ". Word highlighting works only where the browser reports word positions (Chrome, Edge, Safari)."),
+        h("li", null, VOICE_IDS.size ? "Read-aloud uses a natural AI voice (George, British English) recorded for every word, sentence and text in the book. It is a generated voice, not the book recording. Anything new (like your own sentences) uses the device’s voice." : "Read-aloud uses your device’s built-in English voice: " + (TTS.ok ? "available on this device ✓" : "not available on this device ✗") + ". Word highlighting works only where the browser reports word positions (Chrome, Edge, Safari)."),
         h("li", null, "The book’s own listening recordings play inside the listening lessons. Extra listening activities use the device’s generated voice and say so."),
         h("li", null, "Move between lesson steps with the arrow keys ← → or by swiping left / right."),
         h("li", null, "Stars: up to 3 per unit for the work you finish. Mistakes never take stars or points away."),
@@ -10846,6 +11041,15 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     };
     $("#btnMotion").setAttribute("aria-pressed", String(!S.settings.motion));
     $("#drawer").setAttribute("inert", "");
+    if (VOICE_IDS.size) {
+      const un = () => {
+        CLIP.unlock();
+        document.removeEventListener("touchend", un, true);
+        document.removeEventListener("click", un, true);
+      };
+      document.addEventListener("touchend", un, true);
+      document.addEventListener("click", un, true);
+    }
     const busyTarget = (t) => t && t.closest && t.closest("input, textarea, select, [contenteditable], .parts, .tablewrap, .lab-ctrls, .modal, .match, .drawer");
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && SPOT) {
@@ -10911,7 +11115,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
   }, false);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
-  window.__pearls = { S: () => S, lessonPct, allLessons };
+  window.__pearls = { S: () => S, lessonPct, allLessons, vkey, plain, units: () => BOOK.units, labs: () => BOOK.labs, glossary: () => BOOK.glossary };
 })();
 </script>
 
