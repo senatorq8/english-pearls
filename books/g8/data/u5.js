@@ -18,12 +18,12 @@ BOOK.addUnit({
       "Use (more ...than/the most...)",
       "Use \"(not) as....as\""
     ],
-    "Module 2 – you are expected to": [
+    "module 2 – you are expected to": [
       "Listen to fiction and nonfiction texts.",
       "Take part in dialogues and discussions.",
       "Use different writing strategies including planning and editing."
     ],
-    "Module 2 – activities": [
+    "module 2 – activities": [
       "Listening to a folktale",
       "Talking about similarities and differences",
       "Searching for information to prepare presentations"
@@ -393,7 +393,7 @@ BOOK.addUnit({
     // ───────────────────────── LESSON 4 — GRAMMAR ─────────────────────────
     {
       id: "u5l4", num: 4, skill: "Grammar",
-      title: "(not) as……as",
+      title: "(not) as … as",
       pages: [43, 44],
       status: "complete",
       canDo: ["Use \"(not) as....as\"", "Compare and contrast"],
@@ -411,7 +411,7 @@ BOOK.addUnit({
         { w: "counting", pos: "noun", emoji: "🔢", def: "saying numbers in order to find how many", ex: "Counting with fingers isn't as fast as using a calculator.", exFromBook: false, ar: "العدّ" }
       ],
       sections: [
-        { type: "grammar", title: "(not) as……as", page: 43,
+        { type: "grammar", title: "(not) as … as", page: 43,
           steps: [
             { title: "Step 1 — The book's rule",
               text: "We use (as …. as) to make comparisons between things which are equal in some way: He was as busy as a bee. We use (not as …. as) to make comparisons between things which aren't equal: Silver is not as heavy as gold.",

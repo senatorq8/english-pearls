@@ -18,12 +18,12 @@ BOOK.addUnit({
       "Use adjectives in the correct order",
       "Use punctuation"
     ],
-    "Module 2 – you are expected to": [
+    "module 2 – you are expected to": [
       "Listen to fiction and nonfiction texts.",
       "Take part in dialogues and discussions.",
       "Use different writing strategies including planning and editing."
     ],
-    "Module 2 – activities": [
+    "module 2 – activities": [
       "Listening to a folktale",
       "Talking about similarities and differences",
       "Searching for information to prepare presentations"

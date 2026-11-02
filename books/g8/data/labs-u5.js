@@ -29,7 +29,7 @@ BOOK.labs = Object.assign(BOOK.labs || {}, {
           short: ["Short adjective: add -er / -est.", "صفة قصيرة: نضيف er أو est."],
           double: ["Short adjective ending in vowel + consonant: double the last letter (" + st.adj + " → " + (A.c ? A.c[0] + "er" : "") + ").", "صفة قصيرة تنتهي بحرف متحرك ثم ساكن: نضاعف الحرف الأخير."],
           y: ["Adjective ending in -y: y → i, then -er / -est (easier, the easiest).", "صفة تنتهي بـ y: نحوّلها إلى i ثم نضيف er أو est."],
-          long: ["Long adjective: more … than / the most … .", "صفة طويلة: نستخدم more … than و the most."],
+          long: ["Long adjective: more … than / the most …", "صفة طويلة: نستخدم more … than و the most."],
           irr: ["Irregular: good → better → the best.", "صفة شاذة: good ← better ← the best."]
         }[A.kind];
         const subj = A.day ? "Today" : A.a;
