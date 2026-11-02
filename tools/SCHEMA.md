@@ -161,3 +161,14 @@ Optional crops from page images: write a small python script (PIL) that crops fr
 ## File format
 Plain JavaScript (no imports), UTF-8, valid ES2017. Strings use double quotes; escape properly.
 Validate with `node ./tools/validate.js data/uN.js` when done.
+
+## Grammar Lab and Predict (data/labs.js, Extra Practice)
+`BOOK.labs = { "<lessonId>": { lab: {...}, predict: {...} } }` — added by the engine to that grammar lesson:
+the lab right after the rule, Predict after the practice. Progress keys are stable (`<lessonId>:lab:lab`, `<lessonId>:pred:p`).
+```js
+lab: { title, intro, introAr,
+  controls: [ { id, label, options: ["I", { v: "watch", t: "watch TV" }], start, kind: "slider" (optional), show: (st) => bool (optional) } ],
+  build(st) { return { s: "{s:She} {v:watch}{x:es} TV.", from: "active / two sentences (optional)", fromLabel, badge, badgeKind: "good|warn|bad|future", rule, note, noteAr }; } }
+predict: { q, options: [...], answer: 1, reveal, mistake, why, whyAr }
+```
+Token `{x:es}` = an ending (shown as a jumping card, glued to the word before). Check every sentence with `node tools/lab-dump.js <book>`.

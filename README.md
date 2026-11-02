@@ -36,15 +36,22 @@ After GitHub Pages is switched on (see below) the books are at:
 - Voice recording with the microphone (after the browser asks for permission).
 - Progress, points and badges are saved on each device (no accounts).
 - Read-aloud uses the device's own English voice (a generated voice, not the book recording).
+- The book's own listening recordings play inside the listening lessons.
+- Every grammar lesson has two Extra Practice screens: a **Grammar Lab** (buttons and a slider
+  change a pop-up sentence live) and **Predict, Then Reveal** (a common mistake: predict, then lift a paper flap).
+- Up to 3 stars per unit (a "star passport"); mistakes never take stars or points away.
+- Arrow keys or a sideways swipe move between lesson steps. Dark mode (Settings or the Contents menu).
+- Teacher mode: "Show on board" shows one activity alone, big, for the class screen.
 
-Not included: the book's original listening recordings (the lessons link to the book's QR codes,
-which need an MOE account) and automatic pronunciation scoring.
+Not included: automatic pronunciation scoring.
 
 ## Repository layout
 
 ```
 engine/            the app (app.js, styles.css, page templates, library page, service worker template)
-books/g6/, g7/     each book: book.js (table of contents), theme.css, data/u1–u4.js (lessons), glossary
+books/g6/, g7/     each book: book.js (table of contents), theme.css, data/u1–u4.js (lessons), glossary,
+                   data/labs.js (Grammar Lab + Predict for each grammar lesson; list every sentence with
+                   `node tools/lab-dump.js g7`)
 docs/              the built website that GitHub Pages serves (+ book page scans and pictures in docs/<book>/img)
 tools/             build.py, validate.js, SCHEMA.md (lesson data format)
 ```

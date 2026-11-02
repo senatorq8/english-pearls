@@ -12,7 +12,7 @@ ns = {'__file__': os.path.join(R, 'tools', 'build.py')}; exec(src, ns)
 rd, esb, es_check = ns['rd'], ns['esb'], ns['es_check']
 b = 'books/' + bid
 units = [u for u in ['u1', 'u2', 'u3', 'u4'] if os.path.exists(os.path.join(R, b, 'data', u + '.js'))]
-js = '\n'.join([rd(b + '/book.js'), 'delete BOOK.libraryUrl;'] + [rd('%s/data/%s.js' % (b, u)) for u in units] + [rd(b + '/data/glossary.js'), rd('engine/app.js')])
+js = '\n'.join([rd(b + '/book.js'), 'delete BOOK.libraryUrl;'] + [rd('%s/data/%s.js' % (b, u)) for u in units] + [rd(b + '/data/glossary.js')] + ([rd(b + '/data/labs.js')] if os.path.exists(os.path.join(R, b, 'data', 'labs.js')) else []) + [rd('engine/app.js')])
 js = esb(js, 'js', ns['TARGET_JS']); es_check(js, bid)
 css = esb(rd('engine/styles.css') + '\n' + rd(b + '/theme.css'), 'css', ns['TARGET_CSS'])
 head = '<meta charset="utf-8">\n<title>English Pearls of Kuwait %s</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Lexend:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap">\n<style>%s</style>\n' % (code, css)

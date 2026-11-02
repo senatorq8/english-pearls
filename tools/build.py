@@ -35,7 +35,7 @@ def build_book(bid, code, grade):
     units = [u for u in ['u1', 'u2', 'u3', 'u4'] if os.path.exists(os.path.join(R, b, 'data', u + '.js'))]
     js = '\n'.join([rd(b + '/book.js'), 'BOOK.sw = "../sw.js"; BOOK.swScope = "../";'] +
                    [rd('%s/data/%s.js' % (b, u)) for u in units] +
-                   [rd(b + '/data/glossary.js'), rd('engine/app.js')])
+                   [rd(b + '/data/glossary.js')] + ([rd(b + '/data/labs.js')] if os.path.exists(os.path.join(R, b, 'data', 'labs.js')) else []) + [rd('engine/app.js')])
     js = esb(js, 'js', TARGET_JS); es_check(js, bid)
     css = esb(rd('engine/styles.css') + '\n' + rd(b + '/theme.css'), 'css', TARGET_CSS)
     fill = lambda s: s.replace('{{CODE}}', code).replace('{{GRADE}}', str(grade))
