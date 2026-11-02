@@ -1,0 +1,27 @@
+/* Projects (book pages 53–54 and 94). Texts copied from the book; the planner fields are the app's. */
+BOOK.projects = [
+  { id: "p1", title: "Project 1 · Don’t Delay, Give Today!", note: "Choose either project 1 or 2.", pages: [53], afterUnit: 6,
+    intro: ["You have decided to declare the beginning of your charity work on the “International Day of Charity”.",
+      "You arrange for a school event to raise awareness about the importance of voluntary work in a peaceful and joyous world."],
+    points: ["You should attract as many supporters and volunteers as possible to join your group.",
+      "You need to explain the main goals of your charity programme and the actions you are planning.",
+      "You have to explain the importance of donations and how you would fund-raise."],
+    tasks: ["Make an attractive poster for your charity.", "Add photos and pictures to make your ideas clear.",
+      "Use part of the poster to persuade your teachers, principal and schoolmates to donate money.",
+      "Make your logo simple and clear.", "Write a one-page advert to persuade your classmates to volunteer in your campaign."],
+    fields: [["Our charity’s name and logo idea", 1], ["Our main goals", 3], ["Actions we are planning", 3], ["How we will fund-raise", 2], ["Our advert (one page)", 6]] },
+  { id: "p2", title: "Project 2 · One Day Visit to your Country", note: "Work in pairs or small groups.", pages: [54], afterUnit: 6,
+    intro: ["A foreign visitor has only one day to spend in your country. Where should this visitor go on that day? Why?"],
+    points: ["Prepare a full day programme for this visitor recommending places to visit and things to do. Use reasons and details to support your choices.",
+      "Present and explain your programme to the class."],
+    table: { head: ["Time", "Activity", "Why?"], example: ["9.00 am", "Breakfast at Dean& Deluca (The Avenues)", "Delicious food and friendly staff members"], rows: 6 } },
+  { id: "p3", title: "Project 3 · Express Yourself", note: "Work in small groups.", pages: [94], afterUnit: 12,
+    intro: ["A presentation is a speech or talk in which a new idea, project or piece of work is shown and explained to an audience.",
+      "A successful presentation requires confidence and organisation.",
+      "You are going to prepare a presentation about any topic (yourself - fashion - your favourite pet - your favourite football player - a profession…etc)."],
+    tasks: ["Decide on the topic of your presentation.", "Make a clear plan to follow while preparing your presentation.",
+      "Select useful sources of information to learn more about the topic (books, magazines, holding interviews, internet…etc).",
+      "Choose suitable materials for your presentation (pictures, videos, music, objects…etc).",
+      "Distribute roles and responsibilities among your group.", "Present your topic clearly to the audience."],
+    fields: [["Our topic", 1], ["Our plan", 3], ["Sources of information", 2], ["Materials (pictures, videos, music, objects…)", 2], ["Who does what in our group", 3]] }
+];

@@ -524,3 +524,11 @@ body.spotting #unitTabs { display: none; }
 .b3tab { width: 28px; height: 32px; border-radius: 0 8px 8px 0; color: #fff; font-weight: 800; display: grid; place-items: center; text-decoration: none; font-size: .9rem; box-shadow: 2px 3px 6px rgba(19,35,58,.25); transition: transform .2s; }
 .b3tab:hover, .b3tab:focus-visible { transform: translateX(5px); }
 @media (max-width: 640px) { .book3d { display: none; } }
+
+/* Grade 8: module headings in the contents and on the home page */
+.toc-module { margin: 14px 8px 4px; padding: 6px 10px; border-radius: 8px; font-weight: 800; font-size: .8rem; letter-spacing: .04em; color: #fff; background: var(--uc, var(--brand)); }
+.units .mod-head { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 10px 0 -4px; font-size: 1.35rem; border-bottom: 3px solid var(--uc, var(--brand)); padding-bottom: 6px; }
+.units .mod-head span { font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--uc, var(--brand)); padding: 3px 10px; border-radius: 999px; }
+.units .mod-head small { font-size: .95rem; color: var(--muted); }
+[data-theme="dark"] .toc-module, [data-theme="dark"] .units .mod-head span { color: #0e1622; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .toc-module, :root:not([data-theme="light"]) .units .mod-head span { color: #0e1622; } }

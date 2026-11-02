@@ -1,0 +1,14 @@
+/* Grade 8 (Modified Target English): unit colours follow the book's four module colours */
+:root {
+  --u1: #d97a00; --u2: #c46a00; --u3: #a95b00;
+  --u4: #0f8fa3; --u5: #0b7d8f; --u6: #086b7a;
+  --u7: #2d5daa; --u8: #254f93; --u9: #1d417a;
+  --u10: #4f9a2f; --u11: #438429; --u12: #366e21;
+  --u13: #c94a36;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --u1: #ffaa45; --u2: #f3a03a; --u3: #e69533; --u4: #4fd0e2; --u5: #46c2d4; --u6: #3eb3c4;
+  --u7: #8fb1f0; --u8: #82a6ea; --u9: #789be0; --u10: #8fd46a; --u11: #84c95f; --u12: #78bd54; --u13: #ff8a74; } }
+:root[data-theme="dark"] {
+  --u1: #ffaa45; --u2: #f3a03a; --u3: #e69533; --u4: #4fd0e2; --u5: #46c2d4; --u6: #3eb3c4;
+  --u7: #8fb1f0; --u8: #82a6ea; --u9: #789be0; --u10: #8fd46a; --u11: #84c95f; --u12: #78bd54; --u13: #ff8a74; }

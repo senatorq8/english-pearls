@@ -2757,6 +2757,51 @@ body.spotting #unitTabs {
     display: none;
   }
 }
+.toc-module {
+  margin: 14px 8px 4px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: .8rem;
+  letter-spacing: .04em;
+  color: #fff;
+  background: var(--uc, var(--brand));
+}
+.units .mod-head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0 -4px;
+  font-size: 1.35rem;
+  border-bottom: 3px solid var(--uc, var(--brand));
+  padding-bottom: 6px;
+}
+.units .mod-head span {
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--uc, var(--brand));
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.units .mod-head small {
+  font-size: .95rem;
+  color: var(--muted);
+}
+[data-theme=dark] .toc-module,
+[data-theme=dark] .units .mod-head span {
+  color: #0e1622;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme=light]) .toc-module,
+  :root:not([data-theme=light]) .units .mod-head span {
+    color: #0e1622;
+  }
+}
 </style>
 </head>
 <body>
@@ -2844,7 +2889,7 @@ BOOK.addUnit = function(u) {
 BOOK.sw = "../sw.js";
 BOOK.swScope = "../";
 BOOK.voiceDir = "../voice/";
-BOOK.voiceIds = "109iba6,10igtnjc,10ynaypd,116kfkwb,11sqodz5,1204yv97,12rqeaxf,13533kma,13koft49,13obqcx7,14hoje7a,14ndid97,16wbuox9,17itfn0d,17s7rikb,17snhwu9,1873exq9,18y35ov9,1954f6n9,1973a4v7,19cyh7na,19h9d6xe,1a8kwxo8,1aqd7glh,1b3z3nc5,1bao30q5,1bgt73c9,1bvlezu7,1c04m6wd,1c47aefc,1cazvuw9,1crg3rih,1dea85n9,1dfhlc4d,1diluo49,1dmmvbs8,1dmo43jb,1ecmn4uc,1etjo7rc,1ezk3cp5,1fsi9jqd,1gez1oni,1hfdrkag,1hwfa9j5,1in27dd7,1j7by2df,1jcjtls4,1ki3fkka,1krc8zk6,1l3h772a,1l3zvjy8,1lemfmqc,1mfq46n6,1mnhj6c8,1nhyz22b,1nia9b48,1ofo82oa,1on6zgc4,1oualnh9,1owt3a2b,1ozqqyib,1pft0krd,1pgpksq6,1qqwru9f,1qt4h227,1qvb8xg6,1r56w37a,1rh1u584,1shew009,1ssh2ikc,1sud12wf,1thkd3zh,1thqcqu9,1uz2jvab,1v6irof6,1vihd75c,1vkyc46d,1vo87nab,1wc2o7uc,1wmc58x6,1x2k2vjc,1x84g0sf,1xfg6b7e,1xr9zfy6,1ybz3zpf,1yy1485a,2gfr0a,3j7yxw4,44az5df,4fsdg94,5iz9107,5meda98,6ks7yt5,7ui8b6e,919oe9,92n2nz9,9ki1557,9qpn5f9,a2fmlr4,ap1x8tb,b1hmw35,blhdtpb,c0ia0zb,c3ncc78,cs1nmu6,cs5o5cb,d4scke5,d6r69j9,dbz8epa,fwdrq49,g4dfqi9,ge15xbi,gle1vb9,gqa0eba,h0wwji9,hegi40c,hwlm07c,ieyeh65,if169t7,ih4h4xa,jdohu28,jurnlie,lc0ryia,lf5wko9,lpzcbnd,lvb8bc5,lwqbtr9,mosmvta,nsy30vd,o5eg4xa,o8k9opd,of4zexf,ofe8g77,p33xr7e,p3rvjr6,p3ulgpg,pd108o9,pxqwwg8,pz4lmu6,q13pmwc,q37hr2c,q84buid,qfp0q2e,qv84nv9,rk4q8w4,rt2qq86,rthmvxe,rzrjog8,swab1kb,sz64qdg,t4mit6f,t6gaydb,thtbjz6,uldnl86,vccmk8h,vw70h49,w5o9qn8,wk66hz7,x1hvd3h,xb999ia,xdcyaba,xszxpbb,xy2td8,y2tv4o9,yx60qre,zbbph15,zhyn1z9,zr9se1b,zrutsu7";
+BOOK.voiceIds = "1059p5sw,107amgqo,109iba6,109jay,10dk98fr,10fmpjts,10igtnjc,10ixtv5s,10jtrj7y,10k5ty2u,10k8vw2q,10oo1y5w,10pewvyw,10r6ijas,10ynaypd,10ys6a611,116kfkwb,1174xvrs,1193wcvv,11atarvn,11imp0lo,11kw5eom,11qmv2e11,11qq2whp,11sqodz5,11xk6sgx,11ybey4x,11ysv67x,1204yv97,121br9pt,12anlp2m,12b5lcbw,12cbsvww,12lyef5q,12q2hh9v,12rhi6210,12rqeaxf,12yxz5ey,12z8sl8m,13533kma,1377dufw,139shvw10,13ft8z3q,13iydc211,13jh0xxj,13kofgus,13koft49,13o1yaux,13obqcx7,13tio00n,13tqamgp,13z15hft,13ztq60r,142vaciy,1451wwt,1498erk11,14fsxedu,14g6gy5o,14hoje7a,14i78r3n,14iauczp,14mv6qhk,14ndid97,14s9jbdy,14xnvwyy,14zgpxwo,151kg70s,152bzddl,15bxzxep,15i3a2j10,15m23bws,15q7x6an,15qjtq9r,15six0dj,15tel6pk,15y5hpbo,160g65xp,160r3gcu,16bat51j,16hecv310,16hyzawv,16pb5zoq,16rbg0rv,16u2c0ov,16wbuox9,171f5xkp,1781xyrl,17bht3zm,17dsgryx,17g5kmwu,17itfn0d,17jl9wd11,17kzph511,17mbk4oo,17qhr7kt,17s7rikb,17snhwu9,17xstkzv,17z962eu,17zwcaft,18208ogr,1820bmxq,1822etck,18584a3v,1873exq9,189948xj,18bgyu2q,18btveu10,18dk1fgo,18n5phlr,18opo2jy,18rrnn6w,18si32ww,18upbpat,18v8opos,18y35ov9,191a0ov10,1954f6n9,196ergqj,1973a4v7,197ilaev,197n72rv,19bvyrlx,19cyh7na,19d50egj,19eniv7v,19enuj8x,19eve53p,19gvjdgw,19h9d6xe,19m5v1311,19pr19mt,19rc5tyq,19rswfhq,19s270ws,19sobssw,19z1unsw,19z2bjey,1a1w9s9o,1a4qolas,1a4wlx411,1a7jawhr,1a7t1h910,1a8kwxo8,1aa8y6sz,1adgz10r,1aimbvhl,1aiorqps,1anhl88r,1aqd7glh,1argz9v,1aw5pv2v,1aw72x2v,1ayeqcgz,1b3swajm,1b3z3nc5,1b7mxszs,1b8fok2w,1bao30q5,1bgcu10x,1bgt73c9,1bhgo8ev,1bhnonql,1bi462lv,1bjn1emo,1bkgp7um,1bltnhf10,1bmvgjbq,1bn7lx210,1bnl6u3r,1bpakjwo,1bpcmgjt,1bqn4vhz,1bsysinv,1bvlezu7,1bwu426o,1bxklww,1c04m6wd,1c2k544t,1c47aefc,1c6190vq,1c84r87x,1cazvuw9,1cfb7i3z,1cfcxwqp,1ch82d8p,1cjj2e7p,1ck1g69w,1clyrgsn,1cnswvzw,1cnw8fgt,1crg3rih,1csgmckz,1d1wstgw,1d55aacv,1dbj8mxk,1dea85n9,1dfhlc4d,1dhuoekx,1diluo49,1dmmvbs8,1dmo43jb,1dpsppw10,1dqmyezu,1dv5vix11,1dwewu9t,1e3vlv2u,1e5b3hdv,1e9an5311,1ebeuh3m,1eclonan,1ecmn4uc,1ed07v0w,1edrn9gw,1eemsu7w,1ef60b4l,1efkbszu,1eplilij,1es5zkyu,1etjo7rc,1eva8lw,1eviovzu,1eviqx9r,1ewck72z,1ewctecu,1ezk3cp5,1f68nq,1f6thatw,1f8gk5b10,1fs1gx8l,1fs5qdct,1fsi9jqd,1fssipjp,1ft03o5m,1ftajz9p,1fulywwo,1fv6m99w,1fwb6hvx,1fwvcy2s,1g0pofas,1g1a669z,1g1vc5ik,1g21exbo,1g2wp5hu,1g349g2n,1g4k5z9z,1ga274e11,1gcvtsln,1gez1oni,1gfa7k510,1ggh4s4s,1glcbi7j,1gpsb1rx,1gtd7ru11,1gtgol2n,1h4kkj9q,1h4mplxw,1h642d6u,1h7ec3110,1hedz3o11,1hesvjpq,1hfdrkag,1hj59a4v,1hlbg6cv,1hv8vpx10,1hwfa9j5,1hye3i4w,1hzlsa7p,1i0q9vh10,1i314ftq,1i3pykzp,1i4dm6cs,1i4jev3w,1i9a106r,1id2baro,1ievgt6v,1igkzcev,1ihdasz10,1iijzcap,1ikyx4lo,1imkzqas,1in27dd7,1itw79ys,1ivgw4ku,1ixh2n0r,1j1qdcay,1j44r09s,1j6vmm9r,1j7by2df,1j9rb93u,1jcjtls4,1jg3eyfy,1joan62l,1jp76qtl,1jvqu4mw,1jxaqa0s,1k8dwc7r,1k8zdl711,1ki3fkka,1kqgaiis,1krc8zk6,1krl9aar,1krp2qnm,1l3h772a,1l3zvjy8,1l5i4wos,1leh7tru,1lemfmqc,1ltw7nc10,1ltz4rmr,1ltzp7ow,1m0b050w,1m9o4nzu,1md6ebjw,1mfafbuq,1mfotkuk,1mfq46n6,1mh0sj9w,1mjewetm,1mkw2pyr,1mm64fpm,1mnhj6c8,1mo4zmay,1mqno4co,1mufnn9n,1mx7o3xy,1n1lrtfv,1n5ra94t,1n77q0ak,1nf3vj5w,1nhyz22b,1ni4sk1y,1nia9b48,1nicekjt,1nl69axq,1nssztyw,1o0m2v311,1o2shshq,1o2uwu3w,1oa884cx,1ocas5j10,1odd9akl,1odussqt,1oeahb0x,1ofo82oa,1on6zgc4,1or3vi7o,1orocwem,1ou4qcnq,1oualnh9,1owt3a2b,1ozqqyib,1pft0krd,1pfx0h711,1pgpksq6,1phh9psx,1plb0mas,1plh7ipr,1pqrivw10,1px24p9y,1q2kpln11,1qci052v,1qdq302q,1qe4gzx11,1qfplhbn,1qhzh6rk,1qirp2pi,1qlpowns,1qnnwm6v,1qqwru9f,1qt4h227,1qv5wcst,1qvb8xg6,1qxczjxl,1qxr43az,1qy25nf10,1r01qj5w,1r56w37a,1rbzz3fy,1rce7gso,1re7ztoi,1rf9tgto,1rg1wrw,1rh1u584,1rklfxqx,1rl6xo4r,1rlwlw2x,1rqnmwht,1rtcgxyx,1rtf2lgp,1rvvvebz,1rwf6o2v,1rx011cx,1ryxik7y,1s207e9l,1s2ihjbz,1s3z5rxp,1s41m1ry,1s6loz7w,1sdggnjq,1shew009,1sle4x7l,1sp645ar,1srg1qkz,1ssh2ikc,1sud12wf,1t2tctjn,1t46eozz,1t8ha8rz,1t8isdu11,1t901a4v,1t9hc4rx,1tevcy2k,1thkd3zh,1thqcqu9,1thvures,1thwz6zn,1tmddhnm,1tmptsaj,1tn9c4kz,1tnr997t,1tz21d5q,1u1ayebk,1u4l3u5v,1u4z1zov,1u6vkbfw,1ub1qqns,1uellhtz,1uhhyruz,1uov2k511,1upvmip,1upvuwdr,1ussx4op,1uvwrj3k,1uz2jvab,1v4et66z,1v6irof6,1v88i5zv,1v94zz9n,1va5rjc11,1vedqmqt,1vhzpq8l,1vihd75c,1vkyc46d,1vo87nab,1vspw6yp,1vtdl3pv,1w0s8frv,1w1hz3bq,1w633isy,1w65zd2p,1wb2ugiq,1wc2o7uc,1wie17kr,1wmc58x6,1wmtpknz,1wqi83iw,1wvqse5y,1wvx0g3x,1wxu3cno,1wy2dscw,1x2k2vjc,1x84g0sf,1x8lv4vm,1xa38iqp,1xf32nmr,1xfg6b7e,1xr9zfy6,1xrccwtx,1xrz4q4x,1xs5m1nw,1xt7n26l,1xyw4syy,1y1nvvpw,1y530o0x,1y5waxzl,1y5xt97s,1y7wejnn,1ybz3zpf,1ycfofov,1ydbxnpq,1yfxibpw,1yhuvwmr,1yiuxz1p,1ys9at4n,1yvi43rs,1ywtq1fv,1yxpk0tx,1yy1485a,1yyp8v0y,21zdxvq,22bfr710,26sp1it,273hmj11,297nl9u,2b4geuz,2gfr0a,2hocr4r,2oojzbp,2x2zvio,2y4x3av,37robys,37zhdc10,3czwy5v,3hdfdew,3j7yxw4,3jg8v010,3oevwkm,3v4q0fo,3xladfw,3zzpgyz,40ar0ou,44az5df,45m8mms,45xswav,49v8ffy,49z4cbv,4fsdg94,4r51g5y,4xqkpy10,4y70guv,5017pt,557vyru,56pryuv,57bp1j,5iuzs5u,5iz9107,5lmnufy,5meda98,5p5ixyo,5pohb2z,5q7u8oy,5s0ql2w,5s8gpkq,5vlwvxn,5zmmtkv,64ml7dn,6511wzo,6cq08gu,6ks7yt5,6l3xc2r,6lg1dbu,6mxwupn,6nfc3ip,6qv8v2w,6zwfd4j,766ripw,7b132ky,7gqh14r,7hcxwbr,7jcg72n,7rjzebl,7ui8b6e,7unwq0o,84q2nzt,86gpq0x,89wsrwz,8qyw1lu,8t87ksp,8vjc2cu,919oe9,92n2nz9,97lo2zr,9c2awbr,9grof0n,9jd73yj,9ki1557,9le3qir,9mj3kw10,9qp6x4l,9qpn5f9,9rrzd3z,9shbiay,9w5d2tz,9ziksdr,a2fmlr4,a8dknjs,abhownw,al234hm,ap1x8tb,apbaduk,aqgbzaz,aqugv110,av44o3t,aznvbs,b14gngo,b1hmw35,b3oea810,bad6r4z,bd5ezdr,bdisbbi,bi26vr10,bkgtx8t,blhdtpb,brk36uk,brkei3t,bvn9qbp,bx8l83w,bydacjx,bygmq8u,c0ia0zb,c0mckl,c0nezfx,c3g5xcn,c3ncc78,c7smviv,c9aj7nz,ce4qhci,cj3pxz10,cje91ky,cko7plr,cmkzwft,cs1nmu6,cs5o5cb,css198w,cwqtp3w,cxakyrr,czwyn2n,d2o64v11,d3y4qnj,d4a5jgt,d4scke5,d4ygsft,d6r69j9,d8kgo9q,daqx7ox,dbz8epa,de0m1l10,defy5811,dgsun3o,dityhqw,dk8mlni,dv4qdql,dy90l9q,e2zx0pt,egdjlmw,elx4iqz,emcyw8u,ev6hfu,ex9cppm,f1urxmz,f45mf4v,f5caxlt,fd1v4hz,fjquo1z,fkftskw,fruo03y,fspw6pp,ft6ebbo,ftz68n12,fuewytk,fvoim5u,fwdrq49,fxvuh9r,fy1i99x,g1sfx4u,g4dfqi9,g85bldk,gblfkxq,ge15xbi,gey3m7y,gle1vb9,govj8tt,gqa0eba,gzne19x,h0n9x1y,h0wwji9,h0zi2fu,h11kge10,h20scfp,h286gmw,hbc87lp,hdkvq2p,hdkw2c11,hdyfwyo,hegi40c,hgkcq0l,hmykkgx,hn04bsm,hp1ow4q,hqvvns10,hw8im11,hwlm07c,i3lo1lx,icvjuw10,id7h9y10,ieyeh65,if169t7,ih4h4xa,iixkzxv,il6qsiy,ipr7adm,iutqg4t,ixeciwt,j120fvq,j3frbbo,j3ftiuy,j6crqkm,j85ecyx,jcpoo3m,jdohu28,jidcyur,jpl3bou,jurnlie,k12tiny,k2fenrp,k3mkl110,k7vfyzp,kg4k9av,krtxrit,kuz13so,kxz9a4w,kyb29nv,kzc843y,l4pflun,l55h6nx,l73m4oo,la7lb7x,lbqmojz,lc0ryia,lf5wko9,lfgl5gt,li27nno,lpzcbnd,luhmwk,lvb8bc5,lwqbtr9,lykheew,m0abwbn,mdmkqsp,mehz4rx,mjyfpjr,mkjumjy,mnnzgtw,mosmvta,musljfy,mwynq9y,n3uwx0w,na6lboy,nc4qgxz,nexryos,nfcqnez,nhpdlwz,nn4gp8s,npd7qp11,nsy30vd,ntdogpl,nusjjgz,o5eg4xa,o8k9opd,of4z7ar,of4zexf,ofe8g77,oibg1no,orb8qut,osqodsn,ote0ron,ouit9xl,ow50trr,p33xr7e,p3rvjr6,p3ulgpg,p426gpw,p5ywy8w,pd108o9,pk9nmoy,pmgbea10,prbz5vo,pxqwwg8,pz4lmu6,q13pmwc,q1z08uz,q37hr2c,q5x94yp,q84buid,qblzbsn,qc4qpku,qeg80ny,qfn871n,qfp0q2e,qfzyqvx,qp00afo,qpc2v3y,qstgsdz,qv84nv9,qxb9o6q,r04d5iy,r1nj6sz,r3qc9wu,r45rcto,rb607kx,rk4q8w4,rswmwiw,rt2qq86,rtg409j,rthmvxe,rvjdbfs,ry9vwrw,rzrjog8,s0ndbur,s15vm1s,s4oiztw,s64j14m,s6bdxbx,s81vsxv,s9ur90y,sab5i3q,sbnc63w,sf4spo,sfgsprn,shgetel,sne88wt,sp2duw,ss8e8ql,ssw1nux,st29rmz,swab1kb,sy9t6ys,sz64qdg,szdvulx,t0wktrw,t1dajeq,t1kqpru,t3xpgb11,t4mit6f,t4vnuyn,t6gaydb,tar9qky,td1av5r,tdc9tdl,tdk9omz,tffweyq,thmghfz,thtbjz6,tite4pt,to3kk8s,tonmkhu,toojttq,trz7d4p,ttfzhqu,tttbl3n,tx4sr9l,tynhzm,tysazl11,tz1v6pl,u07ri5u,u2o34yy,u4p37bo,u9m6xyp,uegk1ey,uiug8pl,uk3sswz,uldnl86,uo302no,ur731dl,uzji2un,v6hp2xu,v9oph9r,va13oui,va5i3fy,va6e68w,vccmk8h,vcsielx,vfmlziw,vhyrkeu,viedcqq,vlrncyv,vlvmpt,vpmqteq,vpu9rdk,vsthvbw,vw70h49,vywppoo,vzruba11,w5aqp4p,w5o9qn8,war3fj11,wcery8x,wfk87710,wk66hz7,wkz8nej,wl999ot,wlhfzwv,wqkzxcx,ws6s5r10,wt3sfvy,wubevdv,wvjifzl,wwn07kq,wxotgwx,x0mybvk,x1hvd3h,x2hqisu,x77p4hv,x78r3rk,x7zea4y,x84oklx,x8bmx7y,xb999ia,xcd6txz,xdcyaba,xjd2myx,xjtx9pz,xp315yu,xp6vrlr,xp6yjqr,xszxpbb,xy2td8,y2tv4o9,y4stf4x,y5lz8p10,y9o15vp,ycmd8jr,yddixkq,yhgfqul,yl6284x,ylgo8qz,ymg703q,yn4nbit,ys7jo3x,yuccu7v,yx60qre,yz9xeey,z0dxdju,z22e5jj,z37294x,z5trpen,zbbph15,zhng4au,zhyn1z9,zkj08lp,zr9se1b,zrutsu7,zsmsm2v,ztxcn0w,zwozp0o,zxjay3p";
 BOOK.addUnit({
   id: "u1",
   num: 1,
@@ -9426,10 +9471,16 @@ BOOK.glossary = [
       l.sections.splice(at + 1, 0, Object.assign({ type: "predict", source: "extra" }, x.predict, { _k: "pred" }));
     }
   }));
+  const pagesTxt = (pg) => {
+    const a = Array.from(new Set([].concat(pg || [])));
+    return a.length > 1 ? a[0] + "-" + a[a.length - 1] : String(a[0] || "");
+  };
   const units = () => BOOK.toc.map((t) => {
     const u = BOOK.units.find((x) => x.id === t.id);
-    return Object.assign({}, t, u || {}, { built: !!u, lessonsTOC: t.lessons });
+    return Object.assign({}, t, u || {}, { built: !!u, lessonsTOC: t.lessons || (u ? u.lessons.map((l) => [l.skill, l.title, pagesTxt(l.pages)]) : []) });
   });
+  const uName = (u) => u.label || "Unit " + u.num;
+  const moduleOf = (u) => (BOOK.modules || []).find((m) => m.units.indexOf(u.id) >= 0) || null;
   function allLessons() {
     const out = [];
     units().forEach((u) => {
@@ -9652,12 +9703,18 @@ BOOK.glossary = [
     body.innerHTML = "";
     if (BOOK.libraryUrl) body.append(h("a", { class: "toc-extra", href: BOOK.libraryUrl }, "📚 All books"));
     body.append(h("a", { class: "toc-extra", href: "#home" }, "🏠 Home"));
+    let lastMod = null;
     units().forEach((u) => {
+      const md = moduleOf(u);
+      if (md && md !== lastMod) {
+        lastMod = md;
+        body.append(h("div", { class: "toc-module", style: { "--uc": "var(--" + md.color + ")" } }, md.extra ? md.title : "Module " + md.num + " · " + md.title));
+      }
       const box = h("div", { class: "toc-unit" });
       box.append(h("button", { type: "button", onclick: () => {
         location.hash = "#" + u.id + "l1";
         closeDrawer();
-      } }, h("span", { class: "dot", style: { background: "var(--" + u.color + ")" } }), "Unit " + u.num + " · " + u.title));
+      } }, h("span", { class: "dot", style: { background: "var(--" + u.color + ")" } }), u.label ? u.label : "Unit " + u.num + " · " + u.title));
       u.lessonsTOC.forEach((t, i) => {
         const id = u.id + "l" + (i + 1), l = u.built ? u.lessons[i] : null;
         const a = h(
@@ -9672,8 +9729,13 @@ BOOK.glossary = [
       body.append(box);
     });
     body.append(h("hr", { style: { border: 0, borderTop: "1px solid var(--line)", margin: "12px 8px" } }));
-    body.append(h("a", { class: "toc-extra", href: "#glossary" }, "🔤 Glossary (pages " + BOOK.pagesInfo.glossary + ")"));
-    body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Group Project (page " + BOOK.pagesInfo.project + ")"));
+    body.append(h("a", { class: "toc-extra", href: "#glossary" }, "🔤 " + (BOOK.glossaryTitle || "Glossary") + " (pages " + BOOK.pagesInfo.glossary + ")"));
+    if (BOOK.projects) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Projects (pages " + BOOK.projects.map((x) => pagesTxt(x.pages)).join(", ") + ")"));
+    else if (BOOK.pagesInfo.project) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Group Project (page " + BOOK.pagesInfo.project + ")"));
+    if (BOOK.pagesInfo.writing) body.append(h("button", { class: "toc-extra", type: "button", onclick: () => {
+      closeDrawer();
+      openPage(BOOK.pagesInfo.writing);
+    } }, "✍️ Writing Reference (page " + BOOK.pagesInfo.writing + ")"));
     body.append(h("a", { class: "toc-extra", href: "#search" }, "🔎 Search the book"));
     body.append(h("a", { class: "toc-extra", href: "#settings" }, "⚙️ Settings & progress"));
     const TH = { auto: "Automatic", light: "Light", dark: "Dark" };
@@ -9693,7 +9755,11 @@ BOOK.glossary = [
       document.body.append(nav);
     }
     nav.innerHTML = "";
-    units().forEach((u) => nav.append(h("a", { href: "#" + u.id + "l1", class: "side-tab" + (CUR && CUR.u.id === u.id ? " on" : ""), style: { "--uc": "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Unit " + u.num + ": " + u.title }, h("b", null, String(u.num)), h("span", null, u.title))));
+    if (BOOK.modules) BOOK.modules.forEach((m) => {
+      const on = CUR && m.units.indexOf(CUR.u.id) >= 0;
+      nav.append(h("a", { href: "#" + m.units[0] + "l1", class: "side-tab" + (on ? " on" : ""), style: { "--uc": "var(--" + m.color + ")" }, title: m.extra ? m.title : "Module " + m.num + ": " + m.title, "aria-label": m.extra ? m.title : "Module " + m.num + ": " + m.title }, h("b", null, m.extra ? "📖" : "M" + m.num), h("span", null, m.title)));
+    });
+    else units().forEach((u) => nav.append(h("a", { href: "#" + u.id + "l1", class: "side-tab" + (CUR && CUR.u.id === u.id ? " on" : ""), style: { "--uc": "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Unit " + u.num + ": " + u.title }, h("b", null, String(u.num)), h("span", null, u.title))));
   }
   function openDrawer() {
     $("#drawer").classList.add("open");
@@ -9720,7 +9786,7 @@ BOOK.glossary = [
     closePop();
     endSpot();
     const hsh = (location.hash || "#home").slice(1);
-    const m = hsh.match(/^(u\d)l(\d)$/);
+    const m = hsh.match(/^(u\d+)l(\d+)$/);
     const main = $("#main");
     main.innerHTML = "";
     CUR = null;
@@ -9752,7 +9818,7 @@ BOOK.glossary = [
         "div",
         { style: { position: "relative", zIndex: 1 } },
         h("div", { class: "row", style: { marginBottom: "6px" } }, h("span", { class: "tag page" }, BOOK.level), h("span", { class: "tag book" }, "Kuwait MOE curriculum")),
-        h("h1", { html: "English <em>Pearls</em> of Kuwait" }),
+        h("h1", { html: BOOK.heroTitle || "English <em>Pearls</em> of Kuwait" }),
         h("p", { class: "muted", style: { maxWidth: "52ch", marginTop: "6px" } }, "Read, listen, speak, write and play. Every lesson follows the book, page by page."),
         h("p", { class: "credit" }, BOOK.credit),
         h(
@@ -9778,14 +9844,20 @@ BOOK.glossary = [
           "div",
           { class: "book3d-body" },
           h("img", { src: "img/covers/book.jpg", alt: "Cover of English Pearls of Kuwait " + BOOK.code }),
-          h("div", { class: "book3d-tabs" }, units().map((u) => h("a", { class: "b3tab", href: "#" + u.id + "l1", style: { background: "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Open Unit " + u.num + ": " + u.title }, String(u.num))))
+          h("div", { class: "book3d-tabs" }, BOOK.modules ? BOOK.modules.filter((m) => !m.extra).map((m) => h("a", { class: "b3tab", href: "#" + m.units[0] + "l1", style: { background: "var(--" + m.color + ")" }, title: "Module " + m.num + ": " + m.title, "aria-label": "Open Module " + m.num + ": " + m.title }, String(m.num))) : units().map((u) => h("a", { class: "b3tab", href: "#" + u.id + "l1", style: { background: "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Open Unit " + u.num + ": " + u.title }, String(u.num))))
         )
       )
     );
     w.append(hero);
     if (!storageOK) w.append(h("div", { class: "notice" }, "This browser is not saving progress (private mode or blocked storage). Your work stays until you close the page."));
     const grid = h("section", { class: "units", "aria-label": "Units" });
+    let lastMod = null;
     units().forEach((u) => {
+      const md = moduleOf(u);
+      if (md && md !== lastMod) {
+        lastMod = md;
+        grid.append(h("h2", { class: "mod-head", style: { "--uc": "var(--" + md.color + ")" } }, h("span", null, md.extra ? "Extra" : "Module " + md.num), md.title, S.settings.ar && md.titleAr ? h("small", { class: "ar" }, md.titleAr) : null));
+      }
       const pct = unitPct(u);
       const card = h(
         "article",
@@ -9794,7 +9866,7 @@ BOOK.glossary = [
           "a",
           { class: "unit-cover", href: "#" + u.id + "l1", "aria-label": "Open Unit " + u.num },
           h("img", { src: "img/covers/" + u.id + ".jpg", alt: "", loading: "lazy" }),
-          h("div", { class: "band" }, h("small", null, "Learning Unit " + u.num), h("b", null, u.title))
+          h("div", { class: "band" }, h("small", null, u.label ? moduleOf(u) && moduleOf(u).extra ? "Extra reading" : "" : BOOK.modules ? "Module " + (moduleOf(u) ? moduleOf(u).num : "") + " · Unit " + u.num : "Learning Unit " + u.num), h("b", null, u.title))
         ),
         h(
           "div",
@@ -9813,7 +9885,7 @@ BOOK.glossary = [
               "a",
               { class: "lesson-link", href: "#" + u.id + "l" + (i + 1) },
               h("span", { class: "n" + (p >= 100 ? " full" : "") }, p >= 100 ? "✓" : String(i + 1)),
-              h("span", null, t[1], h("span", { class: "meta" }, SKILL_ICON[t[0]] + " " + t[0] + " · p. " + t[2] + (l ? "" : " · not built yet"))),
+              h("span", null, t[1], h("span", { class: "meta" }, SKILL_ICON[t[0]] + " " + t[0] + " · p. " + String(t[2]).replace("-", "–") + (l ? "" : " · not built yet"))),
               l ? h("span", { class: "ring", style: { "--p": p }, "data-v": p + "%" }) : h("span", { class: "tag todo" }, "soon")
             );
           }))
@@ -9826,7 +9898,7 @@ BOOK.glossary = [
       "section",
       { class: "card" },
       h("div", { class: "sec-head" }, h("h2", null, "⭐ My star passport"), h("span", { class: "muted small" }, "1 star = a third of the unit · 3 stars = unit complete · mistakes never take stars away")),
-      h("div", { class: "passport" }, units().map((u) => h("a", { class: "stamp", href: "#" + u.id + "l1", style: { "--uc": "var(--" + u.color + ")" } }, h("small", null, "Unit " + u.num), h("b", null, u.title), h("span", { class: "ustars", "aria-label": unitStars(u) + " of 3 stars" }, starStr(unitStars(u))))))
+      h("div", { class: "passport" }, units().map((u) => h("a", { class: "stamp", href: "#" + u.id + "l1", style: { "--uc": "var(--" + u.color + ")" } }, h("small", null, uName(u)), h("b", null, u.title), h("span", { class: "ustars", "aria-label": unitStars(u) + " of 3 stars" }, starStr(unitStars(u))))))
     ));
     w.append(h(
       "section",
@@ -9858,11 +9930,11 @@ BOOK.glossary = [
     const w = h("div", { class: "wrap", style: { "--uc": "var(--" + u.color + ")" } });
     const pct = lessonPct(l);
     const pg = Array.from(new Set(l.pages));
-    const pagesTxt = pg.length > 1 ? "pages " + pg[0] + "–" + pg[pg.length - 1] : "page " + pg[0];
+    const pagesTxt2 = pg.length > 1 ? "pages " + pg[0] + "–" + pg[pg.length - 1] : "page " + pg[0];
     w.append(h(
       "header",
       { class: "lesson-head" },
-      h("nav", { class: "crumbs", "aria-label": "Breadcrumb" }, h("a", { href: "#home" }, "Home"), "›", h("span", null, "Unit " + u.num + ": " + u.title), "›", h("span", null, "Lesson " + l.num)),
+      h("nav", { class: "crumbs", "aria-label": "Breadcrumb" }, h("a", { href: "#home" }, "Home"), "›", h("span", null, u.label ? u.label : "Unit " + u.num + ": " + u.title), "›", h("span", null, "Lesson " + l.num)),
       h("div", { class: "unit-stripe" }),
       h(
         "div",
@@ -9870,12 +9942,12 @@ BOOK.glossary = [
         h(
           "div",
           { class: "grow" },
-          h("div", { class: "row", style: { marginBottom: "6px" } }, h("span", { class: "tag book" }, SKILL_ICON[l.skill] + " " + l.skill), h("span", { class: "tag page" }, "📄 Book " + pagesTxt), S.settings.ar ? h("span", { class: "tag ar" }, SKILL_AR[l.skill]) : null),
+          h("div", { class: "row", style: { marginBottom: "6px" } }, h("span", { class: "tag book" }, SKILL_ICON[l.skill] + " " + l.skill), h("span", { class: "tag page" }, "📄 Book " + pagesTxt2), S.settings.ar ? h("span", { class: "tag ar" }, SKILL_AR[l.skill]) : null),
           h("h1", null, l.title)
         ),
         h("span", { class: "ring", id: "lessonPct", style: { "--p": pct, width: "54px", height: "54px" }, "data-v": pct + "%", title: "Lesson progress" })
       ),
-      h("div", { class: "row" }, h("button", { class: "btn small", onclick: () => openPage(l.pages[0]) }, icon("book"), "Open book " + pagesTxt))
+      h("div", { class: "row" }, h("button", { class: "btn small", onclick: () => openPage(l.pages[0]) }, icon("book"), "Open book " + pagesTxt2))
     ));
     const partsBar = h("nav", { class: "parts", "aria-label": "Lesson steps" });
     visible.forEach((p2, i) => {
@@ -10388,7 +10460,7 @@ BOOK.glossary = [
         list.append(h(
           "div",
           { class: "gstep" },
-          h("h4", null, h("span", { class: "num" }, String(i + 1)), h("span", { class: "grow" }, st.title), st.source === "extra" ? h("span", { class: "tag extra" }, "⭐ Extra example") : null),
+          h("h4", null, h("span", { class: "num" }, String(i + 1)), h("span", { class: "grow" }, st.title), st.source === "extra" ? h("span", { class: "tag extra" }, "⭐ Extra help (not in the book)") : null),
           h("div", { class: "row", style: { flexWrap: "nowrap", alignItems: "flex-start" } }, h("p", { class: "grow" }, st.text), sayBtn(st.text)),
           S.settings.ar && st.textAr ? h("p", { class: "ar muted", html: arHTML(st.textAr) }) : null,
           (st.examples || []).map((e) => h("div", { class: "ex-line" }, h("span", { class: "s", html: tokensHTML(e) }), sayBtn(e.replace(/\{[a-z]:([^}]+)\}/g, "$1")))),
@@ -11358,7 +11430,7 @@ BOOK.glossary = [
         "div",
         { class: "notice" },
         h("b", null, "🎧 The book recording is not inside this app."),
-        h("span", null, "Your teacher will play it in class."),
+        h("span", null, "Your teacher will play it in class." + (s.track ? " Book recording: track " + s.track + "." : "")),
         s.audioLink ? h("span", null, "The book’s QR code (page " + (s.page || "") + ") points to this Ministry file: ", h("a", { href: s.audioLink, target: "_blank", rel: "noopener" }, "Open the book’s QR audio link"), ". It may need a Ministry (MOE) account. We could not open or check it from here.") : null,
         h("span", { class: "small" }, "Write your notes below. Answers are not marked automatically, because they depend on the recording.")
       ));
@@ -11782,7 +11854,7 @@ BOOK.glossary = [
     });
     c.append(ans);
     c.append(h("p", { class: "small muted" }, "The book prints no answer key. Answers marked “from the text” were taken from the book’s own texts. Listening answers depend on the book recording and are not given here."));
-    if (u.outcomes) c.append(h("details", null, h("summary", null, h("b", null, "Unit " + u.num + " learning outcomes (book p. " + (u.pages ? u.pages[0] + 2 : "") + ")")), Object.entries(u.outcomes).map(([k, v]) => h("div", null, h("h4", { style: { marginTop: "8px", textTransform: "capitalize" } }, k), h("ul", null, v.map((x) => h("li", null, x)))))));
+    if (u.outcomes) c.append(h("details", null, h("summary", null, h("b", null, uName(u) + " learning outcomes (book p. " + (u.outcomesPage || (u.pages ? u.pages[0] + 2 : "")) + ")")), Object.entries(u.outcomes).map(([k, v]) => h("div", null, h("h4", { style: { marginTop: "8px", textTransform: "capitalize" } }, k), h("ul", null, v.map((x) => h("li", null, x)))))));
     host.append(c);
   }
   function renderGlossary(main) {
@@ -11796,9 +11868,9 @@ BOOK.glossary = [
     const draw = () => {
       const q = norm(inp.value);
       list.innerHTML = "";
-      (BOOK.glossary || []).filter((e) => !q || e.w.toLowerCase().includes(q) || e.def.toLowerCase().includes(q)).forEach((e) => {
+      (BOOK.glossary || []).filter((e) => !q || e.w.toLowerCase().includes(q) || (e.def || "").toLowerCase().includes(q)).forEach((e) => {
         const v = arMap[e.w.toLowerCase()];
-        list.append(h("div", { class: "gl-item" }, h("div", { class: "row" }, h("b", { style: { fontSize: "1.1rem" } }, (v && v.emoji ? v.emoji + " " : "") + e.w), sayBtn(e.w)), h("span", { class: "small muted" }, e.ipa + " · " + e.pos + (e.page ? " · p. " + e.page : "")), h("span", null, e.def), S.settings.ar && v && v.ar ? h("span", { class: "ar", style: { color: "var(--brand)", fontWeight: 700 } }, v.ar) : null));
+        list.append(h("div", { class: "gl-item" }, h("div", { class: "row" }, h("b", { style: { fontSize: "1.1rem" } }, (v && v.emoji ? v.emoji + " " : "") + e.w), sayBtn(e.w)), h("span", { class: "small muted" }, [e.ipa, e.pos, e.unit ? "Unit " + e.unit : null, e.page ? "p. " + e.page : null].filter(Boolean).join(" · ")), e.def ? h("span", null, e.def, e.defExtra ? h("span", { class: "small muted" }, " (simple meaning – not in the book)") : null) : null, S.settings.ar && v && v.ar ? h("span", { class: "ar", style: { color: "var(--brand)", fontWeight: 700 } }, v.ar) : null));
       });
       if (!list.children.length) list.append(h("p", { class: "muted" }, "No word found."));
     };
@@ -11806,17 +11878,72 @@ BOOK.glossary = [
     w.append(h(
       "section",
       { class: "card stack" },
-      h("div", { class: "sec-head" }, h("h1", null, "Glossary"), h("button", { class: "tag page", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.glossary, 10)) }, "📄 pp. " + BOOK.pagesInfo.glossary)),
-      h("p", { class: "muted" }, "All " + (BOOK.glossary || []).length + " words from the book’s glossary, with the book’s pronunciation and meaning."),
+      h("div", { class: "sec-head" }, h("h1", null, BOOK.glossaryTitle || "Glossary"), h("button", { class: "tag page", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.glossary, 10)) }, "📄 pp. " + BOOK.pagesInfo.glossary)),
+      h("p", { class: "muted" }, BOOK.glossaryNote || "All " + (BOOK.glossary || []).length + " words from the book’s glossary, with the book’s pronunciation and meaning."),
       inp,
       list,
-      h("p", { class: "small muted" }, "Irregular verbs (pages " + BOOK.pagesInfo.irregular + "): ", h("button", { class: "btn small", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.irregular, 10)) }, icon("book"), "Open the book pages"))
+      BOOK.pagesInfo.irregular ? h("p", { class: "small muted" }, "Irregular verbs (pages " + BOOK.pagesInfo.irregular + "): ", h("button", { class: "btn small", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.irregular, 10)) }, icon("book"), "Open the book pages")) : null
     ));
     w.append(footer());
     main.append(w);
     draw();
   }
+  function renderProjects(main) {
+    const w = h("div", { class: "wrap" });
+    const field = (label, k, rows) => {
+      const id = "pjf-" + k;
+      const ta = h("textarea", { class: "txt", id, rows: rows || 2 });
+      ta.value = S.drafts["pjf:" + k] || "";
+      ta.oninput = () => {
+        S.drafts["pjf:" + k] = ta.value;
+        save();
+      };
+      return h("div", null, h("label", { for: id, style: { fontWeight: 700 } }, label), ta);
+    };
+    const checks = (arr, key) => h("ul", { class: "checks" }, arr.map((x, i) => {
+      const id = "pj-" + key + i;
+      const st = S.drafts["pj:" + key] || [];
+      const inp = h("input", { type: "checkbox", id, checked: st.includes(i) ? true : null });
+      inp.onchange = () => {
+        const a = S.drafts["pj:" + key] || (S.drafts["pj:" + key] = []);
+        if (inp.checked) a.push(i);
+        else a.splice(a.indexOf(i), 1);
+        save();
+      };
+      return h("li", null, h("label", { for: id }, inp, h("span", null, x)));
+    }));
+    w.append(h("section", { class: "card stack" }, h("h1", null, "Projects"), h("p", { class: "muted" }, "The book’s projects, with space to plan. Your notes are saved on this device.")));
+    BOOK.projects.forEach((pj) => {
+      const c = h("section", { class: "card stack" });
+      c.append(h("div", { class: "sec-head" }, h("h2", null, pj.title), h("div", { class: "row" }, h("span", { class: "tag book" }, "From the book"), pj.pages.map((pg) => h("button", { class: "tag page", type: "button", onclick: () => openPage(pg) }, "📄 p. " + pg)))));
+      if (pj.note) c.append(h("p", null, h("b", null, pj.note)));
+      (pj.intro || []).forEach((t) => c.append(h("div", { class: "row", style: { flexWrap: "nowrap", alignItems: "flex-start" } }, h("p", { class: "grow" }, t), sayBtn(t))));
+      if (pj.points) c.append(h("ul", null, pj.points.map((t) => h("li", null, t))));
+      if (pj.tasks) c.append(h("h3", null, "Steps (tick when done)"), checks(pj.tasks, pj.id));
+      if (pj.table) {
+        const tb = h("table", { class: "bt" }, h("thead", null, h("tr", null, pj.table.head.map((x) => h("th", null, x)))));
+        const body = h("tbody", null, h("tr", null, pj.table.example.map((x) => h("td", null, h("i", null, x)))));
+        for (let r = 0; r < pj.table.rows; r++) body.append(h("tr", null, pj.table.head.map((x, ci) => {
+          const k = "pjt:" + pj.id + ":" + r + ":" + ci;
+          const ta = h("textarea", { class: "txt", rows: 1, "aria-label": x + " " + (r + 1) });
+          ta.value = S.drafts[k] || "";
+          ta.oninput = () => {
+            S.drafts[k] = ta.value;
+            save();
+          };
+          return h("td", null, ta);
+        })));
+        tb.append(body);
+        c.append(h("h3", null, "Our programme"), h("div", { class: "tablewrap" }, tb));
+      }
+      (pj.fields || []).forEach((f, i) => c.append(field(f[0], pj.id + i, f[1])));
+      w.append(c);
+    });
+    w.append(footer());
+    main.append(w);
+  }
   function renderProject(main) {
+    if (BOOK.projects) return renderProjects(main);
     const w = h("div", { class: "wrap" });
     const steps = ["Form your group and assign roles (e.g., leader, researcher, designer, presenter).", "Research your topic using books, websites, or interviews.", "Plan your product (poster, model, slide deck, etc.).", "Gather materials and create your product.", "Rehearse your presentation.", "Present your project to the class."];
     const crit = ["Content", "Accuracy", "Presentation skills", "Ability to explain and justify ideas when asked", "Design and creativity", "Teamwork"];

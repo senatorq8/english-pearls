@@ -228,7 +228,10 @@
     if (x.lab) { const gi = l.sections.findIndex((s) => s.type === "grammar"); l.sections.splice(gi + 1, 0, Object.assign({ type: "lab", source: "extra" }, x.lab, { _k: "lab" })); }
     if (x.predict) { let at = -1; l.sections.forEach((s, i) => { if (s.type === "activity" || s.type === "lab" || s.type === "grammar") at = i; }); l.sections.splice(at + 1, 0, Object.assign({ type: "predict", source: "extra" }, x.predict, { _k: "pred" })); }
   }));
-  const units = () => BOOK.toc.map((t) => { const u = BOOK.units.find((x) => x.id === t.id); return Object.assign({}, t, u || {}, { built: !!u, lessonsTOC: t.lessons }); });
+  const pagesTxt = (pg) => { const a = Array.from(new Set([].concat(pg || []))); return a.length > 1 ? a[0] + "-" + a[a.length - 1] : String(a[0] || ""); };
+  const units = () => BOOK.toc.map((t) => { const u = BOOK.units.find((x) => x.id === t.id); return Object.assign({}, t, u || {}, { built: !!u, lessonsTOC: t.lessons || (u ? u.lessons.map((l) => [l.skill, l.title, pagesTxt(l.pages)]) : []) }); });
+  const uName = (u) => u.label || "Unit " + u.num;
+  const moduleOf = (u) => (BOOK.modules || []).find((m) => m.units.indexOf(u.id) >= 0) || null;
   function allLessons() { const out = []; units().forEach((u) => { if (u.built) u.lessons.forEach((l) => out.push({ u, l })); }); return out; }
   function findLesson(id) { return allLessons().find((x) => x.l.id === id); }
   const SKILL_ICON = { Reading: "📖", Grammar: "🧩", Listening: "🎧", Speaking: "🗣️", Writing: "✍️" };
@@ -373,9 +376,11 @@
     const body = $("#drawerBody"); if (!body) return; body.innerHTML = "";
     if (BOOK.libraryUrl) body.append(h("a", { class: "toc-extra", href: BOOK.libraryUrl }, "📚 All books"));
     body.append(h("a", { class: "toc-extra", href: "#home" }, "🏠 Home"));
+    let lastMod = null;
     units().forEach((u) => {
+      const md = moduleOf(u); if (md && md !== lastMod) { lastMod = md; body.append(h("div", { class: "toc-module", style: { "--uc": "var(--" + md.color + ")" } }, md.extra ? md.title : "Module " + md.num + " · " + md.title)); }
       const box = h("div", { class: "toc-unit" });
-      box.append(h("button", { type: "button", onclick: () => { location.hash = "#" + u.id + "l1"; closeDrawer(); } }, h("span", { class: "dot", style: { background: "var(--" + u.color + ")" } }), "Unit " + u.num + " · " + u.title));
+      box.append(h("button", { type: "button", onclick: () => { location.hash = "#" + u.id + "l1"; closeDrawer(); } }, h("span", { class: "dot", style: { background: "var(--" + u.color + ")" } }), u.label ? u.label : "Unit " + u.num + " · " + u.title));
       u.lessonsTOC.forEach((t, i) => {
         const id = u.id + "l" + (i + 1), l = u.built ? u.lessons[i] : null;
         const a = h("a", { class: "toc-lesson" + (CUR && CUR.l.id === id ? " active" : ""), href: "#" + id },
@@ -385,8 +390,10 @@
       body.append(box);
     });
     body.append(h("hr", { style: { border: 0, borderTop: "1px solid var(--line)", margin: "12px 8px" } }));
-    body.append(h("a", { class: "toc-extra", href: "#glossary" }, "🔤 Glossary (pages " + BOOK.pagesInfo.glossary + ")"));
-    body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Group Project (page " + BOOK.pagesInfo.project + ")"));
+    body.append(h("a", { class: "toc-extra", href: "#glossary" }, "🔤 " + (BOOK.glossaryTitle || "Glossary") + " (pages " + BOOK.pagesInfo.glossary + ")"));
+    if (BOOK.projects) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Projects (pages " + BOOK.projects.map((x) => pagesTxt(x.pages)).join(", ") + ")"));
+    else if (BOOK.pagesInfo.project) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Group Project (page " + BOOK.pagesInfo.project + ")"));
+    if (BOOK.pagesInfo.writing) body.append(h("button", { class: "toc-extra", type: "button", onclick: () => { closeDrawer(); openPage(BOOK.pagesInfo.writing); } }, "✍️ Writing Reference (page " + BOOK.pagesInfo.writing + ")"));
     body.append(h("a", { class: "toc-extra", href: "#search" }, "🔎 Search the book"));
     body.append(h("a", { class: "toc-extra", href: "#settings" }, "⚙️ Settings & progress"));
     const TH = { auto: "Automatic", light: "Light", dark: "Dark" };
@@ -397,7 +404,8 @@
     let nav = $("#unitTabs");
     if (!nav) { nav = h("nav", { id: "unitTabs", class: "side-tabs", "aria-label": "Units" }); document.body.append(nav); }
     nav.innerHTML = "";
-    units().forEach((u) => nav.append(h("a", { href: "#" + u.id + "l1", class: "side-tab" + (CUR && CUR.u.id === u.id ? " on" : ""), style: { "--uc": "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Unit " + u.num + ": " + u.title }, h("b", null, String(u.num)), h("span", null, u.title))));
+    if (BOOK.modules) BOOK.modules.forEach((m) => { const on = CUR && m.units.indexOf(CUR.u.id) >= 0; nav.append(h("a", { href: "#" + m.units[0] + "l1", class: "side-tab" + (on ? " on" : ""), style: { "--uc": "var(--" + m.color + ")" }, title: m.extra ? m.title : "Module " + m.num + ": " + m.title, "aria-label": m.extra ? m.title : "Module " + m.num + ": " + m.title }, h("b", null, m.extra ? "📖" : "M" + m.num), h("span", null, m.title))); });
+    else units().forEach((u) => nav.append(h("a", { href: "#" + u.id + "l1", class: "side-tab" + (CUR && CUR.u.id === u.id ? " on" : ""), style: { "--uc": "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Unit " + u.num + ": " + u.title }, h("b", null, String(u.num)), h("span", null, u.title))));
   }
   function openDrawer() { $("#drawer").classList.add("open"); $("#scrim").classList.add("open"); $("#drawer").removeAttribute("inert"); setTimeout(() => { const a = $(".toc-lesson.active") || $("#drawer a"); a && a.focus(); }, 50); }
   function closeDrawer() { $("#drawer").classList.remove("open"); $("#scrim").classList.remove("open"); $("#drawer").setAttribute("inert", ""); }
@@ -410,7 +418,7 @@
   function route() {
     TTS.stop(); stopRec(); stopAudio(); closeDrawer(); closePop(); endSpot();
     const hsh = (location.hash || "#home").slice(1);
-    const m = hsh.match(/^(u\d)l(\d)$/);
+    const m = hsh.match(/^(u\d+)l(\d+)$/);
     const main = $("#main"); main.innerHTML = "";
     CUR = null;
     if (m) {
@@ -434,7 +442,7 @@
     const hero = h("section", { class: "hero" },
       h("div", { style: { position: "relative", zIndex: 1 } },
         h("div", { class: "row", style: { marginBottom: "6px" } }, h("span", { class: "tag page" }, BOOK.level), h("span", { class: "tag book" }, "Kuwait MOE curriculum")),
-        h("h1", { html: "English <em>Pearls</em> of Kuwait" }),
+        h("h1", { html: BOOK.heroTitle || "English <em>Pearls</em> of Kuwait" }),
         h("p", { class: "muted", style: { maxWidth: "52ch", marginTop: "6px" } }, "Read, listen, speak, write and play. Every lesson follows the book, page by page."),
         h("p", { class: "credit" }, BOOK.credit),
         h("div", { class: "stats" },
@@ -449,16 +457,20 @@
       h("div", { class: "book3d" },
         h("div", { class: "book3d-body" },
           h("img", { src: "img/covers/book.jpg", alt: "Cover of English Pearls of Kuwait " + BOOK.code }),
-          h("div", { class: "book3d-tabs" }, units().map((u) => h("a", { class: "b3tab", href: "#" + u.id + "l1", style: { background: "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Open Unit " + u.num + ": " + u.title }, String(u.num)))))));
+          h("div", { class: "book3d-tabs" }, BOOK.modules ? BOOK.modules.filter((m) => !m.extra).map((m) => h("a", { class: "b3tab", href: "#" + m.units[0] + "l1", style: { background: "var(--" + m.color + ")" }, title: "Module " + m.num + ": " + m.title, "aria-label": "Open Module " + m.num + ": " + m.title }, String(m.num)))
+            : units().map((u) => h("a", { class: "b3tab", href: "#" + u.id + "l1", style: { background: "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Open Unit " + u.num + ": " + u.title }, String(u.num)))))));
     w.append(hero);
     if (!storageOK) w.append(h("div", { class: "notice" }, "This browser is not saving progress (private mode or blocked storage). Your work stays until you close the page."));
     const grid = h("section", { class: "units", "aria-label": "Units" });
+    let lastMod = null;
     units().forEach((u) => {
+      const md = moduleOf(u);
+      if (md && md !== lastMod) { lastMod = md; grid.append(h("h2", { class: "mod-head", style: { "--uc": "var(--" + md.color + ")" } }, h("span", null, md.extra ? "Extra" : "Module " + md.num), md.title, S.settings.ar && md.titleAr ? h("small", { class: "ar" }, md.titleAr) : null)); }
       const pct = unitPct(u);
       const card = h("article", { class: "unit-card", style: { "--uc": "var(--" + u.color + ")" } },
         h("a", { class: "unit-cover", href: "#" + u.id + "l1", "aria-label": "Open Unit " + u.num },
           h("img", { src: "img/covers/" + u.id + ".jpg", alt: "", loading: "lazy" }),
-          h("div", { class: "band" }, h("small", null, "Learning Unit " + u.num), h("b", null, u.title))),
+          h("div", { class: "band" }, h("small", null, u.label ? (moduleOf(u) && moduleOf(u).extra ? "Extra reading" : "") : (BOOK.modules ? "Module " + (moduleOf(u) ? moduleOf(u).num : "") + " · Unit " + u.num : "Learning Unit " + u.num)), h("b", null, u.title))),
         h("div", { class: "unit-body" },
           h("div", { class: "row" }, h("div", { class: "bar grow", role: "progressbar", "aria-valuenow": pct, "aria-valuemin": 0, "aria-valuemax": 100, "aria-label": "Unit " + u.num + " progress" }, h("i", { style: { width: pct + "%", background: "var(--" + u.color + ")" } })), h("b", { class: "small" }, pct + "%"),
             h("span", { class: "ustars", title: unitStars(u) + " of 3 stars", "aria-label": unitStars(u) + " of 3 stars" }, starStr(unitStars(u)))),
@@ -467,7 +479,7 @@
             const l = u.built ? u.lessons[i] : null, p = l ? lessonPct(l) : 0;
             return h("a", { class: "lesson-link", href: "#" + u.id + "l" + (i + 1) },
               h("span", { class: "n" + (p >= 100 ? " full" : "") }, p >= 100 ? "✓" : String(i + 1)),
-              h("span", null, t[1], h("span", { class: "meta" }, SKILL_ICON[t[0]] + " " + t[0] + " · p. " + t[2] + (l ? "" : " · not built yet"))),
+              h("span", null, t[1], h("span", { class: "meta" }, SKILL_ICON[t[0]] + " " + t[0] + " · p. " + String(t[2]).replace("-", "–") + (l ? "" : " · not built yet"))),
               l ? h("span", { class: "ring", style: { "--p": p }, "data-v": p + "%" }) : h("span", { class: "tag todo" }, "soon"));
           }))));
       grid.append(card);
@@ -475,7 +487,7 @@
     w.append(grid);
     // star passport
     w.append(h("section", { class: "card" }, h("div", { class: "sec-head" }, h("h2", null, "⭐ My star passport"), h("span", { class: "muted small" }, "1 star = a third of the unit · 3 stars = unit complete · mistakes never take stars away")),
-      h("div", { class: "passport" }, units().map((u) => h("a", { class: "stamp", href: "#" + u.id + "l1", style: { "--uc": "var(--" + u.color + ")" } }, h("small", null, "Unit " + u.num), h("b", null, u.title), h("span", { class: "ustars", "aria-label": unitStars(u) + " of 3 stars" }, starStr(unitStars(u))))))));
+      h("div", { class: "passport" }, units().map((u) => h("a", { class: "stamp", href: "#" + u.id + "l1", style: { "--uc": "var(--" + u.color + ")" } }, h("small", null, uName(u)), h("b", null, u.title), h("span", { class: "ustars", "aria-label": unitStars(u) + " of 3 stars" }, starStr(unitStars(u))))))));
     // badges
     w.append(h("section", { class: "card" }, h("div", { class: "sec-head" }, h("h2", null, "My badges"), h("span", { class: "muted small" }, "Saved on this device only")),
       h("div", { class: "badges" }, BADGES.map((b) => h("div", { class: "badge" + (S.badges[b.id] ? " got" : "") }, h("span", { class: "b-ico" }, b.ico), h("div", null, h("b", null, b.name), h("div", { class: "small muted" }, b.desc)))))));
@@ -500,7 +512,7 @@
     const pct = lessonPct(l);
     const pg = Array.from(new Set(l.pages)); const pagesTxt = pg.length > 1 ? "pages " + pg[0] + "–" + pg[pg.length - 1] : "page " + pg[0];
     w.append(h("header", { class: "lesson-head" },
-      h("nav", { class: "crumbs", "aria-label": "Breadcrumb" }, h("a", { href: "#home" }, "Home"), "›", h("span", null, "Unit " + u.num + ": " + u.title), "›", h("span", null, "Lesson " + l.num)),
+      h("nav", { class: "crumbs", "aria-label": "Breadcrumb" }, h("a", { href: "#home" }, "Home"), "›", h("span", null, (u.label ? u.label : "Unit " + u.num + ": " + u.title)), "›", h("span", null, "Lesson " + l.num)),
       h("div", { class: "unit-stripe" }),
       h("div", { class: "row", style: { alignItems: "flex-start" } },
         h("div", { class: "grow" },
@@ -773,7 +785,7 @@
     function draw() {
       list.innerHTML = "";
       steps.slice(0, shown).forEach((st, i) => {
-        list.append(h("div", { class: "gstep" }, h("h4", null, h("span", { class: "num" }, String(i + 1)), h("span", { class: "grow" }, st.title), st.source === "extra" ? h("span", { class: "tag extra" }, "⭐ Extra example") : null),
+        list.append(h("div", { class: "gstep" }, h("h4", null, h("span", { class: "num" }, String(i + 1)), h("span", { class: "grow" }, st.title), st.source === "extra" ? h("span", { class: "tag extra" }, "⭐ Extra help (not in the book)") : null),
           h("div", { class: "row", style: { flexWrap: "nowrap", alignItems: "flex-start" } }, h("p", { class: "grow" }, st.text), sayBtn(st.text)),
           S.settings.ar && st.textAr ? h("p", { class: "ar muted", html: arHTML(st.textAr) }) : null,
           (st.examples || []).map((e) => h("div", { class: "ex-line" }, h("span", { class: "s", html: tokensHTML(e) }), sayBtn(e.replace(/\{[a-z]:([^}]+)\}/g, "$1")))),
@@ -1301,7 +1313,7 @@
       if (!s.items || !s.items.some((it) => !it.open)) card.append(h("p", { class: "small muted" }, "Write your answers below. Your teacher will check them with the class."));
     } else if (s.needsAudio) {
       card.append(h("div", { class: "notice" }, h("b", null, "🎧 The book recording is not inside this app."),
-        h("span", null, "Your teacher will play it in class."),
+        h("span", null, "Your teacher will play it in class." + (s.track ? " Book recording: track " + s.track + "." : "")),
         s.audioLink ? h("span", null, "The book’s QR code (page " + (s.page || "") + ") points to this Ministry file: ", h("a", { href: s.audioLink, target: "_blank", rel: "noopener" }, "Open the book’s QR audio link"), ". It may need a Ministry (MOE) account. We could not open or check it from here.") : null,
         h("span", { class: "small" }, "Write your notes below. Answers are not marked automatically, because they depend on the recording.")));
     }
@@ -1482,7 +1494,7 @@
       if (!s.items || !s.items.length) return; ans.append(h("h4", { style: { marginTop: "10px" } }, (s.source === "extra" ? "⭐ " : "") + s.title + (s.page ? " (p. " + s.page + ")" : "")), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, it.needsAudio || s.needsAudio ? "check with the book recording" : answerText(it)))))); });
     c.append(ans);
     c.append(h("p", { class: "small muted" }, "The book prints no answer key. Answers marked “from the text” were taken from the book’s own texts. Listening answers depend on the book recording and are not given here."));
-    if (u.outcomes) c.append(h("details", null, h("summary", null, h("b", null, "Unit " + u.num + " learning outcomes (book p. " + (u.pages ? u.pages[0] + 2 : "") + ")")), Object.entries(u.outcomes).map(([k, v]) => h("div", null, h("h4", { style: { marginTop: "8px", textTransform: "capitalize" } }, k), h("ul", null, v.map((x) => h("li", null, x)))))));
+    if (u.outcomes) c.append(h("details", null, h("summary", null, h("b", null, uName(u) + " learning outcomes (book p. " + (u.outcomesPage || (u.pages ? u.pages[0] + 2 : "")) + ")")), Object.entries(u.outcomes).map(([k, v]) => h("div", null, h("h4", { style: { marginTop: "8px", textTransform: "capitalize" } }, k), h("ul", null, v.map((x) => h("li", null, x)))))));
     host.append(c);
   }
 
@@ -1494,20 +1506,47 @@
     const arMap = {}; allLessons().forEach(({ l }) => (l.vocab || []).forEach((v) => { arMap[v.w.toLowerCase()] = v; }));
     const draw = () => {
       const q = norm(inp.value); list.innerHTML = "";
-      (BOOK.glossary || []).filter((e) => !q || e.w.toLowerCase().includes(q) || e.def.toLowerCase().includes(q)).forEach((e) => {
+      (BOOK.glossary || []).filter((e) => !q || e.w.toLowerCase().includes(q) || (e.def || "").toLowerCase().includes(q)).forEach((e) => {
         const v = arMap[e.w.toLowerCase()];
-        list.append(h("div", { class: "gl-item" }, h("div", { class: "row" }, h("b", { style: { fontSize: "1.1rem" } }, (v && v.emoji ? v.emoji + " " : "") + e.w), sayBtn(e.w)), h("span", { class: "small muted" }, e.ipa + " · " + e.pos + (e.page ? " · p. " + e.page : "")), h("span", null, e.def), S.settings.ar && v && v.ar ? h("span", { class: "ar", style: { color: "var(--brand)", fontWeight: 700 } }, v.ar) : null));
+        list.append(h("div", { class: "gl-item" }, h("div", { class: "row" }, h("b", { style: { fontSize: "1.1rem" } }, (v && v.emoji ? v.emoji + " " : "") + e.w), sayBtn(e.w)), h("span", { class: "small muted" }, [e.ipa, e.pos, e.unit ? "Unit " + e.unit : null, e.page ? "p. " + e.page : null].filter(Boolean).join(" · ")), e.def ? h("span", null, e.def, e.defExtra ? h("span", { class: "small muted" }, " (simple meaning – not in the book)") : null) : null, S.settings.ar && v && v.ar ? h("span", { class: "ar", style: { color: "var(--brand)", fontWeight: 700 } }, v.ar) : null));
       });
       if (!list.children.length) list.append(h("p", { class: "muted" }, "No word found."));
     };
     inp.oninput = draw;
-    w.append(h("section", { class: "card stack" }, h("div", { class: "sec-head" }, h("h1", null, "Glossary"), h("button", { class: "tag page", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.glossary, 10)) }, "📄 pp. " + BOOK.pagesInfo.glossary)), h("p", { class: "muted" }, "All " + (BOOK.glossary || []).length + " words from the book’s glossary, with the book’s pronunciation and meaning."), inp, list,
-      h("p", { class: "small muted" }, "Irregular verbs (pages " + BOOK.pagesInfo.irregular + "): ", h("button", { class: "btn small", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.irregular, 10)) }, icon("book"), "Open the book pages"))));
+    w.append(h("section", { class: "card stack" }, h("div", { class: "sec-head" }, h("h1", null, BOOK.glossaryTitle || "Glossary"), h("button", { class: "tag page", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.glossary, 10)) }, "📄 pp. " + BOOK.pagesInfo.glossary)),
+      h("p", { class: "muted" }, BOOK.glossaryNote || "All " + (BOOK.glossary || []).length + " words from the book’s glossary, with the book’s pronunciation and meaning."), inp, list,
+      BOOK.pagesInfo.irregular ? h("p", { class: "small muted" }, "Irregular verbs (pages " + BOOK.pagesInfo.irregular + "): ", h("button", { class: "btn small", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.irregular, 10)) }, icon("book"), "Open the book pages")) : null));
     w.append(footer()); main.append(w); draw();
+  }
+
+  /* PROJECTS from data (Grade 8: several projects, texts from the book + a planner) */
+  function renderProjects(main) {
+    const w = h("div", { class: "wrap" });
+    const field = (label, k, rows) => { const id = "pjf-" + k; const ta = h("textarea", { class: "txt", id, rows: rows || 2 }); ta.value = S.drafts["pjf:" + k] || ""; ta.oninput = () => { S.drafts["pjf:" + k] = ta.value; save(); }; return h("div", null, h("label", { for: id, style: { fontWeight: 700 } }, label), ta); };
+    const checks = (arr, key) => h("ul", { class: "checks" }, arr.map((x, i) => { const id = "pj-" + key + i; const st = S.drafts["pj:" + key] || []; const inp = h("input", { type: "checkbox", id, checked: st.includes(i) ? true : null }); inp.onchange = () => { const a = S.drafts["pj:" + key] || (S.drafts["pj:" + key] = []); if (inp.checked) a.push(i); else a.splice(a.indexOf(i), 1); save(); }; return h("li", null, h("label", { for: id }, inp, h("span", null, x))); }));
+    w.append(h("section", { class: "card stack" }, h("h1", null, "Projects"), h("p", { class: "muted" }, "The book’s projects, with space to plan. Your notes are saved on this device.")));
+    BOOK.projects.forEach((pj) => {
+      const c = h("section", { class: "card stack" });
+      c.append(h("div", { class: "sec-head" }, h("h2", null, pj.title), h("div", { class: "row" }, h("span", { class: "tag book" }, "From the book"), pj.pages.map((pg) => h("button", { class: "tag page", type: "button", onclick: () => openPage(pg) }, "📄 p. " + pg)))));
+      if (pj.note) c.append(h("p", null, h("b", null, pj.note)));
+      (pj.intro || []).forEach((t) => c.append(h("div", { class: "row", style: { flexWrap: "nowrap", alignItems: "flex-start" } }, h("p", { class: "grow" }, t), sayBtn(t))));
+      if (pj.points) c.append(h("ul", null, pj.points.map((t) => h("li", null, t))));
+      if (pj.tasks) c.append(h("h3", null, "Steps (tick when done)"), checks(pj.tasks, pj.id));
+      if (pj.table) {
+        const tb = h("table", { class: "bt" }, h("thead", null, h("tr", null, pj.table.head.map((x) => h("th", null, x)))));
+        const body = h("tbody", null, h("tr", null, pj.table.example.map((x) => h("td", null, h("i", null, x)))));
+        for (let r = 0; r < pj.table.rows; r++) body.append(h("tr", null, pj.table.head.map((x, ci) => { const k = "pjt:" + pj.id + ":" + r + ":" + ci; const ta = h("textarea", { class: "txt", rows: 1, "aria-label": x + " " + (r + 1) }); ta.value = S.drafts[k] || ""; ta.oninput = () => { S.drafts[k] = ta.value; save(); }; return h("td", null, ta); })));
+        tb.append(body); c.append(h("h3", null, "Our programme"), h("div", { class: "tablewrap" }, tb));
+      }
+      (pj.fields || []).forEach((f, i) => c.append(field(f[0], pj.id + i, f[1])));
+      w.append(c);
+    });
+    w.append(footer()); main.append(w);
   }
 
   /* PROJECT (p73) */
   function renderProject(main) {
+    if (BOOK.projects) return renderProjects(main);
     const w = h("div", { class: "wrap" });
     const steps = ["Form your group and assign roles (e.g., leader, researcher, designer, presenter).", "Research your topic using books, websites, or interviews.", "Plan your product (poster, model, slide deck, etc.).", "Gather materials and create your product.", "Rehearse your presentation.", "Present your project to the class."];
     const crit = ["Content", "Accuracy", "Presentation skills", "Ability to explain and justify ideas when asked", "Design and creativity", "Teamwork"];

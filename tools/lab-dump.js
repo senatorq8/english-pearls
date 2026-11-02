@@ -3,7 +3,9 @@
 const fs = require("fs"), path = require("path");
 const book = process.argv[2] || "g7";
 global.BOOK = {};
-eval(fs.readFileSync(path.join(__dirname, "..", "books", book, "data", "labs.js"), "utf8"));
+const dir = path.join(__dirname, "..", "books", book, "data");
+fs.readdirSync(dir).filter((f) => /^labs.*\.js$/.test(f)).sort().forEach((f) => eval(fs.readFileSync(path.join(dir, f), "utf8")));
+if (!BOOK.labs) { console.log("no labs yet"); process.exit(0); }
 const untoken = (s) => String(s).replace(/\{[a-z]:([^}]+)\}/g, "$1");
 let total = 0; const seen = new Set();
 for (const [id, x] of Object.entries(BOOK.labs)) {
