@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Words in 3D</title>
+<meta name="description" content="See the book's words as 3D models and put them in your room. Prepared by: Abdullah Alenezi">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b5c8c">
+<link rel="icon" href="../icons/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;800&family=Lexend:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;600&display=swap">
+<script src="sets.js"></script>
+<script type="module" src="lib/model-viewer.min.js"></script>
+<style>
+:root { --bg: #eef3f6; --surface: #fff; --surface-2: #f6f9fb; --ink: #13233a; --muted: #56677d; --line: #d7e0e8; --brand: #0b5c8c; --brand-ink: #fff; --brand-soft: #dcebf5; --accent: #e4533b; --accent-soft: #fde5df;
+  --stage: radial-gradient(90% 80% at 50% 35%, #ffffff 0%, #dfe9f1 100%); --shadow: 0 1px 2px rgba(19,35,58,.06), 0 6px 18px rgba(19,35,58,.07);
+  --f-display: "Baloo Bhaijaan 2", system-ui, sans-serif; --f-body: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif; --f-ar: "Noto Sans Arabic", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0e1622; --surface: #162232; --surface-2: #1b293b; --ink: #e7eef7; --muted: #9fb0c4; --line: #2b3b50; --brand: #5fb2e6; --brand-ink: #071522; --brand-soft: #18344a; --accent: #ff7a63; --accent-soft: #3d2420;
+  --stage: radial-gradient(90% 80% at 50% 35%, #2a3b52 0%, #142133 100%); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.25); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0e1622; --surface: #162232; --surface-2: #1b293b; --ink: #e7eef7; --muted: #9fb0c4; --line: #2b3b50; --brand: #5fb2e6; --brand-ink: #071522; --brand-soft: #18344a; --accent: #ff7a63; --accent-soft: #3d2420;
+  --stage: radial-gradient(90% 80% at 50% 35%, #2a3b52 0%, #142133 100%); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 var(--f-body); -webkit-tap-highlight-color: transparent; }
+a { color: var(--brand); }
+.bar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 10px; padding: calc(10px + env(safe-area-inset-top)) 16px 10px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar b { flex: 1; font: 800 20px/1.2 var(--f-display); text-align: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; }
+main { max-width: 760px; margin: 0 auto; padding: 16px 16px 40px; }
+.stage { position: relative; border-radius: 22px; overflow: hidden; background: var(--stage); box-shadow: var(--shadow); border: 1px solid var(--line); }
+model-viewer { width: 100%; height: min(58vh, 460px); --poster-color: transparent; background: transparent; }
+.arbtn { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 22px; border: 0; border-radius: 999px;
+  background: var(--accent); color: #fff; font: 600 17px var(--f-body); box-shadow: 0 6px 18px rgba(0,0,0,.25); cursor: pointer; white-space: nowrap; }
+.hint3d { position: absolute; top: 12px; left: 12px; right: 12px; text-align: center; font-size: 13px; color: var(--muted); pointer-events: none; }
+.prog { position: absolute; left: 0; bottom: 0; height: 4px; background: var(--brand); width: 0; transition: width .2s; }
+.info { margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 18px; box-shadow: var(--shadow); }
+.word { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.word h1 { margin: 0; font: 800 34px/1.1 var(--f-display); }
+.word .arw { font: 600 20px var(--f-ar); color: var(--muted); direction: rtl; }
+.say { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--brand-soft); color: var(--ink); font: 600 15px var(--f-body); cursor: pointer; }
+.sent { margin: 14px 0 0; padding: 12px 14px; border-left: 4px solid var(--brand); background: var(--surface-2); border-radius: 0 12px 12px 0; }
+.sent .src { display: block; font-size: 13px; color: var(--muted); margin-top: 6px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
+.note { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+h2 { font: 800 20px/1.2 var(--f-display); margin: 24px 0 10px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 10px; }
+.card { border: 2px solid var(--line); background: var(--surface); border-radius: 16px; padding: 8px 6px 10px; text-align: center; cursor: pointer; color: var(--ink); font: 500 14px/1.25 var(--f-body); }
+.card img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; }
+.card.on { border-color: var(--accent); background: var(--accent-soft); }
+.card small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+.filter { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter button { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 500 14px var(--f-body); cursor: pointer; }
+.filter button.on { background: var(--brand); color: var(--brand-ink); border-color: transparent; }
+.credit { text-align: center; font-size: 13px; color: var(--muted); margin-top: 28px; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="chip" id="back" href="../index.html">← Book</a>
+  <b>Words in 3D</b>
+  <a class="chip" id="toScan" href="scan.html">📷 Scan</a>
+</header>
+<main>
+  <div class="stage">
+    <model-viewer id="mv" camera-controls auto-rotate auto-rotate-delay="1200" rotation-per-second="24deg" touch-action="pan-y" shadow-intensity="1" exposure="1.05" environment-image="neutral"
+      ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" ar-placement="floor" interaction-prompt="none" alt="3D model">
+      <button slot="ar-button" class="arbtn" id="arBtn" type="button">📱 Put it in your room</button>
+      <div class="prog" slot="progress-bar" id="prog"></div>
+    </model-viewer>
+    <div class="hint3d" id="hint3d">Drag to turn it · pinch to zoom</div>
+  </div>
+
+  <section class="info" aria-live="polite">
+    <div class="word"><h1 id="w"></h1><span class="arw" id="wa" lang="ar"></span><button class="say" id="sayW" type="button">🔊 Listen</button></div>
+    <p class="sent" id="sent" hidden><span id="sentT"></span><span class="src" id="sentSrc"></span></p>
+    <div class="row" id="sentRow" hidden><button class="say" id="sayS" type="button">🔊 Listen to the sentence</button></div>
+    <p class="note" id="arNote" hidden>📱 Open this page on your phone and tap <b>Put it in your room</b> to see the model on your table or floor, in its real size.</p>
+    <p class="note" id="arTip" hidden>In your room: move the phone slowly to find the floor, then drag the model to move it and use two fingers to turn it. The car is real size, so you may need to step back!</p>
+  </section>
+
+  <h2 id="listH">All the words</h2>
+  <div class="filter" id="filter"></div>
+  <div class="grid" id="grid" style="margin-top:10px"></div>
+  <p class="credit">Models made for this book · Prepared by: Abdullah Alenezi</p>
+</main>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var qs = new URLSearchParams(location.search);
+  var SID = qs.get("set") || Object.keys(window.AR_SETS)[0], SET = window.AR_SETS[SID];
+  var page = qs.get("page") ? +qs.get("page") : null;
+  $("#back").href = SET.bookUrl; $("#toScan").href = "scan.html?set=" + encodeURIComponent(SID);
+  document.title = "Words in 3D · " + SET.title;
+
+  /* voice */
+  var plain = function (s) { return String(s).replace(/\[\[|\]\]/g, "").replace(/\*/g, ""); };
+  function hashStr(s) { var x = 2166136261; for (var i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 16777619); } return x >>> 0; }
+  var vkey = function (t) { var k = plain(t).replace(/\s+/g, " ").trim(); return hashStr(k).toString(36) + k.length.toString(36); };
+  var HAVE = new Set(SET.voice || []), audio = new Audio();
+  function say(t) {
+    audio.pause(); try { speechSynthesis.cancel(); } catch (e) {}
+    var k = vkey(t);
+    if (HAVE.has(k)) { audio.src = "../voice/" + k + ".mp3"; audio.play().catch(function () {}); return; }
+    try { var u = new SpeechSynthesisUtterance(plain(t)); u.lang = "en-GB"; u.rate = 0.9; speechSynthesis.speak(u); } catch (e) {}
+  }
+
+  var ids = Object.keys(SET.models), cur = null, mv = $("#mv");
+  var pages = []; ids.forEach(function (id) { var p = SET.models[id].page; if (pages.indexOf(p) < 0) pages.push(p); });
+  pages.sort(function (a, b) { return a - b; });
+
+  function show(id, noScroll) {
+    cur = id; var m = SET.models[id];
+    mv.setAttribute("poster", "models/" + id + ".webp");
+    mv.setAttribute("src", "models/" + id + ".glb"); mv.setAttribute("alt", "3D model: " + m.word);
+    $("#w").textContent = m.word; $("#wa").textContent = m.ar;
+    $("#sent").hidden = $("#sentRow").hidden = !m.sentence;
+    if (m.sentence) { $("#sentT").textContent = m.sentence; $("#sentSrc").textContent = "From the book, page " + m.page; }
+    document.querySelectorAll(".card").forEach(function (c) { c.classList.toggle("on", c.dataset.id === id); });
+    if (!noScroll) window.scrollTo({ top: 0, behavior: "smooth" });
+    try { history.replaceState(null, "", "?set=" + encodeURIComponent(SID) + (page ? "&page=" + page : "") + "&m=" + id); } catch (e) {}
+  }
+  function list() {
+    var g = $("#grid"); g.innerHTML = "";
+    var vis = ids.filter(function (id) { return !page || SET.models[id].page === page; });
+    $("#listH").textContent = page ? "Words from page " + page : "All the words · " + SET.title;
+    vis.forEach(function (id) {
+      var m = SET.models[id], b = document.createElement("button");
+      b.type = "button"; b.className = "card"; b.dataset.id = id;
+      b.innerHTML = '<img alt="" loading="lazy" src="models/' + id + '.webp">';
+      b.appendChild(document.createTextNode(m.word));
+      var s = document.createElement("small"); s.textContent = "page " + m.page; b.appendChild(s);
+      b.onclick = function () { show(id); say(m.word); };
+      g.appendChild(b);
+    });
+    var f = $("#filter"); f.innerHTML = "";
+    [null].concat(pages).forEach(function (p) {
+      var b = document.createElement("button"); b.type = "button"; b.textContent = p ? "Page " + p : "All pages"; b.className = p === page ? "on" : "";
+      b.onclick = function () { page = p; list(); if (page && SET.models[cur].page !== page) show(ids.filter(function (id) { return SET.models[id].page === page; })[0], true); };
+      f.appendChild(b);
+    });
+    document.querySelectorAll(".card").forEach(function (c) { c.classList.toggle("on", c.dataset.id === cur); });
+    return vis;
+  }
+  var first = list(), want = qs.get("m");
+  show(want && SET.models[want] ? want : first[0] || ids[0], true);
+
+  $("#sayW").onclick = function () { say(SET.models[cur].word); };
+  $("#sayS").onclick = function () { if (SET.models[cur].sentence) say(SET.models[cur].sentence); };
+  mv.addEventListener("progress", function (e) { var p = e.detail.totalProgress; $("#prog").style.width = (p * 100) + "%"; $("#prog").style.opacity = p >= 1 ? 0 : 1; });
+  mv.addEventListener("load", function () {
+    var can = mv.canActivateAR; $("#arNote").hidden = !!can; $("#arTip").hidden = !can; $("#arBtn").hidden = !can;
+  });
+  mv.addEventListener("ar-status", function (e) { if (e.detail.status === "failed") { $("#arNote").hidden = false; $("#arNote").textContent = "Your phone could not open the camera view for this model. You can still turn it and zoom here."; } });
+})();
+</script>
+</body>
+</html>

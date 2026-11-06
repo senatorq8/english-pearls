@@ -394,6 +394,7 @@
     if (BOOK.projects) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Projects (pages " + BOOK.projects.map((x) => pagesTxt(x.pages)).join(", ") + ")"));
     else if (BOOK.pagesInfo.project) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Group Project (page " + BOOK.pagesInfo.project + ")"));
     if (BOOK.pagesInfo.writing) body.append(h("button", { class: "toc-extra", type: "button", onclick: () => { closeDrawer(); openPage(BOOK.pagesInfo.writing); } }, "✍️ Writing Reference (page " + BOOK.pagesInfo.writing + ")"));
+    Object.keys(BOOK.ar || {}).forEach((uid) => { const u = units().find((x) => x.id === uid); body.append(h("a", { class: "toc-extra", href: "../ar/scan.html?set=" + BOOK.ar[uid].set }, "📷 Scan your book: " + (u ? "Unit " + u.num : uid) + " (AR)")); });
     body.append(h("a", { class: "toc-extra", href: "#search" }, "🔎 Search the book"));
     body.append(h("a", { class: "toc-extra", href: "#settings" }, "⚙️ Settings & progress"));
     const TH = { auto: "Automatic", light: "Light", dark: "Dark" };
@@ -598,6 +599,14 @@
     c.append(h("p", { class: "cando" }, l.canDo.join(" ")));
     if (l.linkers && l.linkers.length) c.append(h("div", { class: "stack" }, h("h4", null, "Linkers Bank"), h("div", { class: "bank" }, l.linkers.map((x) => h("span", { class: "chip", style: { cursor: "default" } }, x)))));
     host.append(c);
+    const ar = BOOK.ar && u && BOOK.ar[u.id];
+    if (ar) host.append(h("section", { class: "card stack ar-card" },
+      h("div", { class: "sec-head" }, h("h2", null, "📷 Bring your book to life"), h("span", { class: "tag extra" }, "⭐ Extra · AR")),
+      h("p", null, "At home, open your printed book at pages " + ar.pages + " and point your phone at the page. It opens the lesson, reads the page to you and shows its words in 3D."),
+      S.settings.ar ? h("p", { class: "ar muted" }, "في البيت: افتح كتابك المطبوع ووجّه كاميرا الجوال نحو الصفحة، فيفتح لك الدرس ويقرأ الصفحة وتظهر كلماتها بشكل ثلاثي الأبعاد.") : null,
+      h("div", { class: "row" },
+        h("a", { class: "btn primary", href: "../ar/scan.html?set=" + ar.set }, "📷 Scan your book page"),
+        h("a", { class: "btn", href: "../ar/words.html?set=" + ar.set }, "🧊 Words in 3D"))));
     const wu = l.warmup;
     if (wu) {
       const wc = h("section", { class: "card stack" });

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scan Your Book</title>
+<meta name="description" content="Point your phone at a page of your printed book to open its lesson, listen to it and see its words in 3D. Prepared by: Abdullah Alenezi">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b1b2b">
+<link rel="icon" href="../icons/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;800&family=Lexend:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;600&display=swap">
+<script type="importmap">{"imports":{"three":"./lib/three.module.min.js","three/addons/":"./lib/addons/"}}</script>
+<script src="sets.js"></script>
+<style>
+:root { --ink: #eef4fa; --muted: #a9bacb; --glass: rgba(11,27,43,.82); --line: rgba(255,255,255,.14); --brand: #5fb2e6; --brand-deep: #0b5c8c; --coral: #ff7a63; --good: #49c98a;
+  --f-display: "Baloo Bhaijaan 2", system-ui, sans-serif; --f-body: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif; --f-ar: "Noto Sans Arabic", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #0b1b2b; color: var(--ink); font: 16px/1.5 var(--f-body); overflow: hidden; -webkit-tap-highlight-color: transparent; }
+#ar { position: fixed; inset: 0; }
+#ar video, #ar canvas { object-fit: cover; }
+a { color: inherit; }
+.bar { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; align-items: center; gap: 10px; padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
+  background: linear-gradient(rgba(11,27,43,.85), rgba(11,27,43,0)); }
+.bar b { flex: 1; font: 800 19px/1.2 var(--f-display); text-align: center; letter-spacing: .2px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border-radius: 999px; background: var(--glass); border: 1px solid var(--line); text-decoration: none; font-size: 14px; font-weight: 500; color: var(--ink); cursor: pointer; }
+.sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; margin: 0 auto; max-width: 560px; background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line); border-bottom: 0; border-radius: 22px 22px 0 0; padding: 18px 16px calc(18px + env(safe-area-inset-bottom)); }
+.intro { top: 0; bottom: 0; max-width: none; border-radius: 0; border: 0; overflow-y: auto; padding-top: calc(70px + env(safe-area-inset-top)); background: radial-gradient(120% 80% at 50% 0%, #15466b 0%, #0b1b2b 60%); }
+.intro .in { max-width: 520px; margin: 0 auto; }
+h1 { font: 800 30px/1.15 var(--f-display); margin: 6px 0 10px; }
+h2 { font: 800 22px/1.2 var(--f-display); margin: 2px 0 12px; }
+p { margin: 0 0 10px; }
+.ar { font-family: var(--f-ar); direction: rtl; text-align: right; color: var(--muted); }
+.small { font-size: 13px; color: var(--muted); }
+.steps { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 10px; }
+.steps li { display: flex; gap: 12px; align-items: flex-start; padding: 12px; border-radius: 14px; background: rgba(255,255,255,.06); border: 1px solid var(--line); }
+.steps .n { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: #071522; font-weight: 700; }
+.thumbs { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 12px; scrollbar-width: none; }
+.thumbs figure { margin: 0; flex: none; text-align: center; font-size: 12px; color: var(--muted); }
+.thumbs img { display: block; width: 62px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); margin-bottom: 4px; background: #fff; }
+.btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 54px; padding: 12px 16px; border-radius: 16px; border: 1px solid var(--line);
+  background: rgba(255,255,255,.08); color: var(--ink); font: 600 16px/1.25 var(--f-body); text-decoration: none; cursor: pointer; text-align: left; }
+.btn.primary { background: var(--brand); color: #071522; border-color: transparent; font-size: 18px; }
+.btn .i { font-size: 22px; flex: none; }
+.btn .t { flex: 1; }
+.btn .t small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.btn.primary .t small { color: rgba(7,21,34,.78); }
+.btn:active { transform: scale(.98); }
+.btn[disabled] { opacity: .6; }
+.actions { display: grid; gap: 8px; }
+.pg { display: inline-block; font-size: 13px; font-weight: 600; color: #071522; background: var(--good); border-radius: 999px; padding: 2px 10px; }
+.pg.lost { background: rgba(255,255,255,.18); color: var(--ink); }
+.words { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+.words button { border: 1px solid var(--line); background: rgba(255,255,255,.08); color: var(--ink); border-radius: 999px; padding: 6px 12px; font: 500 14px var(--f-body); cursor: pointer; }
+.words button.on { background: var(--coral); color: #2a0b05; border-color: transparent; }
+.hint { position: fixed; z-index: 12; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(78vw, 340px); aspect-ratio: 925 / 1188; border: 3px dashed rgba(255,255,255,.75); border-radius: 18px;
+  display: flex; align-items: flex-end; justify-content: center; pointer-events: none; animation: breathe 2.2s ease-in-out infinite; }
+.hint span { margin-bottom: -56px; background: var(--glass); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 14px; text-align: center; }
+@keyframes breathe { 50% { transform: translate(-50%, -50%) scale(.96); border-color: rgba(95,178,230,.95); } }
+.close { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.1); color: var(--ink); font-size: 18px; cursor: pointer; }
+.err { background: rgba(255,122,99,.15); border: 1px solid rgba(255,122,99,.5); border-radius: 12px; padding: 10px 12px; }
+.credit { margin-top: 18px; text-align: center; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .hint { animation: none; } }
+</style>
+</head>
+<body>
+<div id="ar" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="chip" id="back" href="../index.html">← Book</a>
+  <b id="ttl">Scan your book</b>
+  <a class="chip" id="toWords" href="words.html">🧊 3D</a>
+</header>
+
+<section class="sheet intro" id="intro">
+  <div class="in">
+    <p class="small" id="unitName"></p>
+    <h1>Point your phone at your book 📖</h1>
+    <p class="ar" lang="ar">وجّه كاميرا الجوال نحو صفحة من كتابك المطبوع، فيفتح لك درسها ويقرؤها لك وتظهر كلماتها بشكل ثلاثي الأبعاد.</p>
+    <ol class="steps">
+      <li><span class="n">1</span><span>Open your <b>printed</b> book at one of these pages: <b id="range"></b>.</span></li>
+      <li><span class="n">2</span><span>Put the book on a table in a bright place.</span></li>
+      <li><span class="n">3</span><span>Tap <b>Start camera</b> and hold the phone above the page so you can see the <b>whole page</b>.</span></li>
+    </ol>
+    <div class="thumbs" id="thumbs"></div>
+    <button class="btn primary" id="start" type="button"><span class="i">📷</span><span class="t">Start camera</span></button>
+    <p class="small" style="margin-top:10px">The camera picture stays on your phone. Nothing is recorded or sent.</p>
+    <p id="msg" class="err" hidden></p>
+    <p class="small credit">Prepared by: Abdullah Alenezi</p>
+  </div>
+</section>
+
+<div class="hint" id="hint" hidden><span>Looking for your page…<br>Show the whole page.</span></div>
+
+<section class="sheet" id="found" hidden aria-live="polite">
+  <button class="close" id="closeFound" type="button" aria-label="Close">✕</button>
+  <span class="pg" id="pgTag">Page</span>
+  <h2 id="pgTitle"></h2>
+  <div class="words" id="words"></div>
+  <div class="actions" id="actions"></div>
+</section>
+
+<script type="module">
+import * as THREE from "three";
+import { MindARThree } from "./lib/mindar-image-three.prod.js";
+import { MODELS } from "./lib/models.js";
+
+const $ = (s) => document.querySelector(s);
+const h = (tag, attrs, ...kids) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs || {})) { if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else if (v != null) e.setAttribute(k, v); } kids.flat().forEach((c) => c != null && e.append(c)); return e; };
+const qs = new URLSearchParams(location.search);
+const SID = qs.get("set") || Object.keys(window.AR_SETS)[0];
+const SET = window.AR_SETS[SID];
+
+/* ---------- voice: the book's natural voice clips, else the device voice ---------- */
+const plain = (s) => String(s).replace(/\[\[|\]\]/g, "").replace(/\*/g, "");
+function hashStr(s) { let x = 2166136261; for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 16777619); } return x >>> 0; }
+const vkey = (t) => { const k = plain(t).replace(/\s+/g, " ").trim(); return hashStr(k).toString(36) + k.length.toString(36); };
+const HAVE = new Set(SET.voice || []);
+const audio = new Audio(); audio.preload = "auto";
+let speakToken = 0;
+function stopVoice() { speakToken++; audio.pause(); try { speechSynthesis.cancel(); } catch (e) {} }
+function sayOne(t, token) {
+  return new Promise((res) => {
+    if (token !== speakToken) return res(false);
+    const k = vkey(t);
+    if (HAVE.has(k)) { audio.src = "../voice/" + k + ".mp3"; audio.onended = () => res(true); audio.onerror = () => res(true); audio.play().catch(() => res(false)); return; }
+    try { const u = new SpeechSynthesisUtterance(plain(t)); u.lang = "en-GB"; u.rate = 0.9; u.onend = () => res(true); u.onerror = () => res(true); speechSynthesis.speak(u); } catch (e) { res(false); }
+  });
+}
+async function sayAll(list, onStep) { stopVoice(); const tok = speakToken; for (let i = 0; i < list.length; i++) { onStep && onStep(i); const ok = await sayOne(list[i], tok); if (!ok || tok !== speakToken) return false; } return true; }
+
+/* ---------- intro ---------- */
+const nums = SET.pages.map((p) => p.page);
+$("#range").textContent = nums.length > 1 ? "pages " + nums[0] + "–" + nums[nums.length - 1] : "page " + nums[0];
+$("#unitName").textContent = SET.title;
+$("#ttl").textContent = "Scan · " + SET.title.split(" · ")[0];
+$("#back").href = SET.bookUrl;
+$("#toWords").href = "words.html?set=" + encodeURIComponent(SID);
+SET.pages.forEach((p) => $("#thumbs").append(h("figure", null, h("img", { src: "../" + SET.book + "/img/pages/p" + String(p.page).padStart(3, "0") + ".jpg", alt: "Book page " + p.page, loading: "lazy" }), "p. " + p.page)));
+document.title = "Scan Your Book · " + SET.title;
+
+/* ---------- AR scene ---------- */
+let mindar = null, current = -1, shown = -1, modelIdx = 0, modelTimer = 0;
+const anchors = [];
+const PAGE_H = 1188 / 925; // page height when page width = 1
+
+function pageFrame() {
+  const g = new THREE.Group(), m = new THREE.MeshBasicMaterial({ color: 0x5fb2e6, transparent: true, opacity: 0.95 }), t = 0.012;
+  [[1 + t, t, 0, PAGE_H / 2], [1 + t, t, 0, -PAGE_H / 2], [t, PAGE_H, -0.5, 0], [t, PAGE_H, 0.5, 0]].forEach(([w, hh, x, y]) => { const e = new THREE.Mesh(new THREE.PlaneGeometry(w, hh), m); e.position.set(x, y, 0.002); g.add(e); });
+  const glow = new THREE.Mesh(new THREE.PlaneGeometry(1, PAGE_H), new THREE.MeshBasicMaterial({ color: 0x5fb2e6, transparent: true, opacity: 0.08 })); glow.position.z = 0.001; g.add(glow);
+  return g;
+}
+function modelOn(name) {
+  // a model standing on the page: model Y (up) becomes the page normal Z
+  const obj = MODELS[name](), box = new THREE.Box3().setFromObject(obj), size = box.getSize(new THREE.Vector3());
+  // it leans out of the page like a pop-up card, so it looks good from straight above and from the side
+  const s = 0.5 / Math.max(size.x, size.y, size.z); obj.scale.setScalar(s);
+  const spin = new THREE.Group(); spin.add(obj);
+  const stand = new THREE.Group(); stand.add(spin); stand.rotation.x = 0.6; stand.position.set(0, -0.22, 0.01);
+  const shadow = new THREE.Mesh(new THREE.CircleGeometry(0.26, 40), new THREE.MeshBasicMaterial({ color: 0x0b1b2b, transparent: true, opacity: 0.28, depthWrite: false }));
+  shadow.scale.y = 0.55; shadow.position.set(0, -0.22, 0.003);
+  const g = new THREE.Group(); g.add(shadow, stand); g.userData = { spin, name, born: performance.now() }; g.visible = false;
+  obj.traverse((o) => { if (o.isMesh) o.userData.model = name; });
+  return g;
+}
+
+async function start() {
+  $("#start").disabled = true; $("#start").querySelector(".t").textContent = "Starting the camera…"; $("#msg").hidden = true;
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return fail("This browser cannot open the camera. Open this page in Safari (iPhone) or Chrome (Android).");
+  try {
+    mindar = new MindARThree({ container: $("#ar"), imageTargetSrc: SET.targets, maxTrack: 1, uiLoading: "no", uiScanning: "no", uiError: "no", filterMinCF: 0.0001, filterBeta: 0.004 });
+    const { renderer, scene, camera } = mindar;
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x8899aa, 2.2));
+    const dl = new THREE.DirectionalLight(0xffffff, 2.0); dl.position.set(0.5, 1, 2); scene.add(dl);
+    SET.pages.forEach((pg, i) => {
+      const a = mindar.addAnchor(i); a.group.add(pageFrame());
+      const ms = pg.models.map((n) => { const g = modelOn(n); a.group.add(g); return g; });
+      anchors.push({ a, ms });
+      a.onTargetFound = () => found(i);
+      a.onTargetLost = () => lost(i);
+    });
+    await mindar.start();
+    $("#intro").hidden = true; $("#hint").hidden = false;
+    const clock = new THREE.Clock();
+    renderer.setAnimationLoop(() => {
+      const dt = clock.getDelta(), now = performance.now();
+      if (current >= 0) {
+        const ms = anchors[current].ms;
+        ms.forEach((g, j) => {
+          g.visible = j === modelIdx;
+          if (!g.visible) return;
+          g.userData.spin.rotation.y += dt * 0.7;
+          const k = Math.min(1, (now - g.userData.born) / 450); const e = 1 - Math.pow(1 - k, 3);
+          g.scale.setScalar(0.2 + 0.8 * e + Math.sin(k * Math.PI) * 0.08);
+        });
+      }
+      renderer.render(scene, camera);
+    });
+    renderer.domElement.addEventListener("pointerup", tapModel);
+  } catch (e) {
+    console.error(e);
+    const name = (e && e.name) || "";
+    fail(/NotAllowed|Permission/i.test(name + e) ? "The camera is blocked. Allow the camera for this site in your browser settings, then try again." :
+      /NotFound|Overconstrained/i.test(name) ? "No camera was found on this device." : "The camera could not start. Close other apps that use the camera and try again.");
+  }
+}
+function fail(t) { const m = $("#msg"); m.textContent = t; m.hidden = false; $("#start").disabled = false; $("#start").querySelector(".t").textContent = "Try again"; try { mindar && mindar.stop(); } catch (e) {} mindar = null; anchors.length = 0; $("#ar").innerHTML = ""; }
+
+function showModel(j) {
+  const ms = anchors[current] ? anchors[current].ms : [];
+  modelIdx = j; if (ms[j]) ms[j].userData.born = performance.now();
+  document.querySelectorAll("#words button").forEach((b, k) => b.classList.toggle("on", k === j));
+}
+function cycle() { clearInterval(modelTimer); const ms = anchors[current] ? anchors[current].ms : []; if (ms.length > 1) modelTimer = setInterval(() => showModel((modelIdx + 1) % ms.length), 5000); }
+
+function found(i) {
+  current = i; $("#hint").hidden = true;
+  $("#pgTag").textContent = "✓ Page " + SET.pages[i].page; $("#pgTag").classList.remove("lost");
+  if (shown !== i) { shown = i; renderSheet(i); showModel(0); }
+  cycle();
+  if (navigator.vibrate) try { navigator.vibrate(30); } catch (e) {}
+}
+function lost(i) {
+  if (current !== i) return; current = -1; clearInterval(modelTimer);
+  $("#pgTag").textContent = "Page " + SET.pages[i].page + " · point at a page again"; $("#pgTag").classList.add("lost");
+  if ($("#found").hidden) $("#hint").hidden = false;
+}
+
+function renderSheet(i) {
+  const pg = SET.pages[i];
+  stopVoice();
+  $("#pgTitle").textContent = pg.title;
+  const words = $("#words"); words.innerHTML = "";
+  pg.models.forEach((n, j) => { const m = SET.models[n]; words.append(h("button", { type: "button", onclick: () => { showModel(j); cycle(); stopVoice(); sayAll([m.word]); } }, "🔊 " + m.word)); });
+  words.hidden = !pg.models.length;
+  const act = $("#actions"); act.innerHTML = "";
+  pg.open.forEach((l, k) => act.append(h("a", { class: "btn" + (k === 0 ? " primary" : ""), href: SET.bookUrl + "#" + l.id },
+    h("span", { class: "i" }, "📖"), h("span", { class: "t" }, "Open Lesson " + l.num, h("small", null, l.title)))));
+  if (pg.read && pg.read.length) {
+    const t = h("span", { class: "t" }, "Listen to this page", h("small", null, "The reading text, read aloud"));
+    const b = h("button", { class: "btn", type: "button" }, h("span", { class: "i" }, "🔊"), t);
+    let on = false;
+    b.onclick = async () => {
+      if (on) { stopVoice(); on = false; t.firstChild.textContent = "Listen to this page"; t.lastChild.textContent = "The reading text, read aloud"; return; }
+      on = true; t.firstChild.textContent = "Stop";
+      const done = await sayAll(pg.read, (k) => (t.lastChild.textContent = "Paragraph " + (k + 1) + " of " + pg.read.length));
+      on = false; t.firstChild.textContent = "Listen to this page"; t.lastChild.textContent = done ? "Finished. Tap to listen again." : "The reading text, read aloud";
+    };
+    act.append(b);
+  }
+  if (pg.models.length) act.append(h("a", { class: "btn", href: "words.html?set=" + encodeURIComponent(SID) + "&page=" + pg.page },
+    h("span", { class: "i" }, "🧊"), h("span", { class: "t" }, "Put the words in your room", h("small", null, pg.models.length + " 3D " + (pg.models.length > 1 ? "models" : "model") + " from this page"))));
+  $("#found").hidden = false;
+}
+
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+function tapModel(ev) {
+  if (current < 0 || !mindar) return;
+  const r = mindar.renderer.domElement.getBoundingClientRect();
+  ptr.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
+  ray.setFromCamera(ptr, mindar.camera);
+  const g = anchors[current].ms[modelIdx]; if (!g) return;
+  const hit = ray.intersectObject(g, true).find((x) => x.object.userData.model);
+  if (hit) { const m = SET.models[hit.object.userData.model]; g.userData.born = performance.now(); sayAll([m.word]); }
+}
+
+$("#start").onclick = start;
+$("#closeFound").onclick = () => { $("#found").hidden = true; shown = -1; stopVoice(); if (current < 0) $("#hint").hidden = false; };
+document.addEventListener("visibilitychange", () => { if (document.hidden) stopVoice(); });
+</script>
+</body>
+</html>

@@ -10,6 +10,8 @@ BOOK.storeKey = "pearls8.v1";
 BOOK.pagesInfo = { glossary: "96–99", writing: 95, literature: 100, last: 105 };
 BOOK.glossaryTitle = "Words to Remember";
 BOOK.libraryUrl = "../index.html";
+/* Augmented reality (docs/ar): scan printed pages, words in 3D. Pilot: Unit 10. */
+BOOK.ar = { u10: { set: "g8-u10", pages: "75–81" } };
 BOOK.credit = "Prepared by: Abdullah Alenezi";
 BOOK.copyright = "Book content © Ministry of Education – State of Kuwait. Interactive version for classroom use.";
 BOOK.modules = [
