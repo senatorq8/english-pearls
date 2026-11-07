@@ -24,6 +24,8 @@ self.addEventListener("fetch", function (e) {
   var req = e.request; if (req.method !== "GET") return;
   var url = new URL(req.url);
   if (url.origin === location.origin) {
+    /* videos stream straight from the network (range requests; Safari needs 206 responses) */
+    if (/\.mp4$/.test(url.pathname)) return;
     if (req.mode === "navigate" || /\.html$|\/$/.test(url.pathname)) {
       /* pages: network first, so updates arrive; cache when offline */
       e.respondWith(fetch(req).then(function (res) {

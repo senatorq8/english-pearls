@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>Install video</title>
+<style>
+@font-face { font-family: "NA"; src: url(noto-sans-arabic-arabic-400-normal.woff2); font-weight: 400; }
+@font-face { font-family: "NA"; src: url(noto-sans-arabic-arabic-700-normal.woff2); font-weight: 700; }
+@font-face { font-family: "NA"; src: url(noto-sans-arabic-arabic-800-normal.woff2); font-weight: 800; }
+@font-face { font-family: "LX"; src: url(lexend-latin-400-normal.woff2); font-weight: 400; }
+@font-face { font-family: "LX"; src: url(lexend-latin-600-normal.woff2); font-weight: 600; }
+@font-face { font-family: "LX"; src: url(lexend-latin-700-normal.woff2); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1280px; height: 720px; overflow: hidden; }
+body { font-family: "LX", "NA", sans-serif; background: radial-gradient(120% 120% at 85% 10%, #15527d 0%, #0b2a44 55%, #081d30 100%); color: #eef4fa; position: relative; }
+.en { font-family: "LX", sans-serif; direction: ltr; unicode-bidi: isolate; }
+.ar { font-family: "NA", sans-serif; }
+/* phone */
+#phone { position: absolute; left: 150px; top: 36px; width: 320px; height: 650px; border-radius: 52px; background: #10161d; box-shadow: 0 30px 70px rgba(0,0,0,.45), inset 0 0 0 2px #2a333d; }
+#screen { position: absolute; left: 12px; top: 12px; width: 296px; height: 626px; border-radius: 42px; overflow: hidden; background: #eef3f6; direction: ltr; }
+.notch { position: absolute; left: 50%; top: 9px; width: 96px; height: 28px; border-radius: 16px; background: #10161d; transform: translateX(-50%); z-index: 50; }
+.status { position: absolute; left: 0; right: 0; top: 0; height: 44px; display: flex; justify-content: space-between; align-items: center; padding: 6px 26px 0; font: 600 13px "LX"; color: #13233a; z-index: 40; }
+.layer { position: absolute; inset: 0; }
+.page { position: absolute; left: 0; width: 296px; overflow: hidden; }
+.page img { width: 296px; display: block; }
+/* safari */
+.sbar { position: absolute; left: 0; right: 0; bottom: 0; height: 96px; background: rgba(246,248,250,.97); border-top: 1px solid #d9e0e7; }
+.pill { position: absolute; left: 12px; right: 12px; top: 8px; height: 38px; border-radius: 12px; background: #e6eaee; display: flex; align-items: center; justify-content: center; font: 500 13px "LX"; color: #13233a; gap: 6px; }
+.tools { position: absolute; left: 0; right: 0; top: 52px; height: 36px; display: flex; justify-content: space-around; align-items: center; color: #1a73e8; }
+.tools svg { width: 24px; height: 24px; stroke: #2563eb; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hl { position: absolute; border-radius: 12px; box-shadow: 0 0 0 3px #ffb020, 0 0 18px 4px rgba(255,176,32,.55); pointer-events: none; z-index: 60; }
+/* share sheet */
+.sheet { position: absolute; left: 0; right: 0; bottom: 0; height: 410px; background: #f2f3f6; border-radius: 18px 18px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,.18); direction: rtl; font-family: "NA"; color: #13233a; }
+.sheet .head { display: flex; align-items: center; gap: 10px; padding: 16px 16px 10px; }
+.sheet .head img { width: 42px; height: 42px; border-radius: 10px; }
+.sheet .head b { font: 700 14px "LX"; direction: ltr; display: block; }
+.sheet .head span { font: 400 11px "LX"; color: #6b7785; direction: ltr; display: block; }
+.apps { display: flex; gap: 14px; padding: 6px 16px 12px; }
+.apps i { width: 50px; height: 50px; border-radius: 13px; background: #dfe3e8; display: block; }
+.rows { margin: 0 12px; background: #fff; border-radius: 12px; overflow: hidden; }
+.row { height: 46px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; border-bottom: 1px solid #eceff2; font: 400 14.5px "NA"; }
+.row:last-child { border-bottom: 0; }
+.row .ic { width: 22px; height: 22px; border: 2px solid #13233a; border-radius: 6px; display: grid; place-items: center; font: 700 14px "LX"; }
+/* add dialog */
+.addv { position: absolute; inset: 0; background: #f2f3f6; direction: rtl; font-family: "NA"; color: #13233a; }
+.addv .nav { position: absolute; top: 48px; left: 0; right: 0; height: 40px; display: flex; justify-content: space-between; align-items: center; padding: 0 16px; font: 400 15px "NA"; }
+.addv .nav .t { font-weight: 700; }
+.addv .nav .blue { color: #2563eb; }
+.addv .card { position: absolute; top: 104px; left: 14px; right: 14px; background: #fff; border-radius: 12px; padding: 14px; display: flex; gap: 12px; align-items: center; }
+.addv .card img { width: 60px; height: 60px; border-radius: 14px; }
+.addv .card b { font: 600 15px "LX"; direction: ltr; display: block; border-bottom: 1px solid #e3e7eb; padding-bottom: 6px; margin-bottom: 6px; }
+.addv .card span { font: 400 11px "LX"; color: #6b7785; direction: ltr; display: block; }
+.addv p { position: absolute; top: 200px; left: 18px; right: 18px; font: 400 12px "NA"; color: #6b7785; line-height: 1.6; }
+/* home screen */
+.home { position: absolute; inset: 0; background: linear-gradient(160deg, #5b8fc7 0%, #2f5d8f 45%, #1d3a5f 100%); }
+.grid { position: absolute; left: 22px; right: 22px; top: 70px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px 18px; }
+.app { display: grid; justify-items: center; gap: 5px; font: 500 10.5px "LX"; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.4); }
+.app i { width: 54px; height: 54px; border-radius: 14px; background: rgba(255,255,255,.28); display: block; }
+.app img { width: 54px; height: 54px; border-radius: 14px; display: block; box-shadow: 0 4px 12px rgba(0,0,0,.25); }
+.dock { position: absolute; left: 12px; right: 12px; bottom: 14px; height: 78px; border-radius: 26px; background: rgba(255,255,255,.22); display: flex; justify-content: space-around; align-items: center; }
+.dock i { width: 54px; height: 54px; border-radius: 14px; background: rgba(255,255,255,.35); display: block; }
+/* chrome android */
+.cbar { position: absolute; left: 0; right: 0; top: 30px; height: 52px; background: #fff; display: flex; align-items: center; gap: 8px; padding: 0 8px; border-bottom: 1px solid #e3e7eb; }
+.cbar .url { flex: 1; height: 36px; border-radius: 18px; background: #eef1f4; display: flex; align-items: center; padding: 0 12px; font: 400 12.5px "LX"; color: #13233a; white-space: nowrap; overflow: hidden; }
+.cbar .tabs { width: 22px; height: 22px; border: 2px solid #3c4043; border-radius: 5px; font: 700 11px "LX"; display: grid; place-items: center; color: #3c4043; }
+.cbar .dots { width: 28px; height: 36px; display: grid; place-items: center; font: 700 22px "LX"; color: #3c4043; line-height: 1; }
+.menu { position: absolute; right: 6px; top: 34px; width: 214px; background: #fff; border-radius: 10px; box-shadow: 0 10px 28px rgba(0,0,0,.25); direction: rtl; font: 400 14px "NA"; color: #202124; padding: 6px 0; transform-origin: top right; }
+.menu div { height: 42px; display: flex; align-items: center; padding: 0 16px; }
+.dlg { position: absolute; left: 22px; right: 22px; top: 210px; background: #fff; border-radius: 22px; padding: 20px 18px 14px; direction: rtl; font-family: "NA"; color: #202124; box-shadow: 0 20px 40px rgba(0,0,0,.3); }
+.dlg h4 { font: 700 17px "NA"; margin-bottom: 14px; }
+.dlg .ap { display: flex; gap: 12px; align-items: center; }
+.dlg .ap img { width: 48px; height: 48px; border-radius: 12px; }
+.dlg .ap b { font: 600 14px "LX"; direction: ltr; display: block; }
+.dlg .ap span { font: 400 11px "LX"; color: #5f6368; direction: ltr; display: block; }
+.dlg .btns { display: flex; justify-content: flex-start; gap: 22px; margin-top: 20px; font: 700 14px "NA"; color: #1a73e8; flex-direction: row-reverse; }
+.scrim { position: absolute; inset: 0; background: rgba(0,0,0,.35); }
+/* tap */
+.tap { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: rgba(255,255,255,.55); border: 3px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,.35); z-index: 80; }
+.ripple { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; border: 3px solid #ffb020; z-index: 79; }
+/* captions */
+#cap { position: absolute; left: 560px; top: 0; width: 660px; height: 720px; display: flex; flex-direction: column; justify-content: center; text-align: right; }
+.chap { font: 700 20px "NA"; color: #8fc9f0; margin-bottom: 18px; display: flex; gap: 10px; justify-content: flex-start; align-items: center; }
+.chap .en { font: 600 18px "LX"; color: #a9bacb; }
+.step { display: flex; gap: 18px; align-items: flex-start; }
+.num { flex: none; width: 64px; height: 64px; border-radius: 50%; background: #ffb020; color: #1b1203; font: 700 32px "LX"; display: grid; place-items: center; }
+.txt h2 { font: 800 40px/1.35 "NA"; }
+.txt .sub { font: 600 22px/1.4 "LX"; color: #b9cadb; margin-top: 8px; direction: ltr; text-align: right; }
+.txt .note { font: 400 21px/1.6 "NA"; color: #d7e3ef; margin-top: 14px; background: rgba(255,255,255,.08); border-radius: 14px; padding: 10px 16px; display: inline-block; }
+.dots { display: flex; gap: 8px; margin-top: 30px; justify-content: flex-start; }
+.dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.25); display: block; }
+.dots i.on { background: #ffb020; width: 28px; border-radius: 6px; }
+/* intro / outro */
+.full { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 14px; background: radial-gradient(120% 120% at 50% 0%, #15527d 0%, #0b2a44 60%, #081d30 100%); z-index: 100; }
+.full img { width: 132px; height: 132px; border-radius: 30px; box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+.full h1 { font: 800 54px/1.3 "NA"; }
+.full .en1 { font: 700 30px "LX"; color: #8fc9f0; }
+.full p { font: 400 26px/1.6 "NA"; color: #cfdeec; }
+.full .credit { font: 600 20px "LX"; color: #ff9b85; margin-top: 10px; }
+.check { width: 110px; height: 110px; border-radius: 50%; background: #49c98a; display: grid; place-items: center; font: 800 64px "LX"; color: #06331c; }
+.foot { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; font: 500 15px "LX"; color: rgba(255,255,255,.45); z-index: 101; }
+</style></head>
+<body>
+<div id="phone"><div id="screen">
+  <div class="notch"></div>
+  <div class="status"><span>9:41</span><span>●●● 100%</span></div>
+
+  <!-- iPhone: Safari -->
+  <div class="layer" id="ios">
+    <div class="page" style="top:44px;height:486px"><img src="library.png" alt=""></div>
+    <div class="sbar"><div class="pill"><span style="color:#5f6b78">aA</span><span>senatorq8.github.io</span><span style="color:#5f6b78">↻</span></div>
+      <div class="tools">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        <svg viewBox="0 0 24 24" style="opacity:.35"><path d="M9 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" id="shareIc"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5v10h14V11h-1"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6z"/></svg>
+        <svg viewBox="0 0 24 24"><rect x="4" y="7" width="12" height="12" rx="2"/><path d="M8 4h10a2 2 0 0 1 2 2v10"/></svg>
+      </div></div>
+    <div class="scrim" id="iosScrim"></div>
+    <div class="sheet" id="sheet">
+      <div class="head"><img src="icon.png" alt=""><div><b>English Pearls of Kuwait</b><span>senatorq8.github.io</span></div></div>
+      <div class="apps"><i></i><i></i><i></i><i></i></div>
+      <div class="rows">
+        <div class="row"><span>نسخ</span><span class="ic">⧉</span></div>
+        <div class="row"><span>إضافة إلى قائمة القراءة</span><span class="ic">∞</span></div>
+        <div class="row"><span>إضافة إشارة مرجعية</span><span class="ic">☆</span></div>
+        <div class="row" id="rowAdd"><span>إضافة إلى الشاشة الرئيسية</span><span class="ic">+</span></div>
+        <div class="row"><span>البحث في الصفحة</span><span class="ic">⌕</span></div>
+      </div>
+    </div>
+    <div class="addv" id="addv">
+      <div class="nav"><span class="blue">إلغاء</span><span class="t">إضافة إلى الشاشة الرئيسية</span><span class="blue" id="addBtn" style="font-weight:700">إضافة</span></div>
+      <div class="card"><img src="icon.png" alt=""><div style="flex:1"><b>English Pearls</b><span>senatorq8.github.io/english-pearls/</span></div></div>
+      <p>ستُضاف أيقونة إلى الشاشة الرئيسية حتى تتمكن من الوصول سريعًا إلى هذا الموقع.</p>
+    </div>
+  </div>
+
+  <!-- Android: Chrome -->
+  <div class="layer" id="and">
+    <div class="page" style="top:82px;height:544px"><img src="library.png" alt=""></div>
+    <div class="cbar"><span style="font:20px LX;color:#3c4043">⌂</span><div class="url">senatorq8.github.io/english-pearls</div><span class="tabs">1</span><span class="dots" id="dotsBtn">⋮</span></div>
+    <div class="menu" id="menu">
+      <div>علامة تبويب جديدة</div><div>السجل</div><div>التنزيلات</div><div>الإشارات المرجعية</div>
+      <div id="rowInstall" style="font-weight:700">تثبيت التطبيق</div><div>مشاركة…</div><div>الإعدادات</div>
+    </div>
+    <div class="scrim" id="andScrim"></div>
+    <div class="dlg" id="dlg"><h4>تثبيت التطبيق</h4>
+      <div class="ap"><img src="icon.png" alt=""><div><b>English Pearls</b><span>senatorq8.github.io</span></div></div>
+      <div class="btns"><span>إلغاء</span><span id="instBtn">تثبيت</span></div></div>
+  </div>
+
+  <!-- home screen (both) -->
+  <div class="layer home" id="home">
+    <div class="grid" id="grid"></div>
+    <div class="dock"><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="hl" id="hl"></div>
+  <div class="ripple" id="rip"></div>
+  <div class="tap" id="tap"></div>
+</div></div>
+
+<div id="cap">
+  <div class="chap" id="chap"></div>
+  <div class="step"><div class="num" id="num">1</div><div class="txt"><h2 id="h"></h2><div class="sub" id="sub"></div><div class="note" id="note"></div></div></div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<div class="full" id="intro"><img src="icon.png" alt=""><h1>كيف تثبّت الكتاب على جوالك؟</h1><div class="en1">English Pearls · Interactive Books</div><p>تثبيت واحد يفتح كتب الصفوف 6 و7 و8، ويعمل بدون إنترنت.</p></div>
+<div class="full" id="outro"><div class="check">✓</div><h1>جاهز!</h1><p>افتح الكتاب من أيقونة <span class="en" style="font-weight:700">English Pearls</span> مثل أي تطبيق.</p><div class="credit">Prepared by: Abdullah Alenezi</div></div>
+<div class="foot" id="foot">senatorq8.github.io/english-pearls</div>
+
+<script>
+const $ = (s) => document.getElementById(s);
+const clamp = (x) => Math.max(0, Math.min(1, x));
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const ease = (x) => 1 - Math.pow(1 - x, 3);
+const show = (el, o) => { el.style.display = o > 0 ? "" : "none"; el.style.opacity = o; };
+// home grid: placeholder apps + ours at position 6
+const g = $("grid");
+for (let i = 0; i < 12; i++) { const a = document.createElement("div"); a.className = "app"; if (i === 6) { a.id = "ours"; a.innerHTML = '<img src="icon.png" alt=""><span>English Pearls</span>'; } else a.innerHTML = "<i></i><span>&nbsp;</span>"; g.appendChild(a); }
+
+const STEPS = [
+  // iPhone
+  { a: 3.5, b: 6.5, chap: "ios", n: 1, h: "افتح رابط الكتب في Safari", sub: "senatorq8.github.io/english-pearls", note: "" },
+  { a: 6.5, b: 10, chap: "ios", n: 2, h: "اضغط زر المشاركة", sub: "Share", note: "في الآيباد تجده أعلى الشاشة. إذا لم تجده، اضغط ⋯ أولًا." },
+  { a: 10, b: 14, chap: "ios", n: 3, h: "اختر «إضافة إلى الشاشة الرئيسية»", sub: "Add to Home Screen", note: "إذا لم تظهر، مرّر القائمة للأسفل." },
+  { a: 14, b: 17.5, chap: "ios", n: 4, h: "اضغط «إضافة»", sub: "Add", note: "" },
+  { a: 17.5, b: 21, chap: "ios", n: 5, h: "تظهر الأيقونة في الشاشة الرئيسية", sub: "English Pearls", note: "اضغطها لتفتح الكتب مثل أي تطبيق." },
+  // Android
+  { a: 21, b: 24, chap: "and", n: 1, h: "افتح رابط الكتب في Chrome", sub: "senatorq8.github.io/english-pearls", note: "" },
+  { a: 24, b: 28, chap: "and", n: 2, h: "اضغط ⋮ ثم «تثبيت التطبيق»", sub: "⋮ → Install app", note: "في بعض الأجهزة: «إضافة إلى الشاشة الرئيسية»." },
+  { a: 28, b: 32, chap: "and", n: 3, h: "اضغط «تثبيت»", sub: "Install", note: "" },
+  { a: 32, b: 36.5, chap: "and", n: 4, h: "تظهر الأيقونة في الشاشة الرئيسية", sub: "English Pearls", note: "بعد أول فتح يعمل بدون إنترنت." }
+];
+const CHAP = { ios: '<span>📱 آيفون وآيباد</span><span class="en">Safari</span>', and: '<span>🤖 أندرويد</span><span class="en">Chrome</span>' };
+// taps: [tap time, target element id, highlight from]
+const TAPS = [[8.2, "shareIc", 6.9], [12.4, "rowAdd", 11.0], [16.0, "addBtn", 14.8], [20.0, "ours", 19.4], [25.2, "dotsBtn", 24.2], [27.2, "rowInstall", 25.9], [30.4, "instBtn", 29.0], [34.6, "ours", 34.0]];
+const rectOf = (id) => { const r = $(id).getBoundingClientRect(), sc = $("screen").getBoundingClientRect(); return { x: r.left - sc.left, y: r.top - sc.top, w: r.width, h: r.height }; };
+let last = -1;
+function render(t) {
+  // intro / outro
+  show($("intro"), t < 3.5 ? 1 - seg(t, 3.0, 3.5) : 0);
+  show($("outro"), seg(t, 36.5, 37.0));
+  const step = STEPS.find((s) => t >= s.a && t < s.b) || (t < 3.5 ? STEPS[0] : STEPS[STEPS.length - 1]);
+  const si = STEPS.indexOf(step);
+  if (si !== last) {
+    last = si;
+    $("chap").innerHTML = CHAP[step.chap]; $("num").textContent = step.n; $("h").textContent = step.h; $("sub").textContent = step.sub;
+    $("note").textContent = step.note; $("note").style.display = step.note ? "" : "none";
+    const same = STEPS.filter((s) => s.chap === step.chap);
+    $("dots").innerHTML = same.map((s) => '<i class="' + (s === step ? "on" : "") + '"></i>').join("");
+  }
+  const ca = seg(t, step.a, step.a + 0.4); document.querySelector(".step").style.opacity = ca; document.querySelector(".step").style.transform = "translateY(" + (1 - ease(ca)) * 16 + "px)";
+
+  const ios = t < 21, and = !ios;
+  // home screens
+  const homeIos = t >= 17.5 && t < 21, homeAnd = t >= 32;
+  show($("home"), homeIos || homeAnd ? 1 : 0);
+  const popT = homeIos ? 18.0 : 32.4; const pk = seg(t, popT, popT + 0.6);
+  const ours = $("ours"); ours.style.opacity = pk > 0 ? 1 : 0; ours.style.transform = "scale(" + (pk > 0 ? 0.3 + 0.7 * ease(pk) + Math.sin(pk * Math.PI) * 0.15 : 0.3) + ")";
+  show($("ios"), ios && !homeIos ? 1 : 0);
+  show($("and"), and && !homeAnd ? 1 : 0);
+  // iOS share sheet + add view
+  const sh = ease(seg(t, 10.0, 10.6)) * (t < 14.0 ? 1 : 0);
+  show($("sheet"), sh); $("sheet").style.transform = "translateY(" + (1 - sh) * 420 + "px)"; $("sheet").style.opacity = 1;
+  show($("iosScrim"), sh * 0.9);
+  show($("addv"), t >= 14.0 && t < 17.5 ? seg(t, 14.0, 14.4) : 0);
+  // android menu + dialog
+  const mn = t >= 25.3 && t < 27.6 ? ease(seg(t, 25.3, 25.6)) : 0;
+  show($("menu"), mn); $("menu").style.transform = "scale(" + (0.85 + 0.15 * mn) + ")";
+  const dl = t >= 28.2 && t < 30.8 ? ease(seg(t, 28.2, 28.6)) : 0;
+  show($("dlg"), dl); $("dlg").style.transform = "scale(" + (0.9 + 0.1 * dl) + ")"; show($("andScrim"), dl);
+  // highlight + tap on the target element
+  const hl = $("hl"), tap = $("tap"), rip = $("rip");
+  hl.style.display = "none"; tap.style.display = "none"; rip.style.display = "none";
+  for (const [tt, id, hs] of TAPS) {
+    if (t >= hs && t < tt + 0.25 && id !== "ours") { const r = rectOf(id), pad = 4; hl.style.display = ""; Object.assign(hl.style, { left: r.x - pad + "px", top: r.y - pad + "px", width: r.w + 2 * pad + "px", height: r.h + 2 * pad + "px" }); hl.style.opacity = 0.6 + 0.4 * Math.sin(t * 8); }
+    if (t >= tt - 0.7 && t < tt + 0.45) {
+      const r = rectOf(id), x = r.x + r.w / 2, y = id === "ours" ? r.y + 27 : r.y + r.h / 2;
+      const k = seg(t, tt - 0.7, tt - 0.2), down = t >= tt && t < tt + 0.2;
+      tap.style.display = ""; tap.style.left = x + "px"; tap.style.top = y + "px"; tap.style.opacity = t < tt ? k : 1 - seg(t, tt + 0.15, tt + 0.45);
+      tap.style.transform = "scale(" + (down ? 0.8 : 1) + ")";
+      const q = seg(t, tt, tt + 0.45); rip.style.display = q > 0 && q < 1 ? "" : "none"; rip.style.left = x + "px"; rip.style.top = y + "px"; rip.style.transform = "scale(" + (1 + q * 1.6) + ")"; rip.style.opacity = 1 - q;
+    }
+  }
+  $("foot").style.opacity = t < 3.5 || t >= 36.5 ? 1 : 0;
+}
+window.render = render; window.DURATION = 40;
+document.fonts.ready.then(() => { window.ready = true; });
+</script>
+</body></html>

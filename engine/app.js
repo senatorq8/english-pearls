@@ -1723,10 +1723,10 @@
       "صوت القراءة: " + EN("Natural voice (George)") + " صوت طبيعي مولَّد بالذكاء الاصطناعي، أو صوت جهازك. كلاهما ليس تسجيل الكتاب.",
       "تقدر تغيّر حجم الخط، والوضع الليلي، والأصوات، ومؤقت الألعاب.",
       "تقدّمك محفوظ في هذا المتصفح فقط وبدون حساب. إذا غيّرت الجهاز أو المتصفح يبدأ من جديد، فلا تستخدم التصفح الخفي."] },
-    { who: "s", id: "install", ico: "📲", t: "ثبّته كتطبيق", steps: [
+    { who: "s", id: "install", ico: "📲", t: "ثبّته كتطبيق", video: "install", wide: true, steps: [
       "آيفون وآيباد (Safari): زر المشاركة ← " + EN("Add to Home Screen"),
       "أندرويد (Chrome): القائمة ⋮ ← " + EN("Install app"),
-      "بعد أول فتح يعمل الكتاب بدون إنترنت."] },
+      "بعد أول فتح يعمل الكتاب بدون إنترنت. شاهد الفيديو للخطوات كاملة."] },
     { who: "s", id: "ar", ico: "📷", t: "الواقع المعزز", img: "ar", only: () => BOOK.ar && Object.keys(BOOK.ar).length, steps: [
       "يعمل بكاميرا الجوال. افتح كتابك المطبوع على صفحات الوحدة، أو اعرض الصفحة على شاشة الكمبيوتر.",
       "من درس الوحدة اضغط " + EN("Scan your book page") + "، ثم " + EN("Start camera") + "، واسمح باستخدام الكاميرا.",
@@ -1774,7 +1774,9 @@
     let lastWho = null;
     list.forEach((x) => {
       if (x.who !== lastWho) { lastWho = x.who; w.append(h("h2", { class: "help-part", dir: "rtl", lang: "ar" }, x.who === "s" ? "👩‍🎓 للطالب وولي الأمر" : "🧑‍🏫 للمعلم")); }
-      const pics = [x.img, x.img2].filter(Boolean).map((n) => h("img", { src: "../help/img/" + n + ".webp", alt: "صورة توضيحية: " + x.t, loading: "lazy", class: x.wide ? "wide" : "" }));
+      const size = (n) => (x.wide ? [1280, 600] : n === "lesson" ? [390, 560] : [390, 640]); // reserves the space before the picture loads
+      const pics = [x.img, x.img2].filter(Boolean).map((n) => h("img", { src: "../help/img/" + n + ".webp", alt: "صورة توضيحية: " + x.t, loading: "lazy", width: size(n)[0], height: size(n)[1], class: x.wide ? "wide" : "" }));
+      if (x.video) pics.push(h("video", { class: "help-video", src: "../help/" + x.video + ".mp4", poster: "../help/" + x.video + "-poster.webp", controls: true, playsinline: true, preload: "none", "aria-label": "فيديو: " + x.t }));
       w.append(h("section", { class: "card help-sec" + (x.wide ? " is-wide" : "") + (pics.length ? "" : " no-pic"), id: "h-" + x.id, dir: "rtl", lang: "ar" },
         h("div", { class: "help-text" },
           h("h3", null, h("span", { class: "help-ico", "aria-hidden": "true" }, x.ico), x.t, x.en ? h("span", { class: "tag", dir: "ltr", lang: "en" }, x.en) : null),

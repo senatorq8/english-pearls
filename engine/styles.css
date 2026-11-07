@@ -552,8 +552,9 @@ body.spotting #unitTabs { display: none; }
 .help-sec ol { margin: 0; padding-inline-start: 22px; display: grid; gap: 10px; line-height: 1.8; font-size: 1.05rem; }
 .help-sec ol li::marker { color: var(--brand); font-weight: 700; }
 .help-pics { display: grid; gap: 10px; }
-.help-pics img { width: 100%; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(19,35,58,.10); background: var(--surface-2); }
+.help-pics img { width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(19,35,58,.10); background: var(--surface-2); }
 .help-pics img.wide { border-radius: 12px; }
+.help-video { width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; background: #0b2a44; display: block; }
 .help-faq { border-top: 1px solid var(--line); padding: 10px 0; }
 .help-faq summary { cursor: pointer; font-weight: 700; min-height: 32px; }
 .help-faq p { margin: 6px 0 0; color: var(--muted); line-height: 1.8; }
