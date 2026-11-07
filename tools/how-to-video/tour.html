@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>How to use video</title>
+<style>
+@font-face { font-family: "NA"; src: url(noto-sans-arabic-arabic-400-normal.woff2); font-weight: 400; }
+@font-face { font-family: "NA"; src: url(noto-sans-arabic-arabic-700-normal.woff2); font-weight: 700; }
+@font-face { font-family: "NA"; src: url(noto-sans-arabic-arabic-800-normal.woff2); font-weight: 800; }
+@font-face { font-family: "LX"; src: url(lexend-latin-400-normal.woff2); font-weight: 400; }
+@font-face { font-family: "LX"; src: url(lexend-latin-600-normal.woff2); font-weight: 600; }
+@font-face { font-family: "LX"; src: url(lexend-latin-700-normal.woff2); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1280px; height: 720px; overflow: hidden; }
+body { font-family: "NA", sans-serif; background: radial-gradient(120% 120% at 85% 10%, #15527d 0%, #0b2a44 55%, #081d30 100%); color: #eef4fa; position: relative; }
+.en { font-family: "LX", sans-serif; direction: ltr; unicode-bidi: isolate; }
+#phone { position: absolute; left: 140px; top: 22px; width: 340px; height: 676px; border-radius: 46px; background: #10161d; box-shadow: 0 30px 70px rgba(0,0,0,.45), inset 0 0 0 2px #2a333d; }
+#screen { position: absolute; left: 12px; top: 14px; width: 316px; height: 648px; border-radius: 34px; overflow: hidden; background: #eef3f6; direction: ltr; }
+#app { position: absolute; left: 0; top: 0; width: 390px; height: 800px; border: 0; transform: scale(0.81026); transform-origin: 0 0; background: #eef3f6; }
+.hl { position: absolute; border-radius: 12px; box-shadow: 0 0 0 3px #ffb020, 0 0 18px 4px rgba(255,176,32,.55); pointer-events: none; z-index: 60; display: none; }
+.tap { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: rgba(255,255,255,.55); border: 3px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,.35); z-index: 80; display: none; pointer-events: none; }
+.ripple { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid #ffb020; z-index: 79; display: none; pointer-events: none; }
+#cap { position: absolute; left: 560px; top: 0; width: 670px; height: 720px; display: flex; flex-direction: column; justify-content: center; text-align: right; }
+.chap { font: 700 21px "NA"; color: #8fc9f0; margin-bottom: 18px; display: flex; gap: 12px; align-items: center; }
+.chap .cnt { font: 600 17px "LX"; color: #a9bacb; background: rgba(255,255,255,.08); border-radius: 999px; padding: 2px 12px; direction: ltr; }
+.step { display: flex; gap: 18px; align-items: flex-start; }
+.num { flex: none; width: 64px; height: 64px; border-radius: 50%; background: #ffb020; color: #1b1203; font: 700 30px "LX"; display: grid; place-items: center; }
+.txt h2 { font: 800 40px/1.35 "NA"; }
+.txt .sub { font: 600 22px/1.4 "LX"; color: #b9cadb; margin-top: 8px; direction: ltr; text-align: right; }
+.txt .note { font: 400 21px/1.6 "NA"; color: #d7e3ef; margin-top: 14px; background: rgba(255,255,255,.08); border-radius: 14px; padding: 10px 16px; display: inline-block; }
+.bar { position: absolute; left: 0; bottom: 0; height: 5px; background: #ffb020; z-index: 5; }
+.full { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 14px; background: radial-gradient(120% 120% at 50% 0%, #15527d 0%, #0b2a44 60%, #081d30 100%); z-index: 100; }
+.full img { width: 128px; height: 128px; border-radius: 30px; box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+.full h1 { font: 800 54px/1.3 "NA"; }
+.full .en1 { font: 700 28px "LX"; color: #8fc9f0; }
+.full p { font: 400 25px/1.6 "NA"; color: #cfdeec; max-width: 900px; }
+.full .credit { font: 600 20px "LX"; color: #ff9b85; margin-top: 8px; }
+.full .chips { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 980px; }
+.full .chips span { font: 600 19px "NA"; background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 16px; }
+.check { width: 104px; height: 104px; border-radius: 50%; background: #49c98a; display: grid; place-items: center; font: 800 60px "LX"; color: #06331c; }
+.foot { position: absolute; left: 0; right: 0; bottom: 16px; text-align: center; font: 500 15px "LX"; color: rgba(255,255,255,.45); z-index: 101; }
+</style></head>
+<body>
+<div id="phone"><div id="screen"><iframe id="app" title="book"></iframe>
+  <div class="hl" id="hl"></div><div class="ripple" id="rip"></div><div class="tap" id="tap"></div></div></div>
+<div id="cap">
+  <div class="chap"><span id="chap"></span><span class="cnt" id="cnt"></span></div>
+  <div class="step"><div class="num" id="num">1</div><div class="txt"><h2 id="h"></h2><div class="sub" id="sub"></div><div class="note" id="note"></div></div></div>
+</div>
+<div class="bar" id="bar"></div>
+<div class="full" id="intro"><img src="icon.png" alt=""><h1>طريقة استخدام الكتاب التفاعلي</h1><div class="en1">English Pearls · Interactive Books</div>
+  <div class="chips"><span>الكلمات</span><span>القراءة والاستماع</span><span>التمارين</span><span>القواعد والمختبر</span><span>المحادثة والكتابة</span><span>الألعاب والنجوم</span><span>وضع المعلم</span></div>
+  <p>المثال من كتاب الصف السابع، وكتب الصفوف 6 و7 و8 تعمل بنفس الطريقة.</p></div>
+<div class="full" id="outro"><div class="check">✓</div><h1>جاهز للتعلّم!</h1><p>والشرح المكتوب بالصور داخل كل كتاب: اضغط <span class="en" style="font-weight:700">❓ How to use</span> في أي درس.</p><div class="credit">Prepared by: Abdullah Alenezi</div></div>
+<div class="foot" id="foot">senatorq8.github.io/english-pearls</div>
+
+<script>
+const $ = (s) => document.getElementById(s);
+const clamp = (x) => Math.max(0, Math.min(1, x));
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const ease = (x) => 1 - Math.pow(1 - x, 3);
+const SC = 0.81026;
+const frame = $("app");
+const D = () => frame.contentDocument, W = () => frame.contentWindow;
+const vis = (e) => e && e.getClientRects().length && getComputedStyle(e).visibility !== "hidden";
+const byText = (sel, txt) => [...D().querySelectorAll(sel)].find((e) => vis(e) && e.textContent.trim().includes(txt));
+const part = (l) => byText(".parts button", l);
+const q = (sel) => [...D().querySelectorAll(sel)].find(vis);
+const go = (hash) => { W().location.hash = hash; };
+const center = (fn) => () => { const e = fn(); if (e) e.scrollIntoView({ block: "center", behavior: "smooth" }); };
+const toTop = () => W().scrollTo({ top: 0, behavior: "smooth" });
+
+// scenes: [start, chap, n, total, title, sub, note]
+const S = "👩‍🎓 للطالب", T = "🧑‍🏫 للمعلم";
+const SCENES = [
+  [4, S, 1, "افتح كتاب صفّك", "Home", "من صفحة كل الكتب اختر صفّك."],
+  [10, S, 2, "اختر الدرس من قائمة المحتويات", "☰ Contents", "بجانب كل درس نسبة ما أنجزته منه."],
+  [15, S, 3, "الدرس مقسّم إلى خطوات", "Start → … → Finish", "انتقل بالضغط على الخطوة، أو بالزر Next، أو بسحب الشاشة."],
+  [21, S, 4, "اقلب البطاقة لترى معنى الكلمة", "Words", "🔊 يقرأ الكلمة والجملة."],
+  [28, S, 5, "استمع للنص وتابع الكلمات", "Read aloud", "غيّر السرعة من Speed."],
+  [35.5, S, 6, "اضغط الكلمة الزرقاء لمعناها", "Blue word · Show Arabic meaning", ""],
+  [41, S, 7, "حلّ التمارين بلا خوف", "Check · Help · Hint", "الخطأ لا يخصم شيئًا، حاول مرة أخرى."],
+  [50, S, 8, "القاعدة خطوة بخطوة", "Rule · Next step", "كل لون يدل على جزء من الجملة."],
+  [56, S, 9, "جرّب القاعدة في المختبر", "Grammar Lab", "غيّر الفاعل وشاهد الجملة تتغيّر."],
+  [63, S, 10, "توقّع ثم اكشف الإجابة", "Predict", "اختر A أو B، ثم ارفع الورقة."],
+  [69, S, 11, "تحدّث وسجّل صوتك", "Speak · Record", "يطلب الجوال إذن الميكروفون، والتسجيل يبقى على جهازك."],
+  [75, S, 12, "اكتب واستعن ببنك الكلمات", "Write · Word bank", "كتابتك تُحفظ تلقائيًا."],
+  [81, S, 13, "العب وراجع الدرس", "Game", "لا عقاب على الخطأ."],
+  [88, S, 14, "اجمع النجوم وأكمل ما بقي", "Finish · Still to do", "حتى 3 نجوم ⭐ في كل وحدة."],
+  [94, S, 15, "المساعدة بالعربي", "عربي", "ترجمة التعليمات ومعاني الكلمات."],
+  [100, S, 16, "الإعدادات: الصوت وحجم الخط", "Settings & progress", "تقدّمك محفوظ على هذا الجهاز بدون حساب."],
+  [107, T, 1, "وضع المعلم وإظهار الإجابات", "Teacher mode · 🔑 Answers", "تجده أسفل قائمة المحتويات، وفي الكمبيوتر أعلى الشاشة."],
+  [116, T, 2, "اعرض النشاط على السبورة", "Show on board", "بخط كبير على شاشة الفصل."],
+  [122, T, 3, "ملاحظات المعلم في آخر كل درس", "🧑‍🏫 Teacher", "الأهداف، وطريقة التنفيذ، وأسئلة سريعة مع إجاباتها."],
+  [127.5]
+];
+const END = 131.5;
+// events: [time, kind, arg]  kind: do(fn) | tap(finder) — a tap shows the finger from t-0.7 and clicks at t
+const EV = [
+  [5.8, "do", center(() => byText("a.book", "Grade 7"))],
+  [7.4, "tap", () => byText("a.book", "Grade 7")],
+  [11.0, "tap", () => D().getElementById("btnMenu")],
+  [12.4, "do", center(() => byText(".toc-lesson", "Generations Together"))],
+  [13.6, "tap", () => byText(".toc-lesson", "Generations Together")],
+  [19.2, "tap", () => part("Words")],
+  [23.4, "tap", () => q(".flip .face.front .flip-hit")],
+  [26.4, "tap", () => q(".flip .face.back .icon-btn")],
+  [29.6, "tap", () => part("Read")],
+  [31.8, "tap", () => byText("button", "Read aloud")],
+  [35.0, "tap", () => byText(".player button", "Stop")],
+  [36.6, "do", center(() => byText("button.tw", "bond"))],
+  [37.8, "tap", () => byText("button.tw", "bond")],
+  [39.8, "tap", () => byText("button", "Show Arabic meaning")],
+  [41.1, "do", () => { const a = D().getElementById("btnAr"); if (a && a.getAttribute("aria-pressed") === "true") a.click(); }],
+  [41.2, "do", () => { go("#u1l2"); }],
+  [41.9, "do", () => { const p = part("Extra 1"); p && p.click(); }],
+  [43.4, "do", center(() => byText("button", "brushes"))],
+  [44.6, "tap", () => [...D().querySelectorAll("button")].find((e) => vis(e) && e.textContent.trim() === "brush")],
+  [47.4, "tap", () => byText("button", "brushes")],
+  [50.6, "tap", () => part("Rule")],
+  [53.8, "tap", () => byText("button", "Next step")],
+  [56.6, "tap", () => part("Grammar Lab")],
+  [58.8, "tap", () => [...D().querySelectorAll(".lab-chip")].find((e) => vis(e) && e.textContent.trim() === "I")],
+  [61.0, "tap", () => byText(".lab-chip", "My father")],
+  [63.6, "tap", () => part("Predict")],
+  [65.4, "do", center(() => q(".pr-opt"))],
+  [66.2, "tap", () => [...D().querySelectorAll(".pr-opt")].filter(vis)[1]],
+  [67.9, "tap", () => q(".pr-flap")],
+  [69.6, "tap", () => part("Speak")],
+  [71.4, "do", center(() => byText("button", "Record"))],
+  [72.6, "tap", () => byText("button", "Record")],
+  [74.4, "tap", () => byText("button", "Stop")],
+  [75.6, "tap", () => part("Write")],
+  [77.0, "do", center(() => byText("button.chip", "every evening"))],
+  [78.0, "tap", () => byText("button.chip", "every evening")],
+  [79.6, "tap", () => byText("button.chip", "helps")],
+  [81.6, "tap", () => part("Game")],
+  [84.4, "tap", () => [...D().querySelectorAll("button.opt")].find((e) => vis(e) && e.textContent.trim() === "goes")],
+  [88.6, "tap", () => part("Finish")],
+  [91.5, "do", center(() => byText("h3, h2", "Still to do"))],
+  [94.4, "do", () => { const p = part("Practice"); p && p.click(); toTop(); }],
+  [96.2, "tap", () => D().getElementById("btnAr")],
+  [100.3, "tap", () => D().getElementById("btnAr")],
+  [101.0, "do", () => go("#settings")],
+  [103.2, "do", center(() => D().getElementById("set-voice"))],
+  [105.0, "do", center(() => D().getElementById("set-size"))],
+  [107.2, "do", () => go("#u1l2")],
+  [107.8, "do", () => { const p = part("Practice"); p && p.click(); }],
+  [109.2, "tap", () => D().getElementById("btnMenu")],
+  [111.0, "tap", () => byText(".drawer button", "Teacher mode")],
+  [112.2, "do", () => { const c = D().getElementById("btnClose"); c && c.click(); }],
+  [113.4, "tap", () => D().getElementById("btnAns")],
+  [114.8, "do", center(() => q(".ans-reveal, .t-ans"))],
+  [116.2, "do", toTop],
+  [117.6, "tap", () => q(".spot-btn")],
+  [120.6, "tap", () => q(".spot-btn")],
+  [122.4, "tap", () => part("Teacher")],
+  [125.2, "do", () => W().scrollBy({ top: 260, behavior: "smooth" })],
+  [127.6, "do", () => { const m = D().getElementById("mStudent"); m && m.click(); }]
+];
+let lastT = -1, lastScene = -1, tapState = null;
+function rectOf(el) { const r = el.getBoundingClientRect(); return { x: r.left * SC, y: r.top * SC, w: r.width * SC, h: r.height * SC }; }
+function render(t) {
+  // fire events crossing (lastT, t]
+  for (const [et, kind, fn] of EV) {
+    if (kind === "tap" && t >= et - 0.7 && lastT < et - 0.7) { const el = fn(); if (el) { tapState = { et, el }; } }
+    if (et > lastT && et <= t) {
+      try { if (kind === "do") fn(); else { const el = (tapState && tapState.et === et && tapState.el.isConnected) ? tapState.el : fn(); if (el) el.click(); } } catch (e) { console.log("event failed at", et, e.message); }
+    }
+  }
+  lastT = t;
+  // captions
+  let si = -1; SCENES.forEach((s, i) => { if (t >= s[0] && s.length > 1) si = i; });
+  if (t >= SCENES[SCENES.length - 1][0]) si = -1;
+  if (si !== lastScene && si >= 0) { lastScene = si; const s = SCENES[si]; const tot = SCENES.filter((x) => x[1] === s[1]).length;
+    $("chap").textContent = s[1]; $("cnt").textContent = s[2] + " / " + tot; $("num").textContent = s[2]; $("h").textContent = s[3]; $("sub").textContent = s[4]; $("note").textContent = s[5]; $("note").style.display = s[5] ? "" : "none"; }
+  if (si >= 0) { const k = seg(t, SCENES[si][0], SCENES[si][0] + 0.4); const st = document.querySelector(".step"); st.style.opacity = k; st.style.transform = "translateY(" + (1 - ease(k)) * 16 + "px)"; }
+  $("intro").style.opacity = t < 4 ? 1 - seg(t, 3.5, 4) : 0; $("intro").style.display = t < 4 ? "" : "none";
+  const oo = seg(t, 127.5, 128); $("outro").style.opacity = oo; $("outro").style.display = oo > 0 ? "" : "none";
+  $("foot").style.opacity = t < 4 || t >= 127.5 ? 1 : 0;
+  $("bar").style.width = (clamp((t - 4) / (127.5 - 4)) * 100) + "%";
+  // tap finger + ripple
+  const tap = $("tap"), rip = $("rip"), hl = $("hl"); tap.style.display = rip.style.display = hl.style.display = "none";
+  if (tapState && t >= tapState.et - 0.7 && t < tapState.et + 0.45 && tapState.el.isConnected) {
+    const r = rectOf(tapState.el), x = r.x + r.w / 2, y = r.y + r.h / 2, et = tapState.et;
+    if (t < et + 0.2) { hl.style.display = ""; const pad = 3; Object.assign(hl.style, { left: r.x - pad + "px", top: r.y - pad + "px", width: r.w + 2 * pad + "px", height: r.h + 2 * pad + "px" }); hl.style.opacity = 0.7; }
+    tap.style.display = ""; tap.style.left = x + "px"; tap.style.top = y + "px"; tap.style.opacity = t < et ? seg(t, et - 0.7, et - 0.25) : 1 - seg(t, et + 0.15, et + 0.45);
+    tap.style.transform = "scale(" + (t >= et && t < et + 0.2 ? 0.8 : 1) + ")";
+    const qq = seg(t, et, et + 0.45); if (qq > 0 && qq < 1) { rip.style.display = ""; rip.style.left = x + "px"; rip.style.top = y + "px"; rip.style.transform = "scale(" + (1 + qq * 1.6) + ")"; rip.style.opacity = 1 - qq; }
+  }
+}
+window.render = render; window.END = END;
+try { localStorage.clear(); localStorage.setItem("pearls7a.v1", JSON.stringify({ helpSeen: 1 })); } catch (e) {}
+frame.src = "site/index.html";
+frame.onload = () => { if (!window.ready) document.fonts.ready.then(() => { window.ready = true; }); };
+</script>
+</body></html>

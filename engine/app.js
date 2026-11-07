@@ -1769,6 +1769,8 @@
     w.append(h("section", { class: "card stack help-top", dir: "rtl", lang: "ar" },
       h("h1", null, "طريقة استخدام الكتاب التفاعلي", h("small", { dir: "ltr", lang: "en" }, "How to use this book")),
       h("p", null, "شرح مصوّر لكل جزء في الكتاب. الصور من كتاب الصف السابع، وكتب الصفوف 6 و7 و8 تعمل بنفس الطريقة."),
+      h("h2", null, "🎬 شاهد الفيديو أولًا (دقيقتان)"),
+      h("video", { class: "help-video", src: "../help/how-to-use.mp4", poster: "../help/how-to-use-poster.webp", controls: true, playsinline: true, preload: "none", "aria-label": "فيديو: طريقة استخدام الكتاب التفاعلي" }),
       h("h2", null, "👩‍🎓 للطالب وولي الأمر"), h("div", { class: "help-chips" }, list.filter((x) => x.who === "s").map(chip)),
       h("h2", null, "🧑‍🏫 للمعلم"), h("div", { class: "help-chips" }, list.filter((x) => x.who === "t").map(chip), h("a", { class: "chip", href: "#help-faq", onclick: (e) => { e.preventDefault(); document.getElementById("h-faq").scrollIntoView({ behavior: "smooth" }); } }, "🛟 مشاكل شائعة"))));
     let lastWho = null;
