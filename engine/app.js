@@ -376,6 +376,7 @@
     const body = $("#drawerBody"); if (!body) return; body.innerHTML = "";
     if (BOOK.libraryUrl) body.append(h("a", { class: "toc-extra", href: BOOK.libraryUrl }, "📚 All books"));
     body.append(h("a", { class: "toc-extra", href: "#home" }, "🏠 Home"));
+    body.append(h("a", { class: "toc-extra", href: "#help" }, "❓ How to use · ", h("span", { class: "ar" }, "طريقة الاستخدام")));
     let lastMod = null;
     units().forEach((u) => {
       const md = moduleOf(u); if (md && md !== lastMod) { lastMod = md; body.append(h("div", { class: "toc-module", style: { "--uc": "var(--" + md.color + ")" } }, md.extra ? md.title : "Module " + md.num + " · " + md.title)); }
@@ -430,6 +431,7 @@
     else if (hsh === "project") renderProject(main);
     else if (hsh === "search") renderSearch(main);
     else if (hsh === "settings") renderSettings(main);
+    else if (hsh === "help" || hsh.indexOf("help-") === 0) renderHelp(main, hsh.slice(5));
     else renderHome(main);
     renderDrawer(); renderSideTabs();
     window.scrollTo(0, 0);
@@ -454,7 +456,8 @@
           h("div", { class: "stat" }, h("b", null, Object.keys(S.badges).length + " / " + BADGES.length), h("span", null, "badges"))),
         h("div", { class: "row", style: { marginTop: "16px" } },
           S.lastLesson && findLesson(S.lastLesson) ? h("a", { class: "btn primary", href: "#" + S.lastLesson }, "Continue: " + findLesson(S.lastLesson).l.title, icon("right")) : h("a", { class: "btn primary", href: "#u1l1" }, "Start Unit 1", icon("right")),
-          h("a", { class: "btn", href: "#search" }, icon("search"), "Search"))),
+          h("a", { class: "btn", href: "#search" }, icon("search"), "Search"),
+          h("a", { class: "btn", href: "#help" }, "❓ How to use"))),
       h("div", { class: "book3d" },
         h("div", { class: "book3d-body" },
           h("img", { src: "img/covers/book.jpg", alt: "Cover of English Pearls of Kuwait " + BOOK.code }),
@@ -462,6 +465,8 @@
             : units().map((u) => h("a", { class: "b3tab", href: "#" + u.id + "l1", style: { background: "var(--" + u.color + ")" }, title: "Unit " + u.num + ": " + u.title, "aria-label": "Open Unit " + u.num + ": " + u.title }, String(u.num)))))));
     w.append(hero);
     if (!storageOK) w.append(h("div", { class: "notice" }, "This browser is not saving progress (private mode or blocked storage). Your work stays until you close the page."));
+    if (!S.helpSeen) w.append(h("div", { class: "notice help-first" }, h("span", null, h("b", null, "New here? "), "See how the book works, step by step.", h("span", { class: "ar", style: { display: "block" } }, "أول مرة؟ شاهد طريقة استخدام الكتاب خطوة بخطوة.")),
+      h("span", { class: "row" }, h("a", { class: "btn small primary", href: "#help" }, "❓ How to use"), h("button", { class: "btn small ghost", type: "button", onclick: (e) => { S.helpSeen = 1; save(); e.target.closest(".notice").remove(); } }, "Hide"))));
     const grid = h("section", { class: "units", "aria-label": "Units" });
     let lastMod = null;
     units().forEach((u) => {
@@ -520,7 +525,8 @@
           h("div", { class: "row", style: { marginBottom: "6px" } }, h("span", { class: "tag book" }, SKILL_ICON[l.skill] + " " + l.skill), h("span", { class: "tag page" }, "📄 Book " + pagesTxt), S.settings.ar ? h("span", { class: "tag ar" }, SKILL_AR[l.skill]) : null),
           h("h1", null, l.title)),
         h("span", { class: "ring", id: "lessonPct", style: { "--p": pct, width: "54px", height: "54px" }, "data-v": pct + "%", title: "Lesson progress" })),
-      h("div", { class: "row" }, h("button", { class: "btn small", onclick: () => openPage(l.pages[0]) }, icon("book"), "Open book " + pagesTxt))));
+      h("div", { class: "row" }, h("button", { class: "btn small", onclick: () => openPage(l.pages[0]) }, icon("book"), "Open book " + pagesTxt),
+        h("a", { class: "btn small ghost", href: "#help-" + helpTopic(visible[PART], l), title: "How to use this step" }, "❓ How to use"))));
     const partsBar = h("nav", { class: "parts", "aria-label": "Lesson steps" });
     visible.forEach((p, i) => {
       const seen = (S.parts[l.id] || []).includes(p.key);
@@ -1644,6 +1650,141 @@
           h("li", null, "After the first visit the book opens without internet. Book pages you have opened are saved for offline use.")),
         h("p", { class: "ar muted" }, "للتثبيت كتطبيق: في الآيباد اضغط مشاركة ثم «إضافة إلى الشاشة الرئيسية». يعمل الكتاب بعد ذلك بدون إنترنت."))));
     w.append(footer()); main.append(w);
+  }
+
+  /* ───────────── HOW TO USE (help guide, Arabic, for students, parents and teachers) ───────────── */
+  // Pictures: docs/help/img (tools/help-shots.js, taken from the Grade 7 book; all books work the same way)
+  const EN = (t) => '<b dir="ltr" class="en">' + t + "</b>";
+  const GUIDE = [
+    { who: "s", id: "start", ico: "🏠", t: "ابدأ من هنا", img: "home", steps: [
+      "افتح كتاب صفّك. صفحة " + EN("All books") + " فيها كتب الصفوف 6 و7 و8.",
+      "أول مرة اضغط " + EN("Start Unit 1") + ". بعدها يظهر لك " + EN("Continue") + " لتكمل من آخر درس فتحته.",
+      "في الأعلى ترى نسبة إنجازك في الكتاب، ونقاطك 💎 ونجومك ⭐.",
+      "الألسنة الملوّنة على غلاف الكتاب تفتح كل وحدة مباشرة."] },
+    { who: "s", id: "contents", ico: "☰", t: "قائمة المحتويات", img: "contents", steps: [
+      "اضغط ☰ " + EN("Contents") + " في أعلى الشاشة.",
+      "تظهر كل الوحدات والدروس، وبجانب كل درس نسبة ما أنجزته منه.",
+      "في أعلى القائمة " + EN("All books") + " للانتقال لكتاب صف آخر، وفي آخرها: الكلمات المهمة، والبحث، والإعدادات، وطريقة الاستخدام."] },
+    { who: "s", id: "lesson", ico: "🚀", t: "خطوات الدرس", img: "lesson", steps: [
+      "كل درس مقسّم لخطوات في الشريط أعلى الدرس، من " + EN("Start") + " إلى " + EN("Finish"),
+      "انتقل بالزر " + EN("Next") + " أسفل الصفحة، أو اسحب الشاشة يمينًا ويسارًا، أو اضغط أي خطوة في الشريط.",
+      "العلامة ✓ على الخطوة تعني أنك فتحتها.",
+      EN("Open book pages") + " و" + EN("📄 p.") + " يعرضان صفحة الكتاب الأصلية.",
+      EN("From the book") + " تعني أن النشاط من الكتاب. " + EN("⭐ Extra Practice") + " تدريب إضافي ليس في الكتاب."] },
+    { who: "s", id: "words", ico: "🃏", t: "الكلمات الجديدة", en: "Words", img: "words", steps: [
+      "اضغط البطاقة لتقلبها، فترى معنى الكلمة وجملة فيها.",
+      "زر 🔊 يقرأ الكلمة والجملة بصوت واضح."] },
+    { who: "s", id: "read", ico: "📖", t: "القراءة", en: "Read", img: "readaloud", img2: "read", steps: [
+      EN("Read aloud") + " يقرأ النص كاملًا ويلوّن الكلمة التي يقرؤها. غيّر السرعة من " + EN("Speed"),
+      "اضغط أي كلمة زرقاء لترى معناها وتسمع نطقها، و" + EN("Show Arabic meaning") + " لمعناها بالعربي.",
+      "اضغط مرتين على أي فقرة ليقرأها وحدها."] },
+    { who: "s", id: "listen", ico: "🎧", t: "الاستماع", en: "Listen", img: "listen", steps: [
+      EN("Play") + " يشغّل تسجيل الكتاب، و" + EN("5 s") + " يرجع خمس ثوانٍ، ويمكن تغيير السرعة.",
+      "إذا لم يكن تسجيل الكتاب متوفرًا، يُكتب ذلك بوضوح، ويُستخدم صوت مولَّد مع التنبيه أنه ليس تسجيل الكتاب.",
+      "أجب عن الأسئلة تحت المشغّل."] },
+    { who: "s", id: "rule", ico: "🧩", t: "القاعدة", en: "Rule", img: "rule", steps: [
+      "القاعدة مقسّمة لخطوات صغيرة: اضغط " + EN("Next step") + "، أو " + EN("Show all steps") + " لعرضها كلها.",
+      "كل لون يدل على جزء من الجملة (الفاعل، الفعل، كلمة الزمن…)، ودليل الألوان فوق الأمثلة.",
+      EN("Worked example") + " مثال محلول خطوة بخطوة قبل أن تحل وحدك."] },
+    { who: "s", id: "lab", ico: "🧪", t: "مختبر القواعد", en: "Grammar Lab", img: "lab", steps: [
+      "غيّر الفاعل أو الزمن أو نوع الجملة من الأزرار، وشاهد الجملة تتغيّر أمامك.",
+      EN("Surprise me") + " يختار جملة جديدة، و" + EN("Listen") + " يقرؤها لك.",
+      "المختبر تدريب إضافي يساعدك تفهم القاعدة، وليس من الكتاب."] },
+    { who: "s", id: "practice", ico: "✏️", t: "التمارين", en: "Practice", img: "practice", steps: [
+      "اختر الإجابة أو اكتبها، ثم اضغط " + EN("Check"),
+      "الإجابة الصحيحة تظهر بالأخضر مع سببها. الخطأ لا يخصم شيئًا، حاول مرة أخرى.",
+      EN("Help") + " و" + EN("Hint") + " يساعدانك قبل الإجابة.",
+      "التمارين تبدأ بمساعدة " + EN("Guided practice") + " ثم تحلّ وحدك " + EN("On your own")] },
+    { who: "s", id: "predict", ico: "🔮", t: "توقّع ثم اكشف", en: "Predict", img: "predict", steps: [
+      "اختر " + EN("A") + " أو " + EN("B") + " أولًا، ثم ارفع الورقة لترى الإجابة.",
+      "تعرف بعدها الخطأ الشائع ولماذا يقع فيه الطلاب."] },
+    { who: "s", id: "speak", ico: "🗣️", t: "المحادثة", en: "Speak", img: "speak", steps: [
+      "تدرّب مع زميلك: 🔊 يقرأ السؤال، و" + EN("Your turn") + " يعني دورك لتتكلم.",
+      EN("Record") + " يسجّل صوتك لتسمعه. يطلب الجوال السماح باستخدام الميكروفون، والتسجيل يبقى على جهازك.",
+      "الكتاب لا يصحّح النطق آليًا. اسمع تسجيلك واطلب رأي زميلك أو معلمك."] },
+    { who: "s", id: "write", ico: "✍️", t: "الكتابة", en: "Write", img: "write", steps: [
+      "اكتب في المربع. اضغط أي كلمة في " + EN("Word bank") + " لتضيفها لكتابتك.",
+      "كتابتك تُحفظ تلقائيًا على جهازك."] },
+    { who: "s", id: "game", ico: "🎮", t: "اللعبة", en: "Game", img: "game", steps: [
+      "لعبة سريعة تراجع فيها الدرس، ولا عقاب فيها على الخطأ.",
+      "المؤقت " + EN("Timer") + " اختياري، تشغّله من الإعدادات."] },
+    { who: "s", id: "finish", ico: "🏁", t: "نهاية الدرس والنجوم", en: "Finish", img: "finish", steps: [
+      "ترى نسبة ما أنجزته من الدرس. تحت " + EN("Still to do") + " ما بقي، اضغط أي واحد لتذهب له.",
+      "في كل وحدة حتى 3 نجوم ⭐ حسب ما تنجزه. الأخطاء لا تُنقص النقاط ولا النجوم."] },
+    { who: "s", id: "arabic", ico: "ع", t: "المساعدة بالعربي", img: "arabic", steps: [
+      "زر " + EN("عربي") + " في أعلى الشاشة يُظهر ترجمة التعليمات ومعاني الكلمات بالعربي.",
+      "اضغطه مرة أخرى لإخفاء العربي والتدرّب بالإنجليزي فقط."] },
+    { who: "s", id: "tools", ico: "🔎", t: "أدوات أعلى الشاشة", steps: [
+      "🔎 ابحث عن أي كلمة أو درس في الكتاب.",
+      "⛶ ملء الشاشة، مفيد على الآيباد.",
+      "الكلمات المهمة في الكتاب كلها من قائمة المحتويات."] },
+    { who: "s", id: "settings", ico: "⚙️", t: "الإعدادات وحفظ التقدّم", img: "settings", steps: [
+      "افتحها من قائمة المحتويات ← " + EN("Settings & progress"),
+      "صوت القراءة: " + EN("Natural voice (George)") + " صوت طبيعي مولَّد بالذكاء الاصطناعي، أو صوت جهازك. كلاهما ليس تسجيل الكتاب.",
+      "تقدر تغيّر حجم الخط، والوضع الليلي، والأصوات، ومؤقت الألعاب.",
+      "تقدّمك محفوظ في هذا المتصفح فقط وبدون حساب. إذا غيّرت الجهاز أو المتصفح يبدأ من جديد، فلا تستخدم التصفح الخفي."] },
+    { who: "s", id: "install", ico: "📲", t: "ثبّته كتطبيق", steps: [
+      "آيفون وآيباد (Safari): زر المشاركة ← " + EN("Add to Home Screen"),
+      "أندرويد (Chrome): القائمة ⋮ ← " + EN("Install app"),
+      "بعد أول فتح يعمل الكتاب بدون إنترنت."] },
+    { who: "s", id: "ar", ico: "📷", t: "الواقع المعزز", img: "ar", only: () => BOOK.ar && Object.keys(BOOK.ar).length, steps: [
+      "يعمل بكاميرا الجوال. افتح كتابك المطبوع على صفحات الوحدة، أو اعرض الصفحة على شاشة الكمبيوتر.",
+      "من درس الوحدة اضغط " + EN("Scan your book page") + "، ثم " + EN("Start camera") + "، واسمح باستخدام الكاميرا.",
+      "وجّه الجوال على الصفحة حتى تظهر كاملة. يظهر مجسّم فوق الصفحة، وأزرار لفتح الدرس والاستماع.",
+      EN("Words in 3D") + ": اضغط " + EN("Put it in your room") + " ووجّه الكاميرا على الأرض، فيظهر المجسّم في غرفتك على شاشة الجوال."] },
+    { who: "t", id: "teacher", ico: "🧑‍🏫", t: "وضع المعلم والإجابات", img: "teacher", wide: true, steps: [
+      "اضغط " + EN("Teacher") + " في أعلى الشاشة. في الجوال تجده أسفل قائمة المحتويات " + EN("Teacher mode"),
+      "🔑 " + EN("Answers") + " يُظهر الإجابة الصحيحة وسببها تحت كل سؤال، واضغطه مرة أخرى لإخفائها.",
+      "ارجع لـ" + EN("Student") + " قبل أن تعطي الجهاز للطالب."] },
+    { who: "t", id: "board", ico: "⛶", t: "العرض على السبورة", img: "board", wide: true, steps: [
+      EN("Show on board") + " فوق كل نشاط يعرضه وحده بخط كبير على شاشة الفصل. " + EN("Close board view") + " للرجوع.",
+      "استخدم ملء الشاشة وحجم الخط " + EN("Extra large") + " من الإعدادات.",
+      "تنقّل بين الخطوات بالأسهم ← → في لوحة المفاتيح، والأرقام على يمين الشاشة تفتح الوحدات."] },
+    { who: "t", id: "notes", ico: "📋", t: "ملاحظات المعلم", img: "notes", wide: true, steps: [
+      "خطوة " + EN("🧑‍🏫 Teacher") + " في آخر كل درس تظهر في وضع المعلم فقط.",
+      "فيها أهداف الدرس من الكتاب، وطريقة تنفيذه، والعمل الثنائي والجماعي، وأسئلة سريعة للخروج مع إجاباتها."] },
+    { who: "t", id: "fidelity", ico: "📘", t: "ما الذي من الكتاب؟", steps: [
+      "كل نشاط عليه " + EN("From the book") + " منقول من الكتاب مع رقم صفحته.",
+      EN("⭐ Extra") + " يعني تدريبًا إضافيًا للتثبيت، وليس من الكتاب.",
+      "الصوت المولَّد ليس تسجيل الكتاب، وهذا مكتوب بجانبه في كل مكان.",
+      "لا يوجد خصم على الخطأ في أي نشاط."] }
+  ];
+  const GUIDE_FAQ = [
+    ["لا أسمع أي صوت", "ارفع صوت الجهاز، وأوقف الوضع الصامت في الآيفون. وإذا لم يعمل، اختر صوت الجهاز من الإعدادات."],
+    ["اختفى تقدّمي", "التقدّم محفوظ في المتصفح نفسه. تأكد أنك تفتح الكتاب من نفس الجهاز والمتصفح، وليس من التصفح الخفي."],
+    ["الكتاب لا يفتح", "حدّث المتصفح، أو افتح الرابط في Chrome أو Safari."],
+    ["الميكروفون أو الكاميرا لا يعمل", "اسمح للموقع باستخدامهما من إعدادات المتصفح، ثم أعد فتح الصفحة. ويمكنك التسجيل بمسجّل الجوال من زر " + EN("Use my phone’s recorder") + "."]
+  ];
+  function helpTopic(p, l) {
+    const k = { start: "lesson", words: "words", game: "game", finish: "finish", teacher: "notes" }[p.key];
+    if (k) return k;
+    const s = l.sections[p.sec] || {};
+    return { reading: "read", listen: "listen", grammar: "rule", lab: "lab", predict: "predict", activity: "practice", speak: "speak", discuss: "speak", write: "write" }[s.type] || "lesson";
+  }
+  function renderHelp(main, sub) {
+    if (!S.helpSeen) { S.helpSeen = 1; save(); }
+    const w = h("div", { class: "wrap help" });
+    const list = GUIDE.filter((x) => !x.only || x.only());
+    const chip = (x) => h("a", { class: "chip", href: "#help-" + x.id, onclick: (e) => { e.preventDefault(); const el = document.getElementById("h-" + x.id); el && el.scrollIntoView({ behavior: "smooth", block: "start" }); try { history.replaceState(null, "", "#help-" + x.id); } catch (err) {} } }, x.ico + " " + x.t);
+    w.append(h("section", { class: "card stack help-top", dir: "rtl", lang: "ar" },
+      h("h1", null, "طريقة استخدام الكتاب التفاعلي", h("small", { dir: "ltr", lang: "en" }, "How to use this book")),
+      h("p", null, "شرح مصوّر لكل جزء في الكتاب. الصور من كتاب الصف السابع، وكتب الصفوف 6 و7 و8 تعمل بنفس الطريقة."),
+      h("h2", null, "👩‍🎓 للطالب وولي الأمر"), h("div", { class: "help-chips" }, list.filter((x) => x.who === "s").map(chip)),
+      h("h2", null, "🧑‍🏫 للمعلم"), h("div", { class: "help-chips" }, list.filter((x) => x.who === "t").map(chip), h("a", { class: "chip", href: "#help-faq", onclick: (e) => { e.preventDefault(); document.getElementById("h-faq").scrollIntoView({ behavior: "smooth" }); } }, "🛟 مشاكل شائعة"))));
+    let lastWho = null;
+    list.forEach((x) => {
+      if (x.who !== lastWho) { lastWho = x.who; w.append(h("h2", { class: "help-part", dir: "rtl", lang: "ar" }, x.who === "s" ? "👩‍🎓 للطالب وولي الأمر" : "🧑‍🏫 للمعلم")); }
+      const pics = [x.img, x.img2].filter(Boolean).map((n) => h("img", { src: "../help/img/" + n + ".webp", alt: "صورة توضيحية: " + x.t, loading: "lazy", class: x.wide ? "wide" : "" }));
+      w.append(h("section", { class: "card help-sec" + (x.wide ? " is-wide" : "") + (pics.length ? "" : " no-pic"), id: "h-" + x.id, dir: "rtl", lang: "ar" },
+        h("div", { class: "help-text" },
+          h("h3", null, h("span", { class: "help-ico", "aria-hidden": "true" }, x.ico), x.t, x.en ? h("span", { class: "tag", dir: "ltr", lang: "en" }, x.en) : null),
+          h("ol", null, x.steps.map((s) => h("li", { html: s })))),
+        pics.length ? h("div", { class: "help-pics" }, pics) : null));
+    });
+    w.append(h("section", { class: "card stack", id: "h-faq", dir: "rtl", lang: "ar" }, h("h3", null, "🛟 مشاكل شائعة"),
+      GUIDE_FAQ.map(([q, a]) => h("details", { class: "help-faq" }, h("summary", null, q), h("p", { html: a })))));
+    w.append(footer()); main.append(w);
+    if (sub) setTimeout(() => { const el = document.getElementById("h-" + sub); if (el) el.scrollIntoView({ block: "start" }); }, 0);
   }
 
   /* BOOK PAGE MODAL */

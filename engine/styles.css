@@ -534,3 +534,33 @@ body.spotting #unitTabs { display: none; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .toc-module, :root:not([data-theme="light"]) .units .mod-head span { color: #0e1622; } }
 .card { overflow-wrap: break-word; }
 .prompts li, .prompts .grow, .card p, .card li { overflow-wrap: anywhere; min-width: 0; }
+
+/* ───── How to use (help guide) ───── */
+.help [lang="ar"], .help-sec, .help-top { font-family: var(--f-ar); }
+.help .en { font-family: var(--f-body); font-weight: 700; unicode-bidi: isolate; background: var(--brand-soft); border-radius: 6px; padding: 0 5px; white-space: nowrap; }
+.help-top h1 { margin: 0; line-height: 1.25; }
+.help-top h1 small { display: block; font-family: var(--f-body); font-size: .5em; color: var(--muted); font-weight: 600; margin-top: 4px; }
+.help-top h2 { font-size: 1.05rem; margin: 6px 0 0; }
+.help-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.help-chips .chip { text-decoration: none; color: var(--ink); display: inline-flex; align-items: center; font-family: var(--f-ar); font-weight: 600; }
+.help-part { font-family: var(--f-ar); margin: 28px 4px 4px; font-size: 1.35rem; }
+.help-sec { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 20px; align-items: start; scroll-margin-top: 80px; }
+.help-sec.is-wide { grid-template-columns: 1fr; }
+.help-sec.no-pic { grid-template-columns: 1fr; }
+.help-sec h3 { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 10px; font-size: 1.3rem; }
+.help-ico { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--brand-soft); font-size: 1.2rem; flex: none; }
+.help-sec ol { margin: 0; padding-inline-start: 22px; display: grid; gap: 10px; line-height: 1.8; font-size: 1.05rem; }
+.help-sec ol li::marker { color: var(--brand); font-weight: 700; }
+.help-pics { display: grid; gap: 10px; }
+.help-pics img { width: 100%; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(19,35,58,.10); background: var(--surface-2); }
+.help-pics img.wide { border-radius: 12px; }
+.help-faq { border-top: 1px solid var(--line); padding: 10px 0; }
+.help-faq summary { cursor: pointer; font-weight: 700; min-height: 32px; }
+.help-faq p { margin: 6px 0 0; color: var(--muted); line-height: 1.8; }
+.help-first { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
+.help-first .ar { font-family: var(--f-ar); }
+@media (max-width: 720px) {
+  .help-sec { grid-template-columns: 1fr; }
+  .help-pics { max-width: 300px; margin: 0 auto; width: 100%; }
+  .help-sec.is-wide .help-pics { max-width: none; }
+}
