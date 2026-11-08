@@ -1150,7 +1150,7 @@
     return h("div", { class: "ans-reveal only-teacher" }, h("span", { class: "lbl" }, "Answer (teacher view)"), needs ? "Depends on students / the recording." : a, it.why ? h("div", { class: "small muted" }, "Why: " + it.why) : null);
   }
   function teacherAnswers(s, si, l) {
-    return h("details", { class: "only-teacher" }, h("summary", null, "🧑‍🏫 All answers for this part"), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, (it.needsAudio || s.needsAudio) ? "check with the book recording" : answerText(it))))));
+    return h("details", { class: "only-teacher" }, h("summary", null, "🧑‍🏫 All answers for this part"), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, (it.needsAudio || s.needsAudio) && !it.keyed ? "check with the book recording" : answerText(it))))));
   }
 
   /* DISCUSS */
@@ -1507,7 +1507,7 @@
     // all answers in lesson
     const ans = h("details", null, h("summary", null, h("b", null, "Answer key for the whole lesson")));
     l.sections.forEach((s, si) => { if (s.type === "predict") ans.append(h("h4", { style: { marginTop: "10px" } }, "🔮 Predict, Then Reveal"), h("p", null, h("span", { html: inlineHTML(s.q) }), " — ", h("span", { class: "t-ans", html: tokensHTML(s.options[s.answer]) })));
-      if (!s.items || !s.items.length) return; ans.append(h("h4", { style: { marginTop: "10px" } }, (s.source === "extra" ? "⭐ " : "") + s.title + (s.page ? " (p. " + s.page + ")" : "")), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, it.needsAudio || s.needsAudio ? "check with the book recording" : answerText(it)))))); });
+      if (!s.items || !s.items.length) return; ans.append(h("h4", { style: { marginTop: "10px" } }, (s.source === "extra" ? "⭐ " : "") + s.title + (s.page ? " (p. " + s.page + ")" : "")), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, (it.needsAudio || s.needsAudio) && !it.keyed ? "check with the book recording" : answerText(it)))))); });
     c.append(ans);
     c.append(h("p", { class: "small muted" }, "The book prints no answer key. Answers marked “from the text” were taken from the book’s own texts. Listening answers depend on the book recording and are not given here."));
     if (u.outcomes) c.append(h("details", null, h("summary", null, h("b", null, uName(u) + " learning outcomes (book p. " + (u.outcomesPage || (u.pages ? u.pages[0] + 2 : "")) + ")")), Object.entries(u.outcomes).map(([k, v]) => h("div", null, h("h4", { style: { marginTop: "8px", textTransform: "capitalize" } }, k), h("ul", null, v.map((x) => h("li", null, x)))))));
