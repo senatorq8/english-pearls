@@ -57,6 +57,6 @@ const HIDE = ".toast{display:none!important} *{animation-duration:0s!important;t
   await p.click("#mStudent");
 
   p = await page(390, 760);
-  await p.goto(BASE + "ar/scan.html?set=g8-u10"); await p.waitForTimeout(800); await shot(p, "ar", P);
+  // AR screenshot (docs/help/img/ar.webp) was taken from the Grade 8 pilot; retake it when a book has an AR set again
   await b.close();
 })();

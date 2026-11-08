@@ -72,15 +72,10 @@ The build makes the code compatible with older iPads and phones and refuses to f
 The book texts and page images are © Ministry of Education – State of Kuwait. This site is an
 interactive classroom version. The pages are marked `noindex` so search engines do not list them.
 
-## Augmented reality (pilot: Grade 8, Unit 10)
+## Augmented reality (tooling kept, no book uses it now)
 
-`docs/ar/scan.html?set=g8-u10` opens the phone camera and recognises the printed book pages 75–81
-(MindAR image tracking). A recognised page offers: open its lesson, listen to the page (the book's natural voice),
-and a 3D model from the page standing on the paper. `docs/ar/words.html?set=g8-u10` shows the unit's words as
-3D models that students can place in their room (model-viewer: Scene Viewer on Android, Quick Look on iPhone).
-
-- Sets (pages, lessons, models): `tools/ar/sets.config.js`. Sentences and "Listen" texts are copied from the book data.
-- Models: original low-poly models in `tools/ar/models.js` (no third-party assets).
-- Rebuild: `npm install && npm run ar` (renders models + page targets, then copies pages and libraries into `docs/ar/`),
-  then `python3 tools/voice-make.py …` for any new texts in `tools/voice/ar.json`, and `node tools/ar/make.js` again.
-- To add a unit: add a set to `sets.config.js`, add `BOOK.ar = { uN: { set, pages } }` to the book's `book.js`.
+The AR pilot ran on the old Grade 8 book (Unit 10) and was removed with that book (see commit 08db4a4).
+The tools remain: `ar/scan.html` (MindAR page scanning), `ar/words.html` (3D words with model-viewer),
+`tools/ar/models.js` (original low-poly models), `tools/ar/render.js` and `tools/ar/make.js`.
+To use it again: add a set to `tools/ar/sets.config.js`, add `BOOK.ar = { uN: { set, pages } }` to the book's `book.js`,
+then `npm install && npm run ar`.
