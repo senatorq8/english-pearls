@@ -9,9 +9,9 @@ fs.mkdirSync(OUT, { recursive: true });
 
 (async () => {
   const b = await chromium.launch();
-  for (const book of (process.argv.slice(2).length ? process.argv.slice(2) : ["g6", "g7"])) {
+  for (const book of (process.argv.slice(2).length ? process.argv.slice(2) : ["g6", "g7", "g8"])) {
     const p = await b.newPage({ viewport: { width: 1100, height: 900 } });
-    const store = { g6: "pearls6a.v1", g7: "pearls7a.v1" }[book];
+    const store = { g6: "pearls6a.v1", g7: "pearls7a.v1", g8: "pearls8n.v1" }[book];
     await p.addInitScript((k) => { window.__SAY = []; try { localStorage.setItem(k, JSON.stringify({ settings: { mode: "teacher", ar: false, sound: false, motion: false, voice: "device" } })); } catch (e) {} }, store);
     const base = `http://localhost:8790/${book}/index.html`;
     await p.goto(base + "#glossary"); await p.waitForTimeout(300);

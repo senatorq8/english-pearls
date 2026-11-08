@@ -10,7 +10,8 @@ if not os.path.exists(os.path.join(BIN, 'esbuild')):
     BIN = '/home/claude/buildtools/node_modules/.bin'
 # id, code, grade, title, short name (home screen), line under the title
 BOOKS = [('g6', '6A', 6, 'English Pearls of Kuwait', 'Pearls 6A', 'Grade 6 · 6A'),
-         ('g7', '7A', 7, 'English Pearls of Kuwait', 'Pearls 7A', 'Grade 7 · 7A')]
+         ('g7', '7A', 7, 'English Pearls of Kuwait', 'Pearls 7A', 'Grade 7 · 7A'),
+         ('g8', '8', 8, 'English Pearls of Kuwait', 'Pearls 8', 'Grade 8 · First Term')]
 TARGET_JS = 'es2017,safari11,chrome61,firefox60'
 TARGET_CSS = 'safari11,chrome61,firefox60'
 

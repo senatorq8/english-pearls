@@ -565,3 +565,7 @@ body.spotting #unitTabs { display: none; }
   .help-pics { max-width: 300px; margin: 0 auto; width: 100%; }
   .help-sec.is-wide .help-pics { max-width: none; }
 }
+
+/* Books without clean page scans (BOOK.noPageImages): page numbers stay as labels, page buttons are hidden */
+.no-pages button.tag.page { pointer-events: none; cursor: default; }
+.no-pages .open-page { display: none !important; }

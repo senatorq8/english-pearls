@@ -365,6 +365,7 @@
     document.documentElement.classList.toggle("big-text", st.text === 1);
     document.documentElement.classList.toggle("huge-text", st.text === 2);
     if (st.theme === "dark" || st.theme === "light") document.documentElement.setAttribute("data-theme", st.theme); else document.documentElement.removeAttribute("data-theme");
+    document.documentElement.classList.toggle("no-pages", !!BOOK.noPageImages);
     $("#btnAr").setAttribute("aria-pressed", st.ar);
     $("#btnSound").setAttribute("aria-pressed", st.sound); $("#btnSound").innerHTML = ""; $("#btnSound").append(icon(st.sound ? "sound" : "mute"));
     $("#btnSound").setAttribute("aria-label", st.sound ? "Sounds on" : "Sounds off");
@@ -394,7 +395,7 @@
     body.append(h("a", { class: "toc-extra", href: "#glossary" }, "🔤 " + (BOOK.glossaryTitle || "Glossary") + " (pages " + BOOK.pagesInfo.glossary + ")"));
     if (BOOK.projects) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Projects (pages " + BOOK.projects.map((x) => pagesTxt(x.pages)).join(", ") + ")"));
     else if (BOOK.pagesInfo.project) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Group Project (page " + BOOK.pagesInfo.project + ")"));
-    if (BOOK.pagesInfo.writing) body.append(h("button", { class: "toc-extra", type: "button", onclick: () => { closeDrawer(); openPage(BOOK.pagesInfo.writing); } }, "✍️ Writing Reference (page " + BOOK.pagesInfo.writing + ")"));
+    if (BOOK.pagesInfo.writing && !BOOK.noPageImages) body.append(h("button", { class: "toc-extra", type: "button", onclick: () => { closeDrawer(); openPage(BOOK.pagesInfo.writing); } }, "✍️ Writing Reference (page " + BOOK.pagesInfo.writing + ")"));
     Object.keys(BOOK.ar || {}).forEach((uid) => { const u = units().find((x) => x.id === uid); body.append(h("a", { class: "toc-extra", href: "../ar/scan.html?set=" + BOOK.ar[uid].set }, "📷 Scan your book: " + (u ? "Unit " + u.num : uid) + " (AR)")); });
     body.append(h("a", { class: "toc-extra", href: "#search" }, "🔎 Search the book"));
     body.append(h("a", { class: "toc-extra", href: "#settings" }, "⚙️ Settings & progress"));
@@ -506,7 +507,7 @@
     main.append(h("div", { class: "wrap" }, h("div", { class: "card stack" }, h("span", { class: "tag todo" }, "Not built yet"),
       h("h1", null, t ? t[1] : "Lesson not found"), t ? h("p", null, "Unit " + u.num + " · " + t[0] + " · book page " + t[2]) : null,
       h("p", { class: "muted" }, "This lesson has not been made interactive yet. You can still open the book page."),
-      h("div", { class: "row" }, t ? h("button", { class: "btn primary", onclick: () => openPage(parseInt(t[2], 10)) }, icon("book"), "Open book page " + t[2]) : null, h("a", { class: "btn", href: "#home" }, icon("home"), "Home"))), footer()));
+      h("div", { class: "row" }, t ? h("button", { class: "btn primary open-page", onclick: () => openPage(parseInt(t[2], 10)) }, icon("book"), "Open book page " + t[2]) : null, h("a", { class: "btn", href: "#home" }, icon("home"), "Home"))), footer()));
   }
 
   /* ───────────── LESSON ───────────── */
@@ -525,7 +526,7 @@
           h("div", { class: "row", style: { marginBottom: "6px" } }, h("span", { class: "tag book" }, SKILL_ICON[l.skill] + " " + l.skill), h("span", { class: "tag page" }, "📄 Book " + pagesTxt), S.settings.ar ? h("span", { class: "tag ar" }, SKILL_AR[l.skill]) : null),
           h("h1", null, l.title)),
         h("span", { class: "ring", id: "lessonPct", style: { "--p": pct, width: "54px", height: "54px" }, "data-v": pct + "%", title: "Lesson progress" })),
-      h("div", { class: "row" }, h("button", { class: "btn small", onclick: () => openPage(l.pages[0]) }, icon("book"), "Open book " + pagesTxt),
+      h("div", { class: "row" }, h("button", { class: "btn small open-page", onclick: () => openPage(l.pages[0]) }, icon("book"), "Open book " + pagesTxt),
         h("a", { class: "btn small ghost", href: "#help-" + helpTopic(visible[PART], l), title: "How to use this step" }, "❓ How to use"))));
     const partsBar = h("nav", { class: "parts", "aria-label": "Lesson steps" });
     visible.forEach((p, i) => {
@@ -1528,7 +1529,7 @@
       if (!list.children.length) list.append(h("p", { class: "muted" }, "No word found."));
     };
     inp.oninput = draw;
-    w.append(h("section", { class: "card stack" }, h("div", { class: "sec-head" }, h("h1", null, BOOK.glossaryTitle || "Glossary"), h("button", { class: "tag page", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.glossary, 10)) }, "📄 pp. " + BOOK.pagesInfo.glossary)),
+    w.append(h("section", { class: "card stack" }, h("div", { class: "sec-head" }, h("h1", null, BOOK.glossaryTitle || "Glossary"), BOOK.pagesInfo.glossary ? h("button", { class: "tag page", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.glossary, 10)) }, "📄 pp. " + BOOK.pagesInfo.glossary) : null),
       h("p", { class: "muted" }, BOOK.glossaryNote || "All " + (BOOK.glossary || []).length + " words from the book’s glossary, with the book’s pronunciation and meaning."), inp, list,
       BOOK.pagesInfo.irregular ? h("p", { class: "small muted" }, "Irregular verbs (pages " + BOOK.pagesInfo.irregular + "): ", h("button", { class: "btn small", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.irregular, 10)) }, icon("book"), "Open the book pages")) : null));
     w.append(footer()); main.append(w); draw();
@@ -1794,6 +1795,7 @@
   /* BOOK PAGE MODAL */
   let modalEl = null;
   function openPage(p) {
+    if (BOOK.noPageImages) { toast("Book page " + p + " · صور الصفحات غير متوفرة في هذه النسخة"); return; }
     closeModal(); let page = p;
     const img = h("img", { alt: "" }); const label = h("b", null);
     const imgBox = h("div", { class: "modal-img" }, img);
