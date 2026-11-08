@@ -188,7 +188,7 @@ BOOK.addUnit({
               examples: ["An apple is health{x:ier} than a chocolate bar.", "Mount Everest is {x:the} high{x:est} mountain in the world."] },
             { title: "Spelling tips (Extra)", source: "extra", text: "Short adjectives that end in one vowel + one consonant double the last letter: hot → hotter → the hottest, big → bigger → the biggest. Adjectives that end in -e add only -r / -st: nice → nicer → the nicest.",
               textAr: "الصفات القصيرة المنتهية بحرف متحرك واحد ثم حرف ساكن واحد نضاعف آخر حرف فيها: hot ← hotter، والصفات المنتهية بـ e نضيف لها r أو st فقط: nice ← nicer.",
-              examples: ["Summer is ho{x:tter} than winter.", "This is {x:the} ni{x:cest} day of the week."] },
+              examples: ["Summer is ho{x:tter} than winter.", "This is {x:the} nice{x:st} day of the week."] },
             { title: "Be careful! (Extra)", source: "extra", text: "Do not use more with -er, and do not use most with -est.",
               textAr: "لا نستخدم more مع er، ولا most مع est.",
               examples: ["✗ more healthier → ✓ health{x:ier}", "✗ the most happiest → ✓ {x:the} happ{x:iest}", "✗ gooder → ✓ {x:better}"] }
@@ -203,9 +203,9 @@ BOOK.addUnit({
             ]
           },
           worked: {
-            q: "b. Summer / winter (hot) → Write a sentence with the comparative.",
-            steps: ["We compare two things (summer and winter) → comparative + than.", "hot has 1 syllable → hot + er.", "hot ends in one vowel + one consonant → double the t: hotter.", "Summer + is + hotter than + winter."],
-            a: "Summer is ho{x:tter} than winter."
+            q: "Complete: Water is ____ (healthy) than soda.",
+            steps: ["We compare two things (water and soda) and there is “than” → comparative.", "healthy has 2 syllables and ends in -y.", "Change y to i and add -er: healthier.", "Water is healthier than soda."],
+            a: "Water is health{x:ier} than soda."
           },
           notes: ["The red letters in the book’s table are shown in colour here. The “Comparative or superlative?”, spelling and “Be careful!” steps are extra help, not in the book."] },
 
@@ -576,7 +576,7 @@ BOOK.addUnit({
         { type: "activity", title: "5. Answer the following questions.", page: 55, source: "book", stage: "independent",
           instructions: "Answer the questions. Then compare with the suggested answer.", instructionsAr: "أجب عن السؤالين، ثم قارن إجابتك بالإجابة المقترحة.",
           items: [
-            { t: "short", q: "a. How can a regular sleep schedule improve a teen’s health?", model: "It gives more energy.", keywords: [["energy", "happ", "better in school", "mood", "memory", "tired"]], hint: "Read the second paragraph of Dr. Rashid’s answer: Good sleep habits help students …" },
+            { t: "short", q: "a. How can a regular sleep schedule improve a teen’s health?", model: "It gives more energy.", keywords: [["energy", "happ", "better in school", "mood", "memory"]], hint: "Read the second paragraph of Dr. Rashid’s answer: Good sleep habits help students …" },
             { t: "short", q: "b. Why do you think using phones before bed can make it harder to sleep well?", model: "Because screens keep the brain awake.", open: true, hint: "Think about screens, videos and chatting late at night." }
           ] },
 
@@ -709,9 +709,9 @@ BOOK.addUnit({
             ]
           },
           worked: {
-            q: "a. Have you seen my (round – black – mini) bag?",
-            steps: ["Find the type of each adjective: round = shape, black = colour, mini = size.", "Put them in the book’s order: size → shape → colour.", "mini → round → black, then the noun: bag."],
-            a: "Have you seen my mini round black bag?"
+            q: "Put the adjectives in order: We live in a (white – big – old) house.",
+            steps: ["Find the type of each adjective: white = colour, big = size, old = age.", "Put them in the book’s order: size → age → colour.", "big → old → white, then the noun: house."],
+            a: "We live in a big old white house."
           },
           notes: ["In the book’s example, “fresh” comes after the opinion word and before the shape and the colour."] },
 

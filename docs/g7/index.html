@@ -2962,6 +2962,13 @@ body.spotting #unitTabs {
     max-width: none;
   }
 }
+.no-pages button.tag.page {
+  pointer-events: none;
+  cursor: default;
+}
+.no-pages .open-page {
+  display: none !important;
+}
 </style>
 </head>
 <body>
@@ -9846,6 +9853,7 @@ BOOK.glossary = [
     document.documentElement.classList.toggle("huge-text", st.text === 2);
     if (st.theme === "dark" || st.theme === "light") document.documentElement.setAttribute("data-theme", st.theme);
     else document.documentElement.removeAttribute("data-theme");
+    document.documentElement.classList.toggle("no-pages", !!BOOK.noPageImages);
     $("#btnAr").setAttribute("aria-pressed", st.ar);
     $("#btnSound").setAttribute("aria-pressed", st.sound);
     $("#btnSound").innerHTML = "";
@@ -9893,7 +9901,7 @@ BOOK.glossary = [
     body.append(h("a", { class: "toc-extra", href: "#glossary" }, "🔤 " + (BOOK.glossaryTitle || "Glossary") + " (pages " + BOOK.pagesInfo.glossary + ")"));
     if (BOOK.projects) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Projects (pages " + BOOK.projects.map((x) => pagesTxt(x.pages)).join(", ") + ")"));
     else if (BOOK.pagesInfo.project) body.append(h("a", { class: "toc-extra", href: "#project" }, "🧑‍🤝‍🧑 Group Project (page " + BOOK.pagesInfo.project + ")"));
-    if (BOOK.pagesInfo.writing) body.append(h("button", { class: "toc-extra", type: "button", onclick: () => {
+    if (BOOK.pagesInfo.writing && !BOOK.noPageImages) body.append(h("button", { class: "toc-extra", type: "button", onclick: () => {
       closeDrawer();
       openPage(BOOK.pagesInfo.writing);
     } }, "✍️ Writing Reference (page " + BOOK.pagesInfo.writing + ")"));
@@ -10096,7 +10104,7 @@ BOOK.glossary = [
       h("h1", null, t ? t[1] : "Lesson not found"),
       t ? h("p", null, "Unit " + u.num + " · " + t[0] + " · book page " + t[2]) : null,
       h("p", { class: "muted" }, "This lesson has not been made interactive yet. You can still open the book page."),
-      h("div", { class: "row" }, t ? h("button", { class: "btn primary", onclick: () => openPage(parseInt(t[2], 10)) }, icon("book"), "Open book page " + t[2]) : null, h("a", { class: "btn", href: "#home" }, icon("home"), "Home"))
+      h("div", { class: "row" }, t ? h("button", { class: "btn primary open-page", onclick: () => openPage(parseInt(t[2], 10)) }, icon("book"), "Open book page " + t[2]) : null, h("a", { class: "btn", href: "#home" }, icon("home"), "Home"))
     ), footer()));
   }
   function renderLesson(main) {
@@ -10127,7 +10135,7 @@ BOOK.glossary = [
       h(
         "div",
         { class: "row" },
-        h("button", { class: "btn small", onclick: () => openPage(l.pages[0]) }, icon("book"), "Open book " + pagesTxt2),
+        h("button", { class: "btn small open-page", onclick: () => openPage(l.pages[0]) }, icon("book"), "Open book " + pagesTxt2),
         h("a", { class: "btn small ghost", href: "#help-" + helpTopic(visible[PART], l), title: "How to use this step" }, "❓ How to use")
       )
     ));
@@ -11281,7 +11289,7 @@ BOOK.glossary = [
     return h("div", { class: "ans-reveal only-teacher" }, h("span", { class: "lbl" }, "Answer (teacher view)"), needs ? "Depends on students / the recording." : a, it.why ? h("div", { class: "small muted" }, "Why: " + it.why) : null);
   }
   function teacherAnswers(s, si, l) {
-    return h("details", { class: "only-teacher" }, h("summary", null, "🧑‍🏫 All answers for this part"), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, it.needsAudio || s.needsAudio ? "check with the book recording" : answerText(it))))));
+    return h("details", { class: "only-teacher" }, h("summary", null, "🧑‍🏫 All answers for this part"), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, (it.needsAudio || s.needsAudio) && !it.keyed ? "check with the book recording" : answerText(it))))));
   }
   function renderDiscuss(card, s, si, l) {
     card.append(secHead(s.title, s));
@@ -11628,7 +11636,7 @@ BOOK.glossary = [
         h("b", null, "🎧 The book recording is not inside this app."),
         h("span", null, "Your teacher will play it in class." + (s.track ? " Book recording: track " + s.track + "." : "")),
         s.audioLink ? h("span", null, "The book’s QR code (page " + (s.page || "") + ") points to this Ministry file: ", h("a", { href: s.audioLink, target: "_blank", rel: "noopener" }, "Open the book’s QR audio link"), ". It may need a Ministry (MOE) account. We could not open or check it from here.") : null,
-        h("span", { class: "small" }, "Write your notes below. Answers are not marked automatically, because they depend on the recording.")
+        h("span", { class: "small" }, (s.items || []).some((it) => it.keyed && !it.open) ? "Answer below after you listen in class. The answers are checked with the book’s answer key." : "Write your notes below. Answers are not marked automatically, because they depend on the recording.")
       ));
     }
     if (s.needsAudio) {
@@ -12046,7 +12054,7 @@ BOOK.glossary = [
     l.sections.forEach((s, si) => {
       if (s.type === "predict") ans.append(h("h4", { style: { marginTop: "10px" } }, "🔮 Predict, Then Reveal"), h("p", null, h("span", { html: inlineHTML(s.q) }), " — ", h("span", { class: "t-ans", html: tokensHTML(s.options[s.answer]) })));
       if (!s.items || !s.items.length) return;
-      ans.append(h("h4", { style: { marginTop: "10px" } }, (s.source === "extra" ? "⭐ " : "") + s.title + (s.page ? " (p. " + s.page + ")" : "")), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, it.needsAudio || s.needsAudio ? "check with the book recording" : answerText(it))))));
+      ans.append(h("h4", { style: { marginTop: "10px" } }, (s.source === "extra" ? "⭐ " : "") + s.title + (s.page ? " (p. " + s.page + ")" : "")), h("ol", null, s.items.map((it) => h("li", null, h("span", { html: inlineHTML(plain(it.q || "")) }), " — ", h("span", { class: "t-ans" }, (it.needsAudio || s.needsAudio) && !it.keyed ? "check with the book recording" : answerText(it))))));
     });
     c.append(ans);
     c.append(h("p", { class: "small muted" }, "The book prints no answer key. Answers marked “from the text” were taken from the book’s own texts. Listening answers depend on the book recording and are not given here."));
@@ -12074,7 +12082,7 @@ BOOK.glossary = [
     w.append(h(
       "section",
       { class: "card stack" },
-      h("div", { class: "sec-head" }, h("h1", null, BOOK.glossaryTitle || "Glossary"), h("button", { class: "tag page", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.glossary, 10)) }, "📄 pp. " + BOOK.pagesInfo.glossary)),
+      h("div", { class: "sec-head" }, h("h1", null, BOOK.glossaryTitle || "Glossary"), BOOK.pagesInfo.glossary ? h("button", { class: "tag page", type: "button", onclick: () => openPage(parseInt(BOOK.pagesInfo.glossary, 10)) }, "📄 pp. " + BOOK.pagesInfo.glossary) : null),
       h("p", { class: "muted" }, BOOK.glossaryNote || "All " + (BOOK.glossary || []).length + " words from the book’s glossary, with the book’s pronunciation and meaning."),
       inp,
       list,
@@ -12535,6 +12543,10 @@ BOOK.glossary = [
   }
   let modalEl = null;
   function openPage(p) {
+    if (BOOK.noPageImages) {
+      toast("Book page " + p + " · صور الصفحات غير متوفرة في هذه النسخة");
+      return;
+    }
     closeModal();
     let page = p;
     const img = h("img", { alt: "" });
