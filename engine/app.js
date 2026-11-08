@@ -1331,7 +1331,7 @@
       card.append(h("div", { class: "notice" }, h("b", null, "🎧 The book recording is not inside this app."),
         h("span", null, "Your teacher will play it in class." + (s.track ? " Book recording: track " + s.track + "." : "")),
         s.audioLink ? h("span", null, "The book’s QR code (page " + (s.page || "") + ") points to this Ministry file: ", h("a", { href: s.audioLink, target: "_blank", rel: "noopener" }, "Open the book’s QR audio link"), ". It may need a Ministry (MOE) account. We could not open or check it from here.") : null,
-        h("span", { class: "small" }, "Write your notes below. Answers are not marked automatically, because they depend on the recording.")));
+        h("span", { class: "small" }, (s.items || []).some((it) => it.keyed && !it.open) ? "Answer below after you listen in class. The answers are checked with the book’s answer key." : "Write your notes below. Answers are not marked automatically, because they depend on the recording.")));
     }
     if (s.needsAudio) {
       const list = h("div", { class: "stack" });

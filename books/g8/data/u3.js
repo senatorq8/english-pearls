@@ -659,7 +659,7 @@ BOOK.addUnit({
       goals: ["Find adjectives that describe a picture.", "Put adjectives in order: opinion, size, age, shape, colour.", "Describe a favourite thing with four adjectives."],
       goalsAr: ["أجد الصفات التي تصف الصورة.", "أرتّب الصفات: الرأي، الحجم، العمر، الشكل، اللون.", "أصف شيئًا مفضّلًا بأربع صفات."],
       warmup: {
-        title: "Look at the picture", image: "crops/u3l6-warmup.jpg", emoji: "💐", seconds: 60,
+        title: "Look at the picture", source: "extra", image: "crops/u3l6-warmup.jpg", emoji: "💐", seconds: 60,
         prompts: ["What can you see in the picture?", "Which words describe the flowers?"]
       },
       vocab: [],

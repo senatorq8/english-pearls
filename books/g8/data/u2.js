@@ -56,15 +56,7 @@ BOOK.addUnit({
           ],
           image: "crops/u2l1-brochure.jpg",
           speaker: null,
-          note: "The text is a brochure (Expository). Paragraphs 1 and 3 start with questions in blue in the book; paragraph 5 is the “Remember!” box. The book prints “inventor's clubs” here and “inventors’ club” in task 4 b." },
-
-        { type: "grammar", title: "Did you know?", page: 35,
-          steps: [
-            { title: "KFAS",
-              text: "KFAS is an abbreviation for the Kuwait Foundation for the Advancement of Sciences.",
-              textAr: "KFAS اختصار لاسم مؤسسة الكويت للتقدّم العلمي.",
-              examples: [] }
-          ] },
+          note: "The text is a brochure (Expository). Paragraphs 1 and 3 start with questions in blue in the book; paragraph 5 is the “Remember!” box. The book prints “inventor's clubs” here and “inventors’ club” in task 4 b. Box on the page: “KFAS is an abbreviation for the Kuwait Foundation for the Advancement of Sciences.”" },
 
         { type: "activity", title: "3. Why do you think KFAS made this brochure?", page: 35, source: "book",
           instructions: "Choose the best answer.", instructionsAr: "اختر الإجابة الأفضل: لماذا صنعت KFAS هذه النشرة؟",
