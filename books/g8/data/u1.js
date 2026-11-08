@@ -94,7 +94,7 @@ BOOK.addUnit({
             { label: "Why I Like It", hint: "Give a reason." }
           ],
           model: "A new place I’d like to have in Kuwait is a snow park.\nLocation: In Al Khiran.\nThings to Do: Skiing and playing in the snow.\nFood and Drinks: Hot chocolate and snacks.\nWhy I Like It: It is cool in the hot summer.",
-          modelFromBook: false,
+          modelFromBook: false, modelLabel: "Model answer (from the answer key – one possible answer)",
           checklist: ["I wrote the name of my new place.", "I filled in all four parts of the map.", "I started with a capital letter and ended with a full stop."],
           minWords: 15 },
 
@@ -207,9 +207,9 @@ BOOK.addUnit({
             ]
           },
           worked: {
-            q: "Complete: Ali ______ (not / eat) junk food during the week.",
-            steps: ["Find the subject: Ali = he.", "The sentence is negative: he → doesn’t.", "After doesn’t, use the bare infinitive (no -s): eat."],
-            a: "{s:Ali} {n:doesn’t} {v:eat} junk food during the week."
+            q: "Complete: My brother ______ (not / like) fish.",
+            steps: ["Find the subject: My brother = he.", "The sentence is negative: he → doesn’t.", "After doesn’t, use the bare infinitive (no -s): like."],
+            a: "{s:My brother} {n:doesn’t} {v:like} fish."
           },
           notes: ["The summary table is Extra Practice. It uses the rules from the book’s grammar box.", "The book also shows a frequency scale: Always, Usually, Often, Sometimes, Never."] },
 
@@ -371,7 +371,7 @@ BOOK.addUnit({
             { label: "3. Fun", hint: "I often … with my friends …" }
           ],
           model: "I usually wake up at six and go to school. On weekends, my family always visits my grandparents. I often play football with my friends in the park.",
-          modelFromBook: false,
+          modelFromBook: false, modelLabel: "Model answer (from the answer key – one possible answer)",
           bookChecklist: ["Use present simple tense.", "Mention a place you often go to or one thing you enjoy doing.", "Use adverbs of frequency: always, usually, sometimes...", "Use time expressions: every day, on weekends…"],
           bookNote: "Writing Tips from the book.",
           minWords: 25 },
@@ -443,14 +443,14 @@ BOOK.addUnit({
           instructions: "a. Choose your side. Group A: I’d rather live in old Kuwait. Group B: I’d rather live in modern Kuwait.",
           steps: ["Each group will:", "1. discuss and write three main reasons to support their side.", "2. choose two speakers to represent the group.", "3. choose one note-taker to write key points."],
           dialogue: [
-            { who: "A", text: "In my opinion, life in old Kuwait was better because families spent more time together." },
-            { who: "B", text: "" }
+            { who: "Group A speaker", text: "" },
+            { who: "Group B speaker", text: "" }
           ],
-          starters: ["To support your opinion:", "In my opinion,", "I believe that…", "From my point of view…", "Personally, I think…", "To disagree respectfully:", "I respect your opinion, but…", "I see your point, however…", "That may be true, but let me explain…", "Can you explain more about…?"],
+          starters: ["To support your opinion: Give your opinion politely using phrases like:", "In my opinion,", "I believe that…", "From my point of view…", "Personally, I think…", "To disagree respectfully: Disagree politely using phrases like:", "I respect your opinion, but…", "I see your point, however…", "That may be true, but let me explain…", "Can you explain more about…?"],
           note: "Tips: Listen carefully to your classmates. Respond politely. Use appropriate expressions. When presenting, look at your classmates and smile.",
           record: true },
 
-        { type: "write", title: "3. a. Each group will discuss and write three main reasons to support their side.", page: 25, source: "book",
+        { type: "write", title: "3. a. Choose your side. Each group will: 1. discuss and write three main reasons to support their side.", page: 25, source: "book",
           instructions: "Choose your side (Group A or Group B). Write three main reasons. b. Use the following language expressions to support your discussion.",
           wordBankLabel: "Language to Use (Expressions)",
           wordBank: ["In my opinion", "I believe that", "From my point of view", "Personally, I think", "I respect your opinion, but", "I see your point, however", "That may be true, but let me explain"],
@@ -606,7 +606,7 @@ BOOK.addUnit({
             { label: "3.", hint: "Don’t forget to …" }
           ],
           model: "Be careful with fake news and always check the source.\nYou should never share your password with anyone.\nDon’t forget to spend time with your family.",
-          modelFromBook: false,
+          modelFromBook: false, modelLabel: "Model answer (from the answer key – one possible answer)",
           checklist: ["I wrote three sentences.", "Each sentence gives a warning or advice.", "I used a sentence starter."],
           minWords: 18 },
 
@@ -699,9 +699,9 @@ BOOK.addUnit({
               examples: ["{s:She} {a:is} {v:tak}{x:ing} photos.", "{s:They} {a:are} {v:swimm}{x:ing} in the pool."] }
           ],
           worked: {
-            q: "Complete: Nadia ______ (do) her English project at the moment? (Make a question.)",
-            steps: ["Find the time expression: at the moment → present continuous.", "Nadia = she → is.", "A Yes/No question starts with Is: Is + Nadia + verb-ing?", "do → doing."],
-            a: "{a:Is} {s:Nadia} {v:doing} her English project {t:at the moment}?"
+            q: "Complete: ______ (be) Omar ______ (watch) TV now? (Make a question.)",
+            steps: ["Find the time expression: now → present continuous.", "Omar = he → is.", "A Yes/No question starts with Is: Is + Omar + verb-ing?", "watch → watching."],
+            a: "{a:Is} {s:Omar} {v:watching} TV {t:now}?"
           },
           notes: ["Other time expressions you can use: right now, Look!, Listen!"] },
 
@@ -709,7 +709,7 @@ BOOK.addUnit({
           instructions: "What is the boy doing? What are the girls doing right now? Complete the sentences.", instructionsAr: "انظر إلى الصور وأكمل الجمل: ماذا يفعل الولد؟ ماذا تفعل البنات الآن؟",
           image: "crops/u1l6-devices.jpg",
           items: [
-            { t: "short", q: "a. She is …", model: "She is looking at her tablet.", keywords: [["tablet", "screen", "pad"]], hint: "Picture 1: what is in her hands?" },
+            { t: "short", q: "a. She is …", model: "She is looking at her tablet.", keywords: [["tablet", "screen", "pad", "phone", "mobile"]], hint: "Picture 1: what is in her hands?" },
             { t: "short", q: "b. He is …", model: "He is using his laptop.", keywords: [["laptop", "computer"]], hint: "Picture 3: what is on the table?" },
             { t: "short", q: "c. They are …", model: "They are using their devices.", keywords: [["using", "looking", "playing", "reading", "watching"]], hint: "All three are using something: a tablet, a phone and a laptop." }
           ] },
@@ -830,7 +830,7 @@ BOOK.addUnit({
             { label: "Conclusion", hint: "Write at least one sentence comparing life in the past and nowadays. Summarise the main idea.", lines: 2 }
           ],
           model: "Introduction: Life in Kuwait has changed a lot over time. In the past, people lived in simple ways, but nowadays life is more modern.\nBody Paragraph 1: In the past, people lived simply. They lived in mud houses and fished.\nBody Paragraph 2: Nowadays, life is very modern. We have tall towers and smartphones.\nConclusion: Life is easier now, but we miss the past.",
-          modelFromBook: false,
+          modelFromBook: false, modelLabel: "Model answer (from the answer key – one possible answer)",
           checklist: ["My introduction says how life has changed.", "Each body paragraph has a topic sentence and two details.", "My conclusion compares the past and nowadays."],
           minWords: 30 },
 
@@ -850,7 +850,7 @@ BOOK.addUnit({
             { label: "Conclusion", hint: "In conclusion, …", lines: 2 }
           ],
           model: "Introduction: Life in Kuwait has changed a lot over time. In the past, people lived differently.\nParagraph 1 – Topic sentence: In the past, life in Kuwait was simple and hard.\nSupporting details: People lived in small mud houses without electricity. Many men worked as pearl divers and fishermen.\nConcluding sentence: In short, people worked hard and helped each other.\nParagraph 2 – Topic sentence: Nowadays, life in Kuwait is modern and comfortable.\nSupporting details: People live in big houses with air conditioning. They use cars, smartphones and the internet every day.\nConcluding sentence: In addition, life today is easier and faster.\nConclusion: In conclusion, life has changed a lot, but we still value our traditions.",
-          modelFromBook: false,
+          modelFromBook: false, modelLabel: "Model answer (from the answer key – one possible answer)",
           checklist: ["I wrote a topic sentence for each paragraph.", "I wrote at least two supporting details in each paragraph.", "I wrote a concluding sentence for each paragraph.", "I used linkers from the Linkers Bank."],
           minWords: 60 },
 
@@ -865,7 +865,7 @@ BOOK.addUnit({
             { label: "Conclusion", hint: "In conclusion, …", lines: 2 }
           ],
           model: "Life in Kuwait has changed a lot over time. In the past, people lived very differently from the way they live today.\n\nIn the past, life in Kuwait was simple and hard. People lived in small mud houses without electricity. Many men worked as pearl divers and fishermen because the sea was very important. In short, people worked hard and helped each other.\n\nNowadays, life in Kuwait is modern and comfortable. People live in big houses with air conditioning. They also use cars, smartphones and the internet every day. In addition, life today is easier and faster.\n\nIn conclusion, life has changed a lot, but we still value our traditions.",
-          modelFromBook: false,
+          modelFromBook: false, modelLabel: "Model report (the answer key’s outline written as a report – one possible answer)",
           bookChecklist: [
             "begin with a clear introduction about life in Kuwait (past vs nowadays).",
             "write two paragraphs: one about the past and one about nowadays.",
