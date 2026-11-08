@@ -59,7 +59,7 @@ BOOK.addUnit({
           note: "The text is a brochure (Expository). Paragraphs 1 and 3 start with questions in blue in the book; paragraph 5 is the “Remember!” box. The book prints “inventor's clubs” here and “inventors’ club” in task 4 b. Box on the page: “KFAS is an abbreviation for the Kuwait Foundation for the Advancement of Sciences.”" },
 
         { type: "activity", title: "3. Why do you think KFAS made this brochure?", page: 35, source: "book",
-          instructions: "Choose the best answer.", instructionsAr: "اختر الإجابة الأفضل: لماذا صنعت KFAS هذه النشرة؟",
+          instructions: "Choose the best answer.", instructionsAr: "اختر الإجابة الأفضل: لماذا أعدّت KFAS هذه النشرة؟",
           items: [
             { t: "mcq", q: "Why do you think KFAS made this brochure?",
               options: ["To tell a story about a young inventor", "To join KFAS and support young inventors", "To explain how to use a computer", "To show the importance of friends"], answer: 1,
@@ -106,7 +106,7 @@ BOOK.addUnit({
           ] },
 
         { type: "write", title: "6. Think It - Solve It - Invent It", page: 36, source: "book",
-          instructions: "a. Think of a problem at school, at home, or in your community. Work in pairs and complete the following table. b. Draw your invention on paper.",
+          instructions: "a. Think of a problem at school, at home, or in your community. Work in pairs and complete the following table. b. Draw your invention here (on paper).",
           wordBankLabel: "Examples (from the book)",
           wordBank: ["lost items", "lights left on", "hard to wake up", "littering", "traffic"],
           frame: [
@@ -274,7 +274,7 @@ BOOK.addUnit({
           image: "crops/u2l2-roleplay.jpg",
           dialogue: [
             { who: "You", text: "Have you ever …?" },
-            { who: "Your partner", text: "" },
+            { who: "Your partner", text: "Yes/No …" },
             { who: "You", text: "What was it like?" },
             { who: "Your partner", text: "" }
           ],
@@ -355,7 +355,7 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "drone", pos: "noun", emoji: "🛸", def: "a small flying machine with no pilot, often with a camera", ex: "Drones were used to film the race from above.", exFromBook: true, ar: "طائرة مُسيّرة (درون)" },
-        { w: "referee", pos: "noun", emoji: "🦓", def: "a person who makes sure players follow the rules in a game", ex: "The referee stopped the game.", exFromBook: false, ar: "حَكَم (في المباراة)" },
+        { w: "referee", pos: "noun", emoji: "🟨", def: "a person who makes sure players follow the rules in a game", ex: "The referee stopped the game.", exFromBook: false, ar: "حَكَم (في المباراة)" },
         { w: "judge", pos: "noun", emoji: "🧑‍⚖️", def: "a person who decides who wins a contest", ex: "At the beginning of the race, the judges have taken their seats.", exFromBook: false, ar: "عضو لجنة التحكيم" },
         { w: "track", pos: "noun", emoji: "🏁", def: "a path or road made for races", ex: "The robot cars raced around the track.", exFromBook: false, ar: "مضمار / مسار" },
         { w: "contest", pos: "noun", emoji: "🏆", def: "a competition to find who is the best", ex: "What is the contest about?", exFromBook: true, ar: "مسابقة" },
@@ -591,7 +591,7 @@ BOOK.addUnit({
         { w: "develop", pos: "verb", emoji: "🧪", def: "to make something new or make it better step by step", ex: "With great determination, he decided to develop a better solution.", exFromBook: true, ar: "يطوّر" },
         { w: "worldwide", pos: "adverb", emoji: "🌍", def: "in all parts of the world", ex: "This invention has improved millions of surgeries worldwide.", exFromBook: true, ar: "في جميع أنحاء العالم" },
         { w: "proud", pos: "adjective", emoji: "😊", def: "happy about something good that you did", ex: "Dr. Ahmad Nabeel feels extremely proud that his work has made such a positive difference.", exFromBook: true, ar: "فخور" },
-        { w: "honour", pos: "noun", emoji: "🎖️", def: "something that makes you feel proud and respected", ex: "He says it is a great honour to be a member of the National Academies of Science, Engineering, and Medicine.", exFromBook: true, ar: "شرف" },
+        { w: "honour", pos: "noun", emoji: "🎖️", def: "something that makes you feel proud and respected", ex: "He has received many awards, and he says it is a great honour to be a member of the National Academies of Science, Engineering, and Medicine.", exFromBook: true, ar: "شرف" },
         { w: "success", pos: "noun", emoji: "🏆", def: "getting the good result that you wanted", ex: "With determination, you can achieve great success.", exFromBook: true, ar: "نجاح" },
         { w: "improve", pos: "verb", emoji: "⬆️", def: "to make something better", ex: "His story teaches us that curiosity, hard work, and new ideas can improve people’s lives.", exFromBook: true, ar: "يُحسّن" }
       ],
@@ -694,7 +694,7 @@ BOOK.addUnit({
         { type: "activity", title: "Extra Practice: True or False?", source: "extra", stage: "guided",
           instructions: "Read the sentence. Is it true or false?", instructionsAr: "هل الجملة صحيحة أم خاطئة؟",
           items: [
-            { t: "mcq", q: "Dr. Ahmad Nabeel invented Klens when he was a junior doctor.", options: ["True", "False"], answer: 0, hint: "Paragraph 2.", why: "“While working as a junior doctor, … He created Klens.”" },
+            { t: "mcq", q: "Dr. Ahmad Nabeel noticed the problem when he was a junior doctor.", options: ["True", "False"], answer: 0, hint: "Paragraph 2.", why: "“While working as a junior doctor, Dr. Ahmad Nabeel noticed that surgeons had to stop during surgery to clean the endoscope.”" },
             { t: "mcq", q: "Klens cleans the endoscope in ten minutes.", options: ["True", "False"], answer: 1, hint: "Paragraph 2.", why: "It cleans the endoscope “in less than a second”." },
             { t: "mcq", q: "Klens makes operations faster and safer.", options: ["True", "False"], answer: 0, hint: "Paragraph 1.", why: "“a special device that makes operations faster and safer”" },
             { t: "mcq", q: "Dr. Ahmad has never received an award.", options: ["True", "False"], answer: 1, hint: "Paragraph 3.", why: "“He has received many awards.”" }

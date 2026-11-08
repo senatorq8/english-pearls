@@ -63,7 +63,7 @@ BOOK.labs = Object.assign(BOOK.labs || {}, (function () {
               noteAr: "النفي: " + haveNeg + " + التصريف الثالث، وتأتي yet في آخر الجملة." };
             case "never": return { s: subj + " {a:" + have + "} {t:never} " + v3 + ".", badge: "never = not at any time", badgeKind: "warn",
               rule: "{s:subject} + {a:" + have + "} + {t:never} + {v:V3}",
-              note: "never already has a negative meaning, so we use " + have + " (not " + haveNeg + "): " + have + " never " + A[0] + ".",
+              note: "never has a negative meaning by itself, so we use " + have + " (not " + haveNeg + "): " + have + " never " + A[0] + ".",
               noteAr: "كلمة never معناها منفي، لذلك نستخدم " + have + " وليس " + haveNeg + "." };
             case "q": return { s: question, badge: "? Yes/No question", badgeKind: "future",
               rule: "{a:Have / Has} + {s:subject} + {t:ever} + {v:V3}?",
