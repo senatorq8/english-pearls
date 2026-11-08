@@ -67,8 +67,8 @@ BOOK.addUnit({
             { t: "table", q: "a. Write one job for each period.",
               head: ["Long Ago", "After Oil Discovery", "Today"],
               rows: [[
-                { answer: ["fisherman", "fishermen", "a fisherman"], model: "fisherman" },
-                { answer: ["teacher", "teachers", "a teacher"], model: "teacher" },
+                { answer: ["fisherman", "fishermen", "a fisherman", "fishing"], model: "fisherman" },
+                { answer: ["teacher", "teachers", "a teacher", "teaching"], model: "teacher" },
                 { answer: ["content creator", "content creators", "a content creator", "programmer", "a programmer", "designer", "a designer"], model: "content creator" }
               ]],
               hint: "Paragraph 1 = long ago, paragraph 2 = after oil, paragraph 3 = today.",
@@ -279,7 +279,7 @@ BOOK.addUnit({
             { t: "choose", q: "The children (was / were) playing outside when it started to rain.", options: ["was", "were"], answer: 1, why: "The children = they → were." },
             { t: "choose", q: "I (was / were) reading when my friend called me.", options: ["was", "were"], answer: 0, why: "I → was." },
             { t: "choose", q: "We (was / were) watching TV when the power went out.", options: ["was", "were"], answer: 1, why: "We → were." },
-            { t: "choose", q: "While Ali (was walking / walked) to school, he saw an accident.", options: ["was walking", "walked"], answer: 0, why: "While + the long action → past continuous." },
+            { t: "choose", q: "Ali (was walking / walks) to school when he saw an accident.", options: ["was walking", "walks"], answer: 0, why: "The long action in the past was in progress when the short action (saw) happened → past continuous: was walking." },
             { t: "choose", q: "I was sleeping when the phone (rang / was ringing).", options: ["rang", "was ringing"], answer: 0, why: "when + the short action → past simple." }
           ] },
 
@@ -788,6 +788,7 @@ BOOK.addUnit({
             { label: "Sentence 2", hint: "… was/were + past participle in …" },
             { label: "Sentence 3", hint: "… was/were + past participle in …" }
           ],
+          note: "Printed in the book: “Kuwaiti's achievements” (it means Kuwait’s achievements).",
           model: "Kuwait’s Great Achievements\nThe first school in Kuwait was opened in 1911.\nKuwait Towers were built in 1979.\nThe Avenues was opened in 2007.",
           modelFromBook: false,
           checklist: ["I used was or were + past participle.", "I used was with one thing and were with plural.", "I wrote the year with in.", "Each sentence ends with a full stop."],
