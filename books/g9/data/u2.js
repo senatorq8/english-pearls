@@ -68,12 +68,12 @@ BOOK.addUnit({
         { type: "activity", title: "4. Choose one emoji that shows how Ahmed feels in each part of the event, then explain your choice.", page: 35, source: "book",
           instructions: "Choose one emoji that shows how Ahmed feels in each part of the event, then explain your choice.", instructionsAr: "اختر وجهًا تعبيريًا واحدًا يبيّن شعور أحمد في كل جزء من الحدث، ثم اشرح سبب اختيارك.",
           items: [
-            { t: "mcq", q: "Ahmed receives a message claiming he has won a new mobile phone.", options: ["😃", "😲", "❓"], answer: [1, 0],
+            { t: "mcq", q: "Ahmed receives a message claiming he has won a new mobile phone.", options: ["😃", "😲", "❓"], answer: 1,
               hint: "The message was unexpected. How do you feel when you get a big prize you did not expect?",
-              why: "The answer key chooses 😲: he is surprised by the prize. 😃 (happy) is also possible, because he believed he had won." },
-            { t: "mcq", q: "His password stops working.", options: ["😧", "😎", "😃"], answer: 0,
-              hint: "Paragraph 2: “He began to feel uneasy.”", why: "😧: he is worried he can’t log in." },
-            { t: "mcq", q: "He reports the scam to the IT department", options: ["😤", "😠", "👍"], answer: 2,
+              why: "😲: he is surprised by the prize. The message was unexpected." },
+            { t: "mcq", q: "His password stops working.", options: ["😫", "😎", "😃"], answer: 0,
+              hint: "Paragraph 2: “He began to feel uneasy.”", why: "😫: he is worried he can’t log in." },
+            { t: "mcq", q: "He reports the scam to the IT department", options: ["😃", "😠", "👍"], answer: 2,
               hint: "Was reporting the scam a good idea?", why: "👍: he did the right thing." },
             { t: "short", open: true, q: "Why? Explain your choice for each part.", model: "1. He is surprised by the prize. 2. He is worried he can’t log in. 3. He did the right thing.", hint: "He is … because … / He did …" }
           ] },
@@ -132,7 +132,7 @@ BOOK.addUnit({
           "Pre-teach the 13 words (casually, claim, reject, fake, uneasy, access, update, install, phishing, scam, seriously, security, cautious). They are bold in the passage.",
           "Read the story paragraph by paragraph. Ask: What did Ahmed do wrong? What did he do right?",
           "Ex. 2: c. Ex. 3: uneasy, update(d), security.",
-          "Ex. 4 (answer key): 😲 He is surprised by the prize. 😧 He is worried he can’t log in. 👍 He did the right thing. Accept 😃 for row 1 if the student explains it (he thought he had won).",
+          "Ex. 4 (answer key): 😲 He is surprised by the prize. 😫 He is worried he can’t log in. 👍 He did the right thing. The app accepts only the answer key; in class you may accept another emoji for row 1 if the student explains it well (e.g. ❓ he felt curious, 😃 he thought he had won).",
           "Ex. 5a (answer key): 2. He clicked on the link – Unsafe. 3. He entered his password – Unsafe. 4. He updated his passwords – Safe. 5. He reported it to IT – Safe. Ex. 5b: open (e.g. Think before you click on any link)."
         ],
         pair: ["Ex. 1: pairs discuss the phone message.", "A reads one of Ahmed’s actions; B says “Safe” or “Unsafe” and gives a clue from the story."],
@@ -683,8 +683,8 @@ BOOK.addUnit({
           items: [
             { t: "fill", q: "1. The teacher ____ helps us is very friendly.", answer: ["who", "that"], hint: "The teacher = a person.", why: "person → who (that is also correct)." },
             { t: "fill", q: "2. This is the app ____ helps me study English.", answer: ["which", "that"], hint: "The app = a thing.", why: "thing → which (that is also correct)." },
-            { t: "fill", q: "3. That’s the library ____ we study for our exams.", answer: ["where", "in which"], hint: "The library = a place.", why: "place → where." },
-            { t: "fill", q: "4. 2023 was the year ____ AI tools became popular.", answer: ["when", "in which"], hint: "2023 = a time.", why: "time → when." }
+            { t: "fill", q: "3. That’s the library ____ we study for our exams.", answer: ["where"], hint: "The library = a place.", why: "place → where." },
+            { t: "fill", q: "4. 2023 was the year ____ AI tools became popular.", answer: ["when"], hint: "2023 = a time.", why: "time → when." }
           ] },
 
         { type: "activity", title: "Extra Practice: Step 1 — Choose the relative pronoun", source: "extra", stage: "guided",
@@ -699,7 +699,7 @@ BOOK.addUnit({
           ] },
 
         { type: "activity", title: "Extra Practice: Step 2 — Join the sentences", source: "extra", stage: "guided",
-          instructions: "Join the two sentences. Put the words in order.", instructionsAr: "اربط الجملتين برتيب الكلمات.",
+          instructions: "Join the two sentences. Put the words in order.", instructionsAr: "اربط الجملتين بترتيب الكلمات.",
           items: [
             { t: "order", q: "The girl is my sister. She plays the guitar.", words: ["The", "girl", "who", "plays", "the", "guitar", "is", "my", "sister."], answer: ["The girl who plays the guitar is my sister."], hint: "Put “who plays the guitar” after “The girl”.", why: "The girl + who + plays the guitar + is my sister." },
             { t: "order", q: "This is the app. It helps me study English.", words: ["This", "is", "the", "app", "which", "helps", "me", "study", "English."], answer: ["This is the app which helps me study English."], hint: "the app → which.", why: "which replaces “It”." },
@@ -788,7 +788,7 @@ BOOK.addUnit({
           ] },
 
         { type: "activity", title: "2. Complete the following sentences.", page: 42, source: "book",
-          instructions: "Write a different topic sentence and a different concluding sentence.", instructionsAr: "اكتب جملة افتتاحية مختلفة وجملة ختامية مختلفة.",
+          instructions: "Complete the following sentences.", instructionsAr: "أكمل الجمل التالية: اكتب جملة افتتاحية مختلفة وجملة ختامية مختلفة.",
           items: [
             { t: "short", open: true, q: "1. Paragraph 1 – Topic Sentence\nOriginal: Exams can be a very stressful time for many students.\nWrite a different topic sentence.", model: "Many students feel worried and tired during exams.", hint: "Say the same main idea in new words." },
             { t: "short", open: true, q: "2. Paragraph 2 – Concluding Sentence\nOriginal: These habits will help students feel better and do their best in exams.\nWrite a different concluding sentence.", model: "Healthy habits help students succeed in their exams.", hint: "Sum up the paragraph in new words." }

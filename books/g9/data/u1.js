@@ -43,15 +43,6 @@
           { w: "survive", pos: "verb", emoji: "🛟", def: "to stay alive in or after a dangerous situation", ex: "This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.", exFromBook: true, ar: "ينجو / يبقى على قيد الحياة" }
         ],
         sections: [
-          { type: "activity", title: "1. Look at the pictures. Tick (✓) the activities you would like to attempt and explain why.", page: 20, source: "book",
-            instructions: "Look at the pictures. Tick (✓) the activities you would like to attempt and explain why.", instructionsAr: "انظر إلى الصور، واختر الأنشطة التي تودّ أن تجرّبها، واشرح السبب.",
-            image: "crops/u1l1-activities.jpg",
-            items: [
-              { t: "short", open: true, q: "Which activities would you like to attempt? Why?",
-                model: "I would like to try scuba diving and mountain climbing because I love the sea and adventures.",
-                hint: "The pictures show: scuba diving, paragliding, a trip across the snow and mountain climbing. I would like to try … because …" }
-            ] },
-
           { type: "reading", title: "Kuwaiti Explorers: Inspiring Journeys", page: 20,
             instructions: "Read the passage; then do the tasks that follow.",
             image: "crops/u1l1-explorers.jpg",
@@ -383,7 +374,7 @@
             track: "1.1", needsAudio: true,
             instructions: "Listen once more and fill in the table with causes and effects.", instructionsAr: "استمع مرة أخيرة واملأ الجدول بالأسباب والنتائج.",
             items: [
-              { t: "table", keyed: true, open: true, q: "Complete the table.",
+              { t: "table", keyed: true, open: true, q: "Complete the table.", model: "2. We can’t move. 3. Because of the heat. 4. We can’t stay warm.",
                 head: ["No.", "", "Cause", "Effect"],
                 rows: [
                   ["1", "Call 1", "The boat hit a big rock.", "Water is coming in."],
@@ -862,7 +853,7 @@
           { type: "activity", title: "2. Complete the following table by listing safety preparations explorers should make and the challenges they might face during an expedition.", page: 28, source: "book",
             instructions: "Complete the following table by listing safety preparations explorers should make and the challenges they might face during an expedition.", instructionsAr: "أكمل الجدول بكتابة استعدادات السلامة التي يجب أن يقوم بها المستكشفون والتحديات التي قد يواجهونها في أثناء الرحلة.",
             items: [
-              { t: "table", open: true, q: "Complete the table.",
+              { t: "table", open: true, q: "Complete the table.", model: "1. Food, water, a map, a compass, warm clothes and a first-aid kit. Good plans keep us safe. 2. Bad weather, getting lost, injuries. The trip may fail or become dangerous.",
                 head: ["Paragraph", "Focus", "Questions to Think about", "Your Notes"],
                 rows: [
                   ["1", "Safety Preparations", "• What should people prepare about before going on an expedition? • What important things should people take with them? • How could good preparation make the journey safer?", { model: "Food, water, a map, a compass, warm clothes and a first-aid kit. Good plans keep us safe." }],
