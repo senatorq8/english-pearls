@@ -710,7 +710,7 @@ BOOK.addUnit({
               ],
               hint: "Can you count it? one snack, two snacks → C. one money, two moneys ✗ → U.",
               why: "much money (U), some snacks (C), any offers (C), a little time (U), many accounts (C), few students (C), some of them … any plans (C).",
-              note: "Line 7 has two quantifiers: some (some of them) and any (any plans). Only “any” has a noun right after it." }
+              note: "Line 7 has two quantifiers. Write both, with a comma between them (e.g. much, many)." }
           ] },
 
         { type: "activity", title: "2. Look at the quantifiers you underlined, then answer these questions.", page: 69, source: "book", stage: "guided",
