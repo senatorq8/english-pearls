@@ -3,10 +3,10 @@
 // Everything marked source: "extra" is not in the book.
 (function () {
   // Exercise 5 (p. 21): words from the passage for each part of speech (the examples in row 1 are not accepted again).
-  const ADV = ["successfully", "always", "solo", "there", "also", "home", "along", "not only"];
+  const ADV = ["successfully", "always", "solo", "there", "also", "home", "along"];
   const ADJ = ["outstanding", "remarkable", "proud", "strong", "rich", "confident", "ready", "physical", "international", "humanitarian", "difficult", "excited", "adventurous", "dangerous", "inspiring", "supporting", "different", "female", "global", "two-week", "Kuwaiti", "Arab", "Euro-Arabian", "first"];
-  const NOUN = ["talents", "talent", "achievement", "achievements", "country", "values", "culture", "cultures", "families", "schools", "children", "ideas", "environment", "lives", "explorers", "explorer", "adventurers", "pride", "mountaineer", "flag", "pictures", "goal", "recognition", "journey", "challenge", "challenges", "stage", "attention", "role", "history", "ability", "tasks", "adventures", "spirit", "person", "experiences", "will", "women", "conditions", "stories", "strength", "support", "effort", "people", "home"];
-  const VERB = ["highlight", "highlighted", "represent", "encourage", "explore", "develop", "grow up", "grow", "succeed", "brought", "climbed", "raised", "explained", "made", "became", "reach", "fulfil", "joined", "led", "ski", "included", "share", "face", "continue", "shine", "inspired", "returning", "aiming"];
+  const NOUN = ["talents", "talent", "achievement", "achievements", "country", "values", "culture", "cultures", "families", "schools", "children", "ideas", "environment", "lives", "explorers", "explorer", "adventurers", "pride", "mountaineer", "flag", "pictures", "goal", "recognition", "journey", "challenge", "challenges", "stage", "attention", "role", "history", "ability", "tasks", "adventures", "spirit", "person", "experiences", "will", "women", "conditions", "stories", "strength", "support", "effort", "people", "Kuwait", "Kuwaitis", "Kuwaiti", "December", "Antarctica", "Mount Everest", "North Pole"];
+  const VERB = ["highlight", "highlighted", "represent", "encourage", "explore", "develop", "grow up", "grow", "succeed", "brought", "climbed", "raised", "explained", "made", "became", "reach", "fulfil", "joined", "led", "ski", "included", "share", "face", "continue", "shine", "inspired", "returning", "aiming", "is", "was", "have brought", "known"];
 
   BOOK.addUnit({
     id: "u1", num: 1, title: "Kuwait: Stories of Success", titleAr: "الكويت: قصص نجاح",
@@ -39,21 +39,21 @@
           { w: "remarkable", pos: "adjective", emoji: "🤩", def: "unusual and very good, so people notice it", ex: "She is known for her remarkable ability to fulfil difficult tasks and is always excited by new adventures.", exFromBook: true, ar: "مميّز / لافت للنظر" },
           { w: "fulfil", pos: "verb", emoji: "✅", def: "to do or finish something that you wanted or needed to do", ex: "She is known for her remarkable ability to fulfil difficult tasks and is always excited by new adventures.", exFromBook: true, ar: "يُنجز / يحقّق" },
           { w: "expedition", pos: "noun", emoji: "🏔️", def: "a long, organised journey to a far or difficult place", ex: "Because of her adventurous spirit, she joined a Euro-Arabian expedition led by Felicity Aston, who was the first person to ski solo across Antarctica.", exFromBook: true, ar: "رحلة استكشافية / بعثة" },
-          { w: "will", pos: "noun", emoji: "💪", def: "a strong wish to do something, even when it is hard", ex: "This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.", exFromBook: true, ar: "إرادة" },
+          { w: "will", skip: ["will continue"], pos: "noun", emoji: "💪", def: "a strong wish to do something, even when it is hard", ex: "This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.", exFromBook: true, ar: "إرادة" },
           { w: "survive", pos: "verb", emoji: "🛟", def: "to stay alive in or after a dangerous situation", ex: "This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.", exFromBook: true, ar: "ينجو / يبقى على قيد الحياة" }
         ],
         sections: [
-          { type: "reading", title: "Kuwaiti Explorers: Inspiring Journeys", page: 20,
+          { type: "reading", title: "Kuwaiti Explorers: Inspiring Journeys", page: 20, paraLabels: ["A", "B", "C", "D"],
             instructions: "Read the passage; then do the tasks that follow.",
             image: "crops/u1l1-explorers.jpg",
             paras: [
               "Kuwait is a proud country with strong values and a rich culture. Families and schools encourage children to be curious, explore new ideas, and develop their talents. Because of this supporting environment, many Kuwaitis grow up confident and ready to succeed in their lives. The following are some [[outstanding]] Kuwaiti explorers and adventurers who have brought pride to their country.",
               "Fuad Qabazard is a Kuwaiti mountaineer who successfully climbed Mount Everest in December 2015. He proudly raised the Kuwaiti flag there, along with pictures of His Highness the Amir and the Crown Prince. His goal was to highlight Kuwait’s recognition by the United Nations as a “Global Humanitarian Centre.” After returning home, Qabazard explained that his two-week journey was not only a physical challenge but also a way to represent his country on an international stage. His achievement brought attention to Kuwait’s humanitarian role and inspired many people in Kuwait.",
               "Lamees Najim made history in 2018 when she became the first Kuwaiti to reach the North Pole. She is known for her remarkable ability to fulfil difficult tasks and is always excited by new adventures. Because of her adventurous spirit, she joined a Euro-Arabian expedition led by Felicity Aston, who was the first person to ski solo across Antarctica. The journey included 12 female explorers from different countries, aiming to share their experiences and cultures. This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.",
-              "These inspiring stories highlight the strength and pride of the Kuwaiti people. With the [[support]] and effort of its people, Kuwait wi​ll continue to shine."
+              "These inspiring stories highlight the strength and pride of the Kuwaiti people. With the [[support]] and effort of its people, Kuwait will continue to shine."
             ],
             speaker: null,
-            note: "Text type: Expository. The book labels the paragraphs A, B, C and D (A = 1, B = 2, C = 3, D = 4). The underlined words “outstanding” and “support” are for exercise 4. Did you know? Mount Everest is the highest mountain in the world at 8,849 metres. It is very difficult to climb because of cold weather and low oxygen." },
+            note: "Text type: Expository. The book labels the paragraphs A, B, C and D. The underlined words “outstanding” and “support” are for exercise 4. Did you know? Mount Everest is the highest mountain in the world at 8,849 metres. It is very difficult to climb because of cold weather and low oxygen." },
 
           { type: "activity", title: "2. Match each heading with the right paragraph.", page: 21, source: "book",
             instructions: "Match each heading with the right paragraph.", instructionsAr: "طابق كل عنوان مع الفقرة المناسبة.",
@@ -151,7 +151,7 @@
           notes: [
             "Before You Read (ex. 1): show the four photos (scuba diving, paragliding, a trip across the snow, mountain climbing). Students choose and give a reason. Any choice is fine.",
             "Pre-teach the 12 words (curious, talent, explorer, proudly, highlight, represent, inspire, remarkable, fulfil, expedition, will, survive). They are bold in the passage. Point out that “will” here is a noun (a strong wish).",
-            "The book labels the paragraphs A–D; in the app they are numbered 1–4. Read the “Did you know?” box about Mount Everest.",
+            "Read the “Did you know?” box about Mount Everest.",
             "Ex. 2: 1 = C, 2 = B. Ex. 3: 1 F (Felicity Aston was the first.), 2 T, 3 F (It also shared cultures.). Ex. 4: outstanding = a. excellent; support = b. help.",
             "Ex. 5 (answer key): Adverbs: successfully, along. Adjectives: outstanding, remarkable. Nouns: talents, achievement. Verbs: highlight, represent. Accept other correct words from the passage (always, strong, journey, climbed…).",
             "Ex. 6: open discussion (key for 1: courage and hard work). Ex. 7: students write 3–4 sentences in Fuad’s or Lamees’s voice with the sentence starters."
@@ -192,7 +192,7 @@
               { title: "Past Simple: form and time words",
                 text: "Form: climbed / studied. irregular verbs (go-went). Used with: last (year/week/month), ago, yesterday, in the past.",
                 textAr: "الصيغة: نضيف ed للفعل (climbed / studied)، وبعض الأفعال شاذة (go ← went). كلمات دالة: last, ago, yesterday, in the past.",
-                examples: ["{s:His friends} {v:tried} white-water rafting {t:yesterday}.", "{s:Fahad} {v:went} scuba diving."] },
+                examples: ["{s:Ali} {v:climbed} the mountain {t:last year}.", "{s:Fahad} {v:went} scuba diving."] },
               { title: "Past Continuous: used for",
                 text: "A longer action interrupted by a shorter one. Two actions happening at the same time.",
                 textAr: "نستخدم الماضي المستمر لحدث طويل قطعه حدث أقصر، ولحدثين كانا يحدثان في الوقت نفسه.",
@@ -385,7 +385,7 @@
             ] },
 
           { type: "activity", title: "5. Use the causes and effects from exercise 4 to write full sentences, using (because, so, since, as a result, therefore, consequently).", page: 23, source: "book",
-            instructions: "Use the causes and effects from exercise 4 to write full sentences, using (because, so, since, as a result, therefore, consequently). Example: The boat hit a big rock; as a result, water is coming in.",
+            instructions: "Use the causes and effects from exercise 4 to write full sentences, using (because, so, since, as a result, therefore, consequently). Example: The boat hit a big rock; as a result, water is coming in. Use cause-and-effect linkers to show relationships between ideas: because, since (to show a reason), so, therefore, consequently, as a result (to show an effect).",
             instructionsAr: "استخدم الأسباب والنتائج من التمرين 4 لتكتب جملًا كاملة، مستخدمًا أدوات الربط: because, so, since, as a result, therefore, consequently.",
             items: [
               { t: "short", q: "1. (Call 1: the engine)", model: "The engine is not working, so we can’t move.",

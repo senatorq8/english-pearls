@@ -45,6 +45,7 @@ Always LOOK at the page image too (Read tool) — the text extraction scrambles 
     seconds: 90
   },
   vocab: [                                           // the lesson's Vocabulary list, in book order (empty [] if none)
+                                                     // optional per word: skip: ["will continue"] = phrases where the word is NOT highlighted in passages
     { w: "nervous", pos: "adjective", emoji: "😬", def: "worried or a little afraid",   // simple English definition (glossary if present)
       ex: "I was nervous on my first day.",          // simple sentence; use the book's sentence if the text has one
       exFromBook: true,                              // true only if `ex` is copied from the book
@@ -65,6 +66,7 @@ Always LOOK at the page image too (Read tool) — the text extraction scrambles 
 ```js
 { type: "reading", title: "Generations Together", page: 20,
   paras: ["paragraph 1 verbatim", "paragraph 2", ...],   // full book text; keep underlined word as [[them]] and target vocab is auto-highlighted
+  paraLabels: ["A", "B", ...],                         // optional: the book's paragraph labels (default 1, 2, 3 …)
   speaker: null }                                         // or for emails: use `blocks` instead of paras:
 //   blocks: [{ head: "To: Ahmed\nSubject: ...", paras: [...] }, ...]
 

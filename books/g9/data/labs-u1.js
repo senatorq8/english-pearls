@@ -69,24 +69,25 @@ BOOK.labs = Object.assign(BOOK.labs || {}, (function () {
               note: "Negative past continuous: " + be + " + not = " + neg + ". The shorter action stays in the past simple: " + E[1] + ".",
               noteAr: "النفي في الماضي المستمر: " + be + " + not = " + neg + "، ويبقى الحدث القصير في الماضي البسيط." };
           }
-          const qs = st.subj === "I" ? "you" : low(st.subj), qbe = st.subj === "I" ? "were" : be;
+          const toYou = st.subj === "I" || st.subj === "We";
+          const qs = toYou ? "you" : low(st.subj), qbe = toYou ? "were" : be;
           if (st.form === "yn") {
             return { s: "{a:" + cap(qbe) + "} {s:" + qs + "} " + longPart + " {c:when} " + shortPart + "?",
               badge: "? Was / Were + subject + verb-ing?", badgeKind: "future",
               rule: "{a:Was / Were} + {s:subject} + {v:verb-ing} … {c:when} + {v:past simple}?",
-              note: "Yes/No question: " + cap(qbe) + " comes before the subject, then " + L[0] + ". The shorter action stays in the past simple: " + E[1] + "." + (st.subj === "I" ? " We ask other people, so I → you." : ""),
-              noteAr: "في سؤال Yes/No نضع " + qbe + " قبل الفاعل ثم الفعل مع ing، ويبقى الحدث القصير في الماضي البسيط." + (st.subj === "I" ? " نسأل غيرنا، لذلك نقول you بدل I." : "") };
+              note: "Yes/No question: " + cap(qbe) + " comes before the subject, then " + L[0] + ". The shorter action stays in the past simple: " + E[1] + "." + (toYou ? " We ask other people, so " + st.subj + " → you." : ""),
+              noteAr: "في سؤال Yes/No نضع " + qbe + " قبل الفاعل ثم الفعل مع ing، ويبقى الحدث القصير في الماضي البسيط." + (toYou ? " نسأل غيرنا، لذلك نقول you بدل " + st.subj + "." : "") };
           }
           return { s: "{q:What} {a:" + qbe + "} {s:" + qs + "} {v:doing} {c:when} " + shortPart + "?",
             badge: "? What + was / were + subject + doing?", badgeKind: "future",
             rule: "{q:What} + {a:was / were} + {s:subject} + {v:doing} + {c:when} + {v:past simple}?",
-            note: "Ask about the longer action with What + " + qbe + " + " + qs + " + doing. The shorter action stays in the past simple: " + E[1] + "." + (st.subj === "I" ? " We ask other people, so I → you." : ""),
-            noteAr: "نسأل عن الحدث الطويل بـ What + " + qbe + " + الفاعل + doing، ويبقى الحدث القصير في الماضي البسيط." + (st.subj === "I" ? " نسأل غيرنا، لذلك نقول you بدل I." : "") };
+            note: "Ask about the longer action with What + " + qbe + " + " + qs + " + doing. The shorter action stays in the past simple: " + E[1] + "." + (toYou ? " We ask other people, so " + st.subj + " → you." : ""),
+            noteAr: "نسأل عن الحدث الطويل بـ What + " + qbe + " + الفاعل + doing، ويبقى الحدث القصير في الماضي البسيط." + (toYou ? " نسأل غيرنا، لذلك نقول you بدل " + st.subj + "." : "") };
         }
       },
       predict: {
-        q: "While Ali ____ up the mountain, the others were taking photos.", options: ["climbed", "was climbing", "were climbing"], answer: 1,
-        reveal: "{c:While} {s:Ali} {a:was} {v:climbing} up the mountain, {s:the others} {a:were} {v:taking} photos.", mistake: "Common mistake: using the past simple for an action that was in progress.",
+        q: "While Ali ____ up the mountain, the others were taking photos.", options: ["climbs", "was climbing", "were climbing"], answer: 1,
+        reveal: "{c:While} {s:Ali} {a:was} {v:climbing} up the mountain, {s:the others} {a:were} {v:taking} photos.", mistake: "Common mistake: using the wrong tense, or using were with one person.",
         why: "Two actions were happening at the same time, so both are in the past continuous. Ali = he, so we use was: was climbing.",
         whyAr: "كان الحدثان يحدثان في الوقت نفسه، لذلك نستخدم الماضي المستمر في الاثنين، و Ali مفرد فنستخدم was."
       }

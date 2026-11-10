@@ -701,7 +701,7 @@
       const target = wrap || node; if (wrap) node.append(wrap);
       // split into vocab-matched pieces and words
       let pieces = [];
-      if (vm && !sg.ul) { let lm = 0, mm; vm.lastIndex = 0; while ((mm = vm.exec(sg.t))) { if (mm.index > lm) pieces.push({ t: sg.t.slice(lm, mm.index) }); pieces.push({ t: mm[0], v: 1 }); lm = mm.index + mm[0].length; } if (lm < sg.t.length) pieces.push({ t: sg.t.slice(lm) }); }
+      if (vm && !sg.ul) { let lm = 0, mm; vm.lastIndex = 0; while ((mm = vm.exec(sg.t))) { const sv = findVocab(l, mm[0]); if (sv && sv.skip && sv.skip.some((ph) => sg.t.slice(mm.index, mm.index + ph.length).toLowerCase() === ph.toLowerCase())) continue; if (mm.index > lm) pieces.push({ t: sg.t.slice(lm, mm.index) }); pieces.push({ t: mm[0], v: 1 }); lm = mm.index + mm[0].length; } if (lm < sg.t.length) pieces.push({ t: sg.t.slice(lm) }); }
       else pieces = [{ t: sg.t }];
       pieces.forEach((pc) => {
         if (pc.v) {
@@ -777,7 +777,7 @@
       });
     } else {
       s.paras.forEach((t, i) => {
-        const p = paraNode(t, l); const box = h("div", { class: "para" }, h("span", { class: "pn", "aria-hidden": "true" }, String(i + 1)), p.node);
+        const p = paraNode(t, l); const box = h("div", { class: "para" }, h("span", { class: "pn", "aria-hidden": "true" }, s.paraLabels && s.paraLabels[i] ? s.paraLabels[i] : String(i + 1)), p.node);
         body.append(box); paraObjs.push(Object.assign(p, { box }));
       });
     }

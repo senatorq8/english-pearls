@@ -9370,6 +9370,8 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
         let lm = 0, mm;
         vm.lastIndex = 0;
         while (mm = vm.exec(sg.t)) {
+          const sv = findVocab(l, mm[0]);
+          if (sv && sv.skip && sv.skip.some((ph) => sg.t.slice(mm.index, mm.index + ph.length).toLowerCase() === ph.toLowerCase())) continue;
           if (mm.index > lm) pieces.push({ t: sg.t.slice(lm, mm.index) });
           pieces.push({ t: mm[0], v: 1 });
           lm = mm.index + mm[0].length;
@@ -9557,7 +9559,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     } else {
       s.paras.forEach((t, i) => {
         const p = paraNode(t, l);
-        const box = h("div", { class: "para" }, h("span", { class: "pn", "aria-hidden": "true" }, String(i + 1)), p.node);
+        const box = h("div", { class: "para" }, h("span", { class: "pn", "aria-hidden": "true" }, s.paraLabels && s.paraLabels[i] ? s.paraLabels[i] : String(i + 1)), p.node);
         body.append(box);
         paraObjs.push(Object.assign(p, { box }));
       });
@@ -9608,7 +9610,7 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     };
     draw();
     card.append(list, h("div", { class: "row" }, moreBtn, allBtn));
-    if (s.table) card.append(h("div", { class: "stack" }, h("h3", null, "The book’s table"), bookTable(s.table)));
+    if (s.table) card.append(h("div", { class: "stack" }, s.table.source === "extra" ? h("h3", null, "Summary table ", h("span", { class: "tag extra" }, "⭐ Extra help (not in the book)")) : h("h3", null, "The book’s table"), bookTable(s.table)));
     if (s.worked) {
       const w = s.worked;
       let k = 0;

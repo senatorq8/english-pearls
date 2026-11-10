@@ -3050,10 +3050,10 @@ BOOK.swScope = "../";
 BOOK.voiceDir = "../voice/";
 BOOK.voiceIds = "";
 (function() {
-  const ADV = ["successfully", "always", "solo", "there", "also", "home", "along", "not only"];
+  const ADV = ["successfully", "always", "solo", "there", "also", "home", "along"];
   const ADJ = ["outstanding", "remarkable", "proud", "strong", "rich", "confident", "ready", "physical", "international", "humanitarian", "difficult", "excited", "adventurous", "dangerous", "inspiring", "supporting", "different", "female", "global", "two-week", "Kuwaiti", "Arab", "Euro-Arabian", "first"];
-  const NOUN = ["talents", "talent", "achievement", "achievements", "country", "values", "culture", "cultures", "families", "schools", "children", "ideas", "environment", "lives", "explorers", "explorer", "adventurers", "pride", "mountaineer", "flag", "pictures", "goal", "recognition", "journey", "challenge", "challenges", "stage", "attention", "role", "history", "ability", "tasks", "adventures", "spirit", "person", "experiences", "will", "women", "conditions", "stories", "strength", "support", "effort", "people", "home"];
-  const VERB = ["highlight", "highlighted", "represent", "encourage", "explore", "develop", "grow up", "grow", "succeed", "brought", "climbed", "raised", "explained", "made", "became", "reach", "fulfil", "joined", "led", "ski", "included", "share", "face", "continue", "shine", "inspired", "returning", "aiming"];
+  const NOUN = ["talents", "talent", "achievement", "achievements", "country", "values", "culture", "cultures", "families", "schools", "children", "ideas", "environment", "lives", "explorers", "explorer", "adventurers", "pride", "mountaineer", "flag", "pictures", "goal", "recognition", "journey", "challenge", "challenges", "stage", "attention", "role", "history", "ability", "tasks", "adventures", "spirit", "person", "experiences", "will", "women", "conditions", "stories", "strength", "support", "effort", "people", "Kuwait", "Kuwaitis", "Kuwaiti", "December", "Antarctica", "Mount Everest", "North Pole"];
+  const VERB = ["highlight", "highlighted", "represent", "encourage", "explore", "develop", "grow up", "grow", "succeed", "brought", "climbed", "raised", "explained", "made", "became", "reach", "fulfil", "joined", "led", "ski", "included", "share", "face", "continue", "shine", "inspired", "returning", "aiming", "is", "was", "have brought", "known"];
   BOOK.addUnit({
     id: "u1",
     num: 1,
@@ -3096,7 +3096,7 @@ BOOK.voiceIds = "";
           { w: "remarkable", pos: "adjective", emoji: "🤩", def: "unusual and very good, so people notice it", ex: "She is known for her remarkable ability to fulfil difficult tasks and is always excited by new adventures.", exFromBook: true, ar: "مميّز / لافت للنظر" },
           { w: "fulfil", pos: "verb", emoji: "✅", def: "to do or finish something that you wanted or needed to do", ex: "She is known for her remarkable ability to fulfil difficult tasks and is always excited by new adventures.", exFromBook: true, ar: "يُنجز / يحقّق" },
           { w: "expedition", pos: "noun", emoji: "🏔️", def: "a long, organised journey to a far or difficult place", ex: "Because of her adventurous spirit, she joined a Euro-Arabian expedition led by Felicity Aston, who was the first person to ski solo across Antarctica.", exFromBook: true, ar: "رحلة استكشافية / بعثة" },
-          { w: "will", pos: "noun", emoji: "💪", def: "a strong wish to do something, even when it is hard", ex: "This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.", exFromBook: true, ar: "إرادة" },
+          { w: "will", skip: ["will continue"], pos: "noun", emoji: "💪", def: "a strong wish to do something, even when it is hard", ex: "This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.", exFromBook: true, ar: "إرادة" },
           { w: "survive", pos: "verb", emoji: "🛟", def: "to stay alive in or after a dangerous situation", ex: "This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.", exFromBook: true, ar: "ينجو / يبقى على قيد الحياة" }
         ],
         sections: [
@@ -3104,16 +3104,17 @@ BOOK.voiceIds = "";
             type: "reading",
             title: "Kuwaiti Explorers: Inspiring Journeys",
             page: 20,
+            paraLabels: ["A", "B", "C", "D"],
             instructions: "Read the passage; then do the tasks that follow.",
             image: "crops/u1l1-explorers.jpg",
             paras: [
               "Kuwait is a proud country with strong values and a rich culture. Families and schools encourage children to be curious, explore new ideas, and develop their talents. Because of this supporting environment, many Kuwaitis grow up confident and ready to succeed in their lives. The following are some [[outstanding]] Kuwaiti explorers and adventurers who have brought pride to their country.",
               "Fuad Qabazard is a Kuwaiti mountaineer who successfully climbed Mount Everest in December 2015. He proudly raised the Kuwaiti flag there, along with pictures of His Highness the Amir and the Crown Prince. His goal was to highlight Kuwait’s recognition by the United Nations as a “Global Humanitarian Centre.” After returning home, Qabazard explained that his two-week journey was not only a physical challenge but also a way to represent his country on an international stage. His achievement brought attention to Kuwait’s humanitarian role and inspired many people in Kuwait.",
               "Lamees Najim made history in 2018 when she became the first Kuwaiti to reach the North Pole. She is known for her remarkable ability to fulfil difficult tasks and is always excited by new adventures. Because of her adventurous spirit, she joined a Euro-Arabian expedition led by Felicity Aston, who was the first person to ski solo across Antarctica. The journey included 12 female explorers from different countries, aiming to share their experiences and cultures. This expedition highlighted the strong will of Kuwaiti and Arab women to face challenges and survive dangerous conditions.",
-              "These inspiring stories highlight the strength and pride of the Kuwaiti people. With the [[support]] and effort of its people, Kuwait wi​ll continue to shine."
+              "These inspiring stories highlight the strength and pride of the Kuwaiti people. With the [[support]] and effort of its people, Kuwait will continue to shine."
             ],
             speaker: null,
-            note: "Text type: Expository. The book labels the paragraphs A, B, C and D (A = 1, B = 2, C = 3, D = 4). The underlined words “outstanding” and “support” are for exercise 4. Did you know? Mount Everest is the highest mountain in the world at 8,849 metres. It is very difficult to climb because of cold weather and low oxygen."
+            note: "Text type: Expository. The book labels the paragraphs A, B, C and D. The underlined words “outstanding” and “support” are for exercise 4. Did you know? Mount Everest is the highest mountain in the world at 8,849 metres. It is very difficult to climb because of cold weather and low oxygen."
           },
           {
             type: "activity",
@@ -3307,7 +3308,7 @@ BOOK.voiceIds = "";
           notes: [
             "Before You Read (ex. 1): show the four photos (scuba diving, paragliding, a trip across the snow, mountain climbing). Students choose and give a reason. Any choice is fine.",
             "Pre-teach the 12 words (curious, talent, explorer, proudly, highlight, represent, inspire, remarkable, fulfil, expedition, will, survive). They are bold in the passage. Point out that “will” here is a noun (a strong wish).",
-            "The book labels the paragraphs A–D; in the app they are numbered 1–4. Read the “Did you know?” box about Mount Everest.",
+            "Read the “Did you know?” box about Mount Everest.",
             "Ex. 2: 1 = C, 2 = B. Ex. 3: 1 F (Felicity Aston was the first.), 2 T, 3 F (It also shared cultures.). Ex. 4: outstanding = a. excellent; support = b. help.",
             "Ex. 5 (answer key): Adverbs: successfully, along. Adjectives: outstanding, remarkable. Nouns: talents, achievement. Verbs: highlight, represent. Accept other correct words from the passage (always, strong, journey, climbed…).",
             "Ex. 6: open discussion (key for 1: courage and hard work). Ex. 7: students write 3–4 sentences in Fuad’s or Lamees’s voice with the sentence starters."
@@ -3362,7 +3363,7 @@ BOOK.voiceIds = "";
                 title: "Past Simple: form and time words",
                 text: "Form: climbed / studied. irregular verbs (go-went). Used with: last (year/week/month), ago, yesterday, in the past.",
                 textAr: "الصيغة: نضيف ed للفعل (climbed / studied)، وبعض الأفعال شاذة (go ← went). كلمات دالة: last, ago, yesterday, in the past.",
-                examples: ["{s:His friends} {v:tried} white-water rafting {t:yesterday}.", "{s:Fahad} {v:went} scuba diving."]
+                examples: ["{s:Ali} {v:climbed} the mountain {t:last year}.", "{s:Fahad} {v:went} scuba diving."]
               },
               {
                 title: "Past Continuous: used for",
@@ -3657,7 +3658,7 @@ BOOK.voiceIds = "";
             title: "5. Use the causes and effects from exercise 4 to write full sentences, using (because, so, since, as a result, therefore, consequently).",
             page: 23,
             source: "book",
-            instructions: "Use the causes and effects from exercise 4 to write full sentences, using (because, so, since, as a result, therefore, consequently). Example: The boat hit a big rock; as a result, water is coming in.",
+            instructions: "Use the causes and effects from exercise 4 to write full sentences, using (because, so, since, as a result, therefore, consequently). Example: The boat hit a big rock; as a result, water is coming in. Use cause-and-effect linkers to show relationships between ideas: because, since (to show a reason), so, therefore, consequently, as a result (to show an effect).",
             instructionsAr: "استخدم الأسباب والنتائج من التمرين 4 لتكتب جملًا كاملة، مستخدمًا أدوات الربط: because, so, since, as a result, therefore, consequently.",
             items: [
               {
@@ -6056,7 +6057,7 @@ BOOK.addUnit({
               examples: ["{o:Machboos} {a:is} {v:made} with rice, meat, and spices.", "{o:Tomatoes} {a:were} {v:added} to pasta in the 1800s."]
             },
             {
-              title: "Present Simple Passive",
+              title: "How is the passive formed? Present Simple Passive",
               text: "Present Simple Passive: am/is/are + past participle",
               textAr: "المبني للمجهول في المضارع البسيط: am / is / are + التصريف الثالث للفعل.",
               examples: ["- {o:Machboos} {a:is} {v:served} on big plates."]
@@ -6096,6 +6097,7 @@ BOOK.addUnit({
             }
           ],
           table: {
+            source: "extra",
             head: ["", "Active", "Passive"],
             rows: [
               ["Present simple", "{s:We} {v:eat} {o:Machboos} with daqous.", "{o:Machboos} {a:is} {v:eaten} with daqous."],
@@ -6499,7 +6501,7 @@ BOOK.addUnit({
           instructions: "Listen carefully to these words. Which syllable is stressed? Examples from the book: HIStory, hisTORical.",
           instructionsAr: "استمع جيدًا إلى الكلمات وحدّد المقطع المنبور (الذي نضغط عليه) في كل كلمة.",
           items: [
-            { t: "choose", q: "technology", options: ["tech", "nol", "o", "gy"], answer: 1, keyed: true, why: "tech-NOL-o-gy (the answer key does not mark this word; this is the dictionary stress)." },
+            { t: "choose", q: "technology", options: ["tech", "nol", "o", "gy"], answer: 1, keyed: true, why: "tech-NOL-o-gy. (The answer key does not mark it in the table; it underlines “nol” in “technology” in question 2b.)" },
             { t: "choose", q: "ingredients", options: ["in", "gre", "di", "ents"], answer: 1, keyed: true, why: "in-GRE-di-ents" },
             { t: "choose", q: "expensive", options: ["ex", "pen", "sive"], answer: 1, keyed: true, why: "ex-PEN-sive" },
             { t: "choose", q: "cheesecake", options: ["cheese", "cake"], answer: 0, keyed: true, why: "CHEESE-cake" },
@@ -6547,7 +6549,7 @@ BOOK.addUnit({
           "The recordings are not in this app: play them from the book (track 3.2 for ex. 2, track 3.3 for the pronunciation, QR codes on page 52).",
           "Ex. 2 (answer key): a. Layer by layer. b. People with food allergies.",
           "Ex. 3 Debate: two teams (Team Yes / Team No), 2–3 reasons each, a spokesperson, 1–2 minutes each, 1 minute to respond; the class decides which team had the stronger argument.",
-          "Ex. 4 stress (answer key): in-GRE-di-ents, ex-PEN-sive, CHEESE-cake, VEG-e-ta-bles, ex-PLORE, STRAW-ber-ry, nu-TRI-tion. The book’s examples: HIS-to-ry, his-TOR-i-cal. The answer key leaves “technology” unmarked: tech-NOL-o-gy."
+          "Ex. 4 stress (answer key): in-GRE-di-ents, ex-PEN-sive, CHEESE-cake, VEG-e-ta-bles, ex-PLORE, STRAW-ber-ry, nu-TRI-tion. The book’s examples: HIS-to-ry, his-TOR-i-cal. The answer key leaves “technology” unmarked in the table, but underlines “nol” in “technology” in question 2b: tech-NOL-o-gy (also the dictionary stress)."
         ],
         pair: ["Stress practice (4b): A says a word, B claps on the stressed syllable.", "A gives a reason for Team Yes; B answers for Team No with “I disagree because…”."],
         group: ["Debate Activity: Team Yes vs Team No with spokespeople and note-takers."],
@@ -6668,7 +6670,7 @@ BOOK.addUnit({
           instructionsAr: "أجب عن الأسئلة، ثم قارن إجابتك بالإجابة المقترحة.",
           image: "crops/u3l5-cooking.jpg",
           items: [
-            { t: "short", q: "1. What are the benefits of cooking at home?", model: "Homemade meals are healthier and cheaper, and you can control what ingredients you use.", keywords: [["healthier", "cheaper", "control"]], hint: "Paragraph 1: “More families cook at home because …”" },
+            { t: "short", q: "1. What are the benefits of cooking at home?", model: "Homemade meals are healthier and cheaper, and you can control what ingredients you use.", keywords: [["health", "cheap", "control"]], hint: "Paragraph 1: “More families cook at home because …”" },
             { t: "short", q: "2. Why are organic foods becoming more popular?", model: "Because they are grown without harmful chemicals.", keywords: [["chemical"]], hint: "Read the last sentence of paragraph 1." },
             { t: "short", q: "3. How can food labels help people make better choices?", model: "They help people choose food items with less sugar, salt, or fat.", keywords: [["sugar", "salt", "fat"]], hint: "Paragraph 2: People are reading food labels and choosing …" },
             { t: "short", q: "4. What is the purpose of the writer in writing this passage?", model: "To inform readers about healthy eating and new food trends.", keywords: [["inform", "explain", "tell", "teach", "give information"]], hint: "Does the writer tell a story, sell something or give information?" }
@@ -6815,8 +6817,7 @@ BOOK.addUnit({
             {
               title: "Some adjectives do not follow regular rules",
               text: "good → better → the best; bad → worse → the worst; little → less → the least; much / many → more → the most; far → farther / further → the farthest / the furthest.",
-              textAr: "بعض الصفات لا تتبع القواعد: good و bad و little و much / many و far لها صيغ خاصة (انظر الجدول).",
-              examples: ["Fruit is {x:the best} snack.", "Fried chips are {x:the worst}."]
+              textAr: "بعض الصفات لا تتبع القواعد: good و bad و little و much / many و far لها صيغ خاصة (انظر الجدول)."
             },
             {
               title: "less … than / the least …",
@@ -6855,7 +6856,7 @@ BOOK.addUnit({
             steps: ["We compare two things (train and bus) and there is “than” → comparative.", "comfortable has more than two syllables (com-for-ta-ble).", "Long adjectives use more: more comfortable."],
             a: "Travelling by train is {x:more} comfortable {c:than} travelling by bus."
           },
-          notes: ["The book’s table of irregular adjectives has no column headings; the headings are added here.", "Steps 6–8 are extra help, not in the book."]
+          notes: ["The table shows the book’s irregular adjectives. The column headings (Adjective, Comparative, Superlative) are added by the app; they are not in the book.", "Steps 6–8 and the worked example are extra help, not in the book."]
         },
         {
           type: "activity",
@@ -6879,8 +6880,8 @@ BOOK.addUnit({
           instructions: "Write the correct form of the adjective in brackets.",
           instructionsAr: "اكتب الصيغة الصحيحة للصفة التي بين القوسين.",
           items: [
-            { t: "fill", q: "1. That was the ____ (exciting) movie I’ve ever seen!", answer: ["most exciting", "least exciting"], hint: "“the” + “I’ve ever seen” → superlative. exciting is a long adjective.", why: "Long adjective → the most + adj: the most exciting." },
-            { t: "fill", q: "2. Travelling by train is ____ (comfortable) than travelling by bus.", answer: ["more comfortable", "less comfortable"], hint: "“than” → comparative. comfortable is a long adjective.", why: "Long adjective → more + adj + than: more comfortable than." }
+            { t: "fill", q: "1. That was the ____ (exciting) movie I’ve ever seen!", answer: ["most exciting", "least exciting"], hint: "“the” + “I’ve ever seen” → superlative. exciting is a long adjective.", why: "Long adjective → the most + adj: the most exciting. (“the least exciting” is also correct: see Use more/most or less/least.)" },
+            { t: "fill", q: "2. Travelling by train is ____ (comfortable) than travelling by bus.", answer: ["more comfortable", "less comfortable"], hint: "“than” → comparative. comfortable is a long adjective.", why: "Long adjective → more + adj + than: more comfortable than. (“less comfortable” is also correct: see Use more/most or less/least.)" }
           ]
         },
         {
@@ -6921,7 +6922,7 @@ BOOK.addUnit({
           source: "book",
           instructions: "Use: At least 2 comparatives. At least 2 superlatives.",
           wordBankLabel: "Sentence Starters",
-          wordBank: ["I think smoothies are healthier than ...", "The most delicious smoothie I’ve tried is made with...", "the best", "the worst", "tastier than"],
+          wordBank: ["I think smoothies are healthier than ...", "The most delicious smoothie I’ve tried is made with..."],
           frame: [
             { label: "Sentence 1", hint: "I think … are healthier than …" },
             { label: "Sentence 2", hint: "… are tastier / more delicious than …" },
@@ -7217,7 +7218,7 @@ BOOK.addUnit({
         { w: "instead", pos: "adverb", emoji: "🔄", def: "in the place of something else", ex: "Instead, it means using fewer things, spending less money, and being more thoughtful about how we live.", exFromBook: true, ar: "بدلًا من ذلك" },
         { w: "thoughtful", pos: "adjective", emoji: "💭", def: "thinking carefully about things", ex: "Instead, it means using fewer things, spending less money, and being more thoughtful about how we live.", exFromBook: true, ar: "متأنٍّ / يفكّر بعناية" },
         { w: "benefit", pos: "verb", emoji: "👍", def: "to be good or useful for someone or something", ex: "Additionally, they may choose to buy fewer clothes, which not only helps them save money but also benefits the environment.", exFromBook: true, ar: "يفيد / ينفع" },
-        { w: "conserve", pos: "verb", emoji: "💧", def: "to use something carefully so as not to use it all", ex: "Furthermore, adopting this lifestyle can include eating local food and making an effort to conserve water and electricity.", exFromBook: true, ar: "يحافظ على / يرشّد استهلاك" },
+        { w: "conserve", pos: "verb", emoji: "💧", def: "to use something carefully so as not to use it all", ex: "Furthermore, adopting this lifestyle can include eating local food and making an effort to conserve water and electricity.", exFromBook: true, ar: "يحافظ على / يقتصد في" },
         { w: "gadget", pos: "noun", emoji: "📱", def: "a small device, often a machine or electronic item", ex: "Rather than spending money on the newest gadgets or fashionable clothes, many people choose to invest in important things such as healthy food, education, and valuable experiences.", exFromBook: true, ar: "جهاز صغير / أداة إلكترونية" },
         { w: "valuable", pos: "adjective", emoji: "💎", def: "very useful or important", ex: "Many people choose to invest in important things such as healthy food, education, and valuable experiences.", exFromBook: true, ar: "قيّم / ثمين" },
         { w: "frankly", pos: "adverb", emoji: "🗣️", def: "honestly; saying what you really think", ex: "Frankly, each small step brings us closer to a simpler and more balanced life.", exFromBook: true, ar: "بصراحة" },
@@ -7322,15 +7323,15 @@ BOOK.addUnit({
           title: "Extra Practice: Check your predictions",
           source: "extra",
           stage: "guided",
-          instructions: "Look at your ideas from Before You Read. Is each idea in the passage?",
-          instructionsAr: "عُد إلى توقّعاتك قبل القراءة: هل كل فكرة موجودة في النص؟",
+          instructions: "Look at your ideas from Before You Read. Does the passage say that each idea is part of simple living?",
+          instructionsAr: "عُد إلى توقّعاتك قبل القراءة: هل يذكر النص أن كل فكرة جزء من الحياة البسيطة؟",
           items: [
-            { t: "mcq", q: "Buying more things", options: ["Yes, it is in the passage.", "No, it is not."], answer: 1, hint: "Paragraph 1: “using fewer things”.", why: "Simple living means using fewer things, not buying more." },
-            { t: "mcq", q: "Reducing screen time", options: ["Yes, it is in the passage.", "No, it is not."], answer: 0, hint: "Paragraph 3.", why: "“… some people reduce their screen time to enjoy family moments …”" },
-            { t: "mcq", q: "Eating out at restaurants", options: ["Yes, it is in the passage.", "No, it is not."], answer: 1, hint: "Paragraph 3: “cook meals at home rather than eating out”.", why: "People cook at home rather than eating out." },
-            { t: "mcq", q: "Saving water and electricity", options: ["Yes, it is in the passage.", "No, it is not."], answer: 0, hint: "Paragraph 2, last sentence.", why: "“… making an effort to conserve water and electricity.”" },
-            { t: "mcq", q: "Spending more time with family", options: ["Yes, it is in the passage.", "No, it is not."], answer: 0, hint: "Paragraph 3.", why: "“… to enjoy family moments …”" },
-            { t: "mcq", q: "Helping the environment", options: ["Yes, it is in the passage.", "No, it is not."], answer: 0, hint: "Paragraph 2.", why: "“… others are motivated by a desire to protect the environment.”" }
+            { t: "mcq", q: "Buying more things", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 1, hint: "Paragraph 1: “using fewer things”.", why: "Simple living means using fewer things, not buying more." },
+            { t: "mcq", q: "Reducing screen time", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 0, hint: "Paragraph 3.", why: "“… some people reduce their screen time to enjoy family moments …”" },
+            { t: "mcq", q: "Eating out at restaurants", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 1, hint: "Paragraph 3: “cook meals at home rather than eating out”.", why: "The passage says many people cook meals at home rather than eating out." },
+            { t: "mcq", q: "Saving water and electricity", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 0, hint: "Paragraph 2, last sentence.", why: "“… making an effort to conserve water and electricity.”" },
+            { t: "mcq", q: "Spending more time with family", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 0, hint: "Paragraph 3.", why: "“… some people reduce their screen time to enjoy family moments …”" },
+            { t: "mcq", q: "Helping the environment", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 0, hint: "Paragraph 2.", why: "“… others are motivated by a desire to protect the environment.” Buying fewer clothes “also benefits the environment”." }
           ]
         },
         {
@@ -8242,11 +8243,11 @@ BOOK.addUnit({
                 ["4 (Sara)", { answer: ["little", "a little"], model: "little" }, { answer: ["time"], model: "time" }, { answer: ["U"], model: "U" }],
                 ["5 (Nora)", { answer: ["many"], model: "many" }, { answer: ["accounts"], model: "accounts" }, { answer: ["C"], model: "C" }],
                 ["6 (Sara)", { answer: ["few"], model: "few" }, { answer: ["students"], model: "students" }, { answer: ["C"], model: "C" }],
-                ["7 (Nora)", { answer: ["some, any", "some and any", "some any", "some / any", "some/any", "some,any", "any, some", "any and some"], model: "some, any" }, { answer: ["plans"], model: "plans" }, { answer: ["C"], model: "C" }]
+                ["7 (Nora)", { answer: ["some, any", "some and any", "some any", "some / any", "some/any", "some,any", "any, some", "any and some", "any"], model: "some, any" }, { answer: ["plans"], model: "plans" }, { answer: ["C"], model: "C" }]
               ],
               hint: "Can you count it? one snack, two snacks → C. one money, two moneys ✗ → U.",
               why: "much money (U), some snacks (C), any offers (C), a little time (U), many accounts (C), few students (C), some of them … any plans (C).",
-              note: "Line 7 has two quantifiers. Write both, with a comma between them (e.g. much, many)."
+              note: "Line 7 has two quantifiers: some (in “some of them”) and any. Only any has a noun right after it (plans). You can write both with a comma: some, any."
             }
           ]
         },
@@ -8543,6 +8544,761 @@ BOOK.addUnit({
     }
   ]
 });
+BOOK.glossaryNote = "The new words from every lesson. The short meanings are added to help you; they are not printed in the book.";
+BOOK.glossary = [
+  {
+    "w": "access",
+    "pos": "noun",
+    "unit": 2,
+    "page": 34,
+    "def": "the chance or the right to use or enter something",
+    "defExtra": true
+  },
+  {
+    "w": "accurate",
+    "pos": "adjective",
+    "unit": 2,
+    "page": 39,
+    "def": "correct and true in every detail",
+    "defExtra": true
+  },
+  {
+    "w": "aromatic",
+    "pos": "adjective",
+    "unit": 3,
+    "page": 48,
+    "def": "having a strong, nice smell",
+    "defExtra": true
+  },
+  {
+    "w": "assist",
+    "pos": "verb",
+    "unit": 2,
+    "page": 39,
+    "def": "to help",
+    "defExtra": true
+  },
+  {
+    "w": "balanced",
+    "pos": "adjective",
+    "unit": 4,
+    "page": 62,
+    "def": "with the right amount of different things",
+    "defExtra": true
+  },
+  {
+    "w": "benefit",
+    "pos": "verb",
+    "unit": 4,
+    "page": 62,
+    "def": "to be good or useful for someone or something",
+    "defExtra": true
+  },
+  {
+    "w": "casually",
+    "pos": "adverb",
+    "unit": 2,
+    "page": 34,
+    "def": "in a relaxed way, without thinking carefully",
+    "defExtra": true
+  },
+  {
+    "w": "cautious",
+    "pos": "adjective",
+    "unit": 2,
+    "page": 34,
+    "def": "careful to avoid danger or problems",
+    "defExtra": true
+  },
+  {
+    "w": "claim",
+    "pos": "verb",
+    "unit": 2,
+    "page": 34,
+    "def": "to say that something is true, although it may not be",
+    "defExtra": true
+  },
+  {
+    "w": "commonly",
+    "pos": "adverb",
+    "unit": 3,
+    "page": 48,
+    "def": "usually; by many people",
+    "defExtra": true
+  },
+  {
+    "w": "complex",
+    "pos": "adjective",
+    "unit": 2,
+    "page": 39,
+    "def": "difficult, with many different parts",
+    "defExtra": true
+  },
+  {
+    "w": "conserve",
+    "pos": "verb",
+    "unit": 4,
+    "page": 62,
+    "def": "to use something carefully so as not to use it all",
+    "defExtra": true
+  },
+  {
+    "w": "considerably",
+    "pos": "adverb",
+    "unit": 3,
+    "page": 53,
+    "def": "a lot; very much",
+    "defExtra": true
+  },
+  {
+    "w": "consistently",
+    "pos": "adverb",
+    "unit": 1,
+    "page": 25,
+    "def": "always in the same way, again and again",
+    "defExtra": true
+  },
+  {
+    "w": "consumption",
+    "pos": "noun",
+    "unit": 4,
+    "page": 67,
+    "def": "the amount of something that people use or buy",
+    "defExtra": true
+  },
+  {
+    "w": "curious",
+    "pos": "adjective",
+    "unit": 1,
+    "page": 20,
+    "def": "wanting to know or learn about things",
+    "defExtra": true
+  },
+  {
+    "w": "customer",
+    "pos": "noun",
+    "unit": 2,
+    "page": 39,
+    "def": "a person who buys things or uses a service",
+    "defExtra": true
+  },
+  {
+    "w": "discard",
+    "pos": "verb",
+    "unit": 4,
+    "page": 67,
+    "def": "to throw something away",
+    "defExtra": true
+  },
+  {
+    "w": "disposable",
+    "pos": "adjective",
+    "unit": 4,
+    "page": 67,
+    "def": "made to be used once and then thrown away",
+    "defExtra": true
+  },
+  {
+    "w": "distinctive",
+    "pos": "adjective",
+    "unit": 3,
+    "page": 48,
+    "def": "special and easy to recognise; different from others",
+    "defExtra": true
+  },
+  {
+    "w": "donate",
+    "pos": "verb",
+    "unit": 4,
+    "page": 67,
+    "def": "to give something to people who need it",
+    "defExtra": true
+  },
+  {
+    "w": "efficient",
+    "pos": "adjective",
+    "unit": 2,
+    "page": 39,
+    "def": "working well and quickly without wasting time",
+    "defExtra": true
+  },
+  {
+    "w": "efficiently",
+    "pos": "adverb",
+    "unit": 1,
+    "page": 25,
+    "def": "in a good way, without wasting time or energy",
+    "defExtra": true
+  },
+  {
+    "w": "embrace",
+    "pos": "verb",
+    "unit": 3,
+    "page": 48,
+    "def": "to accept something and be happy to have it",
+    "defExtra": true
+  },
+  {
+    "w": "energetic",
+    "pos": "adjective",
+    "unit": 3,
+    "page": 53,
+    "def": "full of energy; active",
+    "defExtra": true
+  },
+  {
+    "w": "equally",
+    "pos": "adverb",
+    "unit": 1,
+    "page": 25,
+    "def": "to the same level; as much as each other",
+    "defExtra": true
+  },
+  {
+    "w": "evaluate",
+    "pos": "verb",
+    "unit": 2,
+    "page": 39,
+    "def": "to think carefully about something and decide how good or serious it is",
+    "defExtra": true
+  },
+  {
+    "w": "expedition",
+    "pos": "noun",
+    "unit": 1,
+    "page": 20,
+    "def": "a long, organised journey to a far or difficult place",
+    "defExtra": true
+  },
+  {
+    "w": "expense",
+    "pos": "noun",
+    "unit": 4,
+    "page": 67,
+    "def": "money that you spend on something",
+    "defExtra": true
+  },
+  {
+    "w": "explorer",
+    "pos": "noun",
+    "unit": 1,
+    "page": 20,
+    "def": "a person who travels to new or unknown places to learn about them",
+    "defExtra": true
+  },
+  {
+    "w": "fake",
+    "pos": "adjective",
+    "unit": 2,
+    "page": 34,
+    "def": "not real; made to trick people",
+    "defExtra": true
+  },
+  {
+    "w": "fibre",
+    "pos": "noun",
+    "unit": 3,
+    "page": 53,
+    "def": "the part of plant food that helps your stomach work well",
+    "defExtra": true
+  },
+  {
+    "w": "flavour",
+    "pos": "noun",
+    "unit": 3,
+    "page": 48,
+    "def": "the taste of a food",
+    "defExtra": true
+  },
+  {
+    "w": "focus",
+    "pos": "verb",
+    "unit": 4,
+    "page": 62,
+    "def": "to give most of your attention to one thing",
+    "defExtra": true
+  },
+  {
+    "w": "frankly",
+    "pos": "adverb",
+    "unit": 4,
+    "page": 62,
+    "def": "honestly; saying what you really think",
+    "defExtra": true
+  },
+  {
+    "w": "fulfil",
+    "pos": "verb",
+    "unit": 1,
+    "page": 20,
+    "def": "to do or finish something that you wanted or needed to do",
+    "defExtra": true
+  },
+  {
+    "w": "gadget",
+    "pos": "noun",
+    "unit": 4,
+    "page": 62,
+    "def": "a small device, often a machine or electronic item",
+    "defExtra": true
+  },
+  {
+    "w": "genuinely",
+    "pos": "adverb",
+    "unit": 2,
+    "page": 39,
+    "def": "really; truly",
+    "defExtra": true
+  },
+  {
+    "w": "give up",
+    "pos": "phrasal verb",
+    "unit": 1,
+    "page": 25,
+    "def": "to stop trying to do something",
+    "defExtra": true
+  },
+  {
+    "w": "harmful",
+    "pos": "adjective",
+    "unit": 3,
+    "page": 53,
+    "def": "causing damage or making you ill",
+    "defExtra": true
+  },
+  {
+    "w": "highlight",
+    "pos": "verb",
+    "unit": 1,
+    "page": 20,
+    "def": "to show that something is important; to make people notice it",
+    "defExtra": true
+  },
+  {
+    "w": "homemade",
+    "pos": "adjective",
+    "unit": 3,
+    "page": 53,
+    "def": "made at home, not in a shop or factory",
+    "defExtra": true
+  },
+  {
+    "w": "implement",
+    "pos": "verb",
+    "unit": 2,
+    "page": 39,
+    "def": "to put a plan into action",
+    "defExtra": true
+  },
+  {
+    "w": "increasingly",
+    "pos": "adverb",
+    "unit": 2,
+    "page": 39,
+    "def": "more and more",
+    "defExtra": true
+  },
+  {
+    "w": "ingredient",
+    "pos": "noun",
+    "unit": 3,
+    "page": 48,
+    "def": "one of the foods you use to make a dish",
+    "defExtra": true
+  },
+  {
+    "w": "inspire",
+    "pos": "verb",
+    "unit": 1,
+    "page": 20,
+    "def": "to make someone want to do something good",
+    "defExtra": true
+  },
+  {
+    "w": "install",
+    "pos": "verb",
+    "unit": 2,
+    "page": 34,
+    "def": "to put a program on a computer or phone so that you can use it",
+    "defExtra": true
+  },
+  {
+    "w": "instead",
+    "pos": "adverb",
+    "unit": 4,
+    "page": 62,
+    "def": "in the place of something else",
+    "defExtra": true
+  },
+  {
+    "w": "judgement",
+    "pos": "noun",
+    "unit": 2,
+    "page": 39,
+    "def": "the ability to think about something and make a good decision",
+    "defExtra": true
+  },
+  {
+    "w": "label",
+    "pos": "noun",
+    "unit": 3,
+    "page": 53,
+    "def": "a piece of paper on a package that gives information about it",
+    "defExtra": true
+  },
+  {
+    "w": "maintain",
+    "pos": "verb",
+    "unit": 3,
+    "page": 53,
+    "def": "to keep something in good condition",
+    "defExtra": true
+  },
+  {
+    "w": "merely",
+    "pos": "adverb",
+    "unit": 1,
+    "page": 25,
+    "def": "only; just",
+    "defExtra": true
+  },
+  {
+    "w": "mindful",
+    "pos": "adjective",
+    "unit": 4,
+    "page": 67,
+    "def": "thinking carefully about what you do",
+    "defExtra": true
+  },
+  {
+    "w": "mindset",
+    "pos": "noun",
+    "unit": 1,
+    "page": 25,
+    "def": "a person’s way of thinking about things",
+    "defExtra": true
+  },
+  {
+    "w": "minimise",
+    "pos": "verb",
+    "unit": 4,
+    "page": 67,
+    "def": "to make something as small as possible",
+    "defExtra": true
+  },
+  {
+    "w": "necessarily",
+    "pos": "adverb",
+    "unit": 4,
+    "page": 62,
+    "def": "always; in every case (often with “not”)",
+    "defExtra": true
+  },
+  {
+    "w": "obviously",
+    "pos": "adverb",
+    "unit": 3,
+    "page": 53,
+    "def": "in a way that is easy to see or understand",
+    "defExtra": true
+  },
+  {
+    "w": "occasion",
+    "pos": "noun",
+    "unit": 3,
+    "page": 48,
+    "def": "a special event or celebration",
+    "defExtra": true
+  },
+  {
+    "w": "organic",
+    "pos": "adjective",
+    "unit": 3,
+    "page": 53,
+    "def": "grown without chemicals",
+    "defExtra": true
+  },
+  {
+    "w": "packaging",
+    "pos": "noun",
+    "unit": 4,
+    "page": 67,
+    "def": "the box, paper or plastic that a product comes in",
+    "defExtra": true
+  },
+  {
+    "w": "phishing",
+    "pos": "noun",
+    "unit": 2,
+    "page": 34,
+    "def": "tricking people online to get their passwords or personal information",
+    "defExtra": true
+  },
+  {
+    "w": "positive",
+    "pos": "adjective",
+    "unit": 1,
+    "page": 25,
+    "def": "hopeful and thinking about the good things",
+    "defExtra": true
+  },
+  {
+    "w": "preserve",
+    "pos": "verb",
+    "unit": 4,
+    "page": 67,
+    "def": "to keep something safe so it is not lost or damaged",
+    "defExtra": true
+  },
+  {
+    "w": "produce",
+    "pos": "noun",
+    "unit": 3,
+    "page": 53,
+    "def": "fruit and vegetables that farmers grow",
+    "defExtra": true
+  },
+  {
+    "w": "progress",
+    "pos": "noun",
+    "unit": 1,
+    "page": 25,
+    "def": "the act of getting better or moving towards a goal",
+    "defExtra": true
+  },
+  {
+    "w": "proudly",
+    "pos": "adverb",
+    "unit": 1,
+    "page": 20,
+    "def": "in a way that shows you feel happy about something good",
+    "defExtra": true
+  },
+  {
+    "w": "raw",
+    "pos": "adjective",
+    "unit": 3,
+    "page": 48,
+    "def": "not cooked",
+    "defExtra": true
+  },
+  {
+    "w": "recipe",
+    "pos": "noun",
+    "unit": 3,
+    "page": 48,
+    "def": "instructions that tell you how to cook a dish",
+    "defExtra": true
+  },
+  {
+    "w": "reflect",
+    "pos": "verb",
+    "unit": 3,
+    "page": 48,
+    "def": "to show what something is like",
+    "defExtra": true
+  },
+  {
+    "w": "reject",
+    "pos": "verb",
+    "unit": 2,
+    "page": 34,
+    "def": "to refuse to accept something",
+    "defExtra": true
+  },
+  {
+    "w": "remain",
+    "pos": "verb",
+    "unit": 1,
+    "page": 25,
+    "def": "to stay; to continue to be",
+    "defExtra": true
+  },
+  {
+    "w": "remarkable",
+    "pos": "adjective",
+    "unit": 1,
+    "page": 20,
+    "def": "unusual and very good, so people notice it",
+    "defExtra": true
+  },
+  {
+    "w": "replace",
+    "pos": "verb",
+    "unit": 2,
+    "page": 39,
+    "def": "to take the place of someone or something",
+    "defExtra": true
+  },
+  {
+    "w": "represent",
+    "pos": "verb",
+    "unit": 1,
+    "page": 20,
+    "def": "to act or speak for a group or a country",
+    "defExtra": true
+  },
+  {
+    "w": "responsibly",
+    "pos": "adverb",
+    "unit": 4,
+    "page": 67,
+    "def": "in a careful and sensible way",
+    "defExtra": true
+  },
+  {
+    "w": "scam",
+    "pos": "noun",
+    "unit": 2,
+    "page": 34,
+    "def": "a dishonest plan to trick people and take their money or information",
+    "defExtra": true
+  },
+  {
+    "w": "security",
+    "pos": "noun",
+    "unit": 2,
+    "page": 34,
+    "def": "protection from danger or attack",
+    "defExtra": true
+  },
+  {
+    "w": "seriously",
+    "pos": "adverb",
+    "unit": 2,
+    "page": 34,
+    "def": "in a careful way, because something is important",
+    "defExtra": true
+  },
+  {
+    "w": "serve",
+    "pos": "verb",
+    "unit": 3,
+    "page": 48,
+    "def": "to give food or drink to people at a meal",
+    "defExtra": true
+  },
+  {
+    "w": "software",
+    "pos": "noun",
+    "unit": 2,
+    "page": 39,
+    "def": "the programs that make a computer or phone work",
+    "defExtra": true
+  },
+  {
+    "w": "source",
+    "pos": "noun",
+    "unit": 3,
+    "page": 53,
+    "def": "a place or thing that something comes from",
+    "defExtra": true
+  },
+  {
+    "w": "survive",
+    "pos": "verb",
+    "unit": 1,
+    "page": 20,
+    "def": "to stay alive in or after a dangerous situation",
+    "defExtra": true
+  },
+  {
+    "w": "symbol",
+    "pos": "noun",
+    "unit": 3,
+    "page": 48,
+    "def": "something that represents an idea or a group of people",
+    "defExtra": true
+  },
+  {
+    "w": "talent",
+    "pos": "noun",
+    "unit": 1,
+    "page": 20,
+    "def": "a natural ability to do something well",
+    "defExtra": true
+  },
+  {
+    "w": "thoughtful",
+    "pos": "adjective",
+    "unit": 4,
+    "page": 62,
+    "def": "thinking carefully about things",
+    "defExtra": true
+  },
+  {
+    "w": "tough",
+    "pos": "adjective",
+    "unit": 1,
+    "page": 25,
+    "def": "difficult",
+    "defExtra": true
+  },
+  {
+    "w": "trait",
+    "pos": "noun",
+    "unit": 1,
+    "page": 25,
+    "def": "a quality that is part of a person’s character",
+    "defExtra": true
+  },
+  {
+    "w": "trust",
+    "pos": "verb",
+    "unit": 1,
+    "page": 25,
+    "def": "to believe that something is true or will happen",
+    "defExtra": true
+  },
+  {
+    "w": "uneasy",
+    "pos": "adjective",
+    "unit": 2,
+    "page": 34,
+    "def": "worried and not comfortable",
+    "defExtra": true
+  },
+  {
+    "w": "update",
+    "pos": "verb",
+    "unit": 2,
+    "page": 34,
+    "def": "to change something to make it new or more modern",
+    "defExtra": true
+  },
+  {
+    "w": "valuable",
+    "pos": "adjective",
+    "unit": 4,
+    "page": 62,
+    "def": "very useful or important",
+    "defExtra": true
+  },
+  {
+    "w": "variety",
+    "pos": "noun",
+    "unit": 3,
+    "page": 48,
+    "def": "many different kinds of something",
+    "defExtra": true
+  },
+  {
+    "w": "wasteful",
+    "pos": "adjective",
+    "unit": 4,
+    "page": 67,
+    "def": "using more of something than you need",
+    "defExtra": true
+  },
+  {
+    "w": "will",
+    "pos": "noun",
+    "unit": 1,
+    "page": 20,
+    "def": "a strong wish to do something, even when it is hard",
+    "defExtra": true
+  }
+];
 BOOK.labs = Object.assign(BOOK.labs || {}, /* @__PURE__ */ function() {
   const NAMES = ["Fahad", "Ali", "Sara", "Laila", "Hanan"];
   const low = (s) => s === "I" || NAMES.indexOf(s) >= 0 ? s : s.charAt(0).toLowerCase() + s.slice(1);
@@ -8621,15 +9377,16 @@ BOOK.labs = Object.assign(BOOK.labs || {}, /* @__PURE__ */ function() {
               noteAr: "النفي في الماضي المستمر: " + be + " + not = " + neg + "، ويبقى الحدث القصير في الماضي البسيط."
             };
           }
-          const qs = st.subj === "I" ? "you" : low(st.subj), qbe = st.subj === "I" ? "were" : be;
+          const toYou = st.subj === "I" || st.subj === "We";
+          const qs = toYou ? "you" : low(st.subj), qbe = toYou ? "were" : be;
           if (st.form === "yn") {
             return {
               s: "{a:" + cap(qbe) + "} {s:" + qs + "} " + longPart + " {c:when} " + shortPart + "?",
               badge: "? Was / Were + subject + verb-ing?",
               badgeKind: "future",
               rule: "{a:Was / Were} + {s:subject} + {v:verb-ing} … {c:when} + {v:past simple}?",
-              note: "Yes/No question: " + cap(qbe) + " comes before the subject, then " + L[0] + ". The shorter action stays in the past simple: " + E[1] + "." + (st.subj === "I" ? " We ask other people, so I → you." : ""),
-              noteAr: "في سؤال Yes/No نضع " + qbe + " قبل الفاعل ثم الفعل مع ing، ويبقى الحدث القصير في الماضي البسيط." + (st.subj === "I" ? " نسأل غيرنا، لذلك نقول you بدل I." : "")
+              note: "Yes/No question: " + cap(qbe) + " comes before the subject, then " + L[0] + ". The shorter action stays in the past simple: " + E[1] + "." + (toYou ? " We ask other people, so " + st.subj + " → you." : ""),
+              noteAr: "في سؤال Yes/No نضع " + qbe + " قبل الفاعل ثم الفعل مع ing، ويبقى الحدث القصير في الماضي البسيط." + (toYou ? " نسأل غيرنا، لذلك نقول you بدل " + st.subj + "." : "")
             };
           }
           return {
@@ -8637,17 +9394,17 @@ BOOK.labs = Object.assign(BOOK.labs || {}, /* @__PURE__ */ function() {
             badge: "? What + was / were + subject + doing?",
             badgeKind: "future",
             rule: "{q:What} + {a:was / were} + {s:subject} + {v:doing} + {c:when} + {v:past simple}?",
-            note: "Ask about the longer action with What + " + qbe + " + " + qs + " + doing. The shorter action stays in the past simple: " + E[1] + "." + (st.subj === "I" ? " We ask other people, so I → you." : ""),
-            noteAr: "نسأل عن الحدث الطويل بـ What + " + qbe + " + الفاعل + doing، ويبقى الحدث القصير في الماضي البسيط." + (st.subj === "I" ? " نسأل غيرنا، لذلك نقول you بدل I." : "")
+            note: "Ask about the longer action with What + " + qbe + " + " + qs + " + doing. The shorter action stays in the past simple: " + E[1] + "." + (toYou ? " We ask other people, so " + st.subj + " → you." : ""),
+            noteAr: "نسأل عن الحدث الطويل بـ What + " + qbe + " + الفاعل + doing، ويبقى الحدث القصير في الماضي البسيط." + (toYou ? " نسأل غيرنا، لذلك نقول you بدل " + st.subj + "." : "")
           };
         }
       },
       predict: {
         q: "While Ali ____ up the mountain, the others were taking photos.",
-        options: ["climbed", "was climbing", "were climbing"],
+        options: ["climbs", "was climbing", "were climbing"],
         answer: 1,
         reveal: "{c:While} {s:Ali} {a:was} {v:climbing} up the mountain, {s:the others} {a:were} {v:taking} photos.",
-        mistake: "Common mistake: using the past simple for an action that was in progress.",
+        mistake: "Common mistake: using the wrong tense, or using were with one person.",
         why: "Two actions were happening at the same time, so both are in the past continuous. Ali = he, so we use was: was climbing.",
         whyAr: "كان الحدثان يحدثان في الوقت نفسه، لذلك نستخدم الماضي المستمر في الاثنين، و Ali مفرد فنستخدم was."
       }
@@ -9037,13 +9794,13 @@ BOOK.labs = Object.assign(BOOK.labs || {}, /* @__PURE__ */ function() {
         }
       },
       predict: {
-        q: "That was ____ movie I’ve ever seen!",
-        options: ["the excitingest", "the most exciting", "more exciting"],
+        q: "Sushi is ____ dish in this restaurant.",
+        options: ["the expensivest", "the most expensive", "more expensive"],
         answer: 1,
-        reveal: "That was {x:the most} {v:exciting} movie I’ve ever seen!",
+        reveal: "Sushi is {x:the most} {v:expensive} dish in this restaurant.",
         mistake: "Common mistake: adding -est to a long adjective.",
-        why: "“I’ve ever seen” compares this movie with all the others → superlative. exciting has three syllables, so we use the most: the most exciting.",
-        whyAr: "عبارة I’ve ever seen تقارن هذا الفيلم بكل الأفلام، فنستخدم صيغة التفضيل. والصفة exciting طويلة (ثلاثة مقاطع) فنستخدم the most."
+        why: "We compare sushi with all the dishes in the restaurant → superlative. expensive has three syllables, so we use the most: the most expensive.",
+        whyAr: "نقارن السوشي بكل الأطباق في المطعم، فنستخدم صيغة التفضيل. والصفة expensive طويلة (ثلاثة مقاطع) فنستخدم the most."
       }
     }
   };
@@ -10557,6 +11314,8 @@ BOOK.labs = Object.assign(BOOK.labs || {}, /* @__PURE__ */ function() {
         let lm = 0, mm;
         vm.lastIndex = 0;
         while (mm = vm.exec(sg.t)) {
+          const sv = findVocab(l, mm[0]);
+          if (sv && sv.skip && sv.skip.some((ph) => sg.t.slice(mm.index, mm.index + ph.length).toLowerCase() === ph.toLowerCase())) continue;
           if (mm.index > lm) pieces.push({ t: sg.t.slice(lm, mm.index) });
           pieces.push({ t: mm[0], v: 1 });
           lm = mm.index + mm[0].length;
@@ -10744,7 +11503,7 @@ BOOK.labs = Object.assign(BOOK.labs || {}, /* @__PURE__ */ function() {
     } else {
       s.paras.forEach((t, i) => {
         const p = paraNode(t, l);
-        const box = h("div", { class: "para" }, h("span", { class: "pn", "aria-hidden": "true" }, String(i + 1)), p.node);
+        const box = h("div", { class: "para" }, h("span", { class: "pn", "aria-hidden": "true" }, s.paraLabels && s.paraLabels[i] ? s.paraLabels[i] : String(i + 1)), p.node);
         body.append(box);
         paraObjs.push(Object.assign(p, { box }));
       });
@@ -10795,7 +11554,7 @@ BOOK.labs = Object.assign(BOOK.labs || {}, /* @__PURE__ */ function() {
     };
     draw();
     card.append(list, h("div", { class: "row" }, moreBtn, allBtn));
-    if (s.table) card.append(h("div", { class: "stack" }, h("h3", null, "The book’s table"), bookTable(s.table)));
+    if (s.table) card.append(h("div", { class: "stack" }, s.table.source === "extra" ? h("h3", null, "Summary table ", h("span", { class: "tag extra" }, "⭐ Extra help (not in the book)")) : h("h3", null, "The book’s table"), bookTable(s.table)));
     if (s.worked) {
       const w = s.worked;
       let k = 0;
