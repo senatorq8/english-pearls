@@ -589,7 +589,7 @@ BOOK.addUnit({
           instructions: "Answer the questions. Then compare with the suggested answer.", instructionsAr: "أجب عن الأسئلة، ثم قارن إجابتك بالإجابة المقترحة.",
           image: "crops/u3l5-cooking.jpg",
           items: [
-            { t: "short", q: "1. What are the benefits of cooking at home?", model: "Homemade meals are healthier and cheaper, and you can control what ingredients you use.", keywords: [["healthier", "cheaper", "control"]], hint: "Paragraph 1: “More families cook at home because …”" },
+            { t: "short", q: "1. What are the benefits of cooking at home?", model: "Homemade meals are healthier and cheaper, and you can control what ingredients you use.", keywords: [["health", "cheap", "control"]], hint: "Paragraph 1: “More families cook at home because …”" },
             { t: "short", q: "2. Why are organic foods becoming more popular?", model: "Because they are grown without harmful chemicals.", keywords: [["chemical"]], hint: "Read the last sentence of paragraph 1." },
             { t: "short", q: "3. How can food labels help people make better choices?", model: "They help people choose food items with less sugar, salt, or fat.", keywords: [["sugar", "salt", "fat"]], hint: "Paragraph 2: People are reading food labels and choosing …" },
             { t: "short", q: "4. What is the purpose of the writer in writing this passage?", model: "To inform readers about healthy eating and new food trends.", keywords: [["inform", "explain", "tell", "teach", "give information"]], hint: "Does the writer tell a story, sell something or give information?" }

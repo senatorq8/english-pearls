@@ -142,10 +142,10 @@ BOOK.labs = Object.assign(BOOK.labs || {}, (function () {
         }
       },
       predict: {
-        q: "That was ____ movie I’ve ever seen!", options: ["the excitingest", "the most exciting", "more exciting"], answer: 1,
-        reveal: "That was {x:the most} {v:exciting} movie I’ve ever seen!", mistake: "Common mistake: adding -est to a long adjective.",
-        why: "“I’ve ever seen” compares this movie with all the others → superlative. exciting has three syllables, so we use the most: the most exciting.",
-        whyAr: "عبارة I’ve ever seen تقارن هذا الفيلم بكل الأفلام، فنستخدم صيغة التفضيل. والصفة exciting طويلة (ثلاثة مقاطع) فنستخدم the most."
+        q: "Sushi is ____ dish in this restaurant.", options: ["the expensivest", "the most expensive", "more expensive"], answer: 1,
+        reveal: "Sushi is {x:the most} {v:expensive} dish in this restaurant.", mistake: "Common mistake: adding -est to a long adjective.",
+        why: "We compare sushi with all the dishes in the restaurant → superlative. expensive has three syllables, so we use the most: the most expensive.",
+        whyAr: "نقارن السوشي بكل الأطباق في المطعم، فنستخدم صيغة التفضيل. والصفة expensive طويلة (ثلاثة مقاطع) فنستخدم the most."
       }
     }
   };
