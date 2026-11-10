@@ -28,7 +28,7 @@ BOOK.addUnit({
         { w: "instead", pos: "adverb", emoji: "🔄", def: "in the place of something else", ex: "Instead, it means using fewer things, spending less money, and being more thoughtful about how we live.", exFromBook: true, ar: "بدلًا من ذلك" },
         { w: "thoughtful", pos: "adjective", emoji: "💭", def: "thinking carefully about things", ex: "Instead, it means using fewer things, spending less money, and being more thoughtful about how we live.", exFromBook: true, ar: "متأنٍّ / يفكّر بعناية" },
         { w: "benefit", pos: "verb", emoji: "👍", def: "to be good or useful for someone or something", ex: "Additionally, they may choose to buy fewer clothes, which not only helps them save money but also benefits the environment.", exFromBook: true, ar: "يفيد / ينفع" },
-        { w: "conserve", pos: "verb", emoji: "💧", def: "to use something carefully so as not to use it all", ex: "Furthermore, adopting this lifestyle can include eating local food and making an effort to conserve water and electricity.", exFromBook: true, ar: "يحافظ على / يرشّد استهلاك" },
+        { w: "conserve", pos: "verb", emoji: "💧", def: "to use something carefully so as not to use it all", ex: "Furthermore, adopting this lifestyle can include eating local food and making an effort to conserve water and electricity.", exFromBook: true, ar: "يحافظ على / يقتصد في" },
         { w: "gadget", pos: "noun", emoji: "📱", def: "a small device, often a machine or electronic item", ex: "Rather than spending money on the newest gadgets or fashionable clothes, many people choose to invest in important things such as healthy food, education, and valuable experiences.", exFromBook: true, ar: "جهاز صغير / أداة إلكترونية" },
         { w: "valuable", pos: "adjective", emoji: "💎", def: "very useful or important", ex: "Many people choose to invest in important things such as healthy food, education, and valuable experiences.", exFromBook: true, ar: "قيّم / ثمين" },
         { w: "frankly", pos: "adverb", emoji: "🗣️", def: "honestly; saying what you really think", ex: "Frankly, each small step brings us closer to a simpler and more balanced life.", exFromBook: true, ar: "بصراحة" },
@@ -88,14 +88,14 @@ BOOK.addUnit({
           minWords: 30 },
 
         { type: "activity", title: "Extra Practice: Check your predictions", source: "extra", stage: "guided",
-          instructions: "Look at your ideas from Before You Read. Is each idea in the passage?", instructionsAr: "عُد إلى توقّعاتك قبل القراءة: هل كل فكرة موجودة في النص؟",
+          instructions: "Look at your ideas from Before You Read. Does the passage say that each idea is part of simple living?", instructionsAr: "عُد إلى توقّعاتك قبل القراءة: هل يذكر النص أن كل فكرة جزء من الحياة البسيطة؟",
           items: [
-            { t: "mcq", q: "Buying more things", options: ["Yes, it is in the passage.", "No, it is not."], answer: 1, hint: "Paragraph 1: “using fewer things”.", why: "Simple living means using fewer things, not buying more." },
-            { t: "mcq", q: "Reducing screen time", options: ["Yes, it is in the passage.", "No, it is not."], answer: 0, hint: "Paragraph 3.", why: "“… some people reduce their screen time to enjoy family moments …”" },
-            { t: "mcq", q: "Eating out at restaurants", options: ["Yes, it is in the passage.", "No, it is not."], answer: 1, hint: "Paragraph 3: “cook meals at home rather than eating out”.", why: "People cook at home rather than eating out." },
-            { t: "mcq", q: "Saving water and electricity", options: ["Yes, it is in the passage.", "No, it is not."], answer: 0, hint: "Paragraph 2, last sentence.", why: "“… making an effort to conserve water and electricity.”" },
-            { t: "mcq", q: "Spending more time with family", options: ["Yes, it is in the passage.", "No, it is not."], answer: 0, hint: "Paragraph 3.", why: "“… to enjoy family moments …”" },
-            { t: "mcq", q: "Helping the environment", options: ["Yes, it is in the passage.", "No, it is not."], answer: 0, hint: "Paragraph 2.", why: "“… others are motivated by a desire to protect the environment.”" }
+            { t: "mcq", q: "Buying more things", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 1, hint: "Paragraph 1: “using fewer things”.", why: "Simple living means using fewer things, not buying more." },
+            { t: "mcq", q: "Reducing screen time", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 0, hint: "Paragraph 3.", why: "“… some people reduce their screen time to enjoy family moments …”" },
+            { t: "mcq", q: "Eating out at restaurants", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 1, hint: "Paragraph 3: “cook meals at home rather than eating out”.", why: "The passage says many people cook meals at home rather than eating out." },
+            { t: "mcq", q: "Saving water and electricity", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 0, hint: "Paragraph 2, last sentence.", why: "“… making an effort to conserve water and electricity.”" },
+            { t: "mcq", q: "Spending more time with family", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 0, hint: "Paragraph 3.", why: "“… some people reduce their screen time to enjoy family moments …”" },
+            { t: "mcq", q: "Helping the environment", options: ["Yes, it is part of simple living.", "No, it is not."], answer: 0, hint: "Paragraph 2.", why: "“… others are motivated by a desire to protect the environment.” Buying fewer clothes “also benefits the environment”." }
           ] },
 
         { type: "activity", title: "Extra Practice: True or False?", source: "extra", stage: "guided",
@@ -706,11 +706,11 @@ BOOK.addUnit({
                 ["4 (Sara)", { answer: ["little", "a little"], model: "little" }, { answer: ["time"], model: "time" }, { answer: ["U"], model: "U" }],
                 ["5 (Nora)", { answer: ["many"], model: "many" }, { answer: ["accounts"], model: "accounts" }, { answer: ["C"], model: "C" }],
                 ["6 (Sara)", { answer: ["few"], model: "few" }, { answer: ["students"], model: "students" }, { answer: ["C"], model: "C" }],
-                ["7 (Nora)", { answer: ["some, any", "some and any", "some any", "some / any", "some/any", "some,any", "any, some", "any and some"], model: "some, any" }, { answer: ["plans"], model: "plans" }, { answer: ["C"], model: "C" }]
+                ["7 (Nora)", { answer: ["some, any", "some and any", "some any", "some / any", "some/any", "some,any", "any, some", "any and some", "any"], model: "some, any" }, { answer: ["plans"], model: "plans" }, { answer: ["C"], model: "C" }]
               ],
               hint: "Can you count it? one snack, two snacks → C. one money, two moneys ✗ → U.",
               why: "much money (U), some snacks (C), any offers (C), a little time (U), many accounts (C), few students (C), some of them … any plans (C).",
-              note: "Line 7 has two quantifiers. Write both, with a comma between them (e.g. much, many)." }
+              note: "Line 7 has two quantifiers: some (in “some of them”) and any. Only any has a noun right after it (plans). You can write both with a comma: some, any." }
           ] },
 
         { type: "activity", title: "2. Look at the quantifiers you underlined, then answer these questions.", page: 69, source: "book", stage: "guided",

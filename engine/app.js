@@ -813,7 +813,9 @@
     allBtn.onclick = () => { shown = steps.length; draw(); };
     draw();
     card.append(list, h("div", { class: "row" }, moreBtn, allBtn));
-    if (s.table) card.append(h("div", { class: "stack" }, h("h3", null, "The book’s table"), bookTable(s.table)));
+    if (s.table) card.append(h("div", { class: "stack" }, s.table.source === "extra"
+      ? h("h3", null, "Summary table ", h("span", { class: "tag extra" }, "⭐ Extra help (not in the book)"))
+      : h("h3", null, "The book’s table"), bookTable(s.table)));
     if (s.worked) {
       const w = s.worked; let k = 0;
       const ol = h("ol");
