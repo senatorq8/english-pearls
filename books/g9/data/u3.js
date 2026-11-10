@@ -169,7 +169,7 @@ BOOK.addUnit({
               text: "When (the doer of the action) is unknown. When we are interested more in the action than the doer of the action.",
               textAr: "نستخدم المبني للمجهول عندما يكون الفاعل (من قام بالفعل) غير معروف، أو عندما نهتمّ بالفعل أكثر من اهتمامنا بالفاعل.",
               examples: ["{o:Machboos} {a:is} {v:made} with rice, meat, and spices.", "{o:Tomatoes} {a:were} {v:added} to pasta in the 1800s."] },
-            { title: "Present Simple Passive",
+            { title: "How is the passive formed? Present Simple Passive",
               text: "Present Simple Passive: am/is/are + past participle",
               textAr: "المبني للمجهول في المضارع البسيط: am / is / are + التصريف الثالث للفعل.",
               examples: ["- {o:Machboos} {a:is} {v:served} on big plates."] },
@@ -473,7 +473,7 @@ BOOK.addUnit({
           track: "3.3", needsAudio: true,
           instructions: "Listen carefully to these words. Which syllable is stressed? Examples from the book: HIStory, hisTORical.", instructionsAr: "استمع جيدًا إلى الكلمات وحدّد المقطع المنبور (الذي نضغط عليه) في كل كلمة.",
           items: [
-            { t: "choose", q: "technology", options: ["tech", "nol", "o", "gy"], answer: 1, keyed: true, why: "tech-NOL-o-gy (the answer key does not mark this word; this is the dictionary stress)." },
+            { t: "choose", q: "technology", options: ["tech", "nol", "o", "gy"], answer: 1, keyed: true, why: "tech-NOL-o-gy. (The answer key does not mark it in the table; it underlines “nol” in “technology” in question 2b.)" },
             { t: "choose", q: "ingredients", options: ["in", "gre", "di", "ents"], answer: 1, keyed: true, why: "in-GRE-di-ents" },
             { t: "choose", q: "expensive", options: ["ex", "pen", "sive"], answer: 1, keyed: true, why: "ex-PEN-sive" },
             { t: "choose", q: "cheesecake", options: ["cheese", "cake"], answer: 0, keyed: true, why: "CHEESE-cake" },
@@ -508,7 +508,7 @@ BOOK.addUnit({
           "The recordings are not in this app: play them from the book (track 3.2 for ex. 2, track 3.3 for the pronunciation, QR codes on page 52).",
           "Ex. 2 (answer key): a. Layer by layer. b. People with food allergies.",
           "Ex. 3 Debate: two teams (Team Yes / Team No), 2–3 reasons each, a spokesperson, 1–2 minutes each, 1 minute to respond; the class decides which team had the stronger argument.",
-          "Ex. 4 stress (answer key): in-GRE-di-ents, ex-PEN-sive, CHEESE-cake, VEG-e-ta-bles, ex-PLORE, STRAW-ber-ry, nu-TRI-tion. The book’s examples: HIS-to-ry, his-TOR-i-cal. The answer key leaves “technology” unmarked: tech-NOL-o-gy."
+          "Ex. 4 stress (answer key): in-GRE-di-ents, ex-PEN-sive, CHEESE-cake, VEG-e-ta-bles, ex-PLORE, STRAW-ber-ry, nu-TRI-tion. The book’s examples: HIS-to-ry, his-TOR-i-cal. The answer key leaves “technology” unmarked in the table, but underlines “nol” in “technology” in question 2b: tech-NOL-o-gy (also the dictionary stress)."
         ],
         pair: ["Stress practice (4b): A says a word, B claps on the stressed syllable.", "A gives a reason for Team Yes; B answers for Team No with “I disagree because…”."],
         group: ["Debate Activity: Team Yes vs Team No with spokespeople and note-takers."],
@@ -697,8 +697,7 @@ BOOK.addUnit({
               examples: ["modern → {x:more} modern → {x:the most} modern", "expensive → {x:more} expensive → {x:the most} expensive"] },
             { title: "Some adjectives do not follow regular rules",
               text: "good → better → the best; bad → worse → the worst; little → less → the least; much / many → more → the most; far → farther / further → the farthest / the furthest.",
-              textAr: "بعض الصفات لا تتبع القواعد: good و bad و little و much / many و far لها صيغ خاصة (انظر الجدول).",
-              examples: ["Fruit is {x:the best} snack.", "Fried chips are {x:the worst}."] },
+              textAr: "بعض الصفات لا تتبع القواعد: good و bad و little و much / many و far لها صيغ خاصة (انظر الجدول)." },
             { title: "less … than / the least …", source: "extra",
               text: "less and the least are the opposite of more and the most. They show a lower degree of a quality.",
               textAr: "less و the least عكس more و the most، وتدلّان على درجة أقل من الصفة.",
@@ -727,7 +726,7 @@ BOOK.addUnit({
             steps: ["We compare two things (train and bus) and there is “than” → comparative.", "comfortable has more than two syllables (com-for-ta-ble).", "Long adjectives use more: more comfortable."],
             a: "Travelling by train is {x:more} comfortable {c:than} travelling by bus."
           },
-          notes: ["The book’s table of irregular adjectives has no column headings; the headings are added here.", "Steps 6–8 are extra help, not in the book."] },
+          notes: ["The table shows the book’s irregular adjectives. The column headings (Adjective, Comparative, Superlative) are added by the app; they are not in the book.", "Steps 6–8 and the worked example are extra help, not in the book."] },
 
         { type: "activity", title: "1. b. Discuss the following questions.", page: 55, source: "book", stage: "guided",
           instructions: "Look at the four sentences in 1a. Write the words.", instructionsAr: "انظر إلى الجمل الأربع في التمرين 1a واكتب الكلمات المطلوبة.",
@@ -739,8 +738,8 @@ BOOK.addUnit({
         { type: "activity", title: "2. Complete the sentences using the correct comparative or superlative form of the adjectives.", page: 55, source: "book", stage: "independent",
           instructions: "Write the correct form of the adjective in brackets.", instructionsAr: "اكتب الصيغة الصحيحة للصفة التي بين القوسين.",
           items: [
-            { t: "fill", q: "1. That was the ____ (exciting) movie I’ve ever seen!", answer: ["most exciting", "least exciting"], hint: "“the” + “I’ve ever seen” → superlative. exciting is a long adjective.", why: "Long adjective → the most + adj: the most exciting." },
-            { t: "fill", q: "2. Travelling by train is ____ (comfortable) than travelling by bus.", answer: ["more comfortable", "less comfortable"], hint: "“than” → comparative. comfortable is a long adjective.", why: "Long adjective → more + adj + than: more comfortable than." }
+            { t: "fill", q: "1. That was the ____ (exciting) movie I’ve ever seen!", answer: ["most exciting", "least exciting"], hint: "“the” + “I’ve ever seen” → superlative. exciting is a long adjective.", why: "Long adjective → the most + adj: the most exciting. (“the least exciting” is also correct: see Use more/most or less/least.)" },
+            { t: "fill", q: "2. Travelling by train is ____ (comfortable) than travelling by bus.", answer: ["more comfortable", "less comfortable"], hint: "“than” → comparative. comfortable is a long adjective.", why: "Long adjective → more + adj + than: more comfortable than. (“less comfortable” is also correct: see Use more/most or less/least.)" }
           ] },
 
         { type: "activity", title: "Extra Practice: Step 1 — Comparative or superlative?", source: "extra", stage: "guided",
@@ -767,7 +766,7 @@ BOOK.addUnit({
         { type: "write", title: "3. Write a three-sentence paragraph comparing two or three meals or food types.", page: 55, source: "book",
           instructions: "Use: At least 2 comparatives. At least 2 superlatives.",
           wordBankLabel: "Sentence Starters",
-          wordBank: ["I think smoothies are healthier than ...", "The most delicious smoothie I’ve tried is made with...", "the best", "the worst", "tastier than"],
+          wordBank: ["I think smoothies are healthier than ...", "The most delicious smoothie I’ve tried is made with..."],
           frame: [
             { label: "Sentence 1", hint: "I think … are healthier than …" },
             { label: "Sentence 2", hint: "… are tastier / more delicious than …" },
