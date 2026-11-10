@@ -1,7 +1,7 @@
 {
   "name": "English Pearls of Kuwait",
   "short_name": "English Pearls",
-  "description": "Interactive English books for Grades 6, 7 and 8 (Kuwait MOE). Prepared by: Abdullah Alenezi",
+  "description": "Interactive English books for Grades 6 to 9 (Kuwait MOE). Prepared by: Abdullah Alenezi",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
