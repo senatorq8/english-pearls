@@ -11,7 +11,8 @@ if not os.path.exists(os.path.join(BIN, 'esbuild')):
 # id, code, grade, title, short name (home screen), line under the title
 BOOKS = [('g6', '6A', 6, 'English Pearls of Kuwait', 'Pearls 6A', 'Grade 6 · 6A'),
          ('g7', '7A', 7, 'English Pearls of Kuwait', 'Pearls 7A', 'Grade 7 · 7A'),
-         ('g8', '8', 8, 'English Pearls of Kuwait', 'Pearls 8', 'Grade 8 · First Term')]
+         ('g8', '8', 8, 'English Pearls of Kuwait', 'Pearls 8', 'Grade 8 · First Term'),
+         ('g9', '9', 9, 'English Pearls of Kuwait', 'Pearls 9', 'Grade 9 · First Term')]
 TARGET_JS = 'es2017,safari11,chrome61,firefox60'
 TARGET_CSS = 'safari11,chrome61,firefox60'
 
@@ -57,7 +58,7 @@ open(os.path.join(R, 'docs/.nojekyll'), 'w').close()
 
 manifest = {
     "name": "English Pearls of Kuwait", "short_name": "English Pearls",
-    "description": "Interactive English books for Grades 6, 7 and 8 (Kuwait MOE). Prepared by: Abdullah Alenezi",
+    "description": "Interactive English books for Grades 6 to 9 (Kuwait MOE). Prepared by: Abdullah Alenezi",
     "start_url": "./", "scope": "./", "display": "standalone", "orientation": "any",
     "background_color": "#eef3f6", "theme_color": "#0b5c8c", "lang": "en",
     "icons": [{"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},

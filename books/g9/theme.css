@@ -1,0 +1,4 @@
+/* Grade 9 (English Pearls of Kuwait, new edition): unit colours follow the book's Learning Unit colours */
+:root { --u1: #2350b5; --u2: #5b8a0e; --u3: #1f7fb4; --u4: #9a4a94; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --u1: #8eabf2; --u2: #a8d85a; --u3: #6cc3ee; --u4: #e3a0dc; } }
+:root[data-theme="dark"] { --u1: #8eabf2; --u2: #a8d85a; --u3: #6cc3ee; --u4: #e3a0dc; }
