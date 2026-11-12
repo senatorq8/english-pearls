@@ -3008,6 +3008,8 @@ BOOK.grade = 7;
 BOOK.level = "Grade 7 · Student’s Book 7A";
 BOOK.storeKey = "pearls7a.v1";
 BOOK.pagesInfo = { project: 73, glossary: "74–78", irregular: "79–80", last: 80 };
+BOOK.glossaryAr = true;
+BOOK.glossaryNote = "All the words from the book’s glossary (pages 74–78), with the book’s pronunciation and meaning. The Arabic meaning is added to help you; it is not printed in the book.";
 BOOK.libraryUrl = "../index.html";
 BOOK.credit = "Prepared by: Abdullah Alenezi";
 BOOK.copyright = "Book content © Ministry of Education – State of Kuwait, 2025. Interactive version for classroom use.";
@@ -3111,18 +3113,18 @@ BOOK.addUnit({
         prompts: ["What are the differences?", "Which one shows your culture?", "Which one would you prefer to live in? Why?"]
       },
       vocab: [
-        { w: "bond", pos: "verb", emoji: "🤝", def: "to develop a close connection or strong relationship with someone", ex: "These houses were designed to bond family members with each other.", exFromBook: true, ar: "يُقوّي الروابط", ipa: "/bɒnd/" },
+        { w: "bond", pos: "verb", emoji: "🤝", def: "to develop a close connection or strong relationship with someone", ex: "These houses were designed to bond family members with each other.", exFromBook: true, ar: "يربط", ipa: "/bɒnd/" },
         { w: "strongly", pos: "adverb", emoji: "💪", def: "very much or in a very serious way", ex: "A value that still strongly shapes Kuwaiti life today.", exFromBook: true, ar: "بقوة", ipa: "/ˈstrɒŋ.li/" },
-        { w: "courtyard", pos: "noun", emoji: "🏛️", def: "an area of flat ground outside, partly or completely surrounded by buildings", ex: "At the centre of every traditional home was a large courtyard.", exFromBook: true, ar: "فِناء (حوش)", ipa: "/ˈkɔːt.jɑːd/" },
-        { w: "gather", pos: "verb", emoji: "👨‍👩‍👧‍👦", def: "to come together in a group", ex: "Family members would gather to talk, share meals, and celebrate special events.", exFromBook: true, ar: "يجتمع", ipa: "/ˈɡæð.ər/" },
+        { w: "courtyard", pos: "noun", emoji: "🏛️", def: "an area of flat ground outside, partly or completely surrounded by buildings", ex: "At the centre of every traditional home was a large courtyard.", exFromBook: true, ar: "ساحة أو باحة", ipa: "/ˈkɔːt.jɑːd/" },
+        { w: "gather", pos: "verb", emoji: "👨‍👩‍👧‍👦", def: "to come together in a group", ex: "Family members would gather to talk, share meals, and celebrate special events.", exFromBook: true, ar: "يتجمّع", ipa: "/ˈɡæð.ər/" },
         { w: "spacious", pos: "adjective", emoji: "📐", def: "large and with a lot of space", ex: "These homes were spacious and open.", exFromBook: true, ar: "واسع", ipa: "/ˈspeɪ.ʃəs/" },
         { w: "happily", pos: "adverb", emoji: "😊", def: "in a happy way", ex: "The family stayed happily connected.", exFromBook: false, ar: "بسعادة", ipa: "/ˈhæp.əl.i/" },
         { w: "elder", pos: "noun", emoji: "👴", def: "an older person, especially one with a respected position", ex: "We show respect for elders.", exFromBook: false, ar: "كبير السن", ipa: "/ˈel.dər/" },
-        { w: "hospitality", pos: "noun", emoji: "☕", def: "being friendly and welcoming to guests and visitors", ex: "Guests are always welcomed with Arabic coffee, dates, and warm smiles.", exFromBook: true, ar: "الكرم وحسن الضيافة", ipa: "/ˌhɒs.pɪˈtæl.ə.ti/" },
-        { w: "role", pos: "noun", emoji: "🎭", def: "the part or job someone has in a situation", ex: "Each family member had a clear role.", exFromBook: true, ar: "دَور", ipa: "/rəʊl/" },
-        { w: "manage", pos: "verb", emoji: "🗂️", def: "to succeed in doing or dealing with something difficult", ex: "Women managed the home with care.", exFromBook: true, ar: "يُدير", ipa: "/ˈmæn.ɪdʒ/" },
-        { w: "wisdom", pos: "noun", emoji: "🦉", def: "the ability to make good decisions from experience and knowledge", ex: "The grandparents held the family together with their love and wisdom.", exFromBook: true, ar: "حِكمة", ipa: "/ˈwɪz.dəm/" },
-        { w: "united", pos: "adjective", emoji: "🔗", def: "joined together as a group", ex: "The traditional Kuwaiti home reflected a united spirit of respect and love.", exFromBook: true, ar: "مُتّحد / مترابط", ipa: "/juːˈnaɪ.tɪd/" }
+        { w: "hospitality", pos: "noun", emoji: "☕", def: "being friendly and welcoming to guests and visitors", ex: "Guests are always welcomed with Arabic coffee, dates, and warm smiles.", exFromBook: true, ar: "ضيافة", ipa: "/ˌhɒs.pɪˈtæl.ə.ti/" },
+        { w: "role", pos: "noun", emoji: "🎭", def: "the part or job someone has in a situation", ex: "Each family member had a clear role.", exFromBook: true, ar: "دور", ipa: "/rəʊl/" },
+        { w: "manage", pos: "verb", emoji: "🗂️", def: "to succeed in doing or dealing with something difficult", ex: "Women managed the home with care.", exFromBook: true, ar: "يتمكّن من", ipa: "/ˈmæn.ɪdʒ/" },
+        { w: "wisdom", pos: "noun", emoji: "🦉", def: "the ability to make good decisions from experience and knowledge", ex: "The grandparents held the family together with their love and wisdom.", exFromBook: true, ar: "حكمة", ipa: "/ˈwɪz.dəm/" },
+        { w: "united", pos: "adjective", emoji: "🔗", def: "joined together as a group", ex: "The traditional Kuwaiti home reflected a united spirit of respect and love.", exFromBook: true, ar: "متّحد أو متواصل", ipa: "/juːˈnaɪ.tɪd/" }
       ],
       sections: [
         {
@@ -3602,16 +3604,16 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "culture", pos: "noun", emoji: "🕌", def: "the way of life, beliefs, and customs of a group", ex: "I’m really interested in your culture.", exFromBook: true, ar: "ثقافة", ipa: "/ˈkʌl.tʃər/" },
-        { w: "share", pos: "verb", emoji: "🗣️", def: "to tell someone about your thoughts, ideas or stories", ex: "My grandparents share amazing stories about Kuwait’s past.", exFromBook: true, ar: "يُشارك", ipa: "/ʃeər/" },
-        { w: "heritage", pos: "noun", emoji: "🏺", def: "the history and traditions of a country that continue to be important", ex: "It’s a special part of our Kuwaiti heritage.", exFromBook: true, ar: "تراث", ipa: "/ˈher.ɪ.tɪdʒ/" },
-        { w: "tradition", pos: "noun", emoji: "🎑", def: "a way of acting that people have followed for a long time", ex: "It’s a tradition where all the relatives gather to enjoy delicious food.", exFromBook: true, ar: "عادة / تقليد", ipa: "/trəˈdɪʃ.ən/" },
-        { w: "brilliant", pos: "adjective", emoji: "🌟", def: "very good", ex: "We have a brilliant time together.", exFromBook: true, ar: "رائع", ipa: "/ˈbrɪl.jənt/" },
-        { w: "close", pos: "adjective", emoji: "🫂", def: "having a strong emotional connection", ex: "We are a very close family.", exFromBook: true, ar: "مترابط / مقرّب", ipa: "/kləʊs/" },
+        { w: "share", pos: "verb", emoji: "🗣️", def: "to tell someone about your thoughts, ideas or stories", ex: "My grandparents share amazing stories about Kuwait’s past.", exFromBook: true, ar: "يشارك", ipa: "/ʃeər/" },
+        { w: "heritage", pos: "noun", emoji: "🏺", def: "the history and traditions of a country that continue to be important", ex: "It’s a special part of our Kuwaiti heritage.", exFromBook: true, ar: "تاريخ", ipa: "/ˈher.ɪ.tɪdʒ/" },
+        { w: "tradition", pos: "noun", emoji: "🎑", def: "a way of acting that people have followed for a long time", ex: "It’s a tradition where all the relatives gather to enjoy delicious food.", exFromBook: true, ar: "تقاليد", ipa: "/trəˈdɪʃ.ən/" },
+        { w: "brilliant", pos: "adjective", emoji: "🌟", def: "very good", ex: "We have a brilliant time together.", exFromBook: true, ar: "جميل أو رائع", ipa: "/ˈbrɪl.jənt/" },
+        { w: "close", pos: "adjective", emoji: "🫂", def: "having a strong emotional connection", ex: "We are a very close family.", exFromBook: true, ar: "متقارب", ipa: "/kləʊs/" },
         { w: "look forward to", pos: "phrasal verb", emoji: "🤩", def: "to feel excited and happy about something that is going to happen", ex: "I always look forward to these gatherings!", exFromBook: true, ar: "يتطلّع إلى", ipa: "/ˈlʊk ˌfɔː.wəd ˌtuː/" },
         { w: "weekly", pos: "adjective", emoji: "📅", def: "happening once a week", ex: "It’s a weekly gathering.", exFromBook: true, ar: "أسبوعي", ipa: "/ˈwiːk.li/" },
-        { w: "extremely", pos: "adverb", emoji: "💯", def: "very", ex: "I feel extremely proud to be a part of it.", exFromBook: true, ar: "للغاية", ipa: "/ɪkˈstriːm.li/" },
-        { w: "relax", pos: "verb", emoji: "😌", def: "to become less active and calm", ex: "We also relax, laugh, and show respect.", exFromBook: true, ar: "يسترخي", ipa: "/rɪˈlæks/" },
-        { w: "definitely", pos: "adverb", emoji: "✅", def: "without any doubt; certainly", ex: "You should definitely visit us one day!", exFromBook: true, ar: "بالتأكيد", ipa: "/ˈdef.ɪ.nət.li/" }
+        { w: "extremely", pos: "adverb", emoji: "💯", def: "very", ex: "I feel extremely proud to be a part of it.", exFromBook: true, ar: "بشدة", ipa: "/ɪkˈstriːm.li/" },
+        { w: "relax", pos: "verb", emoji: "😌", def: "to become less active and calm", ex: "We also relax, laugh, and show respect.", exFromBook: true, ar: "يرتاح", ipa: "/rɪˈlæks/" },
+        { w: "definitely", pos: "adverb", emoji: "✅", def: "without any doubt; certainly", ex: "You should definitely visit us one day!", exFromBook: true, ar: "بشكل مؤكد", ipa: "/ˈdef.ɪ.nət.li/" }
       ],
       sections: [
         {
@@ -3976,17 +3978,17 @@ BOOK.addUnit({
         seconds: 90
       },
       vocab: [
-        { w: "nervous", pos: "adjective", emoji: "😬", def: "worried or afraid of something", ex: "I was nervous on my first day at school.", exFromBook: false, ar: "متوتّر", ipa: "/ˈnɜː.vəs/" },
+        { w: "nervous", pos: "adjective", emoji: "😬", def: "worried or afraid of something", ex: "I was nervous on my first day at school.", exFromBook: false, ar: "متوتر أو قلق", ipa: "/ˈnɜː.vəs/" },
         { w: "responsible", pos: "adjective", emoji: "🧑‍🏫", def: "having the duty of taking care of something", ex: "I have become more responsible.", exFromBook: true, ar: "مسؤول", ipa: "/rɪˈspɑn·sə·bəl/" },
-        { w: "organised", pos: "adjective", emoji: "🗂️", def: "arranged according to a particular system", ex: "My time is more organised.", exFromBook: true, ar: "منظَّم", ipa: "/ˈɔː.ɡə.naɪzd/" },
+        { w: "organised", pos: "adjective", emoji: "🗂️", def: "arranged according to a particular system", ex: "My time is more organised.", exFromBook: true, ar: "منظّم", ipa: "/ˈɔː.ɡə.naɪzd/" },
         { w: "discussion", pos: "noun", emoji: "🗣️", def: "talking about something with other people and telling them your ideas", ex: "We have a discussion in class every week.", exFromBook: false, ar: "نقاش", ipa: "/dɪˈskʌʃ.ən/" },
         { w: "regularly", pos: "adverb", emoji: "📅", def: "doing the same thing or going to the same place often", ex: "I also have to study regularly for exams.", exFromBook: true, ar: "بانتظام", ipa: "/ˈreɡ.jə.lə.li/" },
-        { w: "confident", pos: "adjective", emoji: "😎", def: "sure of yourself or your abilities", ex: "I am more confident now.", exFromBook: true, ar: "واثق بنفسه", ipa: "/ˈkɒn.fɪ.dənt/" },
-        { w: "cheer", pos: "verb", emoji: "📣", def: "to give a loud shout of approval or encouragement for someone", ex: "We cheer our team at every match.", exFromBook: false, ar: "يشجّع / يهتف", ipa: "/tʃɪər/" },
-        { w: "value", pos: "verb", emoji: "💎", def: "to consider something important", ex: "I have also learned to value myself.", exFromBook: true, ar: "يُقدِّر", ipa: "/ˈvæl.juː/" },
+        { w: "confident", pos: "adjective", emoji: "😎", def: "sure of yourself or your abilities", ex: "I am more confident now.", exFromBook: true, ar: "واثق", ipa: "/ˈkɒn.fɪ.dənt/" },
+        { w: "cheer", pos: "verb", emoji: "📣", def: "to give a loud shout of approval or encouragement for someone", ex: "We cheer our team at every match.", exFromBook: false, ar: "يشجّع", ipa: "/tʃɪər/" },
+        { w: "value", pos: "verb", emoji: "💎", def: "to consider something important", ex: "I have also learned to value myself.", exFromBook: true, ar: "يقدّر", ipa: "/ˈvæl.juː/" },
         { w: "challenge", pos: "noun", emoji: "🧗", def: "something that needs a lot of effort to do successfully", ex: "Every challenge is a chance to improve.", exFromBook: true, ar: "تحدٍّ", ipa: "/ˈtʃæl.ɪndʒ/" },
-        { w: "hard", pos: "adverb", emoji: "💪", def: "with a lot of effort or force", ex: "I work hard and support my friends.", exFromBook: true, ar: "بجدّ", ipa: "/hɑːd/" },
-        { w: "respectful", pos: "adjective", emoji: "🙏", def: "showing politeness or honour to someone or something", ex: "Be respectful to your teachers.", exFromBook: false, ar: "محترِم", ipa: "/rɪˈspekt.fəl/" }
+        { w: "hard", pos: "adverb", emoji: "💪", def: "with a lot of effort or force", ex: "I work hard and support my friends.", exFromBook: true, ar: "باجتهاد", ipa: "/hɑːd/" },
+        { w: "respectful", pos: "adjective", emoji: "🙏", def: "showing politeness or honour to someone or something", ex: "Be respectful to your teachers.", exFromBook: false, ar: "محترم", ipa: "/rɪˈspekt.fəl/" }
       ],
       sections: [
         {
@@ -4623,14 +4625,14 @@ BOOK.addUnit({
       vocab: [
         { w: "faith", pos: "noun", emoji: "🕌", def: "great trust or confidence in something or someone", ex: "His faith was strong from the start.", exFromBook: true, ar: "إيمان", ipa: "/feɪθ/" },
         { w: "lead", pos: "verb", emoji: "🧭", def: "to guide or be in charge of a group or situation", ex: "The captain leads the team.", exFromBook: false, ar: "يقود", ipa: "/liːd/" },
-        { w: "effectively", pos: "adverb", emoji: "🎯", def: "in a way that gets the result that you want", ex: "Doctors can effectively help poor people.", exFromBook: false, ar: "بفعالية", ipa: "/ɪˈfek.tɪv.li/" },
-        { w: "effort", pos: "noun", emoji: "🏋️", def: "physical or mental energy used to do something", ex: "She made a great effort to finish her project.", exFromBook: false, ar: "جهد", ipa: "/ˈef.ət/" },
+        { w: "effectively", pos: "adverb", emoji: "🎯", def: "in a way that gets the result that you want", ex: "Doctors can effectively help poor people.", exFromBook: false, ar: "بشكل مؤثّر", ipa: "/ɪˈfek.tɪv.li/" },
+        { w: "effort", pos: "noun", emoji: "🏋️", def: "physical or mental energy used to do something", ex: "She made a great effort to finish her project.", exFromBook: false, ar: "مجهود", ipa: "/ˈef.ət/" },
         { w: "patient", pos: "adjective", emoji: "⏳", def: "able to wait, or to continue doing something when it is difficult", ex: "He was very patient and did not give up on his dreams.", exFromBook: true, ar: "صبور", ipa: "/ˈpeɪ.ʃənt/" },
-        { w: "friendly", pos: "adjective", emoji: "😊", def: "behaving in a pleasant, kind way towards someone", ex: "Our new neighbour is very friendly.", exFromBook: false, ar: "ودود", ipa: "/ˈfrend.li/" },
-        { w: "polite", pos: "adjective", emoji: "🎩", def: "speaking and acting in a kind and correct way with other people", ex: "Be polite and say “please” and “thank you”.", exFromBook: false, ar: "مهذّب", ipa: "/pəˈlaɪt/" },
-        { w: "positively", pos: "adverb", emoji: "👍", def: "in a good or positive way", ex: "He changed many lives positively.", exFromBook: true, ar: "بشكل إيجابي", ipa: "/ˈpɒz.ə.tɪv.li/" },
-        { w: "recognise", pos: "verb", emoji: "🏅", def: "to show public thanks for what someone has done", ex: "The school recognised her for her hard work.", exFromBook: false, ar: "يُشيد بـ / يعترف بفضل", ipa: "/ˈrek.əɡ.naɪz/" },
-        { w: "honour", pos: "verb", emoji: "🎖️", def: "to show great respect for someone, especially in public", ex: "He was honoured by many countries.", exFromBook: true, ar: "يُكرِّم", ipa: "/ˈɒn.ər/" }
+        { w: "friendly", pos: "adjective", emoji: "😊", def: "behaving in a pleasant, kind way towards someone", ex: "Our new neighbour is very friendly.", exFromBook: false, ar: "لطيف", ipa: "/ˈfrend.li/" },
+        { w: "polite", pos: "adjective", emoji: "🎩", def: "speaking and acting in a kind and correct way with other people", ex: "Be polite and say “please” and “thank you”.", exFromBook: false, ar: "مؤدّب", ipa: "/pəˈlaɪt/" },
+        { w: "positively", pos: "adverb", emoji: "👍", def: "in a good or positive way", ex: "He changed many lives positively.", exFromBook: true, ar: "إيجابيًا", ipa: "/ˈpɒz.ə.tɪv.li/" },
+        { w: "recognise", pos: "verb", emoji: "🏅", def: "to show public thanks for what someone has done", ex: "The school recognised her for her hard work.", exFromBook: false, ar: "يعترف بـ", ipa: "/ˈrek.əɡ.naɪz/" },
+        { w: "honour", pos: "verb", emoji: "🎖️", def: "to show great respect for someone, especially in public", ex: "He was honoured by many countries.", exFromBook: true, ar: "شرف", ipa: "/ˈɒn.ər/" }
       ],
       sections: [
         {
@@ -5207,14 +5209,14 @@ BOOK.addUnit({
         { w: "avoid", pos: "verb", emoji: "🙅", def: "to stay away from someone or something", ex: "In busy places, such as shopping centres, signs are used to avoid accidents and protect people.", exFromBook: true, ar: "يتجنّب", ipa: "/əˈvɔɪd/" },
         { w: "safely", pos: "adverb", emoji: "🦺", def: "in a way that avoids danger or harm", ex: "The cars stopped so that we could cross the road safely.", exFromBook: true, ar: "بأمان", ipa: "/ˈseɪf.li/" },
         { w: "prevent", pos: "verb", emoji: "🛑", def: "to stop something from happening", ex: "They help prevent panic during emergencies.", exFromBook: true, ar: "يمنع", ipa: "/prɪˈvent/" },
-        { w: "public", pos: "adjective", emoji: "🏬", def: "open for anyone to go to or use", ex: "On Wednesday, I was at the public mall with my mum.", exFromBook: true, ar: "عامّ", ipa: "/ˈpʌb.lɪk/" },
-        { w: "pedestrian", pos: "noun", emoji: "🚶", def: "a person who is walking, especially where cars go", ex: "The pedestrian waited at the zebra crossing.", exFromBook: false, ar: "أحد المشاة", ipa: "/pəˈdes.tri.ən/" },
+        { w: "public", pos: "adjective", emoji: "🏬", def: "open for anyone to go to or use", ex: "On Wednesday, I was at the public mall with my mum.", exFromBook: true, ar: "عام", ipa: "/ˈpʌb.lɪk/" },
+        { w: "pedestrian", pos: "noun", emoji: "🚶", def: "a person who is walking, especially where cars go", ex: "The pedestrian waited at the zebra crossing.", exFromBook: false, ar: "المشاة", ipa: "/pəˈdes.tri.ən/" },
         { w: "constantly", pos: "adverb", emoji: "🔁", def: "all the time or often", ex: "We do not always think about it, but these signs are around us constantly.", exFromBook: true, ar: "باستمرار", ipa: "/ˈkɒn.stənt.li/" },
-        { w: "surrounding", pos: "noun", emoji: "🏙️", def: "everything around you (often: surroundings)", ex: "They are part of our surroundings, helping us every day.", exFromBook: true, ar: "المحيط (ما حولنا)", ipa: "/səˈraʊn.dɪŋ/" },
+        { w: "surrounding", pos: "noun", emoji: "🏙️", def: "everything around you (often: surroundings)", ex: "They are part of our surroundings, helping us every day.", exFromBook: true, ar: "الأطراف أو حولنا", ipa: "/səˈraʊn.dɪŋ/" },
         { w: "announcement", pos: "noun", emoji: "📢", def: "official information that someone says to people", ex: "We listened to an announcement about a delay, then followed signs to the right terminal.", exFromBook: true, ar: "إعلان", ipa: "/əˈnaʊnsmənt/" },
-        { w: "delay", pos: "noun", emoji: "⏳", def: "when you wait longer than expected", ex: "There was a delay, so our plane left late.", exFromBook: false, ar: "تأخير", ipa: "/dɪˈleɪ/" },
+        { w: "delay", pos: "noun", emoji: "⏳", def: "when you wait longer than expected", ex: "There was a delay, so our plane left late.", exFromBook: false, ar: "التأجيل أو التأخير", ipa: "/dɪˈleɪ/" },
         { w: "destination", pos: "noun", emoji: "📍", def: "the place where someone is going", ex: "These signs help travellers reach their destination without getting lost.", exFromBook: true, ar: "وجهة", ipa: "/ˌdes.tɪˈneɪ.ʃən/" },
-        { w: "alert", pos: "adjective", emoji: "👀", def: "quick to see, understand and act", ex: "We just need to stay alert and pay attention.", exFromBook: true, ar: "يقِظ / منتبه", ipa: "/əˈlɜːt/" }
+        { w: "alert", pos: "adjective", emoji: "👀", def: "quick to see, understand and act", ex: "We just need to stay alert and pay attention.", exFromBook: true, ar: "منتبه", ipa: "/əˈlɜːt/" }
       ],
       sections: [
         {
@@ -6186,18 +6188,18 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "memorable", pos: "adjective", emoji: "🌟", def: "worth remembering; easy to remember", ex: "When everything is planned carefully, we can enjoy the weekend and make it truly memorable.", exFromBook: true, ar: "لا يُنسى", ipa: "/ˈmem.ər.ə.bəl/" },
-        { w: "ensure", pos: "verb", emoji: "✅", def: "to make something certain to happen", ex: "It is both fun and exciting, but it also requires careful planning to ensure everyone stays safe.", exFromBook: true, ar: "يضمن", ipa: "/ɪnˈʃɔːr/" },
+        { w: "ensure", pos: "verb", emoji: "✅", def: "to make something certain to happen", ex: "It is both fun and exciting, but it also requires careful planning to ensure everyone stays safe.", exFromBook: true, ar: "يتأكّد", ipa: "/ɪnˈʃɔːr/" },
         { w: "currently", pos: "adverb", emoji: "⏱️", def: "at the present time; now", ex: "First, our family is currently getting ready for the trip.", exFromBook: true, ar: "حاليًا", ipa: "/ˈkʌr.ənt.li/" },
-        { w: "pack", pos: "verb", emoji: "🎒", def: "to put things into a bag or box", ex: "At the same time, my mother is carefully packing the food and drinks we will need.", exFromBook: true, ar: "يحزم / يُعبّئ", ipa: "/pæk/" },
-        { w: "essential", pos: "adjective", emoji: "❗", def: "very important or necessary", ex: "Safety is essential when we go camping.", exFromBook: true, ar: "ضروري", ipa: "/ɪˈsen.ʃəl/" },
-        { w: "first-aid kit", pos: "noun", emoji: "🩹", def: "a box with basic medical things for emergencies", ex: "We always bring a first-aid kit in case of an emergency and carry plenty of water to stay hydrated.", exFromBook: true, ar: "حقيبة الإسعافات الأولية", ipa: "/ˌfɜːst ˈeɪd ˌkɪt/" },
-        { w: "hydrated", pos: "adjective", emoji: "💧", def: "having enough water in your body", ex: "Drink a lot of water to stay hydrated in the desert.", exFromBook: false, ar: "مُرتوٍ (جسمه فيه ماء كافٍ)", ipa: "/ˈhaɪ.dreɪ.tɪd/" },
-        { w: "mark", pos: "verb", emoji: "📌", def: "to show where something is", ex: "We mark our campsite on the map.", exFromBook: false, ar: "يُحدّد / يضع علامة", ipa: "/mɑːk/" },
-        { w: "campsite", pos: "noun", emoji: "⛺", def: "a place where people camp", ex: "After that, when we reach the campsite, we begin setting up the tent and unpacking.", exFromBook: true, ar: "موقع التخييم", ipa: "/ˈkæmp.saɪt/" },
-        { w: "whereabouts", pos: "noun", emoji: "🗺️", def: "the place where a person or thing is", ex: "Tell your uncle your whereabouts before the trip.", exFromBook: false, ar: "مكان الوجود", ipa: "/ˈweə.rə.baʊts/" },
+        { w: "pack", pos: "verb", emoji: "🎒", def: "to put things into a bag or box", ex: "At the same time, my mother is carefully packing the food and drinks we will need.", exFromBook: true, ar: "يعلّب أو يخزّن", ipa: "/pæk/" },
+        { w: "essential", pos: "adjective", emoji: "❗", def: "very important or necessary", ex: "Safety is essential when we go camping.", exFromBook: true, ar: "أساسي", ipa: "/ɪˈsen.ʃəl/" },
+        { w: "first-aid kit", pos: "noun", emoji: "🩹", def: "a box with basic medical things for emergencies", ex: "We always bring a first-aid kit in case of an emergency and carry plenty of water to stay hydrated.", exFromBook: true, ar: "حقيبة إسعافات أولية", ipa: "/ˌfɜːst ˈeɪd ˌkɪt/" },
+        { w: "hydrated", pos: "adjective", emoji: "💧", def: "having enough water in your body", ex: "Drink a lot of water to stay hydrated in the desert.", exFromBook: false, ar: "رطب", ipa: "/ˈhaɪ.dreɪ.tɪd/" },
+        { w: "mark", pos: "verb", emoji: "📌", def: "to show where something is", ex: "We mark our campsite on the map.", exFromBook: false, ar: "يحدّد", ipa: "/mɑːk/" },
+        { w: "campsite", pos: "noun", emoji: "⛺", def: "a place where people camp", ex: "After that, when we reach the campsite, we begin setting up the tent and unpacking.", exFromBook: true, ar: "موقع المخيّم", ipa: "/ˈkæmp.saɪt/" },
+        { w: "whereabouts", pos: "noun", emoji: "🗺️", def: "the place where a person or thing is", ex: "Tell your uncle your whereabouts before the trip.", exFromBook: false, ar: "موقع أو مكان", ipa: "/ˈweə.rə.baʊts/" },
         { w: "campfire", pos: "noun", emoji: "🔥", def: "an outside fire made by people who are camping", ex: "At night, we gather around the campfire, listening to music and sharing stories.", exFromBook: true, ar: "نار المخيّم", ipa: "/ˈkæmp.faɪər/" },
-        { w: "litter", pos: "verb", emoji: "🚯", def: "to leave trash in public places", ex: "Finally, we are careful not to litter any trash behind.", exFromBook: true, ar: "يرمي النفايات", ipa: "/ˈlɪt.ər/" },
-        { w: "properly", pos: "adverb", emoji: "👌", def: "in the correct or suitable way", ex: "We make sure the area is cleaned properly before we leave.", exFromBook: true, ar: "بشكل صحيح", ipa: "/ˈprɒp.əl.i/" }
+        { w: "litter", pos: "verb", emoji: "🚯", def: "to leave trash in public places", ex: "Finally, we are careful not to litter any trash behind.", exFromBook: true, ar: "يلقي", ipa: "/ˈlɪt.ər/" },
+        { w: "properly", pos: "adverb", emoji: "👌", def: "in the correct or suitable way", ex: "We make sure the area is cleaned properly before we leave.", exFromBook: true, ar: "بشكل ملائم", ipa: "/ˈprɒp.əl.i/" }
       ],
       sections: [
         {
@@ -6896,17 +6898,17 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "celebration", pos: "noun", emoji: "🎉", def: "a happy event for a special day", ex: "People worldwide enjoy different festivals and celebrations that bring families and communities together.", exFromBook: true, ar: "احتفال", ipa: "/ˌsel.əˈbreɪ.ʃən/" },
-        { w: "togetherness", pos: "noun", emoji: "🤝", def: "the feeling of being friendly and close with other people", ex: "Eid gives our family a feeling of togetherness.", exFromBook: false, ar: "الترابط والتآلف", ipa: "/təˈɡeð.ə.nəs/" },
-        { w: "warmly", pos: "adverb", emoji: "🤗", def: "in a very friendly way", ex: "Every spring, families gather warmly under cherry trees.", exFromBook: true, ar: "بحرارة وودّ", ipa: "/ˈwɔːm.li/" },
-        { w: "preparation", pos: "noun", emoji: "📝", def: "getting ready for something", ex: "They make careful preparations, such as picnics with rice balls and sweets.", exFromBook: true, ar: "تحضير / استعداد", ipa: "/ˌprep.ərˈeɪ.ʃən/" },
+        { w: "togetherness", pos: "noun", emoji: "🤝", def: "the feeling of being friendly and close with other people", ex: "Eid gives our family a feeling of togetherness.", exFromBook: false, ar: "التجمّع", ipa: "/təˈɡeð.ə.nəs/" },
+        { w: "warmly", pos: "adverb", emoji: "🤗", def: "in a very friendly way", ex: "Every spring, families gather warmly under cherry trees.", exFromBook: true, ar: "بدفء", ipa: "/ˈwɔːm.li/" },
+        { w: "preparation", pos: "noun", emoji: "📝", def: "getting ready for something", ex: "They make careful preparations, such as picnics with rice balls and sweets.", exFromBook: true, ar: "استعداد", ipa: "/ˌprep.ərˈeɪ.ʃən/" },
         { w: "exchange", pos: "verb", emoji: "🔄", def: "to give something to someone and get something from them", ex: "People exchange smiles and experiences, enjoying each other’s company.", exFromBook: true, ar: "يتبادل", ipa: "/ɪksˈtʃeɪndʒ/" },
-        { w: "appreciate", pos: "verb", emoji: "🙏", def: "to see how good someone or something is and value it", ex: "This tradition reminds people to appreciate their loved ones.", exFromBook: true, ar: "يُقدِّر", ipa: "/əˈpriːʃieɪt/" },
-        { w: "harmony", pos: "noun", emoji: "🌸", def: "when people or things are peaceful and fit well together", ex: "This joyful event highlights harmony with nature and simple pleasures.", exFromBook: true, ar: "انسجام", ipa: "/ˈhɑː.mə.ni/" },
-        { w: "joyful", pos: "adjective", emoji: "😄", def: "very happy", ex: "Eid is a joyful time for families.", exFromBook: false, ar: "مُبهِج / سعيد جدًّا", ipa: "/ˈdʒɔɪ.fəl/" },
-        { w: "waste", pos: "verb", emoji: "🗑️", def: "to use too much of something or use it badly", ex: "Please don’t waste food at parties.", exFromBook: false, ar: "يُهدِر", ipa: "/weɪst/" },
-        { w: "strengthen", pos: "verb", emoji: "💪", def: "to make something stronger", ex: "Flying kites helps strengthen family bonds and friendships.", exFromBook: true, ar: "يُقوّي", ipa: "/ˈstreŋ.θən/" },
-        { w: "eagerly", pos: "adverb", emoji: "🤩", def: "in a way that shows you want something very much", ex: "The children eagerly waited for the fireworks.", exFromBook: false, ar: "بلهفة وحماس", ipa: "/ˈiː.ɡə.li/" },
-        { w: "festive", pos: "adjective", emoji: "🎊", def: "happy and suitable for a festival", ex: "The streets look festive on National Day.", exFromBook: false, ar: "احتفاليّ", ipa: "/ˈfes.tɪv/" },
+        { w: "appreciate", pos: "verb", emoji: "🙏", def: "to see how good someone or something is and value it", ex: "This tradition reminds people to appreciate their loved ones.", exFromBook: true, ar: "يقدّر", ipa: "/əˈpriːʃieɪt/" },
+        { w: "harmony", pos: "noun", emoji: "🌸", def: "when people or things are peaceful and fit well together", ex: "This joyful event highlights harmony with nature and simple pleasures.", exFromBook: true, ar: "تناغم أو تناسق", ipa: "/ˈhɑː.mə.ni/" },
+        { w: "joyful", pos: "adjective", emoji: "😄", def: "very happy", ex: "Eid is a joyful time for families.", exFromBook: false, ar: "ممتع", ipa: "/ˈdʒɔɪ.fəl/" },
+        { w: "waste", pos: "verb", emoji: "🗑️", def: "to use too much of something or use it badly", ex: "Please don’t waste food at parties.", exFromBook: false, ar: "يهدر", ipa: "/weɪst/" },
+        { w: "strengthen", pos: "verb", emoji: "💪", def: "to make something stronger", ex: "Flying kites helps strengthen family bonds and friendships.", exFromBook: true, ar: "يقوّي", ipa: "/ˈstreŋ.θən/" },
+        { w: "eagerly", pos: "adverb", emoji: "🤩", def: "in a way that shows you want something very much", ex: "The children eagerly waited for the fireworks.", exFromBook: false, ar: "بحماس", ipa: "/ˈiː.ɡə.li/" },
+        { w: "festive", pos: "adjective", emoji: "🎊", def: "happy and suitable for a festival", ex: "The streets look festive on National Day.", exFromBook: false, ar: "احتفالي", ipa: "/ˈfes.tɪv/" },
         { w: "respectfully", pos: "adverb", emoji: "🙇", def: "in a polite way that shows respect", ex: "They teach us to live respectfully, enjoy life, and stay connected.", exFromBook: true, ar: "باحترام", ipa: "/rɪˈspekt.fəl.i/" }
       ],
       sections: [
@@ -7696,17 +7698,17 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "include", pos: "verb", emoji: "➕", def: "to make something part of something else", ex: "Ramadan includes fasting and prayers.", exFromBook: false, ar: "يتضمّن", ipa: "/ɪnˈkluːd/" },
-        { w: "religious", pos: "adjective", emoji: "🕌", def: "related to religion", ex: "Fasting is a religious practice.", exFromBook: false, ar: "دينيّ", ipa: "/rɪˈlɪdʒ.əs/" },
+        { w: "religious", pos: "adjective", emoji: "🕌", def: "related to religion", ex: "Fasting is a religious practice.", exFromBook: false, ar: "ديني", ipa: "/rɪˈlɪdʒ.əs/" },
         { w: "community", pos: "noun", emoji: "🏘️", def: "all the people living in one area", ex: "Gergee’an brings our community together.", exFromBook: false, ar: "مجتمع", ipa: "/kəˈmjuː.nə.ti/" },
-        { w: "cheerfully", pos: "adverb", emoji: "😊", def: "in a happy and positive way", ex: "We cheerfully welcome guests at Iftar.", exFromBook: false, ar: "بمرح وسرور", ipa: "/ˈtʃɪə.fəl.i/" },
+        { w: "cheerfully", pos: "adverb", emoji: "😊", def: "in a happy and positive way", ex: "We cheerfully welcome guests at Iftar.", exFromBook: false, ar: "بفرح", ipa: "/ˈtʃɪə.fəl.i/" },
         { w: "typically", pos: "adverb", emoji: "🔁", def: "usually; in the normal way", ex: "Guests typically accept what is offered as a sign of respect and gratitude.", exFromBook: true, ar: "عادةً", ipa: "/ˈtɪp.ɪ.kəl.i/" },
-        { w: "sign", pos: "noun", emoji: "👍", def: "something that shows a feeling or a fact", ex: "A smile is a sign of kindness.", exFromBook: false, ar: "علامة", ipa: "/saɪn/" },
+        { w: "sign", pos: "noun", emoji: "👍", def: "something that shows a feeling or a fact", ex: "A smile is a sign of kindness.", exFromBook: false, ar: "علامة أو دلالة", ipa: "/saɪn/" },
         { w: "gratitude", pos: "noun", emoji: "💌", def: "the feeling of being thankful", ex: "I wrote a card to show my gratitude.", exFromBook: false, ar: "امتنان", ipa: "/ˈɡræt.ɪ.tʃuːd/" },
-        { w: "well-mannered", pos: "adjective", emoji: "👌", def: "polite and pleasant", ex: "A well-mannered person always accepts food and drinks politely.", exFromBook: true, ar: "مهذّب", ipa: "/ˌwel ˈmæn.əd/" },
-        { w: "generosity", pos: "noun", emoji: "🎁", def: "being happy to give help or things to others", ex: "This tradition teaches the values of generosity, respect, and care for others.", exFromBook: true, ar: "كرم", ipa: "/ˌdʒen.əˈrɒs.ə.ti/" },
-        { w: "thrilling", pos: "adjective", emoji: "🎢", def: "very exciting", ex: "One of the most thrilling traditions during Ramadan is Gergee’an.", exFromBook: true, ar: "مثير جدًّا", ipa: "/ˈθrɪl.ɪŋ/" },
+        { w: "well-mannered", pos: "adjective", emoji: "👌", def: "polite and pleasant", ex: "A well-mannered person always accepts food and drinks politely.", exFromBook: true, ar: "حسن الخلق", ipa: "/ˌwel ˈmæn.əd/" },
+        { w: "generosity", pos: "noun", emoji: "🎁", def: "being happy to give help or things to others", ex: "This tradition teaches the values of generosity, respect, and care for others.", exFromBook: true, ar: "الكرم", ipa: "/ˌdʒen.əˈrɒs.ə.ti/" },
+        { w: "thrilling", pos: "adjective", emoji: "🎢", def: "very exciting", ex: "One of the most thrilling traditions during Ramadan is Gergee’an.", exFromBook: true, ar: "مثير", ipa: "/ˈθrɪl.ɪŋ/" },
         { w: "collect", pos: "verb", emoji: "🧺", def: "to bring or gather things together", ex: "Children collect sweets and nuts from neighbours.", exFromBook: false, ar: "يجمع", ipa: "/kəˈlekt/" },
-        { w: "tolerance", pos: "noun", emoji: "🕊️", def: "accepting beliefs and ways that are different from your own", ex: "They teach us kindness, respect, tolerance, and unity.", exFromBook: true, ar: "تسامح", ipa: "/ˈtɒl.ər.əns/" }
+        { w: "tolerance", pos: "noun", emoji: "🕊️", def: "accepting beliefs and ways that are different from your own", ex: "They teach us kindness, respect, tolerance, and unity.", exFromBook: true, ar: "التسامح", ipa: "/ˈtɒl.ər.əns/" }
       ],
       sections: [
         {
@@ -12074,9 +12076,12 @@ BOOK.glossary = [
     const draw = () => {
       const q = norm(inp.value);
       list.innerHTML = "";
-      (BOOK.glossary || []).filter((e) => !q || e.w.toLowerCase().includes(q) || (e.def || "").toLowerCase().includes(q)).forEach((e) => {
+      (BOOK.glossary || []).filter((e) => {
         const v = arMap[e.w.toLowerCase()];
-        list.append(h("div", { class: "gl-item" }, h("div", { class: "row" }, h("b", { style: { fontSize: "1.1rem" } }, (v && v.emoji ? v.emoji + " " : "") + e.w), sayBtn(e.w)), h("span", { class: "small muted" }, [e.ipa, e.pos, e.unit ? "Unit " + e.unit : null, e.page ? "p. " + e.page : null].filter(Boolean).join(" · ")), e.def ? h("span", null, e.def, e.defExtra ? h("span", { class: "small muted" }, " (simple meaning – not in the book)") : null) : null, S.settings.ar && v && v.ar ? h("span", { class: "ar", style: { color: "var(--brand)", fontWeight: 700 } }, v.ar) : null));
+        return !q || e.w.toLowerCase().includes(q) || (e.def || "").toLowerCase().includes(q) || !!(v && v.ar && v.ar.includes(inp.value.trim()));
+      }).forEach((e) => {
+        const v = arMap[e.w.toLowerCase()];
+        list.append(h("div", { class: "gl-item" }, h("div", { class: "row" }, h("b", { style: { fontSize: "1.1rem" } }, (v && v.emoji ? v.emoji + " " : "") + e.w), sayBtn(e.w)), h("span", { class: "small muted" }, [e.ipa, e.pos, e.unit ? "Unit " + e.unit : null, e.page ? "p. " + e.page : null].filter(Boolean).join(" · ")), e.def ? h("span", null, e.def, e.defExtra ? h("span", { class: "small muted" }, " (simple meaning – not in the book)") : null) : null, (S.settings.ar || BOOK.glossaryAr) && v && v.ar ? h("span", { class: "ar", style: { color: "var(--brand)", fontWeight: 700 } }, v.ar) : null));
       });
       if (!list.children.length) list.append(h("p", { class: "muted" }, "No word found."));
     };

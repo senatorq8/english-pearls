@@ -10997,9 +10997,12 @@ BOOK.glossary = [{ "w": "admire", "ipa": "/ədˈmaɪə/", "pos": "verb", "page":
     const draw = () => {
       const q = norm(inp.value);
       list.innerHTML = "";
-      (BOOK.glossary || []).filter((e) => !q || e.w.toLowerCase().includes(q) || (e.def || "").toLowerCase().includes(q)).forEach((e) => {
+      (BOOK.glossary || []).filter((e) => {
         const v = arMap[e.w.toLowerCase()];
-        list.append(h("div", { class: "gl-item" }, h("div", { class: "row" }, h("b", { style: { fontSize: "1.1rem" } }, (v && v.emoji ? v.emoji + " " : "") + e.w), sayBtn(e.w)), h("span", { class: "small muted" }, [e.ipa, e.pos, e.unit ? "Unit " + e.unit : null, e.page ? "p. " + e.page : null].filter(Boolean).join(" · ")), e.def ? h("span", null, e.def, e.defExtra ? h("span", { class: "small muted" }, " (simple meaning – not in the book)") : null) : null, S.settings.ar && v && v.ar ? h("span", { class: "ar", style: { color: "var(--brand)", fontWeight: 700 } }, v.ar) : null));
+        return !q || e.w.toLowerCase().includes(q) || (e.def || "").toLowerCase().includes(q) || !!(v && v.ar && v.ar.includes(inp.value.trim()));
+      }).forEach((e) => {
+        const v = arMap[e.w.toLowerCase()];
+        list.append(h("div", { class: "gl-item" }, h("div", { class: "row" }, h("b", { style: { fontSize: "1.1rem" } }, (v && v.emoji ? v.emoji + " " : "") + e.w), sayBtn(e.w)), h("span", { class: "small muted" }, [e.ipa, e.pos, e.unit ? "Unit " + e.unit : null, e.page ? "p. " + e.page : null].filter(Boolean).join(" · ")), e.def ? h("span", null, e.def, e.defExtra ? h("span", { class: "small muted" }, " (simple meaning – not in the book)") : null) : null, (S.settings.ar || BOOK.glossaryAr) && v && v.ar ? h("span", { class: "ar", style: { color: "var(--brand)", fontWeight: 700 } }, v.ar) : null));
       });
       if (!list.children.length) list.append(h("p", { class: "muted" }, "No word found."));
     };

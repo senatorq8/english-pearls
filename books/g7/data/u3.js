@@ -53,14 +53,14 @@ BOOK.addUnit({
         { w: "avoid", pos: "verb", emoji: "🙅", def: "to stay away from someone or something", ex: "In busy places, such as shopping centres, signs are used to avoid accidents and protect people.", exFromBook: true, ar: "يتجنّب", ipa: "/əˈvɔɪd/" },
         { w: "safely", pos: "adverb", emoji: "🦺", def: "in a way that avoids danger or harm", ex: "The cars stopped so that we could cross the road safely.", exFromBook: true, ar: "بأمان", ipa: "/ˈseɪf.li/" },
         { w: "prevent", pos: "verb", emoji: "🛑", def: "to stop something from happening", ex: "They help prevent panic during emergencies.", exFromBook: true, ar: "يمنع", ipa: "/prɪˈvent/" },
-        { w: "public", pos: "adjective", emoji: "🏬", def: "open for anyone to go to or use", ex: "On Wednesday, I was at the public mall with my mum.", exFromBook: true, ar: "عامّ", ipa: "/ˈpʌb.lɪk/" },
-        { w: "pedestrian", pos: "noun", emoji: "🚶", def: "a person who is walking, especially where cars go", ex: "The pedestrian waited at the zebra crossing.", exFromBook: false, ar: "أحد المشاة", ipa: "/pəˈdes.tri.ən/" },
+        { w: "public", pos: "adjective", emoji: "🏬", def: "open for anyone to go to or use", ex: "On Wednesday, I was at the public mall with my mum.", exFromBook: true, ar: "عام", ipa: "/ˈpʌb.lɪk/" },
+        { w: "pedestrian", pos: "noun", emoji: "🚶", def: "a person who is walking, especially where cars go", ex: "The pedestrian waited at the zebra crossing.", exFromBook: false, ar: "المشاة", ipa: "/pəˈdes.tri.ən/" },
         { w: "constantly", pos: "adverb", emoji: "🔁", def: "all the time or often", ex: "We do not always think about it, but these signs are around us constantly.", exFromBook: true, ar: "باستمرار", ipa: "/ˈkɒn.stənt.li/" },
-        { w: "surrounding", pos: "noun", emoji: "🏙️", def: "everything around you (often: surroundings)", ex: "They are part of our surroundings, helping us every day.", exFromBook: true, ar: "المحيط (ما حولنا)", ipa: "/səˈraʊn.dɪŋ/" },
+        { w: "surrounding", pos: "noun", emoji: "🏙️", def: "everything around you (often: surroundings)", ex: "They are part of our surroundings, helping us every day.", exFromBook: true, ar: "الأطراف أو حولنا", ipa: "/səˈraʊn.dɪŋ/" },
         { w: "announcement", pos: "noun", emoji: "📢", def: "official information that someone says to people", ex: "We listened to an announcement about a delay, then followed signs to the right terminal.", exFromBook: true, ar: "إعلان", ipa: "/əˈnaʊnsmənt/" },
-        { w: "delay", pos: "noun", emoji: "⏳", def: "when you wait longer than expected", ex: "There was a delay, so our plane left late.", exFromBook: false, ar: "تأخير", ipa: "/dɪˈleɪ/" },
+        { w: "delay", pos: "noun", emoji: "⏳", def: "when you wait longer than expected", ex: "There was a delay, so our plane left late.", exFromBook: false, ar: "التأجيل أو التأخير", ipa: "/dɪˈleɪ/" },
         { w: "destination", pos: "noun", emoji: "📍", def: "the place where someone is going", ex: "These signs help travellers reach their destination without getting lost.", exFromBook: true, ar: "وجهة", ipa: "/ˌdes.tɪˈneɪ.ʃən/" },
-        { w: "alert", pos: "adjective", emoji: "👀", def: "quick to see, understand and act", ex: "We just need to stay alert and pay attention.", exFromBook: true, ar: "يقِظ / منتبه", ipa: "/əˈlɜːt/" }
+        { w: "alert", pos: "adjective", emoji: "👀", def: "quick to see, understand and act", ex: "We just need to stay alert and pay attention.", exFromBook: true, ar: "منتبه", ipa: "/əˈlɜːt/" }
       ],
       sections: [
         { type: "reading", title: "Staying Safe", page: 48,
@@ -643,18 +643,18 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "memorable", pos: "adjective", emoji: "🌟", def: "worth remembering; easy to remember", ex: "When everything is planned carefully, we can enjoy the weekend and make it truly memorable.", exFromBook: true, ar: "لا يُنسى", ipa: "/ˈmem.ər.ə.bəl/" },
-        { w: "ensure", pos: "verb", emoji: "✅", def: "to make something certain to happen", ex: "It is both fun and exciting, but it also requires careful planning to ensure everyone stays safe.", exFromBook: true, ar: "يضمن", ipa: "/ɪnˈʃɔːr/" },
+        { w: "ensure", pos: "verb", emoji: "✅", def: "to make something certain to happen", ex: "It is both fun and exciting, but it also requires careful planning to ensure everyone stays safe.", exFromBook: true, ar: "يتأكّد", ipa: "/ɪnˈʃɔːr/" },
         { w: "currently", pos: "adverb", emoji: "⏱️", def: "at the present time; now", ex: "First, our family is currently getting ready for the trip.", exFromBook: true, ar: "حاليًا", ipa: "/ˈkʌr.ənt.li/" },
-        { w: "pack", pos: "verb", emoji: "🎒", def: "to put things into a bag or box", ex: "At the same time, my mother is carefully packing the food and drinks we will need.", exFromBook: true, ar: "يحزم / يُعبّئ", ipa: "/pæk/" },
-        { w: "essential", pos: "adjective", emoji: "❗", def: "very important or necessary", ex: "Safety is essential when we go camping.", exFromBook: true, ar: "ضروري", ipa: "/ɪˈsen.ʃəl/" },
-        { w: "first-aid kit", pos: "noun", emoji: "🩹", def: "a box with basic medical things for emergencies", ex: "We always bring a first-aid kit in case of an emergency and carry plenty of water to stay hydrated.", exFromBook: true, ar: "حقيبة الإسعافات الأولية", ipa: "/ˌfɜːst ˈeɪd ˌkɪt/" },
-        { w: "hydrated", pos: "adjective", emoji: "💧", def: "having enough water in your body", ex: "Drink a lot of water to stay hydrated in the desert.", exFromBook: false, ar: "مُرتوٍ (جسمه فيه ماء كافٍ)", ipa: "/ˈhaɪ.dreɪ.tɪd/" },
-        { w: "mark", pos: "verb", emoji: "📌", def: "to show where something is", ex: "We mark our campsite on the map.", exFromBook: false, ar: "يُحدّد / يضع علامة", ipa: "/mɑːk/" },
-        { w: "campsite", pos: "noun", emoji: "⛺", def: "a place where people camp", ex: "After that, when we reach the campsite, we begin setting up the tent and unpacking.", exFromBook: true, ar: "موقع التخييم", ipa: "/ˈkæmp.saɪt/" },
-        { w: "whereabouts", pos: "noun", emoji: "🗺️", def: "the place where a person or thing is", ex: "Tell your uncle your whereabouts before the trip.", exFromBook: false, ar: "مكان الوجود", ipa: "/ˈweə.rə.baʊts/" },
+        { w: "pack", pos: "verb", emoji: "🎒", def: "to put things into a bag or box", ex: "At the same time, my mother is carefully packing the food and drinks we will need.", exFromBook: true, ar: "يعلّب أو يخزّن", ipa: "/pæk/" },
+        { w: "essential", pos: "adjective", emoji: "❗", def: "very important or necessary", ex: "Safety is essential when we go camping.", exFromBook: true, ar: "أساسي", ipa: "/ɪˈsen.ʃəl/" },
+        { w: "first-aid kit", pos: "noun", emoji: "🩹", def: "a box with basic medical things for emergencies", ex: "We always bring a first-aid kit in case of an emergency and carry plenty of water to stay hydrated.", exFromBook: true, ar: "حقيبة إسعافات أولية", ipa: "/ˌfɜːst ˈeɪd ˌkɪt/" },
+        { w: "hydrated", pos: "adjective", emoji: "💧", def: "having enough water in your body", ex: "Drink a lot of water to stay hydrated in the desert.", exFromBook: false, ar: "رطب", ipa: "/ˈhaɪ.dreɪ.tɪd/" },
+        { w: "mark", pos: "verb", emoji: "📌", def: "to show where something is", ex: "We mark our campsite on the map.", exFromBook: false, ar: "يحدّد", ipa: "/mɑːk/" },
+        { w: "campsite", pos: "noun", emoji: "⛺", def: "a place where people camp", ex: "After that, when we reach the campsite, we begin setting up the tent and unpacking.", exFromBook: true, ar: "موقع المخيّم", ipa: "/ˈkæmp.saɪt/" },
+        { w: "whereabouts", pos: "noun", emoji: "🗺️", def: "the place where a person or thing is", ex: "Tell your uncle your whereabouts before the trip.", exFromBook: false, ar: "موقع أو مكان", ipa: "/ˈweə.rə.baʊts/" },
         { w: "campfire", pos: "noun", emoji: "🔥", def: "an outside fire made by people who are camping", ex: "At night, we gather around the campfire, listening to music and sharing stories.", exFromBook: true, ar: "نار المخيّم", ipa: "/ˈkæmp.faɪər/" },
-        { w: "litter", pos: "verb", emoji: "🚯", def: "to leave trash in public places", ex: "Finally, we are careful not to litter any trash behind.", exFromBook: true, ar: "يرمي النفايات", ipa: "/ˈlɪt.ər/" },
-        { w: "properly", pos: "adverb", emoji: "👌", def: "in the correct or suitable way", ex: "We make sure the area is cleaned properly before we leave.", exFromBook: true, ar: "بشكل صحيح", ipa: "/ˈprɒp.əl.i/" }
+        { w: "litter", pos: "verb", emoji: "🚯", def: "to leave trash in public places", ex: "Finally, we are careful not to litter any trash behind.", exFromBook: true, ar: "يلقي", ipa: "/ˈlɪt.ər/" },
+        { w: "properly", pos: "adverb", emoji: "👌", def: "in the correct or suitable way", ex: "We make sure the area is cleaned properly before we leave.", exFromBook: true, ar: "بشكل ملائم", ipa: "/ˈprɒp.əl.i/" }
       ],
       sections: [
         { type: "reading", title: "Kashta to Al-Mutlaa", page: 53,

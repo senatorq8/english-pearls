@@ -40,18 +40,18 @@ BOOK.addUnit({
         prompts: ["What are the differences?", "Which one shows your culture?", "Which one would you prefer to live in? Why?"]
       },
       vocab: [
-        { w: "bond", pos: "verb", emoji: "🤝", def: "to develop a close connection or strong relationship with someone", ex: "These houses were designed to bond family members with each other.", exFromBook: true, ar: "يُقوّي الروابط", ipa: "/bɒnd/" },
+        { w: "bond", pos: "verb", emoji: "🤝", def: "to develop a close connection or strong relationship with someone", ex: "These houses were designed to bond family members with each other.", exFromBook: true, ar: "يربط", ipa: "/bɒnd/" },
         { w: "strongly", pos: "adverb", emoji: "💪", def: "very much or in a very serious way", ex: "A value that still strongly shapes Kuwaiti life today.", exFromBook: true, ar: "بقوة", ipa: "/ˈstrɒŋ.li/" },
-        { w: "courtyard", pos: "noun", emoji: "🏛️", def: "an area of flat ground outside, partly or completely surrounded by buildings", ex: "At the centre of every traditional home was a large courtyard.", exFromBook: true, ar: "فِناء (حوش)", ipa: "/ˈkɔːt.jɑːd/" },
-        { w: "gather", pos: "verb", emoji: "👨‍👩‍👧‍👦", def: "to come together in a group", ex: "Family members would gather to talk, share meals, and celebrate special events.", exFromBook: true, ar: "يجتمع", ipa: "/ˈɡæð.ər/" },
+        { w: "courtyard", pos: "noun", emoji: "🏛️", def: "an area of flat ground outside, partly or completely surrounded by buildings", ex: "At the centre of every traditional home was a large courtyard.", exFromBook: true, ar: "ساحة أو باحة", ipa: "/ˈkɔːt.jɑːd/" },
+        { w: "gather", pos: "verb", emoji: "👨‍👩‍👧‍👦", def: "to come together in a group", ex: "Family members would gather to talk, share meals, and celebrate special events.", exFromBook: true, ar: "يتجمّع", ipa: "/ˈɡæð.ər/" },
         { w: "spacious", pos: "adjective", emoji: "📐", def: "large and with a lot of space", ex: "These homes were spacious and open.", exFromBook: true, ar: "واسع", ipa: "/ˈspeɪ.ʃəs/" },
         { w: "happily", pos: "adverb", emoji: "😊", def: "in a happy way", ex: "The family stayed happily connected.", exFromBook: false, ar: "بسعادة", ipa: "/ˈhæp.əl.i/" },
         { w: "elder", pos: "noun", emoji: "👴", def: "an older person, especially one with a respected position", ex: "We show respect for elders.", exFromBook: false, ar: "كبير السن", ipa: "/ˈel.dər/" },
-        { w: "hospitality", pos: "noun", emoji: "☕", def: "being friendly and welcoming to guests and visitors", ex: "Guests are always welcomed with Arabic coffee, dates, and warm smiles.", exFromBook: true, ar: "الكرم وحسن الضيافة", ipa: "/ˌhɒs.pɪˈtæl.ə.ti/" },
-        { w: "role", pos: "noun", emoji: "🎭", def: "the part or job someone has in a situation", ex: "Each family member had a clear role.", exFromBook: true, ar: "دَور", ipa: "/rəʊl/" },
-        { w: "manage", pos: "verb", emoji: "🗂️", def: "to succeed in doing or dealing with something difficult", ex: "Women managed the home with care.", exFromBook: true, ar: "يُدير", ipa: "/ˈmæn.ɪdʒ/" },
-        { w: "wisdom", pos: "noun", emoji: "🦉", def: "the ability to make good decisions from experience and knowledge", ex: "The grandparents held the family together with their love and wisdom.", exFromBook: true, ar: "حِكمة", ipa: "/ˈwɪz.dəm/" },
-        { w: "united", pos: "adjective", emoji: "🔗", def: "joined together as a group", ex: "The traditional Kuwaiti home reflected a united spirit of respect and love.", exFromBook: true, ar: "مُتّحد / مترابط", ipa: "/juːˈnaɪ.tɪd/" }
+        { w: "hospitality", pos: "noun", emoji: "☕", def: "being friendly and welcoming to guests and visitors", ex: "Guests are always welcomed with Arabic coffee, dates, and warm smiles.", exFromBook: true, ar: "ضيافة", ipa: "/ˌhɒs.pɪˈtæl.ə.ti/" },
+        { w: "role", pos: "noun", emoji: "🎭", def: "the part or job someone has in a situation", ex: "Each family member had a clear role.", exFromBook: true, ar: "دور", ipa: "/rəʊl/" },
+        { w: "manage", pos: "verb", emoji: "🗂️", def: "to succeed in doing or dealing with something difficult", ex: "Women managed the home with care.", exFromBook: true, ar: "يتمكّن من", ipa: "/ˈmæn.ɪdʒ/" },
+        { w: "wisdom", pos: "noun", emoji: "🦉", def: "the ability to make good decisions from experience and knowledge", ex: "The grandparents held the family together with their love and wisdom.", exFromBook: true, ar: "حكمة", ipa: "/ˈwɪz.dəm/" },
+        { w: "united", pos: "adjective", emoji: "🔗", def: "joined together as a group", ex: "The traditional Kuwaiti home reflected a united spirit of respect and love.", exFromBook: true, ar: "متّحد أو متواصل", ipa: "/juːˈnaɪ.tɪd/" }
       ],
       sections: [
         { type: "reading", title: "Generations Together", page: 20,
@@ -333,16 +333,16 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "culture", pos: "noun", emoji: "🕌", def: "the way of life, beliefs, and customs of a group", ex: "I’m really interested in your culture.", exFromBook: true, ar: "ثقافة", ipa: "/ˈkʌl.tʃər/" },
-        { w: "share", pos: "verb", emoji: "🗣️", def: "to tell someone about your thoughts, ideas or stories", ex: "My grandparents share amazing stories about Kuwait’s past.", exFromBook: true, ar: "يُشارك", ipa: "/ʃeər/" },
-        { w: "heritage", pos: "noun", emoji: "🏺", def: "the history and traditions of a country that continue to be important", ex: "It’s a special part of our Kuwaiti heritage.", exFromBook: true, ar: "تراث", ipa: "/ˈher.ɪ.tɪdʒ/" },
-        { w: "tradition", pos: "noun", emoji: "🎑", def: "a way of acting that people have followed for a long time", ex: "It’s a tradition where all the relatives gather to enjoy delicious food.", exFromBook: true, ar: "عادة / تقليد", ipa: "/trəˈdɪʃ.ən/" },
-        { w: "brilliant", pos: "adjective", emoji: "🌟", def: "very good", ex: "We have a brilliant time together.", exFromBook: true, ar: "رائع", ipa: "/ˈbrɪl.jənt/" },
-        { w: "close", pos: "adjective", emoji: "🫂", def: "having a strong emotional connection", ex: "We are a very close family.", exFromBook: true, ar: "مترابط / مقرّب", ipa: "/kləʊs/" },
+        { w: "share", pos: "verb", emoji: "🗣️", def: "to tell someone about your thoughts, ideas or stories", ex: "My grandparents share amazing stories about Kuwait’s past.", exFromBook: true, ar: "يشارك", ipa: "/ʃeər/" },
+        { w: "heritage", pos: "noun", emoji: "🏺", def: "the history and traditions of a country that continue to be important", ex: "It’s a special part of our Kuwaiti heritage.", exFromBook: true, ar: "تاريخ", ipa: "/ˈher.ɪ.tɪdʒ/" },
+        { w: "tradition", pos: "noun", emoji: "🎑", def: "a way of acting that people have followed for a long time", ex: "It’s a tradition where all the relatives gather to enjoy delicious food.", exFromBook: true, ar: "تقاليد", ipa: "/trəˈdɪʃ.ən/" },
+        { w: "brilliant", pos: "adjective", emoji: "🌟", def: "very good", ex: "We have a brilliant time together.", exFromBook: true, ar: "جميل أو رائع", ipa: "/ˈbrɪl.jənt/" },
+        { w: "close", pos: "adjective", emoji: "🫂", def: "having a strong emotional connection", ex: "We are a very close family.", exFromBook: true, ar: "متقارب", ipa: "/kləʊs/" },
         { w: "look forward to", pos: "phrasal verb", emoji: "🤩", def: "to feel excited and happy about something that is going to happen", ex: "I always look forward to these gatherings!", exFromBook: true, ar: "يتطلّع إلى", ipa: "/ˈlʊk ˌfɔː.wəd ˌtuː/" },
         { w: "weekly", pos: "adjective", emoji: "📅", def: "happening once a week", ex: "It’s a weekly gathering.", exFromBook: true, ar: "أسبوعي", ipa: "/ˈwiːk.li/" },
-        { w: "extremely", pos: "adverb", emoji: "💯", def: "very", ex: "I feel extremely proud to be a part of it.", exFromBook: true, ar: "للغاية", ipa: "/ɪkˈstriːm.li/" },
-        { w: "relax", pos: "verb", emoji: "😌", def: "to become less active and calm", ex: "We also relax, laugh, and show respect.", exFromBook: true, ar: "يسترخي", ipa: "/rɪˈlæks/" },
-        { w: "definitely", pos: "adverb", emoji: "✅", def: "without any doubt; certainly", ex: "You should definitely visit us one day!", exFromBook: true, ar: "بالتأكيد", ipa: "/ˈdef.ɪ.nət.li/" }
+        { w: "extremely", pos: "adverb", emoji: "💯", def: "very", ex: "I feel extremely proud to be a part of it.", exFromBook: true, ar: "بشدة", ipa: "/ɪkˈstriːm.li/" },
+        { w: "relax", pos: "verb", emoji: "😌", def: "to become less active and calm", ex: "We also relax, laugh, and show respect.", exFromBook: true, ar: "يرتاح", ipa: "/rɪˈlæks/" },
+        { w: "definitely", pos: "adverb", emoji: "✅", def: "without any doubt; certainly", ex: "You should definitely visit us one day!", exFromBook: true, ar: "بشكل مؤكد", ipa: "/ˈdef.ɪ.nət.li/" }
       ],
       sections: [
         { type: "reading", title: "Sharing My Culture", page: 25, kind: "email",

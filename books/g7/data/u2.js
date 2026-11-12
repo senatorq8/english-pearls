@@ -48,17 +48,17 @@ BOOK.addUnit({
         seconds: 90
       },
       vocab: [
-        { w: "nervous", pos: "adjective", emoji: "😬", def: "worried or afraid of something", ex: "I was nervous on my first day at school.", exFromBook: false, ar: "متوتّر", ipa: "/ˈnɜː.vəs/" },
+        { w: "nervous", pos: "adjective", emoji: "😬", def: "worried or afraid of something", ex: "I was nervous on my first day at school.", exFromBook: false, ar: "متوتر أو قلق", ipa: "/ˈnɜː.vəs/" },
         { w: "responsible", pos: "adjective", emoji: "🧑‍🏫", def: "having the duty of taking care of something", ex: "I have become more responsible.", exFromBook: true, ar: "مسؤول", ipa: "/rɪˈspɑn·sə·bəl/" },
-        { w: "organised", pos: "adjective", emoji: "🗂️", def: "arranged according to a particular system", ex: "My time is more organised.", exFromBook: true, ar: "منظَّم", ipa: "/ˈɔː.ɡə.naɪzd/" },
+        { w: "organised", pos: "adjective", emoji: "🗂️", def: "arranged according to a particular system", ex: "My time is more organised.", exFromBook: true, ar: "منظّم", ipa: "/ˈɔː.ɡə.naɪzd/" },
         { w: "discussion", pos: "noun", emoji: "🗣️", def: "talking about something with other people and telling them your ideas", ex: "We have a discussion in class every week.", exFromBook: false, ar: "نقاش", ipa: "/dɪˈskʌʃ.ən/" },
         { w: "regularly", pos: "adverb", emoji: "📅", def: "doing the same thing or going to the same place often", ex: "I also have to study regularly for exams.", exFromBook: true, ar: "بانتظام", ipa: "/ˈreɡ.jə.lə.li/" },
-        { w: "confident", pos: "adjective", emoji: "😎", def: "sure of yourself or your abilities", ex: "I am more confident now.", exFromBook: true, ar: "واثق بنفسه", ipa: "/ˈkɒn.fɪ.dənt/" },
-        { w: "cheer", pos: "verb", emoji: "📣", def: "to give a loud shout of approval or encouragement for someone", ex: "We cheer our team at every match.", exFromBook: false, ar: "يشجّع / يهتف", ipa: "/tʃɪər/" },
-        { w: "value", pos: "verb", emoji: "💎", def: "to consider something important", ex: "I have also learned to value myself.", exFromBook: true, ar: "يُقدِّر", ipa: "/ˈvæl.juː/" },
+        { w: "confident", pos: "adjective", emoji: "😎", def: "sure of yourself or your abilities", ex: "I am more confident now.", exFromBook: true, ar: "واثق", ipa: "/ˈkɒn.fɪ.dənt/" },
+        { w: "cheer", pos: "verb", emoji: "📣", def: "to give a loud shout of approval or encouragement for someone", ex: "We cheer our team at every match.", exFromBook: false, ar: "يشجّع", ipa: "/tʃɪər/" },
+        { w: "value", pos: "verb", emoji: "💎", def: "to consider something important", ex: "I have also learned to value myself.", exFromBook: true, ar: "يقدّر", ipa: "/ˈvæl.juː/" },
         { w: "challenge", pos: "noun", emoji: "🧗", def: "something that needs a lot of effort to do successfully", ex: "Every challenge is a chance to improve.", exFromBook: true, ar: "تحدٍّ", ipa: "/ˈtʃæl.ɪndʒ/" },
-        { w: "hard", pos: "adverb", emoji: "💪", def: "with a lot of effort or force", ex: "I work hard and support my friends.", exFromBook: true, ar: "بجدّ", ipa: "/hɑːd/" },
-        { w: "respectful", pos: "adjective", emoji: "🙏", def: "showing politeness or honour to someone or something", ex: "Be respectful to your teachers.", exFromBook: false, ar: "محترِم", ipa: "/rɪˈspekt.fəl/" }
+        { w: "hard", pos: "adverb", emoji: "💪", def: "with a lot of effort or force", ex: "I work hard and support my friends.", exFromBook: true, ar: "باجتهاد", ipa: "/hɑːd/" },
+        { w: "respectful", pos: "adjective", emoji: "🙏", def: "showing politeness or honour to someone or something", ex: "Be respectful to your teachers.", exFromBook: false, ar: "محترم", ipa: "/rɪˈspekt.fəl/" }
       ],
       sections: [
         { type: "reading", title: "From My First Day Until Today", page: 34, source: "book",
@@ -492,14 +492,14 @@ BOOK.addUnit({
       vocab: [
         { w: "faith", pos: "noun", emoji: "🕌", def: "great trust or confidence in something or someone", ex: "His faith was strong from the start.", exFromBook: true, ar: "إيمان", ipa: "/feɪθ/" },
         { w: "lead", pos: "verb", emoji: "🧭", def: "to guide or be in charge of a group or situation", ex: "The captain leads the team.", exFromBook: false, ar: "يقود", ipa: "/liːd/" },
-        { w: "effectively", pos: "adverb", emoji: "🎯", def: "in a way that gets the result that you want", ex: "Doctors can effectively help poor people.", exFromBook: false, ar: "بفعالية", ipa: "/ɪˈfek.tɪv.li/" },
-        { w: "effort", pos: "noun", emoji: "🏋️", def: "physical or mental energy used to do something", ex: "She made a great effort to finish her project.", exFromBook: false, ar: "جهد", ipa: "/ˈef.ət/" },
+        { w: "effectively", pos: "adverb", emoji: "🎯", def: "in a way that gets the result that you want", ex: "Doctors can effectively help poor people.", exFromBook: false, ar: "بشكل مؤثّر", ipa: "/ɪˈfek.tɪv.li/" },
+        { w: "effort", pos: "noun", emoji: "🏋️", def: "physical or mental energy used to do something", ex: "She made a great effort to finish her project.", exFromBook: false, ar: "مجهود", ipa: "/ˈef.ət/" },
         { w: "patient", pos: "adjective", emoji: "⏳", def: "able to wait, or to continue doing something when it is difficult", ex: "He was very patient and did not give up on his dreams.", exFromBook: true, ar: "صبور", ipa: "/ˈpeɪ.ʃənt/" },
-        { w: "friendly", pos: "adjective", emoji: "😊", def: "behaving in a pleasant, kind way towards someone", ex: "Our new neighbour is very friendly.", exFromBook: false, ar: "ودود", ipa: "/ˈfrend.li/" },
-        { w: "polite", pos: "adjective", emoji: "🎩", def: "speaking and acting in a kind and correct way with other people", ex: "Be polite and say “please” and “thank you”.", exFromBook: false, ar: "مهذّب", ipa: "/pəˈlaɪt/" },
-        { w: "positively", pos: "adverb", emoji: "👍", def: "in a good or positive way", ex: "He changed many lives positively.", exFromBook: true, ar: "بشكل إيجابي", ipa: "/ˈpɒz.ə.tɪv.li/" },
-        { w: "recognise", pos: "verb", emoji: "🏅", def: "to show public thanks for what someone has done", ex: "The school recognised her for her hard work.", exFromBook: false, ar: "يُشيد بـ / يعترف بفضل", ipa: "/ˈrek.əɡ.naɪz/" },
-        { w: "honour", pos: "verb", emoji: "🎖️", def: "to show great respect for someone, especially in public", ex: "He was honoured by many countries.", exFromBook: true, ar: "يُكرِّم", ipa: "/ˈɒn.ər/" }
+        { w: "friendly", pos: "adjective", emoji: "😊", def: "behaving in a pleasant, kind way towards someone", ex: "Our new neighbour is very friendly.", exFromBook: false, ar: "لطيف", ipa: "/ˈfrend.li/" },
+        { w: "polite", pos: "adjective", emoji: "🎩", def: "speaking and acting in a kind and correct way with other people", ex: "Be polite and say “please” and “thank you”.", exFromBook: false, ar: "مؤدّب", ipa: "/pəˈlaɪt/" },
+        { w: "positively", pos: "adverb", emoji: "👍", def: "in a good or positive way", ex: "He changed many lives positively.", exFromBook: true, ar: "إيجابيًا", ipa: "/ˈpɒz.ə.tɪv.li/" },
+        { w: "recognise", pos: "verb", emoji: "🏅", def: "to show public thanks for what someone has done", ex: "The school recognised her for her hard work.", exFromBook: false, ar: "يعترف بـ", ipa: "/ˈrek.əɡ.naɪz/" },
+        { w: "honour", pos: "verb", emoji: "🎖️", def: "to show great respect for someone, especially in public", ex: "He was honoured by many countries.", exFromBook: true, ar: "شرف", ipa: "/ˈɒn.ər/" }
       ],
       sections: [
         { type: "reading", title: "A Life of Kindness", page: 39, source: "book",

@@ -26,6 +26,8 @@ Always LOOK at the page image too (Read tool) — the text extraction scrambles 
 * Short, direct English instructions (Grade 6, many weak readers). Arabic is OPTIONAL support in `ar` fields.
 * Every accepted answer must be correct English. Re‑check every item.
 
+Book option: `BOOK.glossaryAr = true` makes the Word List always show each word’s Arabic meaning (its vocab `ar`), even with the “عربي” switch off. Arabic meanings can also be searched there.
+
 ## LESSON
 ```js
 {
