@@ -22,15 +22,15 @@ BOOK.addUnit({
         prompts: ["a. Have you visited any of these places?", "b. Do you know the names of these places?", "c. What do you think people can do there?"]
       },
       vocab: [
-        { w: "rich", pos: "adjective", emoji: "💎", def: "full of interesting or valuable things", ex: "Kuwait is a country with a rich history and exciting modern developments.", exFromBook: true, ar: "غنيّ" },
+        { w: "rich", pos: "adjective", emoji: "💎", def: "full of interesting or valuable things", ex: "Kuwait is a country with a rich history and exciting modern developments.", exFromBook: true, ar: "ثري أو غني" },
         { w: "wonderful", pos: "adjective", emoji: "🤩", def: "very good; great", ex: "It offers many wonderful places for people to visit, learn, and enjoy.", exFromBook: true, ar: "رائع" },
-        { w: "landmark", pos: "noun", emoji: "🗼", def: "a building or place that is easy to recognise", ex: "The Scientific Centre in Salmiya is one of Kuwait’s most famous landmarks.", exFromBook: true, ar: "مَعْلَم بارز" },
-        { w: "recently", pos: "adverb", emoji: "🆕", def: "not long ago", ex: "It recently opened a new area with digital exhibits, hands-on experiments, and modern displays.", exFromBook: true, ar: "مؤخرًا / حديثًا" },
-        { w: "digital", pos: "adjective", emoji: "💻", def: "using computers and electronic technology", ex: "It recently opened a new area with digital exhibits, hands-on experiments, and modern displays.", exFromBook: true, ar: "رقميّ" },
+        { w: "landmark", pos: "noun", emoji: "🗼", def: "a building or place that is easy to recognise", ex: "The Scientific Centre in Salmiya is one of Kuwait’s most famous landmarks.", exFromBook: true, ar: "معلم" },
+        { w: "recently", pos: "adverb", emoji: "🆕", def: "not long ago", ex: "It recently opened a new area with digital exhibits, hands-on experiments, and modern displays.", exFromBook: true, ar: "مؤخراً" },
+        { w: "digital", pos: "adjective", emoji: "💻", def: "using computers and electronic technology", ex: "It recently opened a new area with digital exhibits, hands-on experiments, and modern displays.", exFromBook: true, ar: "إلكتروني" },
         { w: "become", pos: "verb", emoji: "🔄", def: "to start to be something", ex: "The Scientific Centre has become one of the most popular weekend destinations for families.", exFromBook: true, ar: "يصبح" },
         { w: "museum", pos: "noun", emoji: "🏛️", def: "a building where people can see old, interesting or important things", ex: "It is one of the largest museums in the country.", exFromBook: true, ar: "متحف" },
-        { w: "locate", pos: "verb", emoji: "📍", def: "(be located) to be in a particular place", ex: "It is located in Salmiya and has many exciting galleries.", exFromBook: true, ar: "يقع (في مكان)" },
-        { w: "provide", pos: "verb", emoji: "🎁", def: "to give someone something that they need", ex: "Despite being in a busy city, it provides a peaceful escape where people can exercise, enjoy nature, and visit cultural exhibitions.", exFromBook: true, ar: "يوفّر / يقدّم" }
+        { w: "locate", pos: "verb", emoji: "📍", def: "(be located) to be in a particular place", ex: "It is located in Salmiya and has many exciting galleries.", exFromBook: true, ar: "تقع في" },
+        { w: "provide", pos: "verb", emoji: "🎁", def: "to give someone something that they need", ex: "Despite being in a busy city, it provides a peaceful escape where people can exercise, enjoy nature, and visit cultural exhibitions.", exFromBook: true, ar: "يزود أو يعطي" }
       ],
       sections: [
         { type: "reading", title: "Discover the New Kuwait!", page: 21,
@@ -519,17 +519,17 @@ BOOK.addUnit({
         prompts: ["a. How did people communicate in Kuwait 70 years ago? What about now?", "b. What are the most popular social media apps in Kuwait today?"]
       },
       vocab: [
-        { w: "receive", pos: "verb", emoji: "📩", def: "to get something that someone sends or gives you", ex: "They received news from the radio, TV, or newspapers.", exFromBook: true, ar: "يستلم / يتلقّى" },
-        { w: "nowadays", pos: "adverb", emoji: "📅", def: "at the present time; these days", ex: "Nowadays, people in Kuwait are using social media apps almost all the time.", exFromBook: true, ar: "في هذه الأيام" },
-        { w: "social", pos: "adjective", emoji: "👥", def: "about people and spending time with other people", ex: "Nowadays, people in Kuwait are using social media apps almost all the time.", exFromBook: true, ar: "اجتماعيّ" },
-        { w: "almost", pos: "adverb", emoji: "🤏", def: "nearly; not completely", ex: "Nowadays, people in Kuwait are using social media apps almost all the time.", exFromBook: true, ar: "تقريبًا" },
-        { w: "fond", pos: "adjective", emoji: "❤️", def: "(fond of) liking something very much", ex: "They are particularly fond of some apps, such as Instagram and Snapchat.", exFromBook: true, ar: "مولع بـ / محبّ لـ" },
+        { w: "receive", pos: "verb", emoji: "📩", def: "to get something that someone sends or gives you", ex: "They received news from the radio, TV, or newspapers.", exFromBook: true, ar: "يتلقى" },
+        { w: "nowadays", pos: "adverb", emoji: "📅", def: "at the present time; these days", ex: "Nowadays, people in Kuwait are using social media apps almost all the time.", exFromBook: true, ar: "حاليا" },
+        { w: "social", pos: "adjective", emoji: "👥", def: "about people and spending time with other people", ex: "Nowadays, people in Kuwait are using social media apps almost all the time.", exFromBook: true, ar: "الاجتماعي" },
+        { w: "almost", pos: "adverb", emoji: "🤏", def: "nearly; not completely", ex: "Nowadays, people in Kuwait are using social media apps almost all the time.", exFromBook: true, ar: "تقريباً أو حوالي" },
+        { w: "fond", pos: "adjective", emoji: "❤️", def: "(fond of) liking something very much", ex: "They are particularly fond of some apps, such as Instagram and Snapchat.", exFromBook: true, ar: "معجب ب" },
         { w: "communicate", pos: "verb", emoji: "💬", def: "to share ideas and information with other people", ex: "In fact, some people, especially teenagers, communicate more online than they do face-to-face.", exFromBook: true, ar: "يتواصل" },
-        { w: "deliver", pos: "verb", emoji: "🚚", def: "to take things to a person’s house or place", ex: "These products are often delivered to their houses within a few hours.", exFromBook: true, ar: "يوصّل (الطلبات)" },
-        { w: "convenient", pos: "adjective", emoji: "👌", def: "easy and useful for you", ex: "This method is both convenient and helpful.", exFromBook: true, ar: "مريح / مناسب" },
-        { w: "previously", pos: "adverb", emoji: "⏪", def: "before; in the past", ex: "Previously, they relied on textbooks and wrote everything by hand.", exFromBook: true, ar: "سابقًا" },
-        { w: "instant", pos: "adjective", emoji: "⚡", def: "happening immediately, with no waiting", ex: "Today, social media gives us instant access to search for educational videos, articles, and tips.", exFromBook: true, ar: "فوريّ" },
-        { w: "tutorial", pos: "noun", emoji: "🎓", def: "a lesson or video that shows you how to do something", ex: "Platforms like YouTube and Instagram often share tutorials, language lessons, and science lessons.", exFromBook: true, ar: "درس تعليميّ (شرح)" }
+        { w: "deliver", pos: "verb", emoji: "🚚", def: "to take things to a person’s house or place", ex: "These products are often delivered to their houses within a few hours.", exFromBook: true, ar: "يرسل" },
+        { w: "convenient", pos: "adjective", emoji: "👌", def: "easy and useful for you", ex: "This method is both convenient and helpful.", exFromBook: true, ar: "مناسب" },
+        { w: "previously", pos: "adverb", emoji: "⏪", def: "before; in the past", ex: "Previously, they relied on textbooks and wrote everything by hand.", exFromBook: true, ar: "سابقا" },
+        { w: "instant", pos: "adjective", emoji: "⚡", def: "happening immediately, with no waiting", ex: "Today, social media gives us instant access to search for educational videos, articles, and tips.", exFromBook: true, ar: "لحظي أو سريع" },
+        { w: "tutorial", pos: "noun", emoji: "🎓", def: "a lesson or video that shows you how to do something", ex: "Platforms like YouTube and Instagram often share tutorials, language lessons, and science lessons.", exFromBook: true, ar: "درس تعليمي" }
       ],
       sections: [
         { type: "reading", title: "“Smart Apps for Smart Living”", page: 26,

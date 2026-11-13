@@ -21,17 +21,17 @@ BOOK.addUnit({
         prompts: ["What does “healthy lifestyle” mean to you?", "What do you do to stay healthy?"]
       },
       vocab: [
-        { w: "infographic", pos: "noun", emoji: "📊", def: "a text that uses words, pictures and symbols to explain information in a clear way", ex: "Read the following infographic and complete the tasks.", exFromBook: true, ar: "إنفوجرافيك (نص معلوماتي مصوّر)" },
+        { w: "infographic", pos: "noun", emoji: "📊", def: "a text that uses words, pictures and symbols to explain information in a clear way", ex: "Read the following infographic and complete the tasks.", exFromBook: true, ar: "رسوم توضيحية" },
         { w: "whole grain", pos: "noun", emoji: "🌾", def: "a grain food (like brown bread or oats) that has all of the seed in it", ex: "It is important to eat a balanced diet that includes fruits, vegetables, whole grains, and protein in your daily meals.", exFromBook: true, ar: "الحبوب الكاملة" },
-        { w: "junk food", pos: "noun", emoji: "🍟", def: "food that is unhealthy but is quick and easy to eat", ex: "Drinking enough water and avoiding too much junk food help your body stay strong.", exFromBook: true, ar: "الوجبات السريعة غير الصحية" },
-        { w: "active", pos: "adjective", emoji: "🏃", def: "moving and doing things a lot", ex: "Regular exercise is needed to keep your body active and your mind happy.", exFromBook: true, ar: "نشيط" },
-        { w: "engage", pos: "verb", emoji: "🤸", def: "to be busy with a particular activity; to take part in it", ex: "It is recommended that teenagers engage in at least one hour of physical activity daily.", exFromBook: true, ar: "يشارك في / ينشغل بـ" },
-        { w: "physical", pos: "adjective", emoji: "💪", def: "connected with your body", ex: "It is recommended that teenagers engage in at least one hour of physical activity daily.", exFromBook: true, ar: "بدني / جسدي" },
-        { w: "enough", pos: "adverb", emoji: "✅", def: "as much as you need", ex: "Sleeping enough at night is also important for good health.", exFromBook: true, ar: "بما يكفي / كافٍ" },
-        { w: "track", pos: "verb", emoji: "⌚", def: "to follow the progress of something", ex: "For example, smartwatches and fitness apps are used to count steps, track sleep, and record the number of calories burned.", exFromBook: true, ar: "يتتبّع" },
-        { w: "record", pos: "verb", emoji: "📝", def: "to write down or save information so you can look at it later", ex: "For example, smartwatches and fitness apps are used to count steps, track sleep, and record the number of calories burned.", exFromBook: true, ar: "يسجّل" },
-        { w: "frequently", pos: "adverb", emoji: "🔁", def: "often; many times", ex: "If you do not eat nutritious food or exercise frequently, you may feel tired, have trouble concentrating, or even get sick more often.", exFromBook: true, ar: "بشكل متكرّر / كثيرًا" },
-        { w: "serious", pos: "adjective", emoji: "⚠️", def: "very bad or dangerous", ex: "Unhealthy choices, like eating junk food every day and sitting for long hours, can lead to serious health problems over time.", exFromBook: true, ar: "خطير" }
+        { w: "junk food", pos: "noun", emoji: "🍟", def: "food that is unhealthy but is quick and easy to eat", ex: "Drinking enough water and avoiding too much junk food help your body stay strong.", exFromBook: true, ar: "الوجبات السريعة" },
+        { w: "active", pos: "adjective", emoji: "🏃", def: "moving and doing things a lot", ex: "Regular exercise is needed to keep your body active and your mind happy.", exFromBook: true, ar: "نشط" },
+        { w: "engage", pos: "verb", emoji: "🤸", def: "to be busy with a particular activity; to take part in it", ex: "It is recommended that teenagers engage in at least one hour of physical activity daily.", exFromBook: true, ar: "يشارك" },
+        { w: "physical", pos: "adjective", emoji: "💪", def: "connected with your body", ex: "It is recommended that teenagers engage in at least one hour of physical activity daily.", exFromBook: true, ar: "بدني" },
+        { w: "enough", pos: "adverb", emoji: "✅", def: "as much as you need", ex: "Sleeping enough at night is also important for good health.", exFromBook: true, ar: "كافي" },
+        { w: "track", pos: "verb", emoji: "⌚", def: "to follow the progress of something", ex: "For example, smartwatches and fitness apps are used to count steps, track sleep, and record the number of calories burned.", exFromBook: true, ar: "يتابع" },
+        { w: "record", pos: "verb", emoji: "📝", def: "to write down or save information so you can look at it later", ex: "For example, smartwatches and fitness apps are used to count steps, track sleep, and record the number of calories burned.", exFromBook: true, ar: "يسجل" },
+        { w: "frequently", pos: "adverb", emoji: "🔁", def: "often; many times", ex: "If you do not eat nutritious food or exercise frequently, you may feel tired, have trouble concentrating, or even get sick more often.", exFromBook: true, ar: "بشكل متكرر" },
+        { w: "serious", pos: "adjective", emoji: "⚠️", def: "very bad or dangerous", ex: "Unhealthy choices, like eating junk food every day and sitting for long hours, can lead to serious health problems over time.", exFromBook: true, ar: "جاد أو جدي" }
       ],
       sections: [
         { type: "reading", title: "How Teenagers Live a Healthy Life", page: 49,
@@ -519,15 +519,15 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "expert", pos: "noun", emoji: "🎓", def: "a person with a high level of knowledge", ex: "Experts from the World Health Organisation and the National Sleep Foundation agree that teenagers need about eight to ten hours of sleep every night, but most teens actually sleep much less.", exFromBook: true, ar: "خبير" },
-        { w: "actually", pos: "adverb", emoji: "💡", def: "in fact; really (often for something surprising)", ex: "Experts from the World Health Organisation and the National Sleep Foundation agree that teenagers need about eight to ten hours of sleep every night, but most teens actually sleep much less.", exFromBook: true, ar: "في الواقع / فعلًا" },
+        { w: "actually", pos: "adverb", emoji: "💡", def: "in fact; really (often for something surprising)", ex: "Experts from the World Health Organisation and the National Sleep Foundation agree that teenagers need about eight to ten hours of sleep every night, but most teens actually sleep much less.", exFromBook: true, ar: "بالفعل أو في الواقع" },
         { w: "device", pos: "noun", emoji: "📱", def: "a machine or tool, for example a phone or a tablet", ex: "Busy schedules, homework, and spending time on electronic devices can make it hard to go to bed early.", exFromBook: true, ar: "جهاز" },
-        { w: "chat", pos: "verb", emoji: "💬", def: "to talk in a friendly way, often with messages on a phone", ex: "I do my homework late and chat with my friends on my phone.", exFromBook: true, ar: "يدردش" },
-        { w: "affect", pos: "verb", emoji: "🔄", def: "to cause a change in someone or something", ex: "Doctors say that not getting enough sleep can affect a teenager’s mood, memory, and health.", exFromBook: true, ar: "يؤثّر في" },
-        { w: "memory", pos: "noun", emoji: "🧠", def: "the ability to remember information", ex: "Doctors say that not getting enough sleep can affect a teenager’s mood, memory, and health.", exFromBook: true, ar: "الذاكرة" },
-        { w: "stressed", pos: "adjective", emoji: "😣", def: "worried and not able to relax", ex: "In addition, tired teens may feel sad, stressed, or find it hard to remember what they have learned.", exFromBook: true, ar: "متوتّر" },
-        { w: "encourage", pos: "verb", emoji: "👏", def: "to tell someone to do something in a positive way", ex: "Parents and teachers around the world are encouraging young people to build healthy sleep habits, such as turning off devices before bedtime and keeping a regular sleep schedule.", exFromBook: true, ar: "يشجّع" },
+        { w: "chat", pos: "verb", emoji: "💬", def: "to talk in a friendly way, often with messages on a phone", ex: "I do my homework late and chat with my friends on my phone.", exFromBook: true, ar: "يتحدث مع" },
+        { w: "affect", pos: "verb", emoji: "🔄", def: "to cause a change in someone or something", ex: "Doctors say that not getting enough sleep can affect a teenager’s mood, memory, and health.", exFromBook: true, ar: "يؤثر على" },
+        { w: "memory", pos: "noun", emoji: "🧠", def: "the ability to remember information", ex: "Doctors say that not getting enough sleep can affect a teenager’s mood, memory, and health.", exFromBook: true, ar: "ذاكرة" },
+        { w: "stressed", pos: "adjective", emoji: "😣", def: "worried and not able to relax", ex: "In addition, tired teens may feel sad, stressed, or find it hard to remember what they have learned.", exFromBook: true, ar: "متوتر" },
+        { w: "encourage", pos: "verb", emoji: "👏", def: "to tell someone to do something in a positive way", ex: "Parents and teachers around the world are encouraging young people to build healthy sleep habits, such as turning off devices before bedtime and keeping a regular sleep schedule.", exFromBook: true, ar: "يشجع" },
         { w: "regular", pos: "adjective", emoji: "🕘", def: "happening at the same time every day", ex: "Parents and teachers around the world are encouraging young people to build healthy sleep habits, such as turning off devices before bedtime and keeping a regular sleep schedule.", exFromBook: true, ar: "منتظم" },
-        { w: "instead of", pos: "preposition", emoji: "🔁", def: "in the place of something else", ex: "Read a book instead of using your phone.", exFromBook: true, ar: "بدلًا من" }
+        { w: "instead of", pos: "preposition", emoji: "🔁", def: "in the place of something else", ex: "Read a book instead of using your phone.", exFromBook: true, ar: "بدلا من" }
       ],
       sections: [
         { type: "reading", title: "Better Sleep, Better School Q&A", page: 54,

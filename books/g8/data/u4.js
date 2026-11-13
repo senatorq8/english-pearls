@@ -30,16 +30,16 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "face", pos: "verb", emoji: "🌊", def: "to have a difficult thing or problem in front of you", ex: "Fishermen often faced strong winds and high waves while out at sea.", exFromBook: true, ar: "يواجه" },
-        { w: "patience", pos: "noun", emoji: "⏳", def: "being able to wait or keep calm without getting angry", ex: "They needed skills such as strength, patience, and knowledge of the sea.", exFromBook: true, ar: "الصبر" },
+        { w: "patience", pos: "noun", emoji: "⏳", def: "being able to wait or keep calm without getting angry", ex: "They needed skills such as strength, patience, and knowledge of the sea.", exFromBook: true, ar: "صبر" },
         { w: "discovery", pos: "noun", emoji: "🛢️", def: "finding something for the first time", ex: "After the discovery of oil, life in Kuwait changed rapidly.", exFromBook: true, ar: "اكتشاف" },
-        { w: "rapidly", pos: "adverb", emoji: "⚡", def: "very quickly", ex: "After the discovery of oil, life in Kuwait changed rapidly.", exFromBook: true, ar: "بسرعة" },
+        { w: "rapidly", pos: "adverb", emoji: "⚡", def: "very quickly", ex: "After the discovery of oil, life in Kuwait changed rapidly.", exFromBook: true, ar: "بشكل متسارع" },
         { w: "opportunity", pos: "noun", emoji: "🚪", def: "a chance to do something good", ex: "Many new job opportunities appeared, especially in education.", exFromBook: true, ar: "فرصة" },
         { w: "appear", pos: "verb", emoji: "✨", def: "to start to exist; to come into view", ex: "Many new job opportunities appeared, especially in education.", exFromBook: true, ar: "يظهر" },
-        { w: "require", pos: "verb", emoji: "📋", def: "to need something", ex: "Teaching required communication skills, patience, and a love of learning.", exFromBook: true, ar: "يتطلّب" },
-        { w: "career", pos: "noun", emoji: "💼", def: "the job or kind of work you do for a long time", ex: "Today, one of the most popular career choices among young people is being a content creator.", exFromBook: true, ar: "مهنة / مسيرة مهنية" },
+        { w: "require", pos: "verb", emoji: "📋", def: "to need something", ex: "Teaching required communication skills, patience, and a love of learning.", exFromBook: true, ar: "يتطلب" },
+        { w: "career", pos: "noun", emoji: "💼", def: "the job or kind of work you do for a long time", ex: "Today, one of the most popular career choices among young people is being a content creator.", exFromBook: true, ar: "مهنة مستقبلية" },
         { w: "programmer", pos: "noun", emoji: "💻", def: "a person who writes computer programs", ex: "Some also work as programmers or designers to create engaging content.", exFromBook: true, ar: "مبرمج" },
-        { w: "designer", pos: "noun", emoji: "🎨", def: "a person who plans how things will look", ex: "Some also work as programmers or designers to create engaging content.", exFromBook: true, ar: "مصمّم" },
-        { w: "comfortably", pos: "adverb", emoji: "🛋️", def: "in a relaxed and easy way", ex: "Content creators face online pressure, but they work from home comfortably.", exFromBook: true, ar: "براحة" }
+        { w: "designer", pos: "noun", emoji: "🎨", def: "a person who plans how things will look", ex: "Some also work as programmers or designers to create engaging content.", exFromBook: true, ar: "مصمم" },
+        { w: "comfortably", pos: "adverb", emoji: "🛋️", def: "in a relaxed and easy way", ex: "Content creators face online pressure, but they work from home comfortably.", exFromBook: true, ar: "بشكل مريح" }
       ],
       sections: [
         { type: "reading", title: "Jobs in Kuwait: Then and Now", page: 63,
@@ -564,19 +564,19 @@ BOOK.addUnit({
         seconds: 90
       },
       vocab: [
-        { w: "robotics", pos: "noun", emoji: "🤖", def: "the science of making and using robots", ex: "I work as a robotics engineer.", exFromBook: true, ar: "علم الروبوتات" },
-        { w: "design", pos: "verb", emoji: "📐", def: "to plan and draw how something will be made", ex: "Every day, I help design and build new machines.", exFromBook: true, ar: "يصمّم" },
+        { w: "robotics", pos: "noun", emoji: "🤖", def: "the science of making and using robots", ex: "I work as a robotics engineer.", exFromBook: true, ar: "الروبوتات" },
+        { w: "design", pos: "verb", emoji: "📐", def: "to plan and draw how something will be made", ex: "Every day, I help design and build new machines.", exFromBook: true, ar: "يصمم" },
         { w: "machine", pos: "noun", emoji: "⚙️", def: "a thing with moving parts that does work", ex: "Every day, I help design and build new machines.", exFromBook: true, ar: "آلة" },
-        { w: "space", pos: "noun", emoji: "🚀", def: "the area outside the Earth where the stars and planets are", ex: "I am a space scientist, studying planets and stars.", exFromBook: true, ar: "الفضاء" },
+        { w: "space", pos: "noun", emoji: "🚀", def: "the area outside the Earth where the stars and planets are", ex: "I am a space scientist, studying planets and stars.", exFromBook: true, ar: "فضاء" },
         { w: "planet", pos: "noun", emoji: "🪐", def: "a large round object that moves around a star, like Earth or Mars", ex: "The Mars rocket was sent to study the planet’s atmosphere.", exFromBook: true, ar: "كوكب" },
-        { w: "launch", pos: "verb", emoji: "🛫", def: "to start something big, or to send a rocket into the sky", ex: "I am proud that the UAE launched the Emirates Mars Mission (Al-Amal) in 2020.", exFromBook: true, ar: "يُطلق" },
-        { w: "mission", pos: "noun", emoji: "🎯", def: "an important trip or job with a special aim", ex: "I am proud that the UAE launched the Emirates Mars Mission (Al-Amal) in 2020.", exFromBook: true, ar: "مهمّة" },
-        { w: "incredibly", pos: "adverb", emoji: "🤩", def: "very, very; extremely", ex: "Now, many new jobs are being created in the field of space science which is incredibly exciting for young scientists.", exFromBook: true, ar: "بشكل مذهل / للغاية" },
+        { w: "launch", pos: "verb", emoji: "🛫", def: "to start something big, or to send a rocket into the sky", ex: "I am proud that the UAE launched the Emirates Mars Mission (Al-Amal) in 2020.", exFromBook: true, ar: "يطلق" },
+        { w: "mission", pos: "noun", emoji: "🎯", def: "an important trip or job with a special aim", ex: "I am proud that the UAE launched the Emirates Mars Mission (Al-Amal) in 2020.", exFromBook: true, ar: "مهمة" },
+        { w: "incredibly", pos: "adverb", emoji: "🤩", def: "very, very; extremely", ex: "Now, many new jobs are being created in the field of space science which is incredibly exciting for young scientists.", exFromBook: true, ar: "بشكل عجيب" },
         { w: "retired", pos: "adjective", emoji: "👴", def: "no longer working because you are older", ex: "I am a retired wildlife photographer from Brazil.", exFromBook: true, ar: "متقاعد" },
         { w: "wildlife", pos: "noun", emoji: "🦜", def: "animals and plants that live in nature", ex: "I am a retired wildlife photographer from Brazil.", exFromBook: true, ar: "الحياة البرية" },
         { w: "rainforest", pos: "noun", emoji: "🌳", def: "a thick, wet forest in a hot part of the world", ex: "I took many amazing photos in the Amazon rainforest.", exFromBook: true, ar: "غابة مطيرة" },
         { w: "protect", pos: "verb", emoji: "🛡️", def: "to keep someone or something safe", ex: "Our team protected wild animals and often visited forests and rivers to photograph nature.", exFromBook: true, ar: "يحمي" },
-        { w: "widely", pos: "adverb", emoji: "🌐", def: "by many people or in many places", ex: "Our work was widely enjoyed by many people, and it helped them learn about the environment.", exFromBook: true, ar: "على نطاق واسع" }
+        { w: "widely", pos: "adverb", emoji: "🌐", def: "by many people or in many places", ex: "Our work was widely enjoyed by many people, and it helped them learn about the environment.", exFromBook: true, ar: "بشكل متوسع" }
       ],
       sections: [
         { type: "reading", title: "WorldJobs Feed", page: 68,

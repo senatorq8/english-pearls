@@ -42,16 +42,16 @@ BOOK.addUnit({
         prompts: ["What do you see in the pictures?", "How is life in these pictures different from life today?"]
       },
       vocab: [
-        { w: "support", pos: "verb", emoji: "🤲", def: "give help or encouragement", ex: "They worked hard every day to support their families.", exFromBook: true, ar: "يُعيل / يدعم", ipa: "/səˈpɔːt/" },
-        { w: "cheerful", pos: "adjective", emoji: "😄", def: "happy and showing it", ex: "Life was not easy, but it was full of meaning, cheerful moments, and cooperation.", exFromBook: true, ar: "مُبهِج / مَرِح", ipa: "/ˈtʃɪəfl/" },
+        { w: "support", pos: "verb", emoji: "🤲", def: "give help or encouragement", ex: "They worked hard every day to support their families.", exFromBook: true, ar: "يُسند أو يدعم", ipa: "/səˈpɔːt/" },
+        { w: "cheerful", pos: "adjective", emoji: "😄", def: "happy and showing it", ex: "Life was not easy, but it was full of meaning, cheerful moments, and cooperation.", exFromBook: true, ar: "فرحان أو مرح", ipa: "/ˈtʃɪəfl/" },
         { w: "moment", pos: "noun", emoji: "⏱️", def: "a very short period of time", ex: "Life was full of cheerful moments.", exFromBook: false, ar: "لحظة", ipa: "/ˈməʊmənt/" },
         { w: "trader", pos: "noun", emoji: "🧺", def: "a person who buys and sells goods", ex: "These traders helped Kuwait connect with other countries.", exFromBook: true, ar: "تاجر", ipa: "/ˈtreɪdə/" },
         { w: "wooden", pos: "adjective", emoji: "🪵", def: "made of wood", ex: "They travelled in wooden boats called dhows.", exFromBook: true, ar: "خشبي", ipa: "/ˈwʊdən/" },
         { w: "goods", pos: "noun", emoji: "📦", def: "items produced for sale", ex: "They travelled in wooden boats called dhows, to sell goods such as spices, dates, and clothing.", exFromBook: true, ar: "بضائع", ipa: "/ɡʊdz/" },
-        { w: "craft", pos: "noun", emoji: "🧶", def: "skilful hand-making of objects", ex: "Many women made crafts from palm leaves, like baskets and fans.", exFromBook: true, ar: "حِرفة / مشغولات يدوية", ipa: "/krɑːft/" },
-        { w: "palm leaf", pos: "noun", emoji: "🌴", def: "a long flat leaf of a palm tree", ex: "People used to live in houses made of clay and palm leaves.", exFromBook: true, ar: "سعف النخيل", ipa: "/pɑːm liːf/" },
-        { w: "express", pos: "verb", emoji: "🎨", def: "show feelings or ideas", ex: "People used to express their feelings and share their stories through drawing, painting, poetry and music.", exFromBook: true, ar: "يُعبّر", ipa: "/ɪkˈspres/" },
-        { w: "poetry", pos: "noun", emoji: "📜", def: "poems as a kind of writing", ex: "People shared their stories through drawing, painting, poetry and music.", exFromBook: false, ar: "الشِّعر", ipa: "/ˈpəʊɪtri/" },
+        { w: "craft", pos: "noun", emoji: "🧶", def: "skilful hand-making of objects", ex: "Many women made crafts from palm leaves, like baskets and fans.", exFromBook: true, ar: "مهنة أو حرفة", ipa: "/krɑːft/" },
+        { w: "palm leaf", pos: "noun", emoji: "🌴", def: "a long flat leaf of a palm tree", ex: "People used to live in houses made of clay and palm leaves.", exFromBook: true, ar: "شجر النخيل أو السعف", ipa: "/pɑːm liːf/" },
+        { w: "express", pos: "verb", emoji: "🎨", def: "show feelings or ideas", ex: "People used to express their feelings and share their stories through drawing, painting, poetry and music.", exFromBook: true, ar: "يعبر", ipa: "/ɪkˈspres/" },
+        { w: "poetry", pos: "noun", emoji: "📜", def: "poems as a kind of writing", ex: "People shared their stories through drawing, painting, poetry and music.", exFromBook: false, ar: "شعر", ipa: "/ˈpəʊɪtri/" },
         { w: "value", pos: "noun", emoji: "💎", def: "how useful or important something is", ex: "Today, museums, stories, and traditional festivals remind us of the value of our heritage.", exFromBook: true, ar: "قيمة", ipa: "/ˈvæljuː/" }
       ],
       sections: [
@@ -418,11 +418,11 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "official", pos: "adjective", emoji: "🏛️", def: "approved by the government or people in charge", ex: "Kuwait TV (KTV) is the country’s official television station.", exFromBook: true, ar: "رسمي", ipa: "/əˈfɪʃəl/" },
-        { w: "broadcasting", pos: "noun", emoji: "📡", def: "sending out radio or TV programmes", ex: "In 1974, colour broadcasting began.", exFromBook: true, ar: "البثّ", ipa: "/ˈbrɔːdkɑːstɪŋ/" },
+        { w: "broadcasting", pos: "noun", emoji: "📡", def: "sending out radio or TV programmes", ex: "In 1974, colour broadcasting began.", exFromBook: true, ar: "البث أو الإذاعة", ipa: "/ˈbrɔːdkɑːstɪŋ/" },
         { w: "channel", pos: "noun", emoji: "📺", def: "a radio or television station", ex: "It began broadcasting on November 5th, 1961, with only one black-and-white channel.", exFromBook: true, ar: "قناة", ipa: "/ˈtʃænəl/" },
         { w: "programme", pos: "noun", emoji: "🎬", def: "a TV or radio show", ex: "Each programme lasted for just four hours a day.", exFromBook: true, ar: "برنامج", ipa: "/ˈprəʊɡræm/" },
         { w: "daily", pos: "adjective", emoji: "📅", def: "happening every day", ex: "At first, the channel showed the Holy Quran, daily news, and educational programmes for children.", exFromBook: true, ar: "يومي", ipa: "/ˈdeɪli/" },
-        { w: "documentary", pos: "noun", emoji: "🎥", def: "a TV or radio programme about real facts", ex: "Some show live news and sports, while others offer documentaries, films, series, and children’s cartoons.", exFromBook: true, ar: "فيلم وثائقي", ipa: "/ˌdɒkjʊˈmentri/" },
+        { w: "documentary", pos: "noun", emoji: "🎥", def: "a TV or radio programme about real facts", ex: "Some show live news and sports, while others offer documentaries, films, series, and children’s cartoons.", exFromBook: true, ar: "وثائقي", ipa: "/ˌdɒkjʊˈmentri/" },
         { w: "series", pos: "noun", emoji: "🎞️", def: "TV or radio programmes about the same subject or with the same characters", ex: "I watch a funny series every evening.", exFromBook: false, ar: "مسلسل", ipa: "/ˈsɪə.riːz/" },
         { w: "allow", pos: "verb", emoji: "✅", def: "let someone do something or let something happen", ex: "This app allows people to watch their favourite TV and radio shows anytime and anywhere.", exFromBook: true, ar: "يسمح", ipa: "/əˈlaʊ/" },
         { w: "clearly", pos: "adverb", emoji: "🔍", def: "in a way that is easy to see or understand", ex: "It clearly shows how technology has changed the way we watch television.", exFromBook: true, ar: "بوضوح", ipa: "/ˈklɪəli/" },

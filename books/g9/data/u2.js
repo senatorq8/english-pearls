@@ -23,19 +23,19 @@ BOOK.addUnit({
         prompts: ["a. Would you trust this message? Why or why not?", "b. What makes you think this message is fake?", "c. Why do people sometimes believe such messages?"]
       },
       vocab: [
-        { w: "casually", pos: "adverb", emoji: "😎", def: "in a relaxed way, without thinking carefully", ex: "Last Friday, Ahmed was casually scrolling through his phone when he received an unexpected message.", exFromBook: true, ar: "بشكل عفوي / دون تركيز" },
-        { w: "claim", pos: "verb", emoji: "📢", def: "to say that something is true, although it may not be", ex: "It claimed he had won a brand-new smartphone and asked him to click on a link to get his prize.", exFromBook: true, ar: "يدّعي / يزعم" },
+        { w: "casually", pos: "adverb", emoji: "😎", def: "in a relaxed way, without thinking carefully", ex: "Last Friday, Ahmed was casually scrolling through his phone when he received an unexpected message.", exFromBook: true, ar: "عرضياً / بشكل عابر" },
+        { w: "claim", pos: "verb", emoji: "📢", def: "to say that something is true, although it may not be", ex: "It claimed he had won a brand-new smartphone and asked him to click on a link to get his prize.", exFromBook: true, ar: "يدعي / يزعم" },
         { w: "reject", pos: "verb", emoji: "❌", def: "to refuse to accept something", ex: "That evening, when he attempted to log in to his social media account, his password was rejected.", exFromBook: true, ar: "يرفض" },
-        { w: "fake", pos: "adjective", emoji: "🎭", def: "not real; made to trick people", ex: "At that moment, Ahmed realised that the link he had trusted earlier was fake.", exFromBook: true, ar: "مزيّف" },
-        { w: "uneasy", pos: "adjective", emoji: "😟", def: "worried and not comfortable", ex: "He began to feel uneasy.", exFromBook: true, ar: "قَلِق / غير مرتاح" },
-        { w: "access", pos: "noun", emoji: "🔑", def: "the chance or the right to use or enter something", ex: "If someone got access to your personal accounts, they would misuse your information.", exFromBook: true, ar: "الوصول / إمكانية الدخول" },
-        { w: "update", pos: "verb", emoji: "🔄", def: "to change something to make it new or more modern", ex: "He updated all his passwords, installed antivirus software, and reported the problem to the company’s IT department.", exFromBook: true, ar: "يحدّث" },
-        { w: "install", pos: "verb", emoji: "💿", def: "to put a program on a computer or phone so that you can use it", ex: "He updated all his passwords, installed antivirus software, and reported the problem to the company’s IT department.", exFromBook: true, ar: "يثبّت (برنامجًا)" },
-        { w: "phishing", pos: "noun", emoji: "🎣", def: "tricking people online to get their passwords or personal information", ex: "They told him that the link was part of a phishing scam designed to trick students across the school.", exFromBook: true, ar: "التصيّد الإلكتروني" },
-        { w: "scam", pos: "noun", emoji: "🚨", def: "a dishonest plan to trick people and take their money or information", ex: "They told him that the link was part of a phishing scam designed to trick students across the school.", exFromBook: true, ar: "عملية احتيال / نصب" },
-        { w: "seriously", pos: "adverb", emoji: "🧐", def: "in a careful way, because something is important", ex: "Since then, Ahmed has taken his online safety more seriously.", exFromBook: true, ar: "بجدّية" },
-        { w: "security", pos: "noun", emoji: "🛡️", def: "protection from danger or attack", ex: "He no longer clicks on strange links, regularly checks website security, and stays cautious when sharing personal information.", exFromBook: true, ar: "الأمان / الحماية" },
-        { w: "cautious", pos: "adjective", emoji: "⚠️", def: "careful to avoid danger or problems", ex: "He no longer clicks on strange links, regularly checks website security, and stays cautious when sharing personal information.", exFromBook: true, ar: "حَذِر" }
+        { w: "fake", pos: "adjective", emoji: "🎭", def: "not real; made to trick people", ex: "At that moment, Ahmed realised that the link he had trusted earlier was fake.", exFromBook: true, ar: "مزيف" },
+        { w: "uneasy", pos: "adjective", emoji: "😟", def: "worried and not comfortable", ex: "He began to feel uneasy.", exFromBook: true, ar: "قلق / غير مرتاح" },
+        { w: "access", pos: "noun", emoji: "🔑", def: "the chance or the right to use or enter something", ex: "If someone got access to your personal accounts, they would misuse your information.", exFromBook: true, ar: "حق الدخول" },
+        { w: "update", pos: "verb", emoji: "🔄", def: "to change something to make it new or more modern", ex: "He updated all his passwords, installed antivirus software, and reported the problem to the company’s IT department.", exFromBook: true, ar: "يُحدث" },
+        { w: "install", pos: "verb", emoji: "💿", def: "to put a program on a computer or phone so that you can use it", ex: "He updated all his passwords, installed antivirus software, and reported the problem to the company’s IT department.", exFromBook: true, ar: "تثبيت (برنامج)" },
+        { w: "phishing", pos: "noun", emoji: "🎣", def: "tricking people online to get their passwords or personal information", ex: "They told him that the link was part of a phishing scam designed to trick students across the school.", exFromBook: true, ar: "التصيد الإلكتروني" },
+        { w: "scam", pos: "noun", emoji: "🚨", def: "a dishonest plan to trick people and take their money or information", ex: "They told him that the link was part of a phishing scam designed to trick students across the school.", exFromBook: true, ar: "غش / عملية نصب" },
+        { w: "seriously", pos: "adverb", emoji: "🧐", def: "in a careful way, because something is important", ex: "Since then, Ahmed has taken his online safety more seriously.", exFromBook: true, ar: "بجدية" },
+        { w: "security", pos: "noun", emoji: "🛡️", def: "protection from danger or attack", ex: "He no longer clicks on strange links, regularly checks website security, and stays cautious when sharing personal information.", exFromBook: true, ar: "أمان / حماية" },
+        { w: "cautious", pos: "adjective", emoji: "⚠️", def: "careful to avoid danger or problems", ex: "He no longer clicks on strange links, regularly checks website security, and stays cautious when sharing personal information.", exFromBook: true, ar: "حذر" }
       ],
       sections: [
         { type: "reading", title: "Online Risks: The Story of a Digital Scam", page: 34,
@@ -496,18 +496,18 @@ BOOK.addUnit({
         prompts: ["a. Do you use AI chatbots?", "b. Can machines understand feelings like humans?", "c. What tasks do you think only a human can do?"]
       },
       vocab: [
-        { w: "genuinely", pos: "adverb", emoji: "💯", def: "really; truly", ex: "Some users even genuinely communicate with AI chatbots as if they were real people.", exFromBook: true, ar: "بصدق / حقًّا" },
-        { w: "replace", pos: "verb", emoji: "🔁", def: "to take the place of someone or something", ex: "However, can machines truly replace human conversations?", exFromBook: true, ar: "يحلّ محلّ / يستبدل" },
-        { w: "software", pos: "noun", emoji: "💻", def: "the programs that make a computer or phone work", ex: "AI chatbots are software programmes designed to understand what people say and reply in a simple and clear manner.", exFromBook: true, ar: "برمجيات" },
+        { w: "genuinely", pos: "adverb", emoji: "💯", def: "really; truly", ex: "Some users even genuinely communicate with AI chatbots as if they were real people.", exFromBook: true, ar: "حقاً / بصدق" },
+        { w: "replace", pos: "verb", emoji: "🔁", def: "to take the place of someone or something", ex: "However, can machines truly replace human conversations?", exFromBook: true, ar: "يستبدل" },
+        { w: "software", pos: "noun", emoji: "💻", def: "the programs that make a computer or phone work", ex: "AI chatbots are software programmes designed to understand what people say and reply in a simple and clear manner.", exFromBook: true, ar: "برنامج تشغيل الأجهزة" },
         { w: "assist", pos: "verb", emoji: "🤝", def: "to help", ex: "They can assist with writing tasks, support language learning, and provide quick answers to questions.", exFromBook: true, ar: "يساعد" },
-        { w: "efficient", pos: "adjective", emoji: "⚡", def: "working well and quickly without wasting time", ex: "They believe chatbots are efficient and available 24/7.", exFromBook: true, ar: "فعّال / كفء" },
-        { w: "customer", pos: "noun", emoji: "🛒", def: "a person who buys things or uses a service", ex: "At work, chatbots can respond to customer questions or help with simple jobs.", exFromBook: true, ar: "عميل / زبون" },
-        { w: "implement", pos: "verb", emoji: "📋", def: "to put a plan into action", ex: "In daily life, you can use a chatbot to make a shopping list, check the weather, or implement simple plans for your day.", exFromBook: true, ar: "ينفّذ" },
-        { w: "accurate", pos: "adjective", emoji: "🎯", def: "correct and true in every detail", ex: "AI is not always accurate and can sometimes give incorrect information.", exFromBook: true, ar: "دقيق" },
-        { w: "complex", pos: "adjective", emoji: "🧩", def: "difficult, with many different parts", ex: "It cannot fully understand feelings or complex situations.", exFromBook: true, ar: "معقّد" },
-        { w: "evaluate", pos: "verb", emoji: "⚖️", def: "to think carefully about something and decide how good or serious it is", ex: "For example, if someone shares a personal problem, the chatbot might not know how to help or evaluate the situation properly.", exFromBook: true, ar: "يقيّم" },
-        { w: "increasingly", pos: "adverb", emoji: "📈", def: "more and more", ex: "In addition, if you increasingly use AI, you may stop asking for help from real people.", exFromBook: true, ar: "بشكل متزايد" },
-        { w: "judgement", pos: "noun", emoji: "🧠", def: "the ability to think about something and make a good decision", ex: "It is important to talk to teachers, doctors, and friends when you need real help because they can understand your feelings, use good judgement, and give personal advice.", exFromBook: true, ar: "حُسن التقدير / الحُكم" }
+        { w: "efficient", pos: "adjective", emoji: "⚡", def: "working well and quickly without wasting time", ex: "They believe chatbots are efficient and available 24/7.", exFromBook: true, ar: "كفء / فعال" },
+        { w: "customer", pos: "noun", emoji: "🛒", def: "a person who buys things or uses a service", ex: "At work, chatbots can respond to customer questions or help with simple jobs.", exFromBook: true, ar: "زبون / عميل" },
+        { w: "implement", pos: "verb", emoji: "📋", def: "to put a plan into action", ex: "In daily life, you can use a chatbot to make a shopping list, check the weather, or implement simple plans for your day.", exFromBook: true, ar: "ينفذ" },
+        { w: "accurate", pos: "adjective", emoji: "🎯", def: "correct and true in every detail", ex: "AI is not always accurate and can sometimes give incorrect information.", exFromBook: true, ar: "دقيق / مضبوط" },
+        { w: "complex", pos: "adjective", emoji: "🧩", def: "difficult, with many different parts", ex: "It cannot fully understand feelings or complex situations.", exFromBook: true, ar: "معقد" },
+        { w: "evaluate", pos: "verb", emoji: "⚖️", def: "to think carefully about something and decide how good or serious it is", ex: "For example, if someone shares a personal problem, the chatbot might not know how to help or evaluate the situation properly.", exFromBook: true, ar: "يقيم" },
+        { w: "increasingly", pos: "adverb", emoji: "📈", def: "more and more", ex: "In addition, if you increasingly use AI, you may stop asking for help from real people.", exFromBook: true, ar: "بازدياد" },
+        { w: "judgement", pos: "noun", emoji: "🧠", def: "the ability to think about something and make a good decision", ex: "It is important to talk to teachers, doctors, and friends when you need real help because they can understand your feelings, use good judgement, and give personal advice.", exFromBook: true, ar: "حكم / تقييم" }
       ],
       sections: [
         { type: "reading", title: "Humans vs. Machines: The World of AI Chatbots", page: 39,

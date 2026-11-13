@@ -42,16 +42,16 @@ BOOK.addUnit({
       },
       vocab: [
         { w: "chance", pos: "noun", emoji: "🍀", def: "possibility of something happening", ex: "It gives people the chance to explore new cities, meet others, and experience different cultures.", exFromBook: true, ar: "فرصة", ipa: "/tʃɑːns/" },
-        { w: "gallery", pos: "noun", emoji: "🖼️", def: "room or building for art display", ex: "Dubai Mall includes a large indoor gallery.", exFromBook: false, ar: "معرض فني / صالة عرض", ipa: "/ˈɡæləri/" },
-        { w: "pleasant", pos: "adjective", emoji: "😊", def: "enjoyable or attractive", ex: "The weather is warm, and the atmosphere is pleasant.", exFromBook: true, ar: "لطيف / ممتع", ipa: "/ˈplezənt/" },
-        { w: "unique", pos: "adjective", emoji: "🦄", def: "being the only one of its kind", ex: "Kuwait also offers unique places for travellers.", exFromBook: true, ar: "فريد من نوعه", ipa: "/juˈniːk/" },
+        { w: "gallery", pos: "noun", emoji: "🖼️", def: "room or building for art display", ex: "Dubai Mall includes a large indoor gallery.", exFromBook: false, ar: "صالة عرض أو معرض", ipa: "/ˈɡæləri/" },
+        { w: "pleasant", pos: "adjective", emoji: "😊", def: "enjoyable or attractive", ex: "The weather is warm, and the atmosphere is pleasant.", exFromBook: true, ar: "لطيف أو جميل", ipa: "/ˈplezənt/" },
+        { w: "unique", pos: "adjective", emoji: "🦄", def: "being the only one of its kind", ex: "Kuwait also offers unique places for travellers.", exFromBook: true, ar: "فريد أو متميز", ipa: "/juˈniːk/" },
         { w: "attract", pos: "verb", emoji: "🧲", def: "draw someone or something closer or make them interested", ex: "Kuwait Towers attract people who want to enjoy the view of the city and the sea.", exFromBook: true, ar: "يجذب", ipa: "/əˈtrækt/" },
         { w: "attend", pos: "verb", emoji: "🎟️", def: "be present at (an event)", ex: "At Sheikh Jaber Al Ahmad Cultural Centre (JACC), tourists attend shows and exhibitions in a modern gallery.", exFromBook: true, ar: "يحضر", ipa: "/əˈtend/" },
         { w: "exhibition", pos: "noun", emoji: "🏛️", def: "public display of art or items", ex: "We saw an exhibition of old photos at the museum.", exFromBook: false, ar: "معرض", ipa: "/ˌeksɪˈbɪʃən/" },
-        { w: "contrast", pos: "noun", emoji: "🌓", def: "clear difference between things", ex: "Others visit the British Museum, where they see a clear contrast between ancient history and modern design.", exFromBook: true, ar: "تباين / اختلاف واضح", ipa: "/ˈkɒntrɑːst/" },
+        { w: "contrast", pos: "noun", emoji: "🌓", def: "clear difference between things", ex: "Others visit the British Museum, where they see a clear contrast between ancient history and modern design.", exFromBook: true, ar: "تعارض أو فرق", ipa: "/ˈkɒntrɑːst/" },
         { w: "design", pos: "noun", emoji: "📐", def: "drawing or plan for making something", ex: "I like the modern design of this building.", exFromBook: false, ar: "تصميم", ipa: "/dɪˈzaɪn/" },
-        { w: "event", pos: "noun", emoji: "🎉", def: "something that happens, especially something important or unusual", ex: "The city holds many cultural events, especially during holidays.", exFromBook: true, ar: "حدث / فعالية", ipa: "/ɪˈvent/" },
-        { w: "especially", pos: "adverb", emoji: "⭐", def: "particularly; more than usual", ex: "I love the beach, especially in winter.", exFromBook: false, ar: "خصوصًا", ipa: "/ɪˈspeʃəli/" },
+        { w: "event", pos: "noun", emoji: "🎉", def: "something that happens, especially something important or unusual", ex: "The city holds many cultural events, especially during holidays.", exFromBook: true, ar: "حدث أو مناسبة", ipa: "/ɪˈvent/" },
+        { w: "especially", pos: "adverb", emoji: "⭐", def: "particularly; more than usual", ex: "I love the beach, especially in winter.", exFromBook: false, ar: "بالتحديد أو خاصة", ipa: "/ɪˈspeʃəli/" },
         { w: "surely", pos: "adverb", emoji: "✅", def: "certainly; without doubt", ex: "If you enjoy history and beautiful parks, you will surely enjoy visiting London.", exFromBook: true, ar: "بالتأكيد", ipa: "/ˈʃʊəli/" }
       ],
       sections: [
@@ -411,14 +411,14 @@ BOOK.addUnit({
         prompts: ["What do you see in each picture?", "Would you like to go there? Why?"]
       },
       vocab: [
-        { w: "international", pos: "adjective", emoji: "🌍", def: "involving several countries", ex: "I went on an international cruise to Barcelona.", exFromBook: true, ar: "دولي", ipa: "/ˌɪntəˈnæʃənəl/" },
+        { w: "international", pos: "adjective", emoji: "🌍", def: "involving several countries", ex: "I went on an international cruise to Barcelona.", exFromBook: true, ar: "عالمي أو دولي", ipa: "/ˌɪntəˈnæʃənəl/" },
         { w: "cruise", pos: "noun", emoji: "🛳️", def: "holiday trip by ship", ex: "We went on a cruise and slept on a big ship.", exFromBook: false, ar: "رحلة بحرية", ipa: "/kruːz/" },
-        { w: "incredible", pos: "adjective", emoji: "🤩", def: "very surprising or hard to believe", ex: "The sea was calm and blue, and the view was incredible.", exFromBook: true, ar: "مذهل / لا يُصدَّق", ipa: "/ɪnˈkredəbl/" },
-        { w: "uniquely", pos: "adverb", emoji: "🏘️", def: "in a way unlike anything else", ex: "I saw colourful houses that were uniquely built.", exFromBook: true, ar: "بشكل فريد", ipa: "/juˈniːkli/" },
+        { w: "incredible", pos: "adjective", emoji: "🤩", def: "very surprising or hard to believe", ex: "The sea was calm and blue, and the view was incredible.", exFromBook: true, ar: "عجيب أو لا يصدق", ipa: "/ɪnˈkredəbl/" },
+        { w: "uniquely", pos: "adverb", emoji: "🏘️", def: "in a way unlike anything else", ex: "I saw colourful houses that were uniquely built.", exFromBook: true, ar: "بشكل فريد أو مميز", ipa: "/juˈniːkli/" },
         { w: "tour", pos: "noun", emoji: "🚌", def: "journey visiting several places", ex: "We took a bus tour of the old city.", exFromBook: false, ar: "جولة", ipa: "/tʊə/" },
-        { w: "guide", pos: "verb", emoji: "🧭", def: "lead or show the way", ex: "A tour guide guided us around the city by bus.", exFromBook: true, ar: "يُرشد / يقود", ipa: "/ɡaɪd/" },
-        { w: "stunning", pos: "adjective", emoji: "😍", def: "extremely impressive or attractive", ex: "The buildings were stunning, and the markets were full of people.", exFromBook: true, ar: "رائع جدًا / مدهش", ipa: "/ˈstʌnɪŋ/" },
-        { w: "recommend", pos: "verb", emoji: "👍", def: "say something is good and should be chosen", ex: "I would definitely recommend travelling to Madrid!", exFromBook: true, ar: "يوصي بـ / ينصح بـ", ipa: "/ˌrekəˈmend/" }
+        { w: "guide", pos: "verb", emoji: "🧭", def: "lead or show the way", ex: "A tour guide guided us around the city by bus.", exFromBook: true, ar: "موجة أو مرشد", ipa: "/ɡaɪd/" },
+        { w: "stunning", pos: "adjective", emoji: "😍", def: "extremely impressive or attractive", ex: "The buildings were stunning, and the markets were full of people.", exFromBook: true, ar: "مذهل أو مدهش", ipa: "/ˈstʌnɪŋ/" },
+        { w: "recommend", pos: "verb", emoji: "👍", def: "say something is good and should be chosen", ex: "I would definitely recommend travelling to Madrid!", exFromBook: true, ar: "ينصح", ipa: "/ˌrekəˈmend/" }
       ],
       sections: [
         { type: "reading", title: "Holiday Adventures", page: 39,

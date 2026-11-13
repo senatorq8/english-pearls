@@ -12,6 +12,7 @@ BOOK.noPageImages = true;
 BOOK.pagesInfo = { last: 71 };
 BOOK.glossaryTitle = "Word List";
 BOOK.glossaryNote = "The new words from the lessons of Learning Units 1–4, with the sentence from the book where the word is used.";
+BOOK.glossaryAr = true; // the Word List always shows the Arabic meaning (from the vocab `ar` fields)
 BOOK.libraryUrl = "../index.html";
 BOOK.credit = "Prepared by: Abdullah Alenezi";
 BOOK.copyright = "Book content © Ministry of Education – State of Kuwait. Interactive version for classroom use.";
