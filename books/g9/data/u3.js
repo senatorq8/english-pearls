@@ -33,7 +33,7 @@ BOOK.addUnit({
         { w: "recipe", pos: "noun", emoji: "📜", def: "instructions that tell you how to cook a dish", ex: "Recipes were often passed down from parents and grandparents, with each family adding its own touch.", exFromBook: true, ar: "وصفة طهي" },
         { w: "commonly", pos: "adverb", emoji: "👥", def: "usually; by many people", ex: "It is usually served on big plates and is commonly eaten with sauces like daqous, which enhance its flavour.", exFromBook: true, ar: "بشكل شائع" },
         { w: "flavour", pos: "noun", emoji: "😋", def: "the taste of a food", ex: "It is usually served on big plates and is commonly eaten with sauces like daqous, which enhance its flavour.", exFromBook: true, ar: "نكهة / طعم" },
-        { w: "embrace", pos: "verb", emoji: "🤗", def: "to accept something and be happy to have it", ex: "Serving Machboos shows kindness and respect to guests and reflects how Kuwaitis proudly embrace their traditional cuisine.", exFromBook: true, ar: "يُميز / يتقبل / يحتضن" },
+        { w: "embrace", pos: "verb", emoji: "🤗", def: "to accept something and be happy to have it", ex: "Serving Machboos shows kindness and respect to guests and reflects how Kuwaitis proudly embrace their traditional cuisine.", exFromBook: true, ar: "يتقبل / يحتضن" },
         { w: "variety", pos: "noun", emoji: "🌈", def: "many different kinds of something", ex: "Sushi began over a thousand years ago as a way to preserve fish, but today it is made with a variety of ingredients, including cooked or raw fish, vegetables, and even fruit.", exFromBook: true, ar: "تنوع / تشكيلة" },
         { w: "raw", pos: "adjective", emoji: "🐟", def: "not cooked", ex: "Sushi began over a thousand years ago as a way to preserve fish, but today it is made with a variety of ingredients, including cooked or raw fish, vegetables, and even fruit.", exFromBook: true, ar: "نيء / غير مطبوخ" }
       ],
@@ -548,7 +548,7 @@ BOOK.addUnit({
         { w: "harmful", pos: "adjective", emoji: "☠️", def: "causing damage or making you ill", ex: "Additionally, organic foods are becoming more popular because they are grown without harmful chemicals.", exFromBook: true, ar: "ضار" },
         { w: "label", pos: "noun", emoji: "🏷️", def: "a piece of paper on a package that gives information about it", ex: "People are reading food labels and choosing food items with less sugar, salt, or fat.", exFromBook: true, ar: "ملصق بيانات" },
         { w: "obviously", pos: "adverb", emoji: "👀", def: "in a way that is easy to see or understand", ex: "In many cities, healthy food restaurants are obviously busier than fast-food places.", exFromBook: true, ar: "من الواضح / بوضوح" },
-        { w: "maintain", pos: "verb", emoji: "🔧", def: "to keep something in good condition", ex: "Making small changes can help everyone maintain a better diet.", exFromBook: true, ar: "يحافظ علي" }
+        { w: "maintain", pos: "verb", emoji: "🔧", def: "to keep something in good condition", ex: "Making small changes can help everyone maintain a better diet.", exFromBook: true, ar: "يحافظ على" }
       ],
       sections: [
         { type: "reading", title: "Healthy Choices: Eating Well Today", page: 53,

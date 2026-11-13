@@ -416,7 +416,7 @@ BOOK.addUnit({
         { w: "incredible", pos: "adjective", emoji: "🤩", def: "very surprising or hard to believe", ex: "The sea was calm and blue, and the view was incredible.", exFromBook: true, ar: "عجيب أو لا يصدق", ipa: "/ɪnˈkredəbl/" },
         { w: "uniquely", pos: "adverb", emoji: "🏘️", def: "in a way unlike anything else", ex: "I saw colourful houses that were uniquely built.", exFromBook: true, ar: "بشكل فريد أو مميز", ipa: "/juˈniːkli/" },
         { w: "tour", pos: "noun", emoji: "🚌", def: "journey visiting several places", ex: "We took a bus tour of the old city.", exFromBook: false, ar: "جولة", ipa: "/tʊə/" },
-        { w: "guide", pos: "verb", emoji: "🧭", def: "lead or show the way", ex: "A tour guide guided us around the city by bus.", exFromBook: true, ar: "موجة أو مرشد", ipa: "/ɡaɪd/" },
+        { w: "guide", pos: "verb", emoji: "🧭", def: "lead or show the way", ex: "A tour guide guided us around the city by bus.", exFromBook: true, ar: "موجّه أو مرشد", ipa: "/ɡaɪd/" },
         { w: "stunning", pos: "adjective", emoji: "😍", def: "extremely impressive or attractive", ex: "The buildings were stunning, and the markets were full of people.", exFromBook: true, ar: "مذهل أو مدهش", ipa: "/ˈstʌnɪŋ/" },
         { w: "recommend", pos: "verb", emoji: "👍", def: "say something is good and should be chosen", ex: "I would definitely recommend travelling to Madrid!", exFromBook: true, ar: "ينصح", ipa: "/ˌrekəˈmend/" }
       ],
