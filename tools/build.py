@@ -9,10 +9,10 @@ BIN = os.path.join(R, 'node_modules', '.bin')
 if not os.path.exists(os.path.join(BIN, 'esbuild')):
     BIN = '/home/claude/buildtools/node_modules/.bin'
 # id, code, grade, title, short name (home screen), line under the title
-BOOKS = [('g6', '6A', 6, 'English Pearls of Kuwait', 'Pearls 6A', 'Grade 6 · 6A'),
-         ('g7', '7A', 7, 'English Pearls of Kuwait', 'Pearls 7A', 'Grade 7 · 7A'),
-         ('g8', '8', 8, 'English Pearls of Kuwait', 'Pearls 8', 'Grade 8 · First Term'),
-         ('g9', '9', 9, 'English Pearls of Kuwait', 'Pearls 9', 'Grade 9 · First Term')]
+BOOKS = [('g6', '6A', 6, 'My Pearl Book', 'Pearl Book 6A', 'Grade 6 · 6A'),
+         ('g7', '7A', 7, 'My Pearl Book', 'Pearl Book 7A', 'Grade 7 · 7A'),
+         ('g8', '8', 8, 'My Pearl Book', 'Pearl Book 8', 'Grade 8 · First Term'),
+         ('g9', '9', 9, 'My Pearl Book', 'Pearl Book 9', 'Grade 9 · First Term')]
 TARGET_JS = 'es2017,safari11,chrome61,firefox60'
 TARGET_CSS = 'safari11,chrome61,firefox60'
 
@@ -57,7 +57,7 @@ shutil.copy(os.path.join(R, 'engine/library.html'), os.path.join(R, 'docs/index.
 open(os.path.join(R, 'docs/.nojekyll'), 'w').close()
 
 manifest = {
-    "name": "English Pearls of Kuwait", "short_name": "English Pearls",
+    "name": "My Pearl Book", "short_name": "My Pearl Book",
     "description": "Interactive English books for Grades 6 to 9 (Kuwait MOE). Prepared by: Abdullah Alenezi",
     "start_url": "./", "scope": "./", "display": "standalone", "orientation": "any",
     "background_color": "#eef3f6", "theme_color": "#0b5c8c", "lang": "en",

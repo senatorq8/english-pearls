@@ -2,8 +2,8 @@
    Source: the Grade 8 Student's Book pages with answers (pages 18–72). The answers are used only to check
    the activities; no page scans are shown (they carry the answers), so BOOK.noPageImages is on. */
 window.BOOK = window.BOOK || {};
-BOOK.title = "English Pearls of Kuwait";
-BOOK.heroTitle = "English <em>Pearls</em> of Kuwait";
+BOOK.title = "My Pearl Book";
+BOOK.heroTitle = "My <em>Pearl</em> Book";
 BOOK.code = "8";
 BOOK.grade = 8;
 BOOK.level = "Grade 8 · Student’s Book · First Term";

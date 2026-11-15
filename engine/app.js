@@ -1,4 +1,4 @@
-/* English Pearls of Kuwait —  interactive book engine. Plain JS, no libraries. */
+/* My Pearl Book —  interactive book engine. Plain JS, no libraries. */
 (function () {
   "use strict";
 
@@ -446,7 +446,7 @@
     const hero = h("section", { class: "hero" },
       h("div", { style: { position: "relative", zIndex: 1 } },
         h("div", { class: "row", style: { marginBottom: "6px" } }, h("span", { class: "tag page" }, BOOK.level), h("span", { class: "tag book" }, "Kuwait MOE curriculum")),
-        h("h1", { html: BOOK.heroTitle || "English <em>Pearls</em> of Kuwait" }),
+        h("h1", { html: BOOK.heroTitle || "My <em>Pearl</em> Book" }),
         h("p", { class: "muted", style: { maxWidth: "52ch", marginTop: "6px" } }, "Read, listen, speak, write and play. Every lesson follows the book, page by page."),
         h("p", { class: "credit" }, BOOK.credit),
         h("div", { class: "stats" },

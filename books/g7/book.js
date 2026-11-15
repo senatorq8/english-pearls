@@ -1,6 +1,6 @@
 /* Book skeleton: the Table of Contents (book pages 11–12). Lesson content is added by data/uN.js. */
 window.BOOK = window.BOOK || {};
-BOOK.title = "English Pearls of Kuwait";
+BOOK.title = "My Pearl Book";
 BOOK.code = "7A";
 BOOK.grade = 7;
 BOOK.level = "Grade 7 · Student’s Book 7A";
