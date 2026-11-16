@@ -1,0 +1,94 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Lexend:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap">
+<style>
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1280px; height: 720px; overflow: hidden; background: #f6f1e7; }
+body { font-family: "Lexend", sans-serif; color: #13233a; position: relative; }
+.bg { position: absolute; inset: 0; background: radial-gradient(1200px 600px at 85% -10%, #dcebf5 0%, transparent 60%), radial-gradient(900px 500px at -10% 110%, #fde5df 0%, transparent 60%), #f6f1e7; }
+.top { position: absolute; left: 48px; right: 48px; top: 30px; display: flex; justify-content: space-between; align-items: center; font: 600 20px "Lexend"; color: #0b5c8c; }
+.top .pill { background: #0b5c8c; color: #fff; padding: 6px 16px; border-radius: 999px; font-size: 17px; }
+.count { font: 700 22px "Baloo Bhaijaan 2"; color: #e4533b; }
+.bar { position: absolute; left: 48px; right: 48px; bottom: 28px; height: 8px; border-radius: 8px; background: #e6dfd2; overflow: hidden; }
+.bar i { display: block; height: 100%; background: #0b5c8c; }
+.scene { position: absolute; inset: 0; }
+/* intro / outro */
+.title { position: absolute; left: 0; right: 0; top: 200px; text-align: center; }
+.title .k { font: 600 26px "Lexend"; color: #e4533b; letter-spacing: .04em; }
+.title h1 { font: 800 84px/1.05 "Baloo Bhaijaan 2"; color: #0b5c8c; margin-top: 10px; }
+.title .ar { font: 700 34px "Noto Sans Arabic"; direction: rtl; margin-top: 18px; color: #13233a; }
+.title .em { font-size: 80px; margin-top: 10px; font-family: "Noto Color Emoji"; }
+/* word card */
+.card { position: absolute; left: 110px; right: 110px; top: 100px; height: 540px; background: #fff; border-radius: 36px; box-shadow: 0 24px 60px rgba(19,35,58,.12); border-top: 10px solid #e4533b; }
+.emo { position: absolute; left: 70px; top: 70px; font: 150px "Noto Color Emoji"; line-height: 1; }
+.word { position: absolute; left: 290px; top: 60px; white-space: nowrap; font: 800 96px/1 "Baloo Bhaijaan 2"; color: #0b5c8c; }
+.meta { position: absolute; left: 294px; top: 178px; font: 500 28px "Lexend"; color: #6b7785; }
+.meta b { color: #e4533b; font-weight: 600; margin-right: 18px; }
+.arw { position: absolute; right: 70px; top: 168px; font: 700 54px "Noto Sans Arabic"; direction: rtl; color: #13233a; background: #fde5df; padding: 6px 26px; border-radius: 20px; }
+.say { position: absolute; left: 50%; margin-left: -150px; width: 300px; text-align: center; top: 340px; font: 700 40px "Lexend"; color: #fff; background: #e4533b; padding: 14px 22px; border-radius: 999px; }
+.say span { font-family: "Noto Sans Arabic"; margin-left: 10px; }
+.ex { position: absolute; left: 70px; right: 70px; top: 330px; font: 500 34px/1.45 "Lexend"; color: #13233a; border-left: 6px solid #0b5c8c; padding-left: 24px; }
+.ex mark { background: #dcebf5; color: #0b5c8c; font-weight: 700; padding: 0 6px; border-radius: 8px; }
+.ex .w { opacity: .35; }
+.ex .w.on { opacity: 1; }
+</style></head>
+<body>
+<div class="bg"></div>
+<div class="top"><span class="pill">Grade 7 · Unit 4 · Lesson 1</span><span class="count" id="count"></span></div>
+<div class="scene" id="scene"></div>
+<div class="bar"><i id="bar"></i></div>
+<script>
+// window.TL is injected by render.js: { total, intro, outro, words: [{ w, pos, emoji, ar, ipa, ex, t0, tw, tar, tsay, tex, exDur, t1 }] }
+const $ = (id) => document.getElementById(id);
+const clamp = (x) => Math.max(0, Math.min(1, x));
+const ease = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+function fade(el, t, start, dur = 0.35, dy = 18) { const k = ease((t - start) / dur); el.style.opacity = k; el.style.transform = `translateY(${(1 - k) * dy}px)`; }
+function exHtml(w, ex) {
+  const stem = w.toLowerCase().replace(/(e|y)$/, "");
+  return ex.split(" ").map((tok) => {
+    const bare = tok.toLowerCase().replace(/[^a-z’'-]/g, "");
+    const inner = bare.startsWith(stem) ? `<mark>${esc(tok)}</mark>` : esc(tok);
+    return `<span class="w">${inner}</span>`;
+  }).join(" ");
+}
+let built = -2;
+function build(i) {
+  if (built === i) return; built = i;
+  const TL = window.TL, s = $("scene");
+  if (i === -1) {
+    s.innerHTML = `<div class="title"><div class="k">NEW WORDS</div><h1>Celebrations Around the World</h1><div class="ar">كلمات الدرس الجديدة · ${TL.words.length} كلمة</div><div class="em">🎉🌸🪁</div></div>`;
+  } else if (i === TL.words.length) {
+    s.innerHTML = `<div class="title"><div class="k">WELL DONE!</div><h1>Now open the lesson<br>and play the word game</h1><div class="ar">أحسنت! افتح الدرس والعب لعبة الكلمات</div></div>`;
+  } else {
+    const x = TL.words[i];
+    s.innerHTML = `<div class="card"><div class="emo" id="emo">${x.emoji}</div><div class="word" id="word">${esc(x.w)}</div>
+      <div class="meta" id="meta"><b>${x.pos}</b>${x.ipa}</div><div class="arw" id="ar">${esc(x.ar)}</div>
+      <div class="say" id="say">Say it!<span>ردّد</span></div><div class="ex" id="ex">${exHtml(x.w, x.ex)}</div></div>`;
+  }
+}
+window.render = function (t) {
+  const TL = window.TL;
+  $("bar").style.width = (100 * clamp(t / TL.total)) + "%";
+  let i = TL.words.findIndex((x) => t >= x.t0 && t < x.t1);
+  if (i < 0) i = t < TL.intro ? -1 : TL.words.length;
+  build(i);
+  $("count").textContent = i >= 0 && i < TL.words.length ? `${i + 1} / ${TL.words.length}` : "";
+  if (i === -1) { document.querySelectorAll(".title > *").forEach((el, k) => fade(el, t, 0.2 + k * 0.25)); return; }
+  if (i === TL.words.length) { const s0 = TL.words[TL.words.length - 1].t1; document.querySelectorAll(".title > *").forEach((el, k) => fade(el, t, s0 + 0.1 + k * 0.25)); return; }
+  const x = TL.words[i];
+  const card = document.querySelector(".card"); fade(card, t, x.t0, 0.4, 40);
+  if (t > x.t1 - 0.35) { const k = clamp((t - (x.t1 - 0.35)) / 0.35); card.style.opacity = 1 - k; card.style.transform = `translateX(${-k * 80}px)`; }
+  fade($("emo"), t, x.t0 + 0.1); fade($("word"), t, x.t0 + 0.15); fade($("meta"), t, x.tw);
+  fade($("ar"), t, x.tar); fade($("ex"), t, x.tex - 0.3);
+  const sayOn = t >= x.tsay && t < x.tsay + x.sayDur; $("say").style.opacity = sayOn ? 1 : 0;
+  $("say").style.transform = `scale(${sayOn ? 1 + 0.06 * Math.sin((t - x.tsay) * 8) : 1})`;
+  // karaoke: light up words of the example in time with the recording (by character count)
+  const ws = document.querySelectorAll(".ex .w"); const total = x.ex.length; let acc = 0;
+  const prog = (t - x.tex) / x.exDur;
+  ws.forEach((el) => { acc += el.textContent.length + 1; el.classList.toggle("on", t < x.tex || prog * total * 1.05 >= acc - el.textContent.length); });
+  if (t < x.tex) ws.forEach((el) => el.classList.remove("on"));
+};
+window.ready = document.fonts.ready.then(() => true);
+</script>
+</body></html>
