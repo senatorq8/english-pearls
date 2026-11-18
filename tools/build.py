@@ -34,14 +34,17 @@ def es_check(js, name):
     os.remove(tmp)
     if r.returncode: sys.exit(name + ': not ES2017-compatible\n' + r.stdout + r.stderr)
 
+# Which recordings the books use: 'voice' = George (Kokoro), 'voice-a' = the teacher's own voice (tools/voice-convert.py)
+VOICE = 'voice-a'
+
 def build_book(bid, code, grade, title, short, sub):
     b = 'books/' + bid
     ddir = os.path.join(R, b, 'data')
     units = sorted([f[:-3] for f in os.listdir(ddir) if re.match(r'^u\d+\.js$', f)], key=lambda u: int(u[1:]))
     extras = sorted(f for f in os.listdir(ddir) if re.match(r'^labs.*\.js$', f)) + (['projects.js'] if os.path.exists(os.path.join(ddir, 'projects.js')) else [])
     vj = os.path.join(R, 'tools', 'voice', bid + '.json')
-    vids = [k for k in (json.load(open(vj, encoding='utf8')) if os.path.exists(vj) else {}) if os.path.exists(os.path.join(R, 'docs', 'voice', k + '.mp3'))]
-    js = '\n'.join([rd(b + '/book.js'), 'BOOK.sw = "../sw.js"; BOOK.swScope = "../"; BOOK.voiceDir = "../voice/"; BOOK.voiceIds = "%s";' % ','.join(sorted(vids))] +
+    vids = [k for k in (json.load(open(vj, encoding='utf8')) if os.path.exists(vj) else {}) if os.path.exists(os.path.join(R, 'docs', VOICE, k + '.mp3'))]
+    js = '\n'.join([rd(b + '/book.js'), 'BOOK.sw = "../sw.js"; BOOK.swScope = "../"; BOOK.voiceDir = "../%s/"; BOOK.voiceIds = "%s";' % (VOICE, ','.join(sorted(vids)))] +
                    [rd('%s/data/%s.js' % (b, u)) for u in units] +
                    ([rd(b + '/data/glossary.js')] if os.path.exists(os.path.join(ddir, 'glossary.js')) else []) + [rd('%s/data/%s' % (b, f)) for f in extras] + [rd('engine/app.js')])
     js = esb(js, 'js', TARGET_JS); es_check(js, bid)
