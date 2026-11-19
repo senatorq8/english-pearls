@@ -2969,6 +2969,92 @@ body.spotting #unitTabs {
 .no-pages .open-page {
   display: none !important;
 }
+.review-home h2 .ar {
+  font-weight: 600;
+}
+.review-card {
+  display: grid;
+  gap: 14px;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
+}
+.rv-front {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  padding: 18px 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.rv-word {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  line-height: 1.1;
+}
+.rv-back {
+  display: grid;
+  gap: 6px;
+  padding: 16px 14px;
+  border-radius: 18px;
+  background: var(--pearl);
+  border: 1px solid var(--line);
+}
+.rv-back .big-emoji {
+  font-size: 3rem;
+}
+.rv-back .ar-mean {
+  font-family: var(--f-ar);
+  direction: rtl;
+  font-size: 1.3rem;
+  color: var(--brand);
+  font-weight: 700;
+}
+.rv-back .def {
+  color: var(--muted);
+}
+.rv-back .ex {
+  font-weight: 600;
+}
+.rv-rate {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.rv-btn {
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+  padding: 10px 6px;
+  height: auto;
+  white-space: normal;
+}
+.rv-btn .rv-ico {
+  font-size: 1.6rem;
+}
+.rv-again {
+  border-color: var(--warn);
+}
+.rv-good,
+.rv-easy {
+  border-color: var(--brand);
+}
+.rv-done {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+@media (max-width: 420px) {
+  .rv-rate {
+    gap: 6px;
+  }
+  .rv-btn {
+    font-size: .85rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -9248,7 +9334,8 @@ BOOK.glossary = [
     games: {},
     recordings: 0,
     lastLesson: null,
-    stars: {}
+    stars: {},
+    srs: { cards: {}, day: 0, newToday: 0, days: 0, lastDone: 0 }
   });
   let S = defaults();
   let storageOK = true;
@@ -9732,7 +9819,8 @@ BOOK.glossary = [
     { id: "gamer", ico: "🏆", name: "Game Champ", desc: "Finish 3 lesson games." },
     { id: "lesson", ico: "⭐", name: "Lesson Star", desc: "Finish a lesson 100%." },
     { id: "unit", ico: "👑", name: "Unit Master", desc: "Finish every lesson in a unit." },
-    { id: "p200", ico: "💎", name: "200 Points", desc: "Collect 200 points." }
+    { id: "p200", ico: "💎", name: "200 Points", desc: "Collect 200 points." },
+    { id: "review3", ico: "🧠", name: "Strong Memory", desc: "Finish Review Today on 3 different days." }
   ];
   function award(id) {
     if (S.badges[id]) return;
@@ -9874,6 +9962,10 @@ BOOK.glossary = [
     if (BOOK.libraryUrl) body.append(h("a", { class: "toc-extra", href: BOOK.libraryUrl }, "📚 All books"));
     body.append(h("a", { class: "toc-extra", href: "#home" }, "🏠 Home"));
     body.append(h("a", { class: "toc-extra", href: "#help" }, "❓ How to use · ", h("span", { class: "ar" }, "طريقة الاستخدام")));
+    {
+      const n = srsCounts();
+      body.append(h("a", { class: "toc-extra", href: "#review" }, "🧠 Review Today" + (n.today ? " (" + n.today + ")" : "") + " · ", h("span", { class: "ar" }, "مراجعة اليوم")));
+    }
     let lastMod = null;
     units().forEach((u) => {
       const md = moduleOf(u);
@@ -9976,6 +10068,7 @@ BOOK.glossary = [
     } else if (hsh === "glossary") renderGlossary(main);
     else if (hsh === "project") renderProject(main);
     else if (hsh === "search") renderSearch(main);
+    else if (hsh === "review") renderReview(main);
     else if (hsh === "settings") renderSettings(main);
     else if (hsh === "help" || hsh.indexOf("help-") === 0) renderHelp(main, hsh.slice(5));
     else renderHome(main);
@@ -10037,6 +10130,7 @@ BOOK.glossary = [
         e.target.closest(".notice").remove();
       } }, "Hide"))
     ));
+    w.append(reviewHomeCard());
     const grid = h("section", { class: "units", "aria-label": "Units" });
     let lastMod = null;
     units().forEach((u) => {
@@ -12064,6 +12158,206 @@ BOOK.glossary = [
     c.append(h("p", { class: "small muted" }, "The book prints no answer key. Answers marked “from the text” were taken from the book’s own texts. Listening answers depend on the book recording and are not given here."));
     if (u.outcomes) c.append(h("details", null, h("summary", null, h("b", null, uName(u) + " learning outcomes (book p. " + (u.outcomesPage || (u.pages ? u.pages[0] + 2 : "")) + ")")), Object.entries(u.outcomes).map(([k, v]) => h("div", null, h("h4", { style: { marginTop: "8px", textTransform: "capitalize" } }, k), h("ul", null, v.map((x) => h("li", null, x)))))));
     host.append(c);
+  }
+  const FSRS_W = [0.4872, 1.4003, 3.7145, 13.8206, 5.1618, 1.2298, 0.8975, 0.031, 1.6474, 0.1367, 1.0461, 2.1072, 0.0793, 0.3246, 1.587, 0.2272, 2.8755];
+  const FSRS_DECAY = -0.5, FSRS_FACTOR = 19 / 81, FSRS_MAX_DAYS = 365;
+  const SRS_NEW_PER_DAY = 10, SRS_MAX_PER_SESSION = 20;
+  const FSRS = {
+    clampD: (d) => Math.min(10, Math.max(1, d)),
+    initD: (g) => FSRS.clampD(FSRS_W[4] - (g - 3) * FSRS_W[5]),
+    // chance (0–1) the student still remembers the word t days after the last review
+    recall: (t, st) => Math.pow(1 + FSRS_FACTOR * t / st, FSRS_DECAY),
+    // days until the chance of remembering falls to 90%
+    interval: (st) => Math.min(FSRS_MAX_DAYS, Math.max(1, Math.round(st))),
+    next(card, g, today) {
+      if (!card || !card.reps) return { s: FSRS_W[g - 1], d: FSRS.initD(g), last: today, reps: 1, lapses: g === 1 ? 1 : 0 };
+      const t = Math.max(0, today - card.last), r = FSRS.recall(t, card.s), d = card.d;
+      let st;
+      if (g === 1) st = Math.min(card.s, FSRS_W[11] * Math.pow(d, -FSRS_W[12]) * (Math.pow(card.s + 1, FSRS_W[13]) - 1) * Math.exp(FSRS_W[14] * (1 - r)));
+      else st = card.s * (1 + Math.exp(FSRS_W[8]) * (11 - d) * Math.pow(card.s, -FSRS_W[9]) * (Math.exp(FSRS_W[10] * (1 - r)) - 1) * (g === 2 ? FSRS_W[15] : 1) * (g === 4 ? FSRS_W[16] : 1));
+      const nd = FSRS.clampD(FSRS_W[7] * FSRS.initD(3) + (1 - FSRS_W[7]) * (d - FSRS_W[6] * (g - 3)));
+      return { s: Math.max(0.1, st), d: nd, last: today, reps: card.reps + 1, lapses: card.lapses + (g === 1 ? 1 : 0) };
+    }
+  };
+  const dayNum = () => {
+    const n = /* @__PURE__ */ new Date();
+    return Math.floor((n.getTime() - n.getTimezoneOffset() * 6e4) / 864e5);
+  };
+  function srsState() {
+    const st = S.srs || (S.srs = defaults().srs);
+    if (!st.cards) st.cards = {};
+    const today = dayNum();
+    if (st.day !== today) {
+      st.day = today;
+      st.newToday = 0;
+    }
+    return st;
+  }
+  function srsPool() {
+    const seen = {}, out = [];
+    allLessons().forEach(({ u, l }) => {
+      if (!l.vocab || !l.vocab.length || !(S.parts[l.id] || []).includes("words")) return;
+      l.vocab.forEach((v) => {
+        const k = v.w.toLowerCase().trim();
+        if (seen[k]) return;
+        seen[k] = 1;
+        out.push({ k, v, u, l });
+      });
+    });
+    return out;
+  }
+  function srsCounts() {
+    const st = srsState(), today = st.day, pool = srsPool();
+    const due = pool.filter((x) => st.cards[x.k] && st.cards[x.k].due <= today).length;
+    const fresh = pool.filter((x) => !st.cards[x.k]).length;
+    const newLeft = Math.min(fresh, Math.max(0, SRS_NEW_PER_DAY - st.newToday));
+    const nextDue = pool.reduce((m, x) => {
+      const c = st.cards[x.k];
+      return c && c.due > today && (m === null || c.due < m) ? c.due : m;
+    }, null);
+    return { pool: pool.length, due, fresh, newLeft, today: Math.min(SRS_MAX_PER_SESSION, due + newLeft), nextDue };
+  }
+  const daysTxt = (n) => n <= 1 ? "tomorrow" : n < 30 ? "in " + n + " days" : n < 60 ? "in a month" : "in " + Math.round(n / 30) + " months";
+  const daysAr = (n) => n <= 1 ? "غداً" : n === 2 ? "بعد يومين" : n < 11 ? "بعد " + n + " أيام" : n < 30 ? "بعد " + n + " يوماً" : n < 60 ? "بعد شهر" : "بعد " + Math.round(n / 30) + " أشهر";
+  const wordsAr = (n) => n === 1 ? "كلمة واحدة" : n === 2 ? "كلمتان" : n <= 10 ? n + " كلمات" : n + " كلمة";
+  function reviewHomeCard() {
+    const n = srsCounts();
+    const card = h("section", { class: "card review-home" });
+    let msg, msgAr, btn = null;
+    if (!n.pool) {
+      msg = "Open the Words part of a lesson. Its words will come here for review.";
+      msgAr = "افتح قسم الكلمات في أي درس، وستأتي كلماته هنا للمراجعة.";
+    } else if (n.today) {
+      msg = n.today + (n.today === 1 ? " word is" : " words are") + " ready for you today. It takes about 2 minutes.";
+      msgAr = "عندك " + wordsAr(n.today) + " للمراجعة اليوم. تحتاج دقيقتين تقريباً.";
+      btn = h("a", { class: "btn primary", href: "#review" }, "Start review", icon("right"));
+    } else {
+      msg = "All done for today! " + (n.nextDue !== null ? "More words come back " + daysTxt(n.nextDue - dayNum()) + "." : "");
+      msgAr = "أنهيت مراجعة اليوم!" + (n.nextDue !== null ? " تعود كلمات أخرى " + daysAr(n.nextDue - dayNum()) + "." : "");
+    }
+    card.append(
+      h("div", { class: "sec-head" }, h("h2", null, "🧠 Review Today ", h("span", { class: "ar small" }, "· مراجعة اليوم")), n.pool ? h("span", { class: "muted small" }, n.pool + " words in your deck") : null),
+      h("p", null, msg),
+      h("p", { class: "ar muted small" }, msgAr)
+    );
+    if (btn) card.append(h("div", { class: "row" }, btn));
+    return card;
+  }
+  function renderReview(main) {
+    const w = h("div", { class: "wrap" });
+    main.append(w);
+    const st = srsState(), today = st.day;
+    const pool = srsPool();
+    const due = pool.filter((x) => st.cards[x.k] && st.cards[x.k].due <= today).sort((a, b) => st.cards[a.k].due - st.cards[b.k].due || st.cards[a.k].s - st.cards[b.k].s);
+    const fresh = pool.filter((x) => !st.cards[x.k]).slice(0, Math.max(0, SRS_NEW_PER_DAY - st.newToday));
+    const queue = due.concat(fresh).slice(0, SRS_MAX_PER_SESSION).map((x) => ({ x, again: false }));
+    const total = queue.length;
+    let doneN = 0, knew = 0;
+    w.append(h(
+      "section",
+      { class: "card stack" },
+      h("div", { class: "sec-head" }, h("h1", null, "🧠 Review Today"), h("a", { class: "btn small ghost", href: "#home" }, icon("home"), "Home")),
+      instrBlock(
+        "Read the word. Try to remember what it means. Then tap “Show the meaning” and say if you knew it.",
+        "اقرأ الكلمة وحاول أن تتذكر معناها، ثم اضغط «Show the meaning» واختر هل عرفتها. الكلمات التي تنساها تعود إليك قريباً، والتي تعرفها تعود بعد مدة أطول."
+      )
+    ));
+    const stage = h("section", { class: "card stack review-stage" });
+    w.append(stage);
+    w.append(footer());
+    if (!total) {
+      const n = srsCounts();
+      stage.append(
+        h("p", null, !n.pool ? "No words yet. Open the Words part of a lesson first." : "All done for today! " + (n.nextDue !== null ? "More words come back " + daysTxt(n.nextDue - today) + "." : "")),
+        h("p", { class: "ar muted" }, !n.pool ? "لا توجد كلمات بعد. افتح قسم الكلمات في أي درس أولاً." : "أنهيت مراجعة اليوم!"),
+        h("div", { class: "row" }, h("a", { class: "btn primary", href: S.lastLesson && findLesson(S.lastLesson) ? "#" + S.lastLesson : "#u1l1" }, "Go to a lesson", icon("right")))
+      );
+      return;
+    }
+    const bar = h("i", { style: { width: "0%" } }), count = h("b", { class: "small" }, "0 / " + total);
+    const card = h("div", { class: "review-card" });
+    stage.append(h("div", { class: "row" }, h("div", { class: "bar grow", role: "progressbar", "aria-label": "Review progress" }, bar), count), card);
+    const showNext = () => {
+      TTS.stop();
+      card.innerHTML = "";
+      bar.style.width = Math.round(doneN / total * 100) + "%";
+      count.textContent = doneN + " / " + total;
+      if (!queue.length) return finish();
+      const it = queue[0], v = it.x.v, c = st.cards[it.x.k];
+      const front = h(
+        "div",
+        { class: "rv-front" },
+        h("span", { class: "tag " + (c ? "book" : "page") }, c ? "Review" : "New word"),
+        h("div", { class: "rv-word" }, v.w),
+        v.pos ? h("div", { class: "pos muted small" }, v.pos) : null,
+        v.ipa ? h("div", { class: "ipa muted small" }, v.ipa) : null,
+        h("div", { class: "row", style: { justifyContent: "center" } }, sayBtn(v.w, "Listen to the word")),
+        h("div", { class: "muted small" }, uName(it.x.u) + " · " + it.x.l.title)
+      );
+      const show = h("button", { class: "btn primary", type: "button" }, "Show the meaning");
+      card.append(front, h("div", { class: "row", style: { justifyContent: "center" } }, show));
+      show.onclick = () => {
+        sfx.tap();
+        show.parentNode.remove();
+        card.append(h(
+          "div",
+          { class: "rv-back" },
+          h("div", { class: "big-emoji", "aria-hidden": "true" }, v.emoji || "🔤"),
+          (S.settings.ar || BOOK.glossaryAr) && v.ar ? h("p", { class: "ar-mean" }, v.ar) : null,
+          h("p", { class: "def" }, v.def),
+          h("p", { class: "ex" }, v.ex, " ", sayBtn(v.ex, "Listen to the sentence"))
+        ));
+        const rate = h("div", { class: "rv-rate" });
+        const opt = (g, ico, en, ar, cls) => {
+          const nx = it.again ? null : FSRS.next(c, g, today);
+          const when = nx ? g === 1 ? "again soon" : daysTxt(FSRS.interval(nx.s)) : g === 1 ? "again soon" : "done for today";
+          return h("button", { class: "btn rv-btn " + cls, type: "button", onclick: () => answer(g) }, h("span", { class: "rv-ico", "aria-hidden": "true" }, ico), h("b", null, en), h("span", { class: "ar" }, ar), h("small", { class: "muted" }, when));
+        };
+        rate.append(opt(1, "😕", "I forgot", "نسيتها", "rv-again"), opt(3, "🙂", "I knew it", "عرفتها", "rv-good"), opt(4, "😎", "Easy", "سهلة جداً", "rv-easy"));
+        card.append(rate);
+        const fb = rate.querySelector("button");
+        if (fb) fb.focus();
+      };
+      show.focus();
+    };
+    const answer = (g) => {
+      const it = queue.shift(), k = it.x.k;
+      if (!it.again) {
+        const wasNew = !st.cards[k];
+        const nx = FSRS.next(st.cards[k], g, today);
+        nx.due = today + (g === 1 ? 1 : FSRS.interval(nx.s));
+        st.cards[k] = nx;
+        if (wasNew) st.newToday++;
+        doneN++;
+        if (g > 1) knew++;
+        addPoints(2);
+      }
+      if (g === 1 && !it.again) queue.push({ x: it.x, again: true });
+      g === 1 ? sfx.bad() : sfx.good();
+      save();
+      showNext();
+    };
+    const finish = () => {
+      if (st.lastDone !== today) {
+        st.lastDone = today;
+        st.days = (st.days || 0) + 1;
+        if (st.days >= 3) award("review3");
+      }
+      save();
+      sfx.win();
+      const n = srsCounts();
+      card.append(h(
+        "div",
+        { class: "rv-done" },
+        h("div", { class: "big-emoji", "aria-hidden": "true" }, "🎉"),
+        h("h2", null, "Well done! You reviewed " + total + (total === 1 ? " word." : " words.")),
+        h("p", null, "You knew " + knew + " of " + total + ". " + (n.nextDue !== null ? "More words come back " + daysTxt(n.nextDue - today) + "." : "")),
+        h("p", { class: "ar muted" }, "أحسنت! عرفت " + knew + " من " + total + "." + (n.nextDue !== null ? " تعود كلمات أخرى " + daysAr(n.nextDue - today) + "." : "")),
+        h("div", { class: "row", style: { justifyContent: "center" } }, h("a", { class: "btn primary", href: "#home" }, icon("home"), "Home"), S.lastLesson && findLesson(S.lastLesson) ? h("a", { class: "btn", href: "#" + S.lastLesson }, "Continue the lesson", icon("right")) : null)
+      ));
+      renderDrawer();
+    };
+    showNext();
   }
   function renderGlossary(main) {
     const w = h("div", { class: "wrap" });
