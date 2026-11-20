@@ -28,7 +28,8 @@ self.addEventListener("fetch", function (e) {
     if (/\.mp4$/.test(url.pathname)) return;
     if (req.mode === "navigate" || /\.html$|\/$/.test(url.pathname)) {
       /* pages: network first, so updates arrive; cache when offline */
-      e.respondWith(fetch(req).then(function (res) {
+      /* no-cache: always ask the server, so a new version shows on the next open (not after the 10-minute HTTP cache) */
+      e.respondWith(fetch(req.url, { cache: "no-cache", credentials: "same-origin" }).then(function (res) {
         var copy = res.clone(); caches.open(SHELL).then(function (c) { c.put(req, copy); }); return res;
       }).catch(function () { return caches.match(req, { ignoreSearch: true }).then(function (hit) { return hit || caches.match("index.html"); }); }));
       return;
