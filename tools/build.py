@@ -35,7 +35,7 @@ def es_check(js, name):
     if r.returncode: sys.exit(name + ': not ES2017-compatible\n' + r.stdout + r.stderr)
 
 # Which recordings the books use: 'voice' = George (Kokoro), 'voice-a' = the teacher's own voice (tools/voice-convert.py)
-VOICE = 'voice-a'
+VOICE = 'voice'
 
 def build_book(bid, code, grade, title, short, sub):
     b = 'books/' + bid
