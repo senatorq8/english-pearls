@@ -34,6 +34,18 @@ self.addEventListener("fetch", function (e) {
       }).catch(function () { return caches.match(req, { ignoreSearch: true }).then(function (hit) { return hit || caches.match("index.html"); }); }));
       return;
     }
+    /* recordings: play the saved copy at once, and refresh it in the background so a re-recorded clip arrives next time */
+    if (url.pathname.indexOf("/voice/") !== -1) {
+      e.respondWith(caches.match(req).then(function (hit) {
+        var net = fetch(req, { cache: "no-cache" }).then(function (res) {
+          if (res && res.ok) { var copy = res.clone(); caches.open(PAGES).then(function (c) { c.put(req, copy); }); }
+          return res;
+        });
+        if (hit) { net.catch(function () {}); return hit; }
+        return net;
+      }));
+      return;
+    }
     e.respondWith(cacheFirst(req, (url.pathname.indexOf("/img/pages/") !== -1 || url.pathname.indexOf("/audio/") !== -1 || url.pathname.indexOf("/voice/") !== -1) ? PAGES : SHELL));
     return;
   }

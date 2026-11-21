@@ -25,10 +25,12 @@ def speakable(t):
     t = re.sub(r'_{2,}', 'blank', t)
     return re.sub(r'\s+', ' ', t).strip()
 
+# words whose phonemes are fixed by hand (British BATH vowel, stress of verb/noun pairs); see tools/voice-phoneme-fixes.json
+FIX = json.load(open(os.path.join(R, 'tools', 'voice-phoneme-fixes.json'), encoding='utf8'))
 tmp = os.path.join(OUT, '.tmp.wav'); t0 = time.time()
 for i, (key, t) in enumerate(todo):
     try:
-        s, sr = k.create(speakable(t), voice='bm_george', speed=0.9, lang='en-gb')
+        s, sr = k.create(FIX[key], voice='bm_george', speed=0.9, lang='en-gb', is_phonemes=True) if key in FIX else k.create(speakable(t), voice='bm_george', speed=0.9, lang='en-gb')
         s = np.concatenate([np.zeros(int(sr * 0.05), dtype=s.dtype), s, np.zeros(int(sr * 0.12), dtype=s.dtype)])
         sf.write(tmp, s, sr)
         subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', tmp, '-ac', '1', '-ar', '24000', '-b:a', '40k', os.path.join(OUT, key + '.mp3')], check=True)
